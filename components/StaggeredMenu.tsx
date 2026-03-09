@@ -484,7 +484,7 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
         <aside
           id="staggered-menu-panel"
           ref={panelRef}
-          className="staggered-menu-panel absolute top-0 right-0 h-full bg-white flex flex-col p-[6em_2em_4em_2em] overflow-y-auto z-10 backdrop-blur-[12px] pointer-events-auto"
+          className="staggered-menu-panel absolute top-0 right-0 h-full bg-white flex flex-col p-[6em_2em_6em_2em] overflow-y-auto z-10 backdrop-blur-[12px] pointer-events-auto"
           style={{ WebkitBackdropFilter: 'blur(12px)' }}
           aria-hidden={!open}
         >
@@ -543,7 +543,7 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
             </ul>
 
             {displaySocials && socialItems && socialItems.length > 0 && (
-              <div className="sm-socials mt-auto pt-8 pb-[env(safe-area-inset-bottom,1rem)] flex flex-col gap-3" aria-label="Social links">
+              <div className="sm-socials mt-auto pt-8 pb-[env(safe-area-inset-bottom,1.5rem)] flex flex-col gap-3" aria-label="Social links">
                 <h3 className="sm-socials-title m-0 text-base font-medium [color:var(--sm-accent,#fd4601)]">Socials</h3>
                 <ul
                   className="sm-socials-list list-none m-0 p-0 flex flex-row items-center gap-4 flex-wrap"
@@ -591,13 +591,13 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
 .sm-scope .sm-panel-itemWrap { position: relative; overflow: hidden; line-height: 1; }
 .sm-scope .sm-icon-line { position: absolute; left: 50%; top: 50%; width: 100%; height: 2px; background: currentColor; border-radius: 2px; transform: translate(-50%, -50%); will-change: transform; }
 .sm-scope .sm-line { display: none !important; }
-.sm-scope .staggered-menu-panel { position: absolute; top: 0; right: 0; width: clamp(260px, 38vw, 420px); height: 100%; background: white; backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); display: flex; flex-direction: column; padding: 6em 2em 4em 2em; overflow-y: auto; z-index: 10; }
+.sm-scope .staggered-menu-panel { position: absolute; top: 0; right: 0; width: clamp(260px, 38vw, 420px); height: 100%; background: white; backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); display: flex; flex-direction: column; padding: 6em 2em 6em 2em; overflow-y: auto; z-index: 10; }
 .sm-scope [data-position='left'] .staggered-menu-panel { right: auto; left: 0; }
 .sm-scope .sm-prelayers { position: absolute; top: 0; right: 0; bottom: 0; width: clamp(260px, 38vw, 420px); pointer-events: none; z-index: 5; }
 .sm-scope [data-position='left'] .sm-prelayers { right: auto; left: 0; }
 .sm-scope .sm-prelayer { position: absolute; top: 0; right: 0; height: 100%; width: 100%; transform: translateX(0); }
 .sm-scope .sm-panel-inner { flex: 1; display: flex; flex-direction: column; gap: 1.25rem; }
-.sm-scope .sm-socials { margin-top: auto; padding-top: 2rem; padding-bottom: env(safe-area-inset-bottom, 1rem); display: flex; flex-direction: column; gap: 0.75rem; }
+.sm-scope .sm-socials { margin-top: auto; padding-top: 2rem; padding-bottom: env(safe-area-inset-bottom, 1.5rem); display: flex; flex-direction: column; gap: 0.75rem; }
 .sm-scope .sm-socials-title { margin: 0; font-size: 1rem; font-weight: 500; color: var(--sm-accent, #fd4601); }
 .sm-scope .sm-socials-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: row; align-items: center; gap: 1rem; flex-wrap: wrap; }
 .sm-scope .sm-socials-list .sm-socials-link { opacity: 1; transition: opacity 0.3s ease; }
