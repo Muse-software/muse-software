@@ -7,12 +7,7 @@
   --ink: #050206;
   --glass: rgba(255, 255, 255, 0.08);
   --glass-border: rgba(255, 255, 255, 0.15);
-  --page-bg: radial-gradient(
-    circle at 10% 10%,
-    #1b0b2a 0%,
-    #06020c 38%,
-    #020205 100%
-  );
+  --page-bg: #000000;
   --text-primary: #ffffff;
   --text-strong: rgba(255, 255, 255, 0.9);
   --text-muted: rgba(255, 255, 255, 0.7);
