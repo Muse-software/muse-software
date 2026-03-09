@@ -2,17 +2,15 @@ import Hero from "../components/sections/Hero";
 import StaggeredMenu from "../components/StaggeredMenu";
 
 const menuItems = [
-  { label: 'Home', ariaLabel: 'Go to home page', link: '/' },
-  { label: 'Services', ariaLabel: 'View our services', link: '/services' },
-  { label: 'Case Studies', ariaLabel: 'View case studies', link: '/case-studies' },
-  { label: 'About', ariaLabel: 'Learn about us', link: '/about' },
-  { label: 'Insights', ariaLabel: 'Read our insights', link: '/insights' },
-  { label: 'Contact', ariaLabel: 'Get in touch', link: '/contact' },
+  { label: 'Coming Soon', ariaLabel: 'Coming soon', link: '/' },
 ];
 
 const socialItems = [
-  { label: 'LinkedIn', link: 'https://www.linkedin.com' },
-  { label: 'X', link: 'https://www.x.com' },
+  { label: 'LinkedIn', link: 'https://www.linkedin.com/company/musesoftware/' },
+  { label: 'X', link: 'https://x.com/muse_software' },
+  { label: 'Instagram', link: 'https://www.instagram.com/muse_software' },
+  { label: 'WhatsApp', link: 'https://wa.me/966592731040' },
+  { label: 'Email', link: 'mailto:abdullah@muse.sa' },
 ];
 
 const jsonLd = {
@@ -22,7 +20,7 @@ const jsonLd = {
   url: "https://muse.ai",
   description:
     "Enterprise AI agency delivering transformation, engineering, and digital systems with measurable outcomes.",
-  sameAs: ["https://www.linkedin.com", "https://www.x.com"],
+  sameAs: ["https://www.linkedin.com/company/musesoftware/", "https://x.com/muse_software", "https://www.instagram.com/muse_software"],
 };
 
 export default function Home() {
