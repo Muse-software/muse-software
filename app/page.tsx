@@ -2,7 +2,7 @@ import Hero from "../components/sections/Hero";
 import StaggeredMenu from "../components/StaggeredMenu";
 
 const menuItems = [
-  { label: 'Coming Soon', ariaLabel: 'Coming soon', link: '/' },
+  { label: 'Get in Touch', ariaLabel: 'Get in touch', link: 'https://wa.me/966592731040' },
 ];
 
 const socialItems = [
@@ -25,7 +25,7 @@ const jsonLd = {
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="min-h-screen bg-[#060508] text-white">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

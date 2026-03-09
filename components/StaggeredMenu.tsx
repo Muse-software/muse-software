@@ -3,6 +3,7 @@
 import React, { useCallback, useLayoutEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import Link from 'next/link';
+import ShinyText from './ShinyText';
 
 export interface StaggeredMenuItem {
   label: string;
@@ -380,7 +381,7 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
 
   return (
     <div
-      className={`sm-scope z-40 ${isFixed ? 'fixed top-0 left-0 w-screen h-screen overflow-hidden pointer-events-none' : 'w-full h-full'}`}
+      className={`sm-scope z-40 font-space-grotesk ${isFixed ? 'fixed top-0 left-0 w-screen h-screen overflow-hidden pointer-events-none' : 'w-full h-full'}`}
     >
       <div
         className={
@@ -417,8 +418,16 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
           aria-label="Main navigation header"
         >
           <div className="sm-logo flex items-center select-none pointer-events-auto" aria-label="Logo">
-            <Link href="/" className="text-sm font-semibold uppercase tracking-[0.3em] text-white no-underline">
-              Muse Software
+            <Link href="/" className="text-2xl font-bold tracking-[0.05em] no-underline">
+              <ShinyText
+                text="MUSE"
+                speed={1.5}
+                delay={4}
+                color="#ffffff"
+                shineColor="#fd4601"
+                spread={120}
+                direction="left"
+              />
             </Link>
           </div>
 
@@ -478,21 +487,42 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
               data-numbering={displayItemNumbering || undefined}
             >
               {items && items.length ? (
-                items.map((it, idx) => (
-                  <li className="sm-panel-itemWrap relative overflow-hidden leading-none" key={it.label + idx}>
-                    <Link
-                      className="sm-panel-item relative text-black font-semibold text-[4rem] cursor-pointer leading-none tracking-[-2px] uppercase transition-[background,color] duration-150 ease-linear inline-block no-underline pr-[1.4em]"
-                      href={it.link}
-                      aria-label={it.ariaLabel}
-                      data-index={idx + 1}
-                      onClick={closeMenu}
-                    >
-                      <span className="sm-panel-itemLabel inline-block [transform-origin:50%_100%] will-change-transform">
-                        {it.label}
-                      </span>
-                    </Link>
-                  </li>
-                ))
+                items.map((it, idx) => {
+                  const isExternal = it.link.startsWith('http') || it.link.startsWith('mailto:');
+                  const linkClass = "sm-panel-item relative text-black font-semibold text-[4rem] cursor-pointer leading-none tracking-[-2px] uppercase transition-[background,color] duration-150 ease-linear inline-block no-underline pr-[1.4em]";
+                  const inner = (
+                    <span className="sm-panel-itemLabel inline-block [transform-origin:50%_100%] will-change-transform">
+                      {it.label}
+                    </span>
+                  );
+                  return (
+                    <li className="sm-panel-itemWrap relative overflow-hidden leading-none" key={it.label + idx}>
+                      {isExternal ? (
+                        <a
+                          className={linkClass}
+                          href={it.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label={it.ariaLabel}
+                          data-index={idx + 1}
+                          onClick={closeMenu}
+                        >
+                          {inner}
+                        </a>
+                      ) : (
+                        <Link
+                          className={linkClass}
+                          href={it.link}
+                          aria-label={it.ariaLabel}
+                          data-index={idx + 1}
+                          onClick={closeMenu}
+                        >
+                          {inner}
+                        </Link>
+                      )}
+                    </li>
+                  );
+                })
               ) : (
                 <li className="sm-panel-itemWrap relative overflow-hidden leading-none" aria-hidden="true">
                   <span className="sm-panel-item relative text-black font-semibold text-[4rem] cursor-pointer leading-none tracking-[-2px] uppercase transition-[background,color] duration-150 ease-linear inline-block no-underline pr-[1.4em]">
