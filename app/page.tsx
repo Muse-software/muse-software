@@ -44,6 +44,7 @@ export default function Home() {
         displaySocials={true}
       />
       <Hero />
+      <div id="next-section" />
     </div>
   );
 }
