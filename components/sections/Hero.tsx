@@ -8,13 +8,13 @@ export default function Hero() {
   const [gifError, setGifError] = useState(false);
 
   return (
-    <section className="relative flex max-[479px]:h-auto max-[479px]:min-h-0 h-[70vh] md:h-screen flex-col overflow-hidden bg-[#060508]">
+    <section className="relative flex max-[479px]:h-auto max-[479px]:min-h-0 h-[70vh] md:h-screen flex-col overflow-hidden bg-[#060608]">
       {/* Statue GIF — centered */}
       <div className="absolute inset-0 bottom-40 md:bottom-28 flex items-center justify-center max-[479px]:relative max-[479px]:bottom-0 max-[479px]:pt-[18vh] max-[479px]:pb-8">
         <div className="relative w-[90vw] max-w-lg md:max-w-3xl aspect-square">
           {!gifError ? (
             <Image
-              src="/hero-bg.gif"
+              src="/hero-bg-new.gif"
               alt=""
               fill
               className="object-contain object-center"
@@ -23,7 +23,7 @@ export default function Hero() {
               onError={() => setGifError(true)}
             />
           ) : (
-            <div className="w-full h-full bg-[#060508]" />
+            <div className="w-full h-full bg-[#060608]" />
           )}
         </div>
       </div>
