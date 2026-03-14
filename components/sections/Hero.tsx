@@ -43,9 +43,9 @@ export default function Hero() {
       {/* Bottom tagline bar */}
       <div className="relative z-10 mt-auto pb-8 md:pb-12">
         <div className="max-w-[1400px] mx-auto w-full px-5 md:px-10">
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-5 md:gap-6">
+          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-5 lg:gap-6">
             {/* Left: tagline + subtitle */}
-            <div className="flex flex-col gap-2 md:gap-3">
+            <div className="flex flex-col gap-2 lg:gap-3">
               <p className="font-semibold font-space-grotesk text-white leading-[1.1] tracking-tight flex flex-nowrap items-baseline gap-x-1.5 md:gap-x-3 text-2xl md:text-3xl lg:text-4xl">
                 <span>Your</span>
                 <RotatingText
@@ -76,9 +76,9 @@ export default function Hero() {
             </div>
 
             {/* Arrow line + Learn more button */}
-            <div className="hidden md:flex items-center flex-1 max-w-xs mx-6">
-              <div className="w-full h-px bg-white/30 relative">
-                <div className="absolute right-0 top-1/2 -translate-y-1/2 w-0 h-0 border-t-[4px] border-t-transparent border-b-[4px] border-b-transparent border-l-[8px] border-l-white/30" />
+            <div className="hidden lg:flex items-center flex-1 max-w-xs lg:mx-6">
+              <div className="w-full h-px bg-white relative">
+                <div className="absolute right-0 top-1/2 -translate-y-1/2 w-0 h-0 border-t-[4px] border-t-transparent border-b-[4px] border-b-transparent border-l-[8px] border-l-white" />
               </div>
             </div>
             <a
