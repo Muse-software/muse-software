@@ -8,9 +8,9 @@ export default function Hero() {
   const [gifError, setGifError] = useState(false);
 
   return (
-    <section className="relative flex h-[70vh] md:h-screen flex-col overflow-hidden bg-[#060508]">
+    <section className="relative flex max-[479px]:h-auto max-[479px]:min-h-0 h-[70vh] md:h-screen flex-col overflow-hidden bg-[#060508]">
       {/* Statue GIF — centered */}
-      <div className="absolute inset-0 bottom-40 md:bottom-28 flex items-center justify-center">
+      <div className="absolute inset-0 bottom-40 md:bottom-28 flex items-center justify-center max-[479px]:relative max-[479px]:bottom-0 max-[479px]:pt-[18vh] max-[479px]:pb-8">
         <div className="relative w-[80vw] max-w-md md:max-w-2xl aspect-square">
           {!gifError ? (
             <Image
@@ -29,7 +29,7 @@ export default function Hero() {
       </div>
 
       {/* Overlay headline */}
-      <div className="relative z-10 flex flex-1 items-center justify-center pointer-events-none pb-32 md:pb-24">
+      <div className="relative z-10 flex flex-1 items-center justify-center pointer-events-none pb-32 md:pb-24 max-[479px]:absolute max-[479px]:inset-0 max-[479px]:pb-0">
         <div className="max-w-[1400px] mx-auto w-full px-6 md:px-10">
           <h1
             className="text-white font-bold font-space-grotesk text-center leading-[0.85] tracking-tight"
@@ -46,28 +46,30 @@ export default function Hero() {
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-5 md:gap-6">
             {/* Left: tagline + subtitle */}
             <div className="flex flex-col gap-2 md:gap-3">
-              <p className="font-bold font-space-grotesk text-white leading-[1.1] flex flex-nowrap items-center gap-x-2 md:gap-x-3 text-2xl md:text-4xl">
+              <p className="font-bold font-space-grotesk text-white leading-[1.1] flex flex-nowrap items-center gap-x-1.5 md:gap-x-3 text-lg md:text-2xl lg:text-4xl">
                 <span>Your</span>
-                <RotatingText
-                  texts={[
-                    "Artificial Intelligence",
-                    "Digital Transformation",
-                    "Gamification",
-                    "Digital Experience",
-                    "Agentic AI",
-                    "Generative AI",
-                    "Game Design",
-                  ]}
-                  mainClassName="px-2 md:px-3 bg-[#fd4601] text-white overflow-hidden py-0.5 md:py-1 rounded-md md:rounded-lg inline-flex"
-                  staggerFrom="last"
-                  initial={{ y: "100%" }}
-                  animate={{ y: 0 }}
-                  exit={{ y: "-120%" }}
-                  staggerDuration={0.025}
-                  splitLevelClassName="overflow-hidden pb-0.5 md:pb-1"
-                  transition={{ type: "spring", damping: 30, stiffness: 400 }}
-                  rotationInterval={2500}
-                />
+                <span className="inline-flex min-w-[220px] md:min-w-[310px] lg:min-w-[420px]">
+                  <RotatingText
+                    texts={[
+                      "Artificial Intelligence",
+                      "Digital Transformation",
+                      "Gamification",
+                      "Digital Experience",
+                      "Agentic AI",
+                      "Generative AI",
+                      "Game Design",
+                    ]}
+                    mainClassName="px-2 md:px-3 bg-[#fd4601] text-white overflow-hidden py-0.5 md:py-1 rounded-md md:rounded-lg inline-flex justify-center w-full"
+                    staggerFrom="last"
+                    initial={{ y: "100%" }}
+                    animate={{ y: 0 }}
+                    exit={{ y: "-120%" }}
+                    staggerDuration={0.025}
+                    splitLevelClassName="overflow-hidden pb-0.5 md:pb-1"
+                    transition={{ type: "spring", damping: 30, stiffness: 400 }}
+                    rotationInterval={2500}
+                  />
+                </span>
                 <span>partner.</span>
               </p>
               <p className="text-white/60 text-base md:text-xl leading-[1.2] max-w-lg">
