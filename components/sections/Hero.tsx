@@ -75,22 +75,22 @@ export default function Hero() {
               </p>
             </div>
 
-            {/* Right: arrow + learn more button */}
-            <div className="flex items-center gap-6 shrink-0">
-              <div className="hidden md:block w-40 lg:w-56 h-px bg-white/30 relative">
+            {/* Arrow line + Learn more button */}
+            <div className="hidden md:flex items-center flex-1 max-w-xs mx-6">
+              <div className="w-full h-px bg-white/30 relative">
                 <div className="absolute right-0 top-1/2 -translate-y-1/2 w-0 h-0 border-t-[4px] border-t-transparent border-b-[4px] border-b-transparent border-l-[8px] border-l-white/30" />
               </div>
-              <a
-                href="#next-section"
-                className="inline-flex items-center gap-2 whitespace-nowrap border border-white/80 text-white px-5 py-2.5 md:px-6 md:py-3 text-sm md:text-base font-medium font-space-grotesk hover:bg-white hover:text-black transition-colors duration-200"
-              >
-                Learn more
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                  <path d="M7 17L17 7" />
-                  <path d="M7 7h10v10" />
-                </svg>
-              </a>
             </div>
+            <a
+              href="#next-section"
+              className="inline-flex items-center gap-5 whitespace-nowrap border border-black bg-white text-black pl-5 pr-3 py-3 md:pl-6 md:pr-4 text-base md:text-xl font-medium font-space-grotesk hover:bg-[#FFE600] transition-colors duration-200 shrink-0"
+            >
+              Learn more
+              <svg width="30" height="30" viewBox="0 0 30 30" fill="none" aria-hidden="true">
+                <rect width="30" height="30" fill="black" />
+                <path d="M10.0066 22V21.0033H11.0053V20.0066H12.004V19.0099H13.0026V18.0132H14.0013V17.0165H15V16.0198H15.9987V15.0231H16.9974V14.0264H17.996V13.0297H18.9947V12.033H19.9934V17.0316H22V8H13.004V10.0026H18.0145V10.9993H17.0159V11.996H16.0172V12.9927H15.0185V13.9895H14.0198V14.9862H13.0211V15.9829H12.0225V16.9796H11.0238V17.9763H10.0251V18.973H9.02642V19.9697H8V21.9723H10.0066V22Z" fill="white" />
+              </svg>
+            </a>
           </div>
         </div>
       </div>
