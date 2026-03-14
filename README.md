@@ -35,7 +35,7 @@ components/
   TextType.tsx        # Typewriter text animation
   FuzzyText.tsx       # Fuzzy/glitch text effect
 public/
-  hero-bg.gif         # Animated statue hero visual
+  hero-bg-new.gif     # Animated statue hero visual
   fonts/              # Custom fonts
 ```
 

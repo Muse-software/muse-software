@@ -25,7 +25,7 @@ const jsonLd = {
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-[#060508] text-white">
+    <div className="min-h-screen bg-[#060608] text-white">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -44,7 +44,6 @@ export default function Home() {
         displaySocials={true}
       />
       <Hero />
-      <div id="next-section" />
     </div>
   );
 }

@@ -15,7 +15,7 @@ export default function Hero() {
           {!gifError ? (
             <Image
               src="/hero-bg-new.gif"
-              alt=""
+              alt="Animated statue visual"
               fill
               className="object-contain object-center"
               priority

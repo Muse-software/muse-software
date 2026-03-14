@@ -324,10 +324,15 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
   }, [playClose, animateIcon, animateColor, onMenuClose]);
 
   React.useEffect(() => {
-    if (!closeOnClickAway || !open) return;
+    if (!open) return;
 
-    const handleClickOutside = (event: MouseEvent) => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') closeMenu();
+    };
+
+    const handleClickOutside = (event: PointerEvent) => {
       if (
+        closeOnClickAway &&
         panelRef.current &&
         !panelRef.current.contains(event.target as Node) &&
         toggleBtnRef.current &&
@@ -337,9 +342,11 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
       }
     };
 
-    document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener('keydown', handleKeyDown);
+    document.addEventListener('pointerdown', handleClickOutside);
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('keydown', handleKeyDown);
+      document.removeEventListener('pointerdown', handleClickOutside);
     };
   }, [closeOnClickAway, open, closeMenu]);
 

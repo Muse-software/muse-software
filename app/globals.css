@@ -7,7 +7,7 @@
   --ink: #050206;
   --glass: rgba(255, 255, 255, 0.08);
   --glass-border: rgba(255, 255, 255, 0.15);
-  --page-bg: #060508;
+  --page-bg: #060608;
   --text-primary: #ffffff;
   --text-strong: rgba(255, 255, 255, 0.9);
   --text-muted: rgba(255, 255, 255, 0.7);
@@ -55,12 +55,6 @@
     border-radius: 24px;
   }
 
-  .glow-border {
-    box-shadow:
-      0 0 0 1px rgba(248, 191, 84, 0.4),
-      0 0 35px rgba(145, 32, 166, 0.45);
-  }
-
   .hero-mesh {
     background-image:
       radial-gradient(
@@ -79,33 +73,6 @@
         transparent 55%
       );
     animation: meshShift 16s ease-in-out infinite alternate;
-  }
-
-  .case-gradient {
-    background: linear-gradient(
-      135deg,
-      rgba(145, 32, 166, 0.6),
-      rgba(236, 85, 68, 0.35),
-      rgba(248, 191, 84, 0.2)
-    );
-    opacity: 0.9;
-  }
-
-  .hero-title {
-    font-size: clamp(2.5rem, 6vw, 5rem);
-  }
-
-  .reveal {
-    opacity: 0;
-    transform: translateY(24px);
-    transition:
-      opacity 0.8s ease,
-      transform 0.8s ease;
-  }
-
-  .reveal.is-visible {
-    opacity: 1;
-    transform: translateY(0);
   }
 
   .skip-link {

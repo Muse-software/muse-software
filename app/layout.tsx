@@ -61,7 +61,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body
-        className={`${inter.variable} ${interTight.variable} ${spaceGrotesk.variable} bg-[#060508] text-white antialiased`}
+        className={`${inter.variable} ${interTight.variable} ${spaceGrotesk.variable} bg-[#060608] text-white antialiased`}
       >
         <a href="#main-content" className="skip-link">
           Skip to content
