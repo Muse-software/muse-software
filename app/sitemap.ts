@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { caseStudies, insights, services } from "../lib/content";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://muse.ai";
+  const baseUrl = "https://muse.sa";
   const now = new Date();
 
   return [

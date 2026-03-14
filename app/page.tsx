@@ -16,10 +16,10 @@ const socialItems = [
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  name: "Muse AI Agency",
-  url: "https://muse.ai",
+  name: "Muse",
+  url: "https://muse.sa",
   description:
-    "Enterprise AI agency delivering transformation, engineering, and digital systems with measurable outcomes.",
+    "We are your all-in-one partner helping you set & execute your digital strategy at startup speed.",
   sameAs: ["https://www.linkedin.com/company/musesoftware/", "https://x.com/muse_software", "https://www.instagram.com/muse_software"],
 };
 

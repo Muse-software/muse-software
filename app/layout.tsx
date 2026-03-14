@@ -22,26 +22,26 @@ const spaceGrotesk = Space_Grotesk({
 
 export const metadata: Metadata = {
   title: {
-    default: "Muse AI Agency",
-    template: "%s | Muse AI Agency",
+    default: "Muse",
+    template: "%s | Muse",
   },
   description:
-    "Enterprise AI agency delivering transformation, engineering, and digital systems with measurable outcomes.",
-  metadataBase: new URL("https://muse.ai"),
+    "We are your all-in-one partner helping you set & execute your digital strategy at startup speed.",
+  metadataBase: new URL("https://muse.sa"),
   openGraph: {
-    title: "Muse AI Agency",
+    title: "Muse",
     description:
-      "Enterprise AI agency delivering transformation, engineering, and digital systems with measurable outcomes.",
-    url: "https://muse.ai",
-    siteName: "Muse AI Agency",
+      "We are your all-in-one partner helping you set & execute your digital strategy at startup speed.",
+    url: "https://muse.sa",
+    siteName: "Muse",
     locale: "en_US",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Muse AI Agency",
+    title: "Muse",
     description:
-      "Enterprise AI agency delivering transformation, engineering, and digital systems with measurable outcomes.",
+      "We are your all-in-one partner helping you set & execute your digital strategy at startup speed.",
   },
   alternates: {
     canonical: "/",

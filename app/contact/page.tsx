@@ -24,7 +24,7 @@ export default function ContactPage() {
             <div className="grid gap-6 md:grid-cols-2">
               <div className="space-y-2">
                 <p className="text-xs uppercase tracking-[0.3em] text-white/50">Email</p>
-                <p className="text-base text-white">hello@muse.ai</p>
+                <p className="text-base text-white">hello@muse.sa</p>
               </div>
               <div className="space-y-2">
                 <p className="text-xs uppercase tracking-[0.3em] text-white/50">Phone</p>
