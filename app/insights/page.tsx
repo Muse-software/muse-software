@@ -1,32 +1,26 @@
-import CTA from "../../components/sections/CTA";
-import Footer from "../../components/Footer";
-import Nav from "../../components/Nav";
-import CollectionHero from "../../components/sections/CollectionHero";
-import InsightsGrid from "../../components/InsightsGrid";
-import { insights } from "../../lib/content";
+import { Suspense } from "react";
+import SubpageHero from "../../components/sections/SubpageHero";
+import InsightsList from "../../components/sections/InsightsList";
+import { insights, toInsightSummary } from "../../lib/content";
+import { buildMetadata } from "../../lib/seo";
 
-export const metadata = {
+export const metadata = buildMetadata({
   title: "Insights",
-  description: "Research, strategy, and engineering guidance for enterprise AI.",
-};
+  description: "Field notes on AI transformation, engineering, and the Saudi digital economy.",
+  path: "/insights",
+});
 
 export default function InsightsPage() {
   return (
-    <div className="min-h-screen text-white">
-      <Nav />
-      <main className="pt-20">
-        <CollectionHero
-          eyebrow="Insights"
-          title="Research, strategy, and engineering guidance for AI leaders."
-          subtitle="Actionable insight across AI strategy, engineering, operations, and edge delivery."
-          gradient="purple-gold"
-        />
-        <section className="mx-auto w-full max-w-6xl px-6 py-12">
-          <InsightsGrid insights={insights} />
-        </section>
-        <CTA />
-      </main>
-      <Footer />
+    <div className="min-h-screen bg-[#060608] text-white">
+      <SubpageHero
+        eyebrow="Insights"
+        title="Field notes for the AI-native studio."
+        subtitle="Short, opinionated writing on AI transformation, engineering, and building in Saudi Arabia's digital economy."
+      />
+      <Suspense fallback={null}>
+        <InsightsList insights={insights.map(toInsightSummary)} activeCategory="All" />
+      </Suspense>
     </div>
   );
 }

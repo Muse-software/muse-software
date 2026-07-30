@@ -1,15 +1,35 @@
+import { Suspense } from "react";
 import { notFound } from "next/navigation";
-import CTA from "../../../components/sections/CTA";
-import Footer from "../../../components/Footer";
-import Nav from "../../../components/Nav";
-import GlassCard from "../../../components/ui/GlassCard";
-import { insights } from "../../../lib/content";
+import ArticleDetail from "../../../components/sections/ArticleDetail";
+import InsightsList from "../../../components/sections/InsightsList";
+import SubpageHero from "../../../components/sections/SubpageHero";
+import {
+  insights,
+  toInsightSummary,
+  insightCategories,
+  insightCategorySlug,
+  insightCategoryFromSlug,
+} from "../../../lib/content";
+import { buildMetadata, buildArticleJsonLd } from "../../../lib/seo";
 
-export const dynamicParams = true;
-export const revalidate = 60;
+export const dynamicParams = false;
 
+/**
+ * This single dynamic segment serves two different things: an article
+ * ("/insights/where-ai-creates-roi") and, for SEO-friendly category URLs
+ * ("/insights/ai", "/insights/gtm-engineering"), a pre-filtered list page.
+ * Next can't have both `[slug]` and `[category]` as siblings at the same
+ * path — they'd collide — so both sets of static params are generated here
+ * and the page branches on which one actually matched. Verified the two
+ * slug spaces don't collide (no insight article is slugged "ai",
+ * "machine-learning", etc.).
+ */
 export function generateStaticParams() {
-  return insights.map((item) => ({ slug: item.slug }));
+  const articleParams = insights.map((insight) => ({ slug: insight.slug }));
+  const categoryParams = insightCategories.map((category) => ({
+    slug: insightCategorySlug(category),
+  }));
+  return [...articleParams, ...categoryParams];
 }
 
 export async function generateMetadata({
@@ -18,102 +38,88 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
+
+  const category = insightCategoryFromSlug(slug, insightCategories);
+  if (category) {
+    return buildMetadata({
+      title: `${category} Insights`,
+      description: `Field notes on ${category.toLowerCase()} from Muse Studios.`,
+      path: `/insights/${slug}`,
+    });
+  }
+
   const insight = insights.find((item) => item.slug === slug);
   if (!insight) return {};
-
-  return {
+  return buildMetadata({
     title: insight.title,
     description: insight.excerpt,
-  };
+    path: `/insights/${slug}`,
+    image: insight.featuredImage.src,
+  });
 }
 
-export default async function InsightPage({
+export default async function InsightOrCategoryPage({
   params,
 }: {
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
+
+  const category = insightCategoryFromSlug(slug, insightCategories);
+  if (category) {
+    const filtered = insights
+      .filter((item) => item.category === category)
+      .map(toInsightSummary);
+
+    return (
+      <div className="min-h-screen bg-[#060608] text-white">
+        <SubpageHero
+          eyebrow="Insights"
+          title={`${category} field notes.`}
+          subtitle={`Short, opinionated writing on ${category.toLowerCase()}.`}
+        />
+        <Suspense fallback={null}>
+          <InsightsList insights={filtered} activeCategory={category} />
+        </Suspense>
+      </div>
+    );
+  }
+
   const insight = insights.find((item) => item.slug === slug);
   if (!insight) return notFound();
 
+  const related = insights
+    .filter((item) => item.category === insight.category && item.slug !== insight.slug)
+    .slice(0, 3)
+    .map((item) => ({
+      slug: item.slug,
+      title: item.title,
+      excerpt: item.excerpt,
+      meta: `${item.category} · ${item.minutes} min read`,
+      href: `/insights/${item.slug}`,
+      image: item.featuredImage.src,
+    }));
+
+  const jsonLd = buildArticleJsonLd({
+    title: insight.title,
+    description: insight.excerpt,
+    path: `/insights/${slug}`,
+    image: insight.featuredImage.src,
+    datePublished: insight.date,
+  });
+
   return (
-    <div className="min-h-screen text-white">
-      <Nav />
-      <main className="pt-20">
-        <section className="relative overflow-hidden py-24 md:py-32">
-          <div className="absolute inset-0 hero-mesh" aria-hidden="true" />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/60 to-black" />
-          
-          <div className="relative z-10 mx-auto w-full max-w-6xl px-6">
-          <div className="grid gap-10 lg:grid-cols-[1.6fr_0.6fr]">
-            <div className="space-y-6">
-              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[var(--gold)]">
-                {insight.category}
-              </p>
-              <h1 className="text-balance text-4xl font-semibold leading-[1.1] text-white md:text-5xl">
-                {insight.title}
-              </h1>
-              <p className="max-w-2xl text-pretty text-base leading-7 text-white/70">
-                {insight.excerpt}
-              </p>
-              <div className="flex gap-6 text-xs uppercase tracking-[0.3em] text-white/50">
-                <span>{insight.minutes} min read</span>
-                <span>{insight.date}</span>
-              </div>
-            </div>
-            <aside className="hidden lg:block">
-              <GlassCard className="sticky top-32 space-y-3 p-6">
-                <p className="text-xs uppercase tracking-[0.3em] text-white/60">
-                  Table of contents
-                </p>
-                <nav className="space-y-2 text-sm text-white/70">
-                  {insight.sections.map((section) => (
-                    <a
-                      key={section.id}
-                      href={`#${section.id}`}
-                      className="block hover:text-[var(--gold)]"
-                    >
-                      {section.title}
-                    </a>
-                  ))}
-                </nav>
-              </GlassCard>
-            </aside>
-          </div>
-          </div>
-        </section>
-        <section className="mx-auto w-full max-w-4xl px-6 pb-16">
-          <div className="space-y-12">
-            {insight.sections.map((section) => (
-              <div
-                key={section.id}
-                id={section.id}
-                className="space-y-4 scroll-mt-28"
-              >
-                <h2 className="text-2xl font-semibold text-white">
-                  {section.title}
-                </h2>
-                {section.content.map((paragraph) => (
-                  <p key={paragraph} className="text-base leading-7 text-white/70">
-                    {paragraph}
-                  </p>
-                ))}
-              </div>
-            ))}
-          </div>
-          <div className="mt-12 flex flex-wrap gap-3 text-xs uppercase tracking-[0.3em] text-white/50">
-            <span>Share</span>
-            <a className="hover:text-[var(--gold)]" href="https://www.linkedin.com">
-              LinkedIn
-            </a>
-            <a className="hover:text-[var(--gold)]" href="https://www.x.com">
-              X
-            </a>
-          </div>
-        </section>
-        <CTA />
-      </main>
-      <Footer />
-    </div>
+    <ArticleDetail
+      eyebrow={`${insight.category} · ${insight.minutes} min read`}
+      title={insight.title}
+      date={insight.date}
+      byline="Muse Studios Team"
+      featuredImage={insight.featuredImage}
+      content={insight.content}
+      faqs={insight.faqs}
+      relatedHeading="Related insights"
+      related={related}
+      jsonLd={jsonLd}
+    />
   );
 }

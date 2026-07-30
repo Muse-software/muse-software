@@ -1,0 +1,77 @@
+"use client";
+
+import { useState } from "react";
+import Link from "next/link";
+import { careerRoles } from "../../lib/content";
+
+const departments = [
+  "All",
+  ...Array.from(new Set(careerRoles.map((role) => role.department))),
+] as const;
+
+export default function CareersList() {
+  const [active, setActive] = useState<(typeof departments)[number]>("All");
+
+  const roles =
+    active === "All" ? careerRoles : careerRoles.filter((role) => role.department === active);
+
+  return (
+    <section className="bg-[#060608] py-16 md:py-24">
+      <div className="mx-auto w-full max-w-[1000px] px-5 md:px-10">
+        <div className="flex flex-wrap gap-3">
+          {departments.map((dept) => (
+            <button
+              key={dept}
+              type="button"
+              onClick={() => setActive(dept)}
+              className={`border px-5 py-2 text-sm font-medium transition-colors md:text-base ${
+                active === dept
+                  ? "border-[#fd4601] text-[#fd4601]"
+                  : "border-white/35 text-white/60 hover:border-white/40 hover:text-white"
+              }`}
+            >
+              {dept}
+            </button>
+          ))}
+        </div>
+
+        <div className="mt-10 grid gap-6 md:mt-14 md:grid-cols-2">
+          {roles.map((role) => {
+            const content = (
+              <>
+                <p className="text-xs font-semibold uppercase tracking-[0.3em] text-white/50 group-hover:text-black/60">
+                  {role.department}
+                </p>
+                <h3 className="mt-2 font-space-grotesk text-lg font-bold text-white group-hover:text-black md:text-xl">
+                  {role.title}
+                </h3>
+                <p className="mt-2 text-sm text-white/60 group-hover:text-black/70">{role.blurb}</p>
+                {role.slug && (
+                  <span className="mt-4 inline-block text-xs font-semibold uppercase tracking-[0.2em] text-[#fd4601] group-hover:text-black">
+                    View full JD →
+                  </span>
+                )}
+              </>
+            );
+            const className =
+              "group block border border-white/10 p-6 transition-colors duration-300 hover:border-[#fd4601] hover:bg-[#fd4601] hover:text-black md:p-8";
+
+            return role.slug ? (
+              <Link key={role.title} href={`/careers/${role.slug}`} className={className}>
+                {content}
+              </Link>
+            ) : (
+              <a
+                key={role.title}
+                href="mailto:info@muse.sa?subject=Interested%20in%20joining%20Muse%20Studios"
+                className={className}
+              >
+                {content}
+              </a>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+}

@@ -1,76 +1,64 @@
 import Link from "next/link";
+import MuseLogo from "./MuseLogo";
+import SocialLinks, { allSocials } from "./SocialLinks";
 
-const columns = [
-  {
-    title: "Services",
-    links: [
-      { href: "/services/ai-transformation", label: "AI Transformation" },
-      { href: "/services/ai-engineering", label: "AI Engineering" },
-      { href: "/services/digital-systems", label: "Digital Systems" },
-    ],
-  },
-  {
-    title: "Resources",
-    links: [
-      { href: "/insights", label: "Insights" },
-      { href: "/about", label: "About" },
-      { href: "/case-studies", label: "Case Studies" },
-    ],
-  },
-  {
-    title: "Legal",
-    links: [
-      { href: "/privacy", label: "Privacy" },
-      { href: "/terms", label: "Terms" },
-    ],
-  },
+const resourceLinks = [
+  { label: "Insights", href: "/insights" },
+  { label: "Playbooks", href: "/playbooks" },
+  { label: "Careers", href: "/careers" },
 ];
+
+const legalLinks = [
+  { label: "Privacy Policy", href: "/privacy" },
+  { label: "Terms of Service", href: "/terms" },
+];
+
+const FOOTER_SOCIAL_LABELS = new Set(["LinkedIn", "X", "Instagram"]);
+const socials = allSocials.filter((social) => FOOTER_SOCIAL_LABELS.has(social.label));
 
 export default function Footer() {
   return (
-    <footer className="border-t border-white/10 bg-black/40">
-      <div className="mx-auto w-full max-w-6xl px-6 py-12">
-        <div className="grid gap-10 md:grid-cols-[1.4fr_2fr]">
-          <div className="space-y-4">
-            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-white">
-              Muse AI
-            </p>
-            <p className="max-w-sm text-sm leading-6 text-white/70">
-              Enterprise AI agency delivering trusted systems, measurable
-              outcomes, and global readiness.
-            </p>
-            <div className="flex gap-4 text-xs uppercase tracking-[0.3em] text-white/60">
-              <Link href="https://www.linkedin.com" className="transition hover:text-[var(--gold)]">
-                LinkedIn
+    <footer className="border-t border-white/10 bg-[#060608] px-5 py-10 md:px-10">
+      <div className="mx-auto flex w-full max-w-[1400px] flex-col gap-6 md:flex-row md:items-center md:justify-between">
+        <div className="flex flex-col gap-2">
+          <MuseLogo iconClassName="h-7 w-auto text-[#fd4601]" />
+          <p className="text-xs text-white/50">
+            {new Date().getFullYear()} Muse Studios. All rights reserved.
+          </p>
+          <div className="flex gap-4">
+            {legalLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="text-xs text-white/50 transition-colors hover:text-[#fd4601]"
+              >
+                {link.label}
               </Link>
-              <Link href="https://www.x.com" className="transition hover:text-[var(--gold)]">
-                X
-              </Link>
-              <Link href="https://www.github.com" className="transition hover:text-[var(--gold)]">
-                GitHub
-              </Link>
-            </div>
-          </div>
-          <div className="grid gap-6 sm:grid-cols-3">
-            {columns.map((column) => (
-              <div key={column.title} className="space-y-3">
-                <p className="text-xs font-semibold uppercase tracking-[0.3em] text-white/60">
-                  {column.title}
-                </p>
-                <div className="space-y-2 text-sm text-white/70">
-                  {column.links.map((link) => (
-                    <Link key={link.href} href={link.href} className="block transition hover:text-[var(--gold)]">
-                      {link.label}
-                    </Link>
-                  ))}
-                </div>
-              </div>
             ))}
           </div>
         </div>
-        <div className="mt-10 flex flex-wrap items-center justify-between gap-4 border-t border-white/10 pt-6 text-xs text-white/50">
-          <p>(c) 2026 Muse Software. All rights reserved.</p>
-          <p>Enterprise-ready AI systems for high-growth teams.</p>
+
+        <div className="flex flex-col items-start gap-4 md:items-end">
+          <div className="flex flex-wrap gap-6">
+            {resourceLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="text-sm text-white/60 transition-colors hover:text-[#fd4601]"
+              >
+                {link.label}
+              </Link>
+            ))}
+          </div>
+          <div className="flex flex-wrap items-center gap-x-8 gap-y-2">
+            <a
+              href="mailto:info@muse.sa"
+              className="text-sm text-white/60 transition-colors hover:text-[#fd4601]"
+            >
+              info@muse.sa
+            </a>
+            <SocialLinks socials={socials} className="text-white/60" />
+          </div>
         </div>
       </div>
     </footer>

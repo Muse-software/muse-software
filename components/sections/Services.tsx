@@ -1,54 +1,83 @@
 import Link from "next/link";
-import GlassCard from "../ui/GlassCard";
-import SectionHeading from "../ui/SectionHeading";
+import Image from "next/image";
+import dynamic from "next/dynamic";
+import Icon from "../Icon";
 import { services } from "../../lib/content";
 
-const icons = [
-  "M3 6h18M3 12h12M3 18h9",
-  "M5 6h14l2 6-2 6H5l-2-6 2-6z",
-  "M6 6h12v12H6z",
-];
+// three.js (~518KB) code-split into its own chunk for this purely
+// decorative, aria-hidden orb — still SSR'd (Glossy3D's own render is a
+// plain container until its effect sets up WebGL), just not bundled into
+// the shared JS every route pays for.
+const Glossy3D = dynamic(() => import("../Glossy3D"));
 
 export default function Services() {
   return (
-    <section className="relative mx-auto w-full max-w-6xl px-6 py-16">
-      <div className="grid gap-10">
-        <SectionHeading
-          eyebrow="Services"
-          title="Three pillars to accelerate enterprise AI adoption."
-          subtitle="From transformation strategy to production engineering, we deliver full-stack AI capability with measurable outcomes."
-        />
-        <div className="grid gap-6 md:grid-cols-3">
-          {services.map((service, index) => (
-            <GlassCard
-              key={service.slug}
-              className="group flex h-full flex-col gap-4 p-6 transition hover:border-[var(--coral)]"
-            >
-              <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-white/20 bg-white/5 text-[var(--gold)]">
-                <svg
-                  aria-hidden="true"
-                  className="h-6 w-6"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" d={icons[index]} />
-                </svg>
+    <section className="relative bg-[#060608] py-20 md:py-28">
+      <Glossy3D
+        variant="ring"
+        size={320}
+        className="pointer-events-none absolute -right-24 top-10 hidden opacity-70 md:block"
+      />
+      <div className="relative mx-auto w-full max-w-[1100px] px-5 md:px-10">
+        <div className="flex flex-col gap-14">
+          {services.map((service) => (
+            <div key={service.slug} className="border border-white/10">
+              <div className="relative h-48 w-full md:h-64">
+                <Image
+                  src={service.image}
+                  alt=""
+                  fill
+                  sizes="(min-width: 1100px) 1100px, 100vw"
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-linear-to-t from-[#060608] via-[#060608]/20 to-transparent" />
               </div>
-              <h3 className="text-xl font-semibold text-white">
-                {service.title}
-              </h3>
-              <p className="text-sm leading-6 text-white/70">
-                {service.summary}
-              </p>
+              <div className="p-8 md:p-12">
+              <div className="flex items-start justify-between gap-6">
+                <h2 className="font-space-grotesk text-2xl font-bold text-white md:text-3xl">
+                  {service.title}
+                </h2>
+                <Icon name={service.icon} className="h-8 w-8 shrink-0 text-[#fd4601]" />
+              </div>
+
+              <div className="mt-8 grid gap-8 md:grid-cols-2">
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-[0.3em] text-white/50">
+                    Overview
+                  </p>
+                  {service.intro.map((paragraph, i) => (
+                    <p key={i} className="mt-3 text-base leading-7 text-white/70">
+                      {paragraph}
+                    </p>
+                  ))}
+                </div>
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-[0.3em] text-white/50">
+                    What that looks like
+                  </p>
+                  <ul className="mt-3 space-y-2">
+                    {service.whatWeDo.map((item) => (
+                      <li
+                        key={item.title}
+                        className="flex items-start gap-3 text-base text-white/70"
+                      >
+                        <span className="mt-2.5 h-1 w-1 shrink-0 rounded-full bg-[#fd4601]" />
+                        {item.title}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+
               <Link
                 href={`/services/${service.slug}`}
-                className="mt-auto text-xs font-semibold uppercase tracking-[0.3em] text-[var(--gold)] transition group-hover:text-[var(--coral)]"
+                className="mt-8 inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.2em] text-[#fd4601] transition-colors hover:text-white"
               >
-                Explore service
+                Learn more
+                <span aria-hidden="true">→</span>
               </Link>
-            </GlassCard>
+              </div>
+            </div>
           ))}
         </div>
       </div>
