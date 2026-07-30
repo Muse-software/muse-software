@@ -1,17 +1,20 @@
 import Hero from "../components/sections/Hero";
-import StaggeredMenu from "../components/StaggeredMenu";
+import Approach from "../components/sections/Approach";
+import Manifesto from "../components/sections/Manifesto";
+import LatestPlaybooks from "../components/sections/LatestPlaybooks";
+import TrustedBy from "../components/sections/TrustedBy";
+import Testimonials from "../components/sections/Testimonials";
+import Ticker from "../components/Ticker";
+import FAQ from "../components/sections/FAQ";
+import CTA from "../components/sections/CTA";
+import { buildMetadata } from "../lib/seo";
 
-const menuItems = [
-  { label: 'Get in Touch', ariaLabel: 'Get in touch', link: 'https://wa.me/966592731040' },
-];
-
-const socialItems = [
-  { label: 'LinkedIn', link: 'https://www.linkedin.com/company/musesoftware/' },
-  { label: 'X', link: 'https://x.com/muse_software' },
-  { label: 'Instagram', link: 'https://www.instagram.com/muse_software' },
-  { label: 'WhatsApp', link: 'https://wa.me/966592731040' },
-  { label: 'Email', link: 'mailto:abdullah@muse.sa' },
-];
+export const metadata = buildMetadata({
+  title: "Muse Studios — AI Transformation & Product Engineering Studio, Riyadh",
+  description:
+    "We are your all-in-one partner helping you set & execute your digital strategy at startup speed — AI transformation, product engineering, and gamification & experience.",
+  path: "/",
+});
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -30,20 +33,15 @@ export default function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <StaggeredMenu
-        position="right"
-        isFixed={true}
-        items={menuItems}
-        socialItems={socialItems}
-        colors={['#fd4601', '#c23800']}
-        menuButtonColor="#ffffff"
-        openMenuButtonColor="#000"
-        changeMenuColorOnOpen={true}
-        accentColor="#fd4601"
-        displayItemNumbering={true}
-        displaySocials={true}
-      />
       <Hero />
+      <Approach />
+      <Manifesto />
+      <LatestPlaybooks />
+      <TrustedBy />
+      <Testimonials />
+      <Ticker text="Built for the AI-native era" />
+      <FAQ />
+      <CTA />
     </div>
   );
 }

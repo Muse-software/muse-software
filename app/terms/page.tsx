@@ -1,40 +1,45 @@
-import Footer from "../../components/Footer";
-import Nav from "../../components/Nav";
-import GlassCard from "../../components/ui/GlassCard";
-import SectionHeading from "../../components/ui/SectionHeading";
+import SubpageHero from "../../components/sections/SubpageHero";
+import LegalContent from "../../components/sections/LegalContent";
+import { buildMetadata } from "../../lib/seo";
 
-export const metadata = {
-  title: "Terms",
-  description: "Terms of service for Muse AI.",
-};
+export const metadata = buildMetadata({
+  title: "Terms of Service",
+  description: "The terms that govern use of the Muse Studios website and services.",
+  path: "/terms",
+});
+
+const sections = [
+  {
+    heading: "Acceptance of terms",
+    body: "By using this website, you agree to these terms. If you don't agree, please don't use the site.",
+  },
+  {
+    heading: "Use of this site",
+    body: "This site is provided for the purpose of learning about Muse Studios and getting in touch about potential work. You agree not to misuse the site or interfere with its normal operation.",
+  },
+  {
+    heading: "Intellectual property",
+    body: "All content on this site — including the Muse Studios name, logo, and design — is the property of Muse Studios and may not be reproduced without permission.",
+  },
+  {
+    heading: "No warranty",
+    body: "This site is provided as-is, without warranties of any kind, express or implied.",
+  },
+  {
+    heading: "Changes to these terms",
+    body: "We may update these terms from time to time. Continued use of the site after changes means you accept the updated terms.",
+  },
+  {
+    heading: "Contact",
+    body: "Questions about these terms can be sent to info@muse.sa.",
+  },
+];
 
 export default function TermsPage() {
   return (
-    <div className="min-h-screen  text-white">
-      <Nav />
-      <main className="pt-28">
-        <section className="mx-auto w-full max-w-6xl px-6 py-16">
-          <SectionHeading
-            eyebrow="Terms"
-            title="Clear terms for enterprise engagements."
-            subtitle="Engagements are governed by statements of work and enterprise security requirements."
-          />
-        </section>
-        <section className="mx-auto w-full max-w-4xl px-6 pb-20">
-          <GlassCard className="space-y-4 p-10 text-sm leading-6 text-white/70">
-            <p>
-              Services are provided under mutually agreed statements of work.
-              Payment terms, IP ownership, and confidentiality clauses are
-              negotiated per engagement.
-            </p>
-            <p>
-              Contact us for the latest master services agreement or security
-              addendum.
-            </p>
-          </GlassCard>
-        </section>
-      </main>
-      <Footer />
+    <div className="min-h-screen bg-[#060608] text-white">
+      <SubpageHero eyebrow="Legal" title="Terms of Service" />
+      <LegalContent sections={sections} updated="July 2026" />
     </div>
   );
 }

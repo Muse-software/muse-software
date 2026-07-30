@@ -9,6 +9,8 @@
 !.yarn/plugins
 !.yarn/releases
 !.yarn/versions
+/.claude
+/docs
 
 # testing
 /coverage
@@ -35,6 +37,9 @@ yarn-error.log*
 
 # vercel
 .vercel
+
+# form submission logs (contains visitor PII — never commit)
+/data/
 
 # typescript
 *.tsbuildinfo

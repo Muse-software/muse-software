@@ -1,48 +1,51 @@
-import Link from "next/link";
-import GlassCard from "../ui/GlassCard";
-import SectionHeading from "../ui/SectionHeading";
-import { caseStudies } from "../../lib/content";
+import WordReveal from "../WordReveal";
+
+// Placeholder case studies — swap for real client work once available.
+const caseStudies = [
+  {
+    client: "Acme",
+    result: "Cut onboarding time 40%",
+    copy: "Automated a manual approvals workflow end to end, freeing up a full day a week per team lead.",
+  },
+  {
+    client: "Globex",
+    result: "Shipped 3x faster",
+    copy: "An embedded engineering pod took a stalled roadmap from quarterly releases to weekly ones.",
+  },
+  {
+    client: "Initech",
+    result: "+18% checkout conversion",
+    copy: "A ground-up redesign of the purchase flow, backed by real usage data instead of guesswork.",
+  },
+  {
+    client: "Vandelay",
+    result: "3x week-1 retention",
+    copy: "Turned a flat onboarding flow into a guided, reward-driven first-run experience.",
+  },
+];
 
 export default function CaseStudies() {
   return (
-    <section className="relative mx-auto w-full max-w-6xl px-6 py-16">
-      <div className="space-y-10">
-        <SectionHeading
-          eyebrow="Case Studies"
-          title="Proof of performance across critical industries."
-          subtitle="Every engagement is tied to measurable impact, operational resilience, and stakeholder trust."
-        />
-        <div className="no-scrollbar flex snap-x snap-mandatory gap-6 overflow-x-auto pb-6">
+    <section className="relative bg-[#4C0014] py-20 md:py-28">
+      <div className="pattern-halftone pointer-events-none absolute inset-0 text-[#fd4601] opacity-15" aria-hidden="true" />
+      <div className="relative mx-auto w-full max-w-[1100px] px-5 md:px-10">
+        <WordReveal
+          as="h2"
+          className="font-space-grotesk text-2xl font-bold text-white md:text-4xl"
+        >
+          Selected work.
+        </WordReveal>
+
+        <div className="mt-10 grid gap-6 md:mt-14 md:grid-cols-2">
           {caseStudies.map((study) => (
-            <div key={study.slug} className="min-w-[280px] snap-start sm:min-w-[360px]">
-              <GlassCard className="relative h-full overflow-hidden p-0">
-                <div className="absolute inset-0 case-gradient" aria-hidden="true" />
-                <div className="relative flex h-full flex-col gap-4 p-6">
-                  <div className="space-y-1">
-                    <p className="text-xs uppercase tracking-[0.3em] text-white/60">
-                      {study.industry}
-                    </p>
-                    <h3 className="text-xl font-semibold text-white">
-                      {study.client}
-                    </h3>
-                  </div>
-                  <p className="text-sm text-white/70">{study.summary}</p>
-                  <div className="mt-auto space-y-2">
-                    <p className="text-lg font-semibold text-[var(--gold)]">
-                      {study.outcome}
-                    </p>
-                    <p className="text-xs uppercase tracking-[0.3em] text-white/60">
-                      {study.metric}
-                    </p>
-                  </div>
-                  <Link
-                    href={`/case-studies/${study.slug}`}
-                    className="text-xs font-semibold uppercase tracking-[0.3em] text-[var(--gold)]"
-                  >
-                    Read case study
-                  </Link>
-                </div>
-              </GlassCard>
+            <div key={study.client} className="border border-white/15 bg-[#4C0014] p-8">
+              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-white/50">
+                {study.client}
+              </p>
+              <h3 className="mt-3 font-space-grotesk text-xl font-bold text-[#fd4601] md:text-2xl">
+                {study.result}
+              </h3>
+              <p className="mt-3 text-base leading-7 text-white/70">{study.copy}</p>
             </div>
           ))}
         </div>

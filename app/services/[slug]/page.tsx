@@ -1,16 +1,13 @@
 import { notFound } from "next/navigation";
+import Link from "next/link";
+import SubpageHero from "../../../components/sections/SubpageHero";
+import OutlineTrack from "../../../components/OutlineTrack";
+import Ticker from "../../../components/Ticker";
 import CTA from "../../../components/sections/CTA";
-import Footer from "../../../components/Footer";
-import Nav from "../../../components/Nav";
-import GlassCard from "../../../components/ui/GlassCard";
-import CollectionHero from "../../../components/sections/CollectionHero";
-import ImagePlaceholder from "../../../components/sections/ImagePlaceholder";
-import AnimatedMetrics from "../../../components/sections/AnimatedMetrics";
-import AnimatedCardReveal from "../../../components/sections/AnimatedCardReveal";
 import { services } from "../../../lib/content";
+import { buildMetadata } from "../../../lib/seo";
 
-export const dynamicParams = true;
-export const revalidate = 60;
+export const dynamicParams = false;
 
 export function generateStaticParams() {
   return services.map((service) => ({ slug: service.slug }));
@@ -24,14 +21,15 @@ export async function generateMetadata({
   const { slug } = await params;
   const service = services.find((item) => item.slug === slug);
   if (!service) return {};
-
-  return {
+  return buildMetadata({
     title: service.title,
     description: service.summary,
-  };
+    path: `/services/${slug}`,
+    image: service.image,
+  });
 }
 
-export default async function ServicePage({
+export default async function ServiceDetailPage({
   params,
 }: {
   params: Promise<{ slug: string }>;
@@ -41,98 +39,131 @@ export default async function ServicePage({
   if (!service) return notFound();
 
   return (
-    <div className="min-h-screen bg-black text-white">
-      <Nav />
-      <main className="pt-20">
-        <CollectionHero
-          eyebrow="Service"
-          title={service.title}
-          subtitle={service.summary}
-          gradient="gold-coral"
-        />
-        <section className="mx-auto w-full max-w-6xl px-6 py-12">
-          <ImagePlaceholder src={service.image} alt={service.title} />
-        </section>
-        <section className="mx-auto w-full max-w-6xl px-6 py-12">
-          <div className="grid gap-6 md:grid-cols-2">
-            <AnimatedCardReveal delay={0}>
-              <GlassCard className="space-y-4 p-8">
-                <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[var(--gold)]">
-                  Problem
-                </p>
-                <p className="text-base leading-7 text-white/70">
-                  {service.problem}
-                </p>
-              </GlassCard>
-            </AnimatedCardReveal>
-            <AnimatedCardReveal delay={0.1}>
-              <GlassCard className="space-y-4 p-8">
-                <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[var(--gold)]">
-                  Approach
-                </p>
-                <p className="text-base leading-7 text-white/70">
-                  {service.approach}
-                </p>
-              </GlassCard>
-            </AnimatedCardReveal>
+    <div className="min-h-screen bg-[#060608] text-white">
+      <SubpageHero
+        eyebrow="Explore"
+        title={service.title}
+        subtitle={service.summary}
+        image={service.image}
+      />
+
+      {/* Intro / context */}
+      <section className="bg-[#060608] pb-4">
+        <div className="mx-auto w-full max-w-[900px] px-5 md:px-10">
+          <div className="space-y-4 border-t border-white/10 pt-10">
+            {service.intro.map((paragraph, i) => (
+              <p key={i} className="text-lg leading-8 text-white/70">
+                {paragraph}
+              </p>
+            ))}
           </div>
-        </section>
-        <section className="mx-auto w-full max-w-6xl px-6 py-12">
-          <div className="grid gap-6 md:grid-cols-2">
-            <AnimatedCardReveal delay={0}>
-              <GlassCard className="space-y-4 p-8">
-                <h3 className="text-lg font-semibold text-white">Technical breakdown</h3>
-                <ul className="space-y-3 text-sm text-white/70">
-                  {service.breakdown.map((item) => (
-                    <li key={item}>• {item}</li>
-                  ))}
-                </ul>
-              </GlassCard>
-            </AnimatedCardReveal>
-            <AnimatedCardReveal delay={0.1}>
-              <GlassCard className="space-y-4 p-8">
-                <h3 className="text-lg font-semibold text-white">Deliverables</h3>
-                <ul className="space-y-3 text-sm text-white/70">
-                  {service.deliverables.map((item) => (
-                    <li key={item}>• {item}</li>
-                  ))}
-                </ul>
-              </GlassCard>
-            </AnimatedCardReveal>
-          </div>
-        </section>
-        <section className="mx-auto w-full max-w-6xl px-6 py-12">
-          <AnimatedCardReveal>
-            <GlassCard className="space-y-6 p-8">
-              <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[var(--gold)]">
-                  Tools stack
+          <Link
+            href="/get-started"
+            className="mt-8 inline-flex items-center gap-3 border border-black bg-white px-6 py-3 text-base font-medium font-space-grotesk text-black transition-colors duration-200 hover:bg-[#fd4601]"
+          >
+            Get Started
+          </Link>
+        </div>
+      </section>
+
+      {/* Strategy / What we believe + pillars */}
+      <section className="bg-[#4C0014] py-16 md:py-24">
+        <div className="mx-auto w-full max-w-[1000px] px-5 md:px-10">
+          <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#fd4601]">
+            {service.approachHeading}
+          </p>
+          {service.approachIntro.length > 0 && (
+            <div className="mt-4 max-w-2xl space-y-3">
+              {service.approachIntro.map((paragraph, i) => (
+                <p key={i} className="text-base leading-7 text-white/70">
+                  {paragraph}
                 </p>
-                <div className="mt-4 flex flex-wrap gap-3">
-                  {service.tools.map((tool) => (
-                    <span
-                      key={tool}
-                      className="rounded-full border border-white/20 px-4 py-2 text-xs uppercase tracking-[0.3em] text-white/70"
-                    >
-                      {tool}
-                    </span>
-                  ))}
+              ))}
+            </div>
+          )}
+
+          <div className="mt-10 grid gap-6 md:grid-cols-3">
+            {service.pillars.map((pillar) => (
+              <div key={pillar.title} className="border border-white/15 p-6">
+                <h3 className="font-space-grotesk text-lg font-bold text-white">
+                  {pillar.title}
+                </h3>
+                <p className="mt-2 text-sm leading-6 text-white/70">{pillar.body}</p>
+                {pillar.crossLinkSlug && (
+                  <Link
+                    href={`/services/${pillar.crossLinkSlug}`}
+                    className="mt-4 inline-block text-sm font-semibold text-[#fd4601] hover:text-white"
+                  >
+                    {pillar.crossLinkLabel} →
+                  </Link>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Why you need us */}
+      <section className="bg-[#060608] py-16 md:py-24">
+        <div className="mx-auto w-full max-w-[900px] px-5 md:px-10">
+          <p className="text-xs font-semibold uppercase tracking-[0.3em] text-white/50">
+            Why you need us
+          </p>
+          <h2 className="mt-3 font-space-grotesk text-2xl font-bold text-white md:text-3xl">
+            {service.whyHeadline}
+          </h2>
+          <ul className="mt-8 space-y-4">
+            {service.whyReasons.map((reason) => (
+              <li key={reason} className="flex items-start gap-3 text-lg text-white/80">
+                <span className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#fd4601]" />
+                {reason}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      {/* What we do */}
+      <section className="bg-[#060608] pb-16 md:pb-24">
+        <div className="mx-auto w-full max-w-[1100px] px-5 md:px-10">
+          <p className="text-xs font-semibold uppercase tracking-[0.3em] text-white/50">
+            What we do
+          </p>
+          <h2 className="mt-3 font-space-grotesk text-2xl font-bold text-white md:text-3xl">
+            {service.whatWeDoHeadline}
+          </h2>
+          <div className="mt-8">
+            <OutlineTrack items={service.whatWeDo} />
+          </div>
+        </div>
+      </section>
+
+      {/* Why work with us (optional) */}
+      {service.whyWorkWithUs && (
+        <section className="bg-[#4C0014] py-16 md:py-24">
+          <div className="mx-auto w-full max-w-[1000px] px-5 md:px-10">
+            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#fd4601]">
+              Why work with us
+            </p>
+            <h2 className="mt-3 font-space-grotesk text-2xl font-bold text-white md:text-3xl">
+              {service.whyWorkHeadline}
+            </h2>
+            <div className="mt-8 grid gap-6 md:grid-cols-2">
+              {service.whyWorkWithUs.map((item) => (
+                <div key={item.title} className="border border-white/15 p-6">
+                  <h3 className="font-space-grotesk text-base font-bold text-white">
+                    {item.title}
+                  </h3>
+                  <p className="mt-2 text-sm leading-6 text-white/70">{item.body}</p>
                 </div>
-              </div>
-              <div className="border-t border-white/10 pt-6">
-                <p className="text-sm uppercase tracking-[0.3em] text-white/60">
-                  Case proof
-                </p>
-                <p className="mt-3 text-base text-white/80">
-                  {service.caseProof}
-                </p>
-              </div>
-            </GlassCard>
-          </AnimatedCardReveal>
+              ))}
+            </div>
+          </div>
         </section>
-        <CTA />
-      </main>
-      <Footer />
+      )}
+
+      <Ticker text="Built for the AI-native era" />
+      <CTA />
     </div>
   );
 }
