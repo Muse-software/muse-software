@@ -32,7 +32,6 @@ const NAV_ROUTES = [
   { key: "explore", link: "/explore" },
   { key: "about", link: "/about" },
   { key: "careers", link: "/careers" },
-  { key: "playbooks", link: "/playbooks" },
   { key: "newsletter", link: "/newsletter" },
   { key: "contact", link: "/contact" },
   { key: "getStarted", link: "/get-started" },

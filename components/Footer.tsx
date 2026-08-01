@@ -4,10 +4,7 @@ import LanguageSwitcher from "./LanguageSwitcher";
 import MuseLogo from "./MuseLogo";
 import SocialLinks, { allSocials } from "./SocialLinks";
 
-const resourceLinks = [
-  { key: "playbooks", href: "/playbooks" },
-  { key: "careers", href: "/careers" },
-] as const;
+const resourceLinks = [{ key: "careers", href: "/careers" }] as const;
 
 const legalLinks = [
   { key: "privacy", href: "/privacy" },

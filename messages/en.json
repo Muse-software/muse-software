@@ -3,13 +3,6 @@
     "skipToContent": "Skip to content",
     "previous": "Previous",
     "next": "Next",
-    "pagination": {
-      "label": "Pagination",
-      "prev": "Prev",
-      "next": "Next",
-      "previousPage": "Previous page",
-      "nextPage": "Next page"
-    },
     "socials": {
       "LinkedIn": "LinkedIn",
       "X": "X",
@@ -32,7 +25,6 @@
       "explore": "Explore",
       "about": "About Us",
       "careers": "Careers",
-      "playbooks": "Playbooks",
       "newsletter": "Newsletter",
       "contact": "Contact Us",
       "getStarted": "Get Started"
@@ -41,7 +33,6 @@
 
   "Footer": {
     "rights": "{year} Muse Studios. All rights reserved.",
-    "playbooks": "Playbooks",
     "careers": "Careers",
     "privacy": "Privacy Policy",
     "terms": "Terms of Service"
@@ -50,10 +41,6 @@
   "CTA": {
     "heading": "Tell us what you’re trying to build.",
     "button": "Get started"
-  },
-
-  "Article": {
-    "faqHeading": "Frequently asked questions"
   },
 
   "Home": {
@@ -89,11 +76,6 @@
       "paragraph2": "You could drive that from inside. Most won’t, and not for lack of ambition. Day to day operations always win the calendar.",
       "paragraph3": "We’re not interested in your roadmap for this quarter. We’re interested in the one that matters in five years.",
       "cta": "Get started"
-    },
-    "playbooks": {
-      "eyebrow": "Playbooks",
-      "heading": "Practical guides, not theory.",
-      "viewAll": "View all playbooks"
     },
     "pressure": {
       "lead": "AI isn’t optional.",
@@ -235,22 +217,6 @@
     }
   },
 
-  "Playbooks": {
-    "hero": {
-      "eyebrow": "Playbooks",
-      "title": "Practical guides, not theory.",
-      "subtitle": "Step-by-step frameworks we actually use when scoping and shipping client work."
-    },
-    "all": "All",
-    "empty": "No playbooks in this category yet.",
-    "cardMeta": "{category} · {minutes} min read",
-    "minRead": "{minutes} min read",
-    "detail": {
-      "relatedHeading": "Related playbooks",
-      "relatedMeta": "Playbook · {minutes} min read"
-    }
-  },
-
   "Careers": {
     "hero": {
       "eyebrow": "Careers",
@@ -272,7 +238,7 @@
     "hero": {
       "eyebrow": "Newsletter",
       "title": "Get the field notes in your inbox.",
-      "subtitle": "The same thinking behind our Playbooks, sent directly — no need to check back."
+      "subtitle": "The same thinking that goes into the work, sent directly. No need to check back."
     },
     "points": [
       "One short, opinionated read — no filler, no 10-tip listicles.",
@@ -473,7 +439,7 @@
     "suggestions": {
       "home": "Home",
       "explore": "Explore",
-      "playbooks": "Playbooks",
+      "about": "About Us",
       "contact": "Contact Us"
     }
   },
@@ -498,10 +464,6 @@
     "careers": {
       "title": "Careers",
       "description": "Join the small, senior team building Muse Studios from Riyadh."
-    },
-    "playbooks": {
-      "title": "Playbooks",
-      "description": "Practical, step-by-step guides for scoping and shipping AI and engineering work."
     },
     "newsletter": {
       "title": "Newsletter",

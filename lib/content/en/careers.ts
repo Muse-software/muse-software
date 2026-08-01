@@ -37,7 +37,7 @@ export const careerRoles: CareerRole[] = [
     "compensation": "Competitive, based on experience",
     "responsibilities": [
       "Own Muse Studios' marketing strategy across content, social, paid, and partnerships",
-      "Build and manage the content engine behind our Playbooks and the newsletter",
+      "Build and manage the content engine behind the newsletter and everything we publish",
       "Run demand-generation campaigns that turn attention into qualified leads",
       "Manage brand consistency across every public-facing touchpoint",
       "Report on what's actually working, and reallocate budget and effort accordingly"

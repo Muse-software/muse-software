@@ -1,12 +1,14 @@
 /**
- * Standalone copies of the content types the archived Insights and
- * Newsletter data depends on. These deliberately duplicate (rather than
+ * Standalone copies of the content types the archived Insights, Newsletter
+ * and Playbook data depends on. These deliberately duplicate (rather than
  * import from) lib/content/shared.ts: the archive has to keep parsing on
  * its own years from now, even if the live content model moves on. Nothing
  * here is compiled into the site — see archive/README.md.
  */
 
 export type InsightCategory = string;
+
+export type ContentCategory = string;
 
 export type Faq = { question: string; answer: string };
 
@@ -39,4 +41,16 @@ export type NewsletterIssue = {
   date: string;
   featuredImage: FeaturedImage;
   content: ContentBlock[];
+};
+
+export type Playbook = {
+  slug: string;
+  title: string;
+  excerpt: string;
+  category: ContentCategory;
+  minutes: number;
+  date: string;
+  featuredImage: FeaturedImage;
+  content: ContentBlock[];
+  faqs: Faq[];
 };

@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { getServices, getPlaybooks, getCareerRoles } from "@/lib/content";
+import { getServices, getCareerRoles } from "@/lib/content";
 import { PUBLISHED_LOCALES, type Locale } from "@/i18n/routing";
 import { localizedPath } from "@/lib/seo";
 
@@ -23,9 +23,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   /**
    * Built per locale rather than once, because the content-derived paths are
-   * no longer the same in both. A locale whose playbooks have not been written
-   * yet has fewer URLs, and emitting the English slug set under /ar would
-   * advertise pages that legitimately 404 there.
+   * not guaranteed to be the same in both. A locale whose records have not been
+   * written yet has fewer URLs, and emitting the English slug set under /ar
+   * would advertise pages that legitimately 404 there.
    *
    * Static routes are shared, so their hreflang set still spans every
    * published locale. Content routes declare an alternate only for the locales
@@ -37,7 +37,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/explore", lastModified: now, changeFrequency: "monthly", priority: 0.9 },
     { path: "/about", lastModified: now, changeFrequency: "monthly", priority: 0.7 },
     { path: "/careers", lastModified: now, changeFrequency: "weekly", priority: 0.7 },
-    { path: "/playbooks", lastModified: now, changeFrequency: "weekly", priority: 0.8 },
     { path: "/newsletter", lastModified: now, changeFrequency: "weekly", priority: 0.7 },
     { path: "/contact", lastModified: now, changeFrequency: "yearly", priority: 0.6 },
     { path: "/get-started", lastModified: now, changeFrequency: "yearly", priority: 0.9 },
@@ -51,12 +50,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: now,
       changeFrequency: "monthly" as const,
       priority: 0.8,
-    })),
-    ...getPlaybooks(locale).map((playbook) => ({
-      path: `/playbooks/${playbook.slug}`,
-      lastModified: new Date(playbook.date),
-      changeFrequency: "monthly" as const,
-      priority: 0.6,
     })),
     ...getCareerRoles(locale)
       .filter((role) => role.slug)

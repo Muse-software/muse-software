@@ -27,7 +27,7 @@ import { fontVariables } from "@/lib/fonts";
 const suggestions = [
   { key: "home", href: "/" },
   { key: "explore", href: "/explore" },
-  { key: "playbooks", href: "/playbooks" },
+  { key: "about", href: "/about" },
   { key: "contact", href: "/contact" },
 ] as const;
 

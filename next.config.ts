@@ -38,7 +38,6 @@ const LOCALE_INDEX_PATHS = [
   "explore",
   "about",
   "careers",
-  "playbooks",
   "newsletter",
   "contact",
   "get-started",
@@ -49,7 +48,13 @@ const LOCALE_INDEX_PATHS = [
 // Sections with detail pages. `services` is here but not above on purpose:
 // there is no `/services` index route, only `/services/[slug]`, so redirecting
 // the bare path would 308 into a 404 instead of just 404ing.
-const LOCALE_CHILD_PATHS = ["careers", "playbooks", "services"];
+const LOCALE_CHILD_PATHS = ["careers", "services"];
+
+// Everything retired now lands on /explore, the surviving page that says what
+// Muse actually does. Insights used to point at /playbooks; when the playbooks
+// were archived that would have become a redirect chain ending in a 404, so
+// they are repointed here rather than left to hop.
+const RETIRED_SECTIONS = ["insights", "playbooks"];
 
 const nextConfig: NextConfig = {
   devIndicators: false,
@@ -65,11 +70,12 @@ const nextConfig: NextConfig = {
   /**
    * Two jobs, and the order matters — Next matches redirects top-down.
    *
-   * 1. Retired sections. Insights and the newsletter back catalogue are gone
-   *    (see archive/README.md); Playbooks is the only article section. These
-   *    are permanent so search engines drop the old URLs rather than keep
-   *    recrawling them, and every retired article maps to the section index
-   *    rather than a guessed one-to-one replacement, since none exists.
+   * 1. Retired sections. Insights, the newsletter back catalogue and now the
+   *    playbooks are all gone (see archive/README.md), so the site publishes
+   *    no article section at all. These are permanent so search engines drop
+   *    the old URLs rather than keep recrawling them, and every retired
+   *    article maps to /explore rather than a guessed one-to-one replacement,
+   *    since none exists.
    *
    * 2. Locale prefixing. Every previously-indexed URL was English, so it must
    *    land on `/en/...`. Without these an inbound English link would fall
@@ -82,18 +88,20 @@ const nextConfig: NextConfig = {
    */
   async redirects() {
     return [
-      { source: "/insights", destination: "/en/playbooks", permanent: true },
-      { source: "/insights/:slug", destination: "/en/playbooks", permanent: true },
-      {
-        source: "/:locale(ar|en)/insights",
-        destination: "/:locale/playbooks",
-        permanent: true,
-      },
-      {
-        source: "/:locale(ar|en)/insights/:slug",
-        destination: "/:locale/playbooks",
-        permanent: true,
-      },
+      ...RETIRED_SECTIONS.flatMap((section) => [
+        { source: `/${section}`, destination: "/en/explore", permanent: true },
+        { source: `/${section}/:slug`, destination: "/en/explore", permanent: true },
+        {
+          source: `/:locale(ar|en)/${section}`,
+          destination: "/:locale/explore",
+          permanent: true,
+        },
+        {
+          source: `/:locale(ar|en)/${section}/:slug`,
+          destination: "/:locale/explore",
+          permanent: true,
+        },
+      ]),
       { source: "/newsletter/:slug", destination: "/en/newsletter", permanent: true },
       {
         source: "/:locale(ar|en)/newsletter/:slug",

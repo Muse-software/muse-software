@@ -1,7 +1,6 @@
 import Hero from "@/components/sections/Hero";
 import Approach from "@/components/sections/Approach";
 import Manifesto from "@/components/sections/Manifesto";
-import LatestPlaybooks from "@/components/sections/LatestPlaybooks";
 import TrustedBy from "@/components/sections/TrustedBy";
 import Ticker from "@/components/Ticker";
 import FAQ from "@/components/sections/FAQ";
@@ -54,7 +53,6 @@ export default async function Home({ params }: Props) {
       <Hero />
       <Approach locale={locale} />
       <Manifesto />
-      <LatestPlaybooks locale={locale} />
       <TrustedBy />
       <Ticker text={home("ticker")} />
       <FAQ />

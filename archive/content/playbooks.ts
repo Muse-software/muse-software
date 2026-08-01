@@ -1,4 +1,4 @@
-import type { Playbook } from "../shared";
+import type { Playbook } from "./types";
 
 export const playbooks: Playbook[] = [
   {
