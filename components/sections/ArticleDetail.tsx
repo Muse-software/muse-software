@@ -1,9 +1,12 @@
 import Image from "next/image";
+import { getLocale } from "next-intl/server";
 import SubpageHero from "./SubpageHero";
 import RichContent from "./RichContent";
 import ArticleFAQ from "./ArticleFAQ";
 import RelatedContent from "./RelatedContent";
 import CTA from "./CTA";
+import { formatArticleDate } from "../../lib/dates";
+import type { Locale } from "@/i18n/routing";
 import type { ContentBlock, Faq, FeaturedImage } from "../../lib/content";
 
 type RelatedItem = {
@@ -22,7 +25,7 @@ type RelatedItem = {
  * data prep (generateStaticParams, metadata, related-item filtering,
  * JSON-LD) and just hands the result here for rendering.
  */
-export default function ArticleDetail({
+export default async function ArticleDetail({
   eyebrow,
   title,
   date,
@@ -45,6 +48,8 @@ export default function ArticleDetail({
   related: RelatedItem[];
   jsonLd: Record<string, unknown>;
 }) {
+  const locale = (await getLocale()) as Locale;
+
   return (
     <div className="min-h-screen bg-[#060608] text-white">
       <script
@@ -55,12 +60,7 @@ export default function ArticleDetail({
       <section className="bg-[#060608] pb-20 md:pb-28">
         <div className="mx-auto w-full max-w-[860px] px-5 md:px-10">
           <p className="text-sm text-white/50">
-            {new Date(date).toLocaleDateString("en-US", {
-              year: "numeric",
-              month: "long",
-              day: "numeric",
-            })}{" "}
-            · {byline}
+            {formatArticleDate(date, locale)} · {byline}
           </p>
 
           <figure className="relative mt-6 h-64 w-full overflow-hidden md:h-[420px]">

@@ -1,8 +1,12 @@
 "use client";
 
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 import { useFormSubmit } from "../../lib/useFormSubmit";
 
+// Submitted values stay English and stable; only the visible labels are
+// translated. `hearAboutUs === "Other"` below keys off the value, so the
+// "Please specify" field keeps working in every locale.
 const services = ["AI Transformation", "Product Engineering", "Gamification & Experience", "Not sure yet"];
 
 const revenueBands = [
@@ -27,6 +31,7 @@ const hearAboutOptions = [
 ];
 
 export default function GetStartedForm() {
+  const t = useTranslations("GetStarted.form");
   const { status, delivered, error: errorMessage, submit } = useFormSubmit("/api/get-started");
   const [hearAboutUs, setHearAboutUs] = useState("");
 
@@ -41,11 +46,9 @@ export default function GetStartedForm() {
           <path d="M24.8191 9.71203L24.8191 0.848518L15.9556 0.848518L15.9555 9.71203L24.8191 9.71203Z" fill="currentColor" />
           <path d="M24.8191 27.4373L24.8191 18.5738L15.9556 18.5738L15.9555 27.4373L24.8191 27.4373Z" fill="currentColor" />
         </svg>
-        <h2 className="font-space-grotesk text-2xl font-bold text-white">Thank you</h2>
+        <h2 className="font-space-grotesk text-2xl font-bold text-white">{t("successTitle")}</h2>
         <p className="max-w-md text-base leading-7 text-white/70">
-          {delivered
-            ? "Your request has been received — our team will reach out within 1–2 business days to discuss how Muse can accelerate your goals."
-            : "We've noted your request. For a faster reply in the meantime, reach us directly on WhatsApp or email."}
+          {delivered ? t("successDelivered") : t("successNoted")}
         </p>
       </div>
     );
@@ -57,26 +60,31 @@ export default function GetStartedForm() {
 
   return (
     <form onSubmit={submit} className="space-y-6">
-      {/* Honeypot — hidden from real users, bots tend to fill every field */}
+      {/* Honeypot — hidden from real users, bots tend to fill every field.
+          Parked off the inline *start* edge, not off the left: overflow past
+          the start edge is not scrollable, overflow past the end edge is. Under
+          `dir="rtl"` the left is the end edge, so a physical `-left-[9999px]`
+          would put 9999px of horizontal scroll on every Arabic page carrying
+          this form — the same bug the skip-link had (see app/globals.css). */}
       <input
         type="text"
         name="website"
         tabIndex={-1}
         autoComplete="off"
         aria-hidden="true"
-        className="absolute -left-[9999px] h-0 w-0 opacity-0"
+        className="absolute -start-[9999px] h-0 w-0 opacity-0"
       />
 
       <div className="grid gap-6 md:grid-cols-2">
         <div className="flex flex-col gap-2">
           <label htmlFor="firstName" className={labelClass}>
-            First Name<span className="text-[#fd4601]">*</span>
+            {t("firstName")}<span className="text-[#fd4601]">*</span>
           </label>
           <input id="firstName" name="firstName" type="text" required className={inputClass} />
         </div>
         <div className="flex flex-col gap-2">
           <label htmlFor="lastName" className={labelClass}>
-            Last Name<span className="text-[#fd4601]">*</span>
+            {t("lastName")}<span className="text-[#fd4601]">*</span>
           </label>
           <input id="lastName" name="lastName" type="text" required className={inputClass} />
         </div>
@@ -85,13 +93,13 @@ export default function GetStartedForm() {
       <div className="grid gap-6 md:grid-cols-2">
         <div className="flex flex-col gap-2">
           <label htmlFor="email" className={labelClass}>
-            Work Email<span className="text-[#fd4601]">*</span>
+            {t("email")}<span className="text-[#fd4601]">*</span>
           </label>
           <input id="email" name="email" type="email" required className={inputClass} />
         </div>
         <div className="flex flex-col gap-2">
           <label htmlFor="phone" className={labelClass}>
-            Phone Number<span className="text-[#fd4601]">*</span>
+            {t("phone")}<span className="text-[#fd4601]">*</span>
           </label>
           <input id="phone" name="phone" type="tel" required className={inputClass} />
         </div>
@@ -100,13 +108,13 @@ export default function GetStartedForm() {
       <div className="grid gap-6 md:grid-cols-2">
         <div className="flex flex-col gap-2">
           <label htmlFor="company" className={labelClass}>
-            Company Name<span className="text-[#fd4601]">*</span>
+            {t("company")}<span className="text-[#fd4601]">*</span>
           </label>
           <input id="company" name="company" type="text" required className={inputClass} />
         </div>
         <div className="flex flex-col gap-2">
           <label htmlFor="jobTitle" className={labelClass}>
-            Job Title<span className="text-[#fd4601]">*</span>
+            {t("jobTitle")}<span className="text-[#fd4601]">*</span>
           </label>
           <input id="jobTitle" name="jobTitle" type="text" required className={inputClass} />
         </div>
@@ -114,15 +122,15 @@ export default function GetStartedForm() {
 
       <div className="flex flex-col gap-2">
         <label htmlFor="annualRevenue" className={labelClass}>
-          Annual Revenue<span className="text-[#fd4601]">*</span>
+          {t("annualRevenue")}<span className="text-[#fd4601]">*</span>
         </label>
         <select id="annualRevenue" name="annualRevenue" required className={inputClass} defaultValue="">
           <option value="" disabled>
-            Select one…
+            {t("selectOne")}
           </option>
           {revenueBands.map((band) => (
             <option key={band} value={band} className="bg-[#060608]">
-              {band}
+              {t(`revenueBands.${band}`)}
             </option>
           ))}
         </select>
@@ -130,7 +138,7 @@ export default function GetStartedForm() {
 
       <fieldset className="flex flex-col gap-3">
         <legend className={labelClass}>
-          Which services are you interested in?<span className="text-[#fd4601]">*</span>
+          {t("servicesLegend")}<span className="text-[#fd4601]">*</span>
         </legend>
         <div className="flex flex-wrap gap-3">
           {services.map((service, i) => (
@@ -145,7 +153,7 @@ export default function GetStartedForm() {
                 required={i === 0}
                 className="accent-[#fd4601]"
               />
-              {service}
+              {t(`services.${service}`)}
             </label>
           ))}
         </div>
@@ -153,14 +161,14 @@ export default function GetStartedForm() {
 
       <div className="flex flex-col gap-2">
         <label htmlFor="needs" className={labelClass}>
-          Describe your specific needs<span className="text-[#fd4601]">*</span>
+          {t("needs")}<span className="text-[#fd4601]">*</span>
         </label>
         <textarea id="needs" name="needs" required rows={4} className={inputClass} />
       </div>
 
       <div className="flex flex-col gap-2">
         <label htmlFor="hearAboutUs" className={labelClass}>
-          How did you hear about us?<span className="text-[#fd4601]">*</span>
+          {t("hearAboutUs")}<span className="text-[#fd4601]">*</span>
         </label>
         <select
           id="hearAboutUs"
@@ -171,11 +179,11 @@ export default function GetStartedForm() {
           onChange={(e) => setHearAboutUs(e.target.value)}
         >
           <option value="" disabled>
-            Select one…
+            {t("selectOne")}
           </option>
           {hearAboutOptions.map((option) => (
             <option key={option} value={option} className="bg-[#060608]">
-              {option}
+              {t(`hearAboutOptions.${option}`)}
             </option>
           ))}
         </select>
@@ -184,7 +192,7 @@ export default function GetStartedForm() {
       {hearAboutUs === "Other" && (
         <div className="flex flex-col gap-2">
           <label htmlFor="other" className={labelClass}>
-            Please specify
+            {t("other")}
           </label>
           <input id="other" name="other" type="text" className={inputClass} />
         </div>
@@ -202,7 +210,7 @@ export default function GetStartedForm() {
           disabled={status === "submitting"}
           className="inline-flex items-center gap-3 border border-black bg-white px-6 py-3 text-base font-medium font-space-grotesk text-black transition-colors duration-200 hover:bg-[#fd4601] disabled:opacity-60"
         >
-          {status === "submitting" ? "Submitting…" : "Submit"}
+          {status === "submitting" ? t("submitting") : t("submit")}
         </button>
       </div>
     </form>

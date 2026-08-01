@@ -56,10 +56,21 @@
 }
 
 @layer utilities {
+  /* Hidden by clipping rather than by parking it at `left: -999px`. The old
+     approach was invisible in LTR only by accident: overflow past the start
+     edge does not extend scrollWidth, so it cost nothing. Under `dir="rtl"`
+     the start edge is on the right, which turned the same -999px into 999px
+     of real horizontal scroll on every Arabic page. Clipping is
+     direction-agnostic and stays screen-reader accessible. */
   .skip-link {
     position: absolute;
-    left: -999px;
     top: 0;
+    inset-inline-start: 0;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
     background: #000;
     color: #fff;
     padding: 8px 12px;
@@ -67,8 +78,27 @@
   }
 
   .skip-link:focus {
-    left: 16px;
+    width: auto;
+    height: auto;
+    overflow: visible;
+    clip-path: none;
+    inset-inline-start: 16px;
     top: 16px;
+  }
+
+  /* Directional glyphs. A "→" means forward, not east, and forward is left in
+     Arabic — an unmirrored arrow on a "Learn more" link points back at the
+     text it came from. Mirroring in CSS rather than swapping the character for
+     "←" keeps this a presentation concern: the four call sites stay plain
+     markup with no locale lookup, and it works identically in Server and
+     Client Components. Every one of them is already aria-hidden, so nothing
+     here reaches assistive tech. */
+  .arrow-inline {
+    display: inline-block;
+  }
+
+  [dir="rtl"] .arrow-inline {
+    transform: scaleX(-1);
   }
 
   .no-scrollbar::-webkit-scrollbar {
@@ -82,6 +112,78 @@
 
   .font-space-grotesk {
     font-family: var(--font-space-grotesk), "Space Grotesk", sans-serif;
+  }
+
+  /*
+    Arabic typography. The Arabic face goes FIRST on Arabic pages, not last.
+
+    Appending it after the Latin faces is the obvious arrangement and it does
+    not work. `next/font` does not put one family behind each variable: it puts
+    the real face plus a generated "<Name> Fallback" face, which is a local
+    system font with size-adjust metrics applied. On Windows that local font is
+    a full Unicode face, so it answers for the Arabic codepoints too, and the
+    stack never reaches Plex Arabic. Measured, not assumed: `document.fonts`
+    reported "IBM Plex Sans Arabic: unloaded" on a fully rendered /ar, and the
+    rendered width of the Arabic h1 did not match the same string set in Plex.
+
+    Putting Plex Arabic first cannot hurt the Latin runs, because it is loaded
+    with the `arabic` subset only (lib/fonts.ts) and its @font-face therefore
+    carries a `unicode-range` that no Latin character falls inside. Latin skips
+    it and lands on Space Grotesk or Inter exactly as before, which is what
+    keeps a mixed "Muse" inside an Arabic sentence correct in both scripts.
+
+    Scoped to [lang="ar"] rather than applied globally so the English pages
+    keep their existing metric-adjusted fallbacks untouched.
+  */
+  /*
+    The Latin tail of these two stacks deliberately repeats Tailwind's default
+    family rather than naming Inter or Inter Tight, so that a Latin run on an
+    Arabic page renders in exactly the same face it does on an English page.
+
+    It looks wrong next to the `body` and `h1..h4` rules above, which do name
+    them. Those rules are dead: `--font-sans` and `--font-display` are declared
+    in `@theme inline`, and `inline` is precisely the instruction not to emit a
+    custom property, so `var(--font-sans)` resolves to nothing and the whole
+    declaration is invalid at computed-value time. Measured on /en/about: body
+    copy computes to `ui-sans-serif, system-ui, sans-serif`, not Inter.
+
+    That is a pre-existing English-side bug and fixing it would restyle every
+    page of the live site, so it is left alone and reported rather than
+    silently repaired here. Matching it keeps the two locales identical in
+    Latin type, which is the part this change is responsible for. If those
+    rules are ever fixed to use `var(--font-inter)`, update these to match.
+  */
+  [lang="ar"] body {
+    font-family: var(--font-plex-arabic), ui-sans-serif, system-ui, sans-serif;
+  }
+
+  [lang="ar"] h1,
+  [lang="ar"] h2,
+  [lang="ar"] h3,
+  [lang="ar"] h4 {
+    font-family: var(--font-plex-arabic), ui-sans-serif, system-ui, sans-serif;
+  }
+
+  /*
+    Brand type is the one place the order flips: Space Grotesk first, Arabic
+    second. This is where "Muse" lives, and [[Brand Colour & Type]] is explicit
+    that the Latin wordmark is Space Grotesk in both locales. Body copy above
+    can let Plex Arabic answer for Latin because Plex's Latin is drawn to pair
+    with its Arabic; a brand name cannot.
+
+    Note it names "Space Grotesk" literally instead of using
+    `var(--font-space-grotesk)`. That is deliberate, not an oversight. The
+    variable expands to the real face *plus* next/font's generated "Space
+    Grotesk Fallback", which is a local system font with size-adjust metrics
+    and no `unicode-range` at all — so it answers for Arabic, and every Arabic
+    heading would render in a Latin-tuned local font instead of Plex.
+    Measured: 914px for the Arabic h1 string through the variable, against
+    957px in Plex. Naming the real family skips the fallback face so Arabic
+    falls through to Plex, and it costs nothing on English, which still goes
+    through the variable and keeps its fallback.
+  */
+  [lang="ar"] .font-space-grotesk {
+    font-family: "Space Grotesk", var(--font-plex-arabic), sans-serif;
   }
 
   /* Muse Studios crosshair grid texture — the brand guideline's real
@@ -157,6 +259,30 @@
   }
 }
 
+/* Duplicate-and-loop only stays seamless if it travels toward the copy, and
+   `transform` is a physical axis that `dir` does not flip. Under RTL the flex
+   row places the second copy to the *left* of the first, so the container's
+   start edge is its right edge and the whole 200%-wide strip already hangs off
+   to the left. Continuing to translate negatively drags both copies further
+   left and opens a growing empty gap on the right. The mirrored keyframe
+   travels the other way, which is where the copy actually is. */
+@keyframes motion3dScrollRtl {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(50%);
+  }
+}
+
+[dir="rtl"] .motion3d-scroll-fast {
+  animation-name: motion3dScrollRtl;
+}
+
+[dir="rtl"] .motion3d-scroll-slow {
+  animation-name: motion3dScrollRtl;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .motion3d-scroll-fast,
   .motion3d-scroll-slow {
@@ -177,6 +303,12 @@
   padding: 1rem 0;
 }
 
+/* The tilt is a composition, so it mirrors with the rest of the layout rather
+   than staying pinned to one physical direction. */
+[dir="rtl"] .ticker-wrapper {
+  transform: rotate(2deg) scale(1.02);
+}
+
 .ticker-track {
   display: flex;
   align-items: center;
@@ -193,9 +325,16 @@
   white-space: nowrap;
   font-family: var(--font-space-grotesk), "Space Grotesk", sans-serif;
   font-weight: 600;
+  /* The Arabic override lives here rather than beside the other [lang="ar"]
+     rules in @layer utilities: `.ticker-item` is unlayered, and unlayered CSS
+     beats layered CSS in the cascade no matter the specificity. */
   font-size: clamp(1.1rem, 2vw, 1.5rem);
   text-transform: uppercase;
   letter-spacing: 0.02em;
+}
+
+[lang="ar"] .ticker-item {
+  font-family: "Space Grotesk", var(--font-plex-arabic), sans-serif;
 }
 
 .ticker-dot {
@@ -209,6 +348,23 @@
   to {
     transform: translateX(-100%);
   }
+}
+
+/* Same mirror as motion3dScrollRtl, and the same reason: the wrapper is a flex
+   row, so under RTL the aria-hidden duplicate track sits to the left of the
+   real one and the marquee has to travel right to reach it. Left unmirrored,
+   an Arabic ticker scrolls into empty orange for 26 seconds and then jumps. */
+@keyframes tickerScrollRtl {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+
+[dir="rtl"] .ticker-track {
+  animation-name: tickerScrollRtl;
 }
 
 @media (prefers-reduced-motion: reduce) {

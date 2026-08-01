@@ -1,16 +1,12 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import WordReveal from "../WordReveal";
 import { useHorizontalScroll } from "../../lib/useHorizontalScroll";
 
-const beliefs = [
-  "Digital transformation isn't optional anymore — it's the difference between growing and getting replaced by someone who moved faster.",
-  "There are three kinds of businesses today: digitally absent, digitally competent, and digitally native. Most are stuck in the middle.",
-  "The only way to build something that lasts is to treat design, engineering, and AI as one discipline — not three separate handoffs.",
-  "Most companies don't lack ambition. They lack a team that can execute at a global standard, from right here in Saudi Arabia.",
-];
-
 export default function BeliefSlider() {
+  const t = useTranslations("About.beliefs");
+  const beliefs = t.raw("items") as string[];
   const { trackRef, scroll } = useHorizontalScroll();
 
   return (
@@ -20,7 +16,7 @@ export default function BeliefSlider() {
           as="h2"
           className="font-space-grotesk text-2xl font-bold text-white md:text-3xl"
         >
-          What we believe
+          {t("heading")}
         </WordReveal>
 
         <div
@@ -35,7 +31,7 @@ export default function BeliefSlider() {
             >
               <span
                 aria-hidden="true"
-                className="pointer-events-none absolute -right-2 -top-6 font-space-grotesk text-[7rem] font-bold leading-none text-white/5 md:text-[8rem]"
+                className="pointer-events-none absolute -end-2 -top-6 font-space-grotesk text-[7rem] font-bold leading-none text-white/5 md:text-[8rem]"
               >
                 {i + 1}
               </span>
@@ -47,7 +43,7 @@ export default function BeliefSlider() {
         <div className="mt-6 flex gap-3">
           <button
             type="button"
-            aria-label="Previous belief"
+            aria-label={t("previous")}
             onClick={() => scroll(-1, 24, 420)}
             className="grid h-11 w-11 place-items-center border border-white/30 text-white transition-colors hover:border-[#fd4601] hover:text-[#fd4601]"
           >
@@ -57,7 +53,7 @@ export default function BeliefSlider() {
           </button>
           <button
             type="button"
-            aria-label="Next belief"
+            aria-label={t("next")}
             onClick={() => scroll(1, 24, 420)}
             className="grid h-11 w-11 place-items-center border border-white/30 text-white transition-colors hover:border-[#fd4601] hover:text-[#fd4601]"
           >

@@ -1,22 +1,32 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import Image from "next/image";
 import WordReveal from "../WordReveal";
 import Icon from "../Icon";
-import { services } from "../../lib/content";
+import { getServices } from "../../lib/content";
+import type { Locale } from "@/i18n/routing";
 
-const cardCopy: Record<string, string> = {
-  "ai-transformation":
-    "As the cost of intelligence approaches zero, staying AI-absent isn't a neutral choice — it's a slow decline. We map your workflows, find the highest-leverage places to put AI to work, and stand up agentic systems with guardrails built in from day one. Every engagement ends with something running in production, not a slide deck.",
-  "product-engineering":
-    "Good ideas stall when engineering can't move at the pace the business needs. We design and ship production-grade software fast, with an outcomes-first model — you pay for what ships, not hours logged. The same senior team stays with you from first prototype to production scale.",
-  "gamification-experience":
-    "New tools compete with old habits, and habits usually win by default. We design interactive, rewarding digital experiences — reward systems, onboarding journeys, and playable prototypes — that make change stick instead of stalling out. You'll be clicking through something real within the first week.",
-};
-
-export default function Approach() {
+/**
+ * Each card is a claim plus one checkable promise. The promise is the part a
+ * client can hold us to, so it is set apart rather than buried in the body.
+ * See "Applied" in the Website Voice note in the vault.
+ *
+ * The copy lives in `messages/*.json` under `Home.approach.cards`, keyed by
+ * the service slug so a card can never drift away from the service it
+ * describes.
+ */
+export default function Approach({ locale }: { locale: Locale }) {
+  const t = useTranslations("Home.approach");
+  // The locale comes down from the page rather than from `useLocale()` so it
+  // arrives already narrowed to the union the content layer accepts. Only
+  // slug, title, image and icon are read here, so both locales' service
+  // records still reach the client bundle: ~10 KB of source for the second
+  // locale. The playbooks array is 288 KB and could not survive the same
+  // treatment, which is why it is passed in as data instead.
+  const services = getServices(locale);
   const [active, setActive] = useState<number | null>(null);
 
   return (
@@ -25,13 +35,13 @@ export default function Approach() {
         <div className="grid gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,1.4fr)] md:gap-16">
           <div className="md:sticky md:top-28 md:self-start">
             <p className="text-xs font-semibold uppercase tracking-[0.3em] text-white/50">
-              Our approach
+              {t("eyebrow")}
             </p>
             <WordReveal
               as="h2"
               className="mt-4 max-w-[10ch] font-space-grotesk text-4xl font-medium leading-[1.05] text-white md:text-5xl"
             >
-              Muse helps you shift from AI-absent to AI-native.
+              {t("heading")}
             </WordReveal>
           </div>
 
@@ -57,14 +67,23 @@ export default function Approach() {
                       active === i ? "text-black/80" : "text-white/60"
                     }`}
                   >
-                    {cardCopy[service.slug]}
+                    {t(`cards.${service.slug}.body`)}
+                  </p>
+                  <p
+                    className={`mt-3 border-s-2 ps-3 text-sm leading-6 md:text-base ${
+                      active === i
+                        ? "border-black/40 text-black"
+                        : "border-[#fd4601] text-white/85"
+                    }`}
+                  >
+                    {t(`cards.${service.slug}.promise`)}
                   </p>
                   <span
                     className={`mt-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] ${
                       active === i ? "text-black" : "text-[#fd4601]"
                     }`}
                   >
-                    Learn more <span aria-hidden="true">→</span>
+                    {t("learnMore")} <span aria-hidden="true" className="arrow-inline">→</span>
                   </span>
                 </div>
 

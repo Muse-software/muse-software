@@ -1,9 +1,11 @@
 "use client";
 
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 import type { Faq } from "../../lib/content";
 
 export default function ArticleFAQ({ faqs }: { faqs: Faq[] }) {
+  const t = useTranslations("Article");
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   if (!faqs.length) return null;
@@ -11,7 +13,7 @@ export default function ArticleFAQ({ faqs }: { faqs: Faq[] }) {
   return (
     <div className="mt-16 border-t border-white/10 pt-12 md:mt-20 md:pt-16">
       <h2 className="font-space-grotesk text-2xl font-bold text-white md:text-3xl">
-        Frequently asked questions
+        {t("faqHeading")}
       </h2>
 
       <div className="mt-8">
@@ -26,7 +28,7 @@ export default function ArticleFAQ({ faqs }: { faqs: Faq[] }) {
                 type="button"
                 onClick={() => setOpenIndex(isOpen ? null : i)}
                 aria-expanded={isOpen}
-                className="flex w-full items-center justify-between gap-6 py-5 text-left"
+                className="flex w-full items-center justify-between gap-6 py-5 text-start"
               >
                 <span className="font-space-grotesk text-base text-white md:text-lg">
                   {item.question}

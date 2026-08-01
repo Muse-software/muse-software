@@ -42,27 +42,9 @@ export type Service = {
  * fixed union — so adding a new category is purely a content-authoring
  * change (write a new value in an item's `category` field) with no type or
  * list to update in code. The actual set of categories in use is derived
- * from the content arrays themselves (see `insightCategories` in
- * insights.ts, `playbookCategories` in playbooks.ts), each independently,
- * since Insights and Playbooks currently use unrelated taxonomies.
+ * from the content array itself (see `playbookCategories` in playbooks.ts).
  */
-export type InsightCategory = string;
-
-/** "Banking & Finance" -> "banking-and-finance", for SEO-friendly /insights/[category] URLs. */
-export function insightCategorySlug(category: InsightCategory): string {
-  return category
-    .toLowerCase()
-    .replace(/&/g, "and")
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^-+|-+$/g, "");
-}
-
-export function insightCategoryFromSlug(
-  slug: string,
-  categories: InsightCategory[]
-): InsightCategory | undefined {
-  return categories.find((c) => insightCategorySlug(c) === slug);
-}
+export type ContentCategory = string;
 
 export type Faq = { question: string; answer: string };
 
@@ -83,23 +65,11 @@ export type ContentBlock =
 
 export type FeaturedImage = { src: string; alt: string; caption?: string };
 
-export type Insight = {
-  slug: string;
-  title: string;
-  category: InsightCategory;
-  excerpt: string;
-  minutes: number;
-  date: string;
-  featuredImage: FeaturedImage;
-  content: ContentBlock[];
-  faqs: Faq[];
-};
-
 export type Playbook = {
   slug: string;
   title: string;
   excerpt: string;
-  category: InsightCategory;
+  category: ContentCategory;
   minutes: number;
   date: string;
   featuredImage: FeaturedImage;
@@ -107,49 +77,23 @@ export type Playbook = {
   faqs: Faq[];
 };
 
-export type NewsletterIssue = {
-  slug: string;
-  title: string;
-  excerpt: string;
-  minutes: number;
-  date: string;
-  featuredImage: FeaturedImage;
-  content: ContentBlock[];
-};
-
 /**
- * Summary shapes for list/grid views — deliberately omit `content` (the
+ * Summary shape for list/grid views — deliberately omits `content` (the
  * full rich-text body) and `faqs`. Those fields aren't rendered by any
- * list card, but Insight/Playbook/NewsletterIssue previously shipped in
- * full to client-side list components anyway; since RSC props serialize
- * into the flight payload, every list page's initial JS included every
- * article's full body text. These Pick<> types are the server-side
- * boundary that strips it back down to only what a card actually shows.
+ * list card, but Playbook previously shipped in full to the client-side
+ * list component anyway; since RSC props serialize into the flight
+ * payload, the list page's initial JS included every article's full body
+ * text. This Pick<> type is the server-side boundary that strips it back
+ * down to only what a card actually shows.
  */
-export type InsightSummary = Pick<
-  Insight,
-  "slug" | "title" | "excerpt" | "category" | "minutes" | "featuredImage"
->;
 export type PlaybookSummary = Pick<
   Playbook,
   "slug" | "title" | "excerpt" | "category" | "minutes" | "featuredImage"
 >;
-export type NewsletterSummary = Pick<
-  NewsletterIssue,
-  "slug" | "title" | "excerpt" | "minutes" | "date" | "featuredImage"
->;
 
-export function toInsightSummary(item: Insight): InsightSummary {
-  const { slug, title, excerpt, category, minutes, featuredImage } = item;
-  return { slug, title, excerpt, category, minutes, featuredImage };
-}
 export function toPlaybookSummary(item: Playbook): PlaybookSummary {
   const { slug, title, excerpt, category, minutes, featuredImage } = item;
   return { slug, title, excerpt, category, minutes, featuredImage };
-}
-export function toNewsletterSummary(item: NewsletterIssue): NewsletterSummary {
-  const { slug, title, excerpt, minutes, date, featuredImage } = item;
-  return { slug, title, excerpt, minutes, date, featuredImage };
 }
 
 export type CareerRole = {

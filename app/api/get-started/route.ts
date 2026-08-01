@@ -12,7 +12,7 @@ import { sendResendEmail } from "../../../lib/email";
 export async function POST(request: Request) {
   if (isRateLimited(`get-started:${getClientIp(request)}`)) {
     return NextResponse.json(
-      { ok: false, error: "Too many requests. Please try again in a minute." },
+      { ok: false, code: "rate_limited", error: "Too many requests. Please try again in a minute." },
       { status: 429 },
     );
   }
@@ -22,7 +22,7 @@ export async function POST(request: Request) {
     body = await request.json();
   } catch {
     return NextResponse.json(
-      { ok: false, error: "Invalid request body." },
+      { ok: false, code: "invalid_body", error: "Invalid request body." },
       { status: 400 },
     );
   }
@@ -56,14 +56,14 @@ export async function POST(request: Request) {
     !needs
   ) {
     return NextResponse.json(
-      { ok: false, error: "Please fill in all required fields." },
+      { ok: false, code: "missing_fields", error: "Please fill in all required fields." },
       { status: 400 },
     );
   }
 
   if (!isValidEmail(email)) {
     return NextResponse.json(
-      { ok: false, error: "Please provide a valid email address." },
+      { ok: false, code: "invalid_email", error: "Please provide a valid email address." },
       { status: 400 },
     );
   }
@@ -78,7 +78,7 @@ export async function POST(request: Request) {
     exceedsMaxLength(needs, 5000)
   ) {
     return NextResponse.json(
-      { ok: false, error: "One or more fields are too long." },
+      { ok: false, code: "too_long", error: "One or more fields are too long." },
       { status: 400 },
     );
   }

@@ -13,7 +13,7 @@ import { isValidEmail, exceedsMaxLength } from "../../../lib/validation";
 export async function POST(request: Request) {
   if (isRateLimited(`subscribe:${getClientIp(request)}`)) {
     return NextResponse.json(
-      { ok: false, error: "Too many requests. Please try again in a minute." },
+      { ok: false, code: "rate_limited", error: "Too many requests. Please try again in a minute." },
       { status: 429 }
     );
   }
@@ -22,12 +22,12 @@ export async function POST(request: Request) {
   try {
     body = await request.json();
   } catch {
-    return NextResponse.json({ ok: false, error: "Invalid request body." }, { status: 400 });
+    return NextResponse.json({ ok: false, code: "invalid_body", error: "Invalid request body." }, { status: 400 });
   }
 
   const email = body.email?.trim();
   if (!email || !isValidEmail(email) || exceedsMaxLength(email, 200)) {
-    return NextResponse.json({ ok: false, error: "A valid email is required." }, { status: 400 });
+    return NextResponse.json({ ok: false, code: "email_required", error: "A valid email is required." }, { status: 400 });
   }
 
   await recordSubmission("newsletter", { email }, request);

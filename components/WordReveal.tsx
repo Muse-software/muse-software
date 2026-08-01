@@ -1,11 +1,66 @@
 "use client";
 
-import { ElementType, useEffect, useRef } from "react";
+import { ElementType, Fragment, useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
+}
+
+/** Arabic, Hebrew, and their presentation/supplement blocks. */
+const STRONG_RTL = /[֐-׿؀-ۿ܀-ݏݐ-ݿࢠ-ࣿיִ-﷿ﹰ-﻿]/;
+const STRONG_LTR = /[A-Za-zÀ-ɏ]/;
+
+type BidiRun = { dir: "rtl" | "ltr"; words: string[] };
+
+/**
+ * Groups a heading's words into runs of a single direction.
+ *
+ * Each word is animated in its own `inline-block` span, and an inline-block is
+ * an atomic box to the bidi algorithm — it has no characters of its own to
+ * resolve, so the boxes are simply laid out in the container's base direction.
+ * That is why an English heading rendered inside `dir="rtl"` came out as
+ * "existdoesn't page This": every word was correct, the order was reversed.
+ * Wrapping the words in a run element that declares the run's own direction
+ * gives the algorithm the strong direction the inline-blocks lost, so an
+ * English phrase inside an Arabic sentence keeps its internal word order while
+ * the sentence around it still runs right to left.
+ *
+ * Words with no strong character of their own (a lone number, "&", "2026")
+ * join the run in progress rather than starting a new one, which is what the
+ * bidi algorithm does with neutrals and keeps punctuation from fragmenting a
+ * sentence into a dozen single-word runs.
+ */
+function firstStrongDir(text: string): "rtl" | "ltr" | null {
+  const rtlAt = text.search(STRONG_RTL);
+  const ltrAt = text.search(STRONG_LTR);
+  if (rtlAt !== -1 && ltrAt !== -1) return rtlAt < ltrAt ? "rtl" : "ltr";
+  if (rtlAt !== -1) return "rtl";
+  if (ltrAt !== -1) return "ltr";
+  return null;
+}
+
+function toBidiRuns(text: string): BidiRun[] {
+  // A heading opening on a neutral word ("2026 was the year …") has nothing to
+  // start the first run with, so it borrows the direction of the string's
+  // first strong character — the same rule `dir="auto"` uses. A string with no
+  // strong character anywhere is all digits and punctuation, which is LTR.
+  const baseDir = firstStrongDir(text) ?? "ltr";
+  const runs: BidiRun[] = [];
+
+  for (const word of text.split(" ")) {
+    const dir = firstStrongDir(word);
+    const current = runs[runs.length - 1];
+
+    if (current && (dir === null || dir === current.dir)) {
+      current.words.push(word);
+    } else {
+      runs.push({ dir: dir ?? baseDir, words: [word] });
+    }
+  }
+
+  return runs;
 }
 
 type WordRevealProps = {
@@ -124,7 +179,7 @@ export default function WordReveal({
     };
   }, [mode]);
 
-  const words = children.split(" ");
+  const runs = toBidiRuns(children);
   // `as` is a runtime value, not a JSX-recognizable capitalized identifier —
   // aliasing it lets JSX treat it as a dynamic component/tag while still
   // passing `ref` the normal way, instead of hand-building the props object
@@ -133,15 +188,31 @@ export default function WordReveal({
 
   return (
     <Tag ref={ref} className={className}>
-      {words.map((word, i) => (
-        <span
-          key={i}
-          data-word
-          className={`inline-block will-change-transform ${wordClassName ?? ""}`}
-          style={{ marginRight: i < words.length - 1 ? "0.28em" : 0 }}
-        >
-          {word}
-        </span>
+      {runs.map((run, runIndex) => (
+        <Fragment key={runIndex}>
+          <span dir={run.dir}>
+            {run.words.map((word, i) => (
+              <Fragment key={i}>
+                <span
+                  data-word
+                  className={`inline-block will-change-transform ${wordClassName ?? ""}`}
+                >
+                  {word}
+                </span>
+                {/* A real text node, not a margin. Two reasons: `marginRight`
+                    is a physical axis and put the gap on the wrong side of
+                    every Arabic word, and a margin is invisible to
+                    `innerText`, so any DOM text extraction (tests, scrapers,
+                    some accessibility tooling) read the 404 heading back as
+                    "Thispagedoesn'texist." A space between two inline-blocks
+                    renders at the font's own word width and reads back
+                    correctly. */}
+                {i < run.words.length - 1 ? " " : null}
+              </Fragment>
+            ))}
+          </span>
+          {runIndex < runs.length - 1 ? " " : null}
+        </Fragment>
       ))}
     </Tag>
   );

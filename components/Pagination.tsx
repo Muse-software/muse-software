@@ -1,5 +1,7 @@
 "use client";
 
+import { useTranslations } from "next-intl";
+
 function pageRange(current: number, total: number): (number | "ellipsis")[] {
   const pages = new Set<number>([1, total, current, current - 1, current + 1]);
   const sorted = Array.from(pages)
@@ -25,21 +27,23 @@ export default function Pagination({
   totalPages: number;
   onChange: (page: number) => void;
 }) {
+  const t = useTranslations("Common.pagination");
+
   if (totalPages <= 1) return null;
 
   return (
     <nav
-      aria-label="Pagination"
+      aria-label={t("label")}
       className="mt-14 flex items-center justify-center gap-2 md:mt-20"
     >
       <button
         type="button"
         disabled={page === 1}
         onClick={() => onChange(page - 1)}
-        aria-label="Previous page"
+        aria-label={t("previousPage")}
         className="border border-white/35 px-4 py-2 text-sm font-medium text-white/60 transition-colors hover:border-white/40 hover:text-white disabled:cursor-not-allowed disabled:opacity-30 disabled:hover:border-white/35 disabled:hover:text-white/60"
       >
-        Prev
+        {t("prev")}
       </button>
 
       {pageRange(page, totalPages).map((item, i) =>
@@ -68,10 +72,10 @@ export default function Pagination({
         type="button"
         disabled={page === totalPages}
         onClick={() => onChange(page + 1)}
-        aria-label="Next page"
+        aria-label={t("nextPage")}
         className="border border-white/35 px-4 py-2 text-sm font-medium text-white/60 transition-colors hover:border-white/40 hover:text-white disabled:cursor-not-allowed disabled:opacity-30 disabled:hover:border-white/35 disabled:hover:text-white/60"
       >
-        Next
+        {t("next")}
       </button>
     </nav>
   );

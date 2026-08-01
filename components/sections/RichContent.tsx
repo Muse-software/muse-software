@@ -32,7 +32,7 @@ export default function RichContent({ blocks }: { blocks: ContentBlock[] }) {
             return (
               <blockquote
                 key={i}
-                className="border-l-2 border-[#fd4601] py-1 pl-6 font-space-grotesk text-2xl font-medium leading-snug text-white md:text-3xl"
+                className="border-s-2 border-[#fd4601] py-1 ps-6 font-space-grotesk text-2xl font-medium leading-snug text-white md:text-3xl"
               >
                 &ldquo;{block.text}&rdquo;
                 {block.attribution && (

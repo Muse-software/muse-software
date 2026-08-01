@@ -1,19 +1,23 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
-import { careerRoles } from "../../lib/content";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
+import type { CareerRole } from "../../lib/content";
 
-const departments = [
-  "All",
-  ...Array.from(new Set(careerRoles.map((role) => role.department))),
-] as const;
+// `ALL` is a sentinel, not a department name: the visible "All" label is a
+// translated string. `department` itself stays an English union value in both
+// locales — it is the filter's comparison key, not display copy, the same
+// stable-value rule the form selects follow.
+const ALL = "__all__";
 
-export default function CareersList() {
-  const [active, setActive] = useState<(typeof departments)[number]>("All");
+export default function CareersList({ roles: allRoles }: { roles: CareerRole[] }) {
+  const t = useTranslations("Careers");
+  const [active, setActive] = useState<string>(ALL);
 
+  const departments = [ALL, ...Array.from(new Set(allRoles.map((role) => role.department)))];
   const roles =
-    active === "All" ? careerRoles : careerRoles.filter((role) => role.department === active);
+    active === ALL ? allRoles : allRoles.filter((role) => role.department === active);
 
   return (
     <section className="bg-[#060608] py-16 md:py-24">
@@ -30,7 +34,7 @@ export default function CareersList() {
                   : "border-white/35 text-white/60 hover:border-white/40 hover:text-white"
               }`}
             >
-              {dept}
+              {dept === ALL ? t("all") : dept}
             </button>
           ))}
         </div>
@@ -48,7 +52,7 @@ export default function CareersList() {
                 <p className="mt-2 text-sm text-white/60 group-hover:text-black/70">{role.blurb}</p>
                 {role.slug && (
                   <span className="mt-4 inline-block text-xs font-semibold uppercase tracking-[0.2em] text-[#fd4601] group-hover:text-black">
-                    View full JD →
+                    {t("viewJd")} <span aria-hidden="true" className="arrow-inline">→</span>
                   </span>
                 )}
               </>

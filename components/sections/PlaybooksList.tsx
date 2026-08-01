@@ -1,29 +1,49 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import Link from "next/link";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import Image from "next/image";
 import Pagination from "../Pagination";
-import { playbookCategories } from "../../lib/content";
-import type { PlaybookSummary, InsightCategory } from "../../lib/content";
+import type { PlaybookSummary, ContentCategory } from "../../lib/content";
 
-const categories: (InsightCategory | "All")[] = ["All", ...playbookCategories];
+// `ALL` is a sentinel, not a category name: the visible "All" label is a
+// translated string, while category names are content and arrive already
+// localized from the server.
+const ALL = "__all__";
+type Filter = ContentCategory | typeof ALL;
 
 const PAGE_SIZE = 6;
 
-export default function PlaybooksList({ playbooks }: { playbooks: PlaybookSummary[] }) {
-  const [active, setActive] = useState<(typeof categories)[number]>("All");
+/**
+ * `categories` is a prop rather than a module import. It used to read
+ * `playbookCategories` straight from `lib/content`, and because that const was
+ * derived from the `playbooks` array in the same module, this Client Component
+ * pulled all 288 KB of article bodies into the browser bundle — quietly
+ * undoing the `PlaybookSummary` boundary that the server-side prop was built
+ * to enforce. Splitting the content layer per locale would have doubled it.
+ */
+export default function PlaybooksList({
+  playbooks,
+  categories: contentCategories,
+}: {
+  playbooks: PlaybookSummary[];
+  categories: ContentCategory[];
+}) {
+  const categories: Filter[] = [ALL, ...contentCategories];
+  const t = useTranslations("Playbooks");
+  const [active, setActive] = useState<Filter>(ALL);
   const [page, setPage] = useState(1);
 
   const filtered =
-    active === "All" ? playbooks : playbooks.filter((item) => item.category === active);
+    active === ALL ? playbooks : playbooks.filter((item) => item.category === active);
   const totalPages = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
   const pageItems = useMemo(
     () => filtered.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE),
     [filtered, page]
   );
 
-  function selectCategory(cat: (typeof categories)[number]) {
+  function selectCategory(cat: Filter) {
     setActive(cat);
     setPage(1);
   }
@@ -48,13 +68,13 @@ export default function PlaybooksList({ playbooks }: { playbooks: PlaybookSummar
                   : "border-white/35 text-white/60 hover:border-white/40 hover:text-white"
               }`}
             >
-              {cat}
+              {cat === ALL ? t("all") : cat}
             </button>
           ))}
         </div>
 
         {!pageItems.length ? (
-          <p className="mt-14 text-white/50">No playbooks in this category yet.</p>
+          <p className="mt-14 text-white/50">{t("empty")}</p>
         ) : (
           <>
             <div className="mt-10 grid gap-6 md:grid-cols-2">
@@ -75,7 +95,10 @@ export default function PlaybooksList({ playbooks }: { playbooks: PlaybookSummar
                   </div>
                   <div className="p-6 md:p-8">
                     <p className="text-xs font-semibold uppercase tracking-[0.3em] text-white/50">
-                      {playbook.category} · {playbook.minutes} min read
+                      {t("cardMeta", {
+                        category: playbook.category,
+                        minutes: playbook.minutes,
+                      })}
                     </p>
                     <h3 className="mt-3 font-space-grotesk text-lg font-bold text-white md:text-xl">
                       {playbook.title}

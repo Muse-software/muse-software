@@ -1,9 +1,14 @@
-import Link from "next/link";
+import { getTranslations } from "next-intl/server";
+import { Link } from "@/i18n/navigation";
 import Image from "next/image";
-import { playbooks, toPlaybookSummary } from "../../lib/content";
+import { getPlaybooks, toPlaybookSummary } from "../../lib/content";
+import type { Locale } from "@/i18n/routing";
 
-export default function LatestPlaybooks() {
-  const latest = [...playbooks]
+export default async function LatestPlaybooks({ locale }: { locale: Locale }) {
+  const t = await getTranslations("Home.playbooks");
+  const tp = await getTranslations("Playbooks");
+
+  const latest = [...getPlaybooks(locale)]
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
     .slice(0, 3)
     .map(toPlaybookSummary);
@@ -14,17 +19,17 @@ export default function LatestPlaybooks() {
         <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#fd4601]">
-              Playbooks
+              {t("eyebrow")}
             </p>
             <h2 className="mt-3 font-space-grotesk text-2xl font-bold text-white md:text-4xl">
-              Practical guides, not theory.
+              {t("heading")}
             </h2>
           </div>
           <Link
             href="/playbooks"
             className="inline-flex shrink-0 items-center gap-3 self-start border border-black bg-white px-6 py-3 text-base font-medium font-space-grotesk text-black transition-colors duration-200 hover:bg-[#fd4601] md:self-auto"
           >
-            View all playbooks
+            {t("viewAll")}
           </Link>
         </div>
 
@@ -46,7 +51,7 @@ export default function LatestPlaybooks() {
               </div>
               <div className="p-6 md:p-8">
                 <p className="text-xs font-semibold uppercase tracking-[0.3em] text-white/50">
-                  {playbook.minutes} min read
+                  {tp("minRead", { minutes: playbook.minutes })}
                 </p>
                 <h3 className="mt-3 font-space-grotesk text-lg font-bold text-white md:text-xl">
                   {playbook.title}

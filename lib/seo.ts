@@ -1,11 +1,53 @@
 import type { Metadata } from "next";
+import { PUBLISHED_LOCALES, isPublishedLocale, type Locale } from "@/i18n/routing";
 
 const SITE_URL = "https://muse.sa";
+
+// The brand keeps its Latin wordmark in Arabic — "Muse" is not transliterated
+// (docs/i18n-plan.md §9), so the organization node is locale-independent.
 const ORGANIZATION = {
   "@type": "Organization" as const,
   name: "Muse",
   url: SITE_URL,
 };
+
+const OG_LOCALE: Record<Locale, string> = {
+  ar: "ar_SA",
+  en: "en_US",
+};
+
+// Visitors who match neither locale get English — a French speaker is better
+// served by English than by Arabic.
+const X_DEFAULT_LOCALE: Locale = "en";
+
+/**
+ * Every `path` passed into this module is locale-free ("/", "/about",
+ * "/playbooks/foo"); the locale prefix is added here so no caller has to
+ * remember to do it.
+ */
+export function localizedPath(locale: Locale, path: string): string {
+  return path === "/" ? `/${locale}` : `/${locale}${path}`;
+}
+
+/**
+ * Canonical is **self-referential per locale**. Pointing the Arabic canonical
+ * at the English URL would tell Google the Arabic pages are duplicates and
+ * drop them from the index entirely — the single highest-consequence detail
+ * in the migration (docs/i18n-plan.md §7, §10).
+ */
+export function alternatesFor(path: string, locale: Locale): Metadata["alternates"] {
+  // Only published locales are advertised — see PUBLISHED_LOCALES.
+  const languages: Record<string, string> = {};
+  for (const candidate of PUBLISHED_LOCALES) {
+    languages[candidate] = localizedPath(candidate, path);
+  }
+  languages["x-default"] = localizedPath(X_DEFAULT_LOCALE, path);
+
+  return {
+    canonical: localizedPath(locale, path),
+    languages,
+  };
+}
 
 /**
  * Single source of truth for page metadata — every page/`generateMetadata`
@@ -28,23 +70,33 @@ export function buildMetadata({
   description,
   path,
   image,
+  locale,
 }: {
   title: string;
   description: string;
   path: string;
   image?: string;
+  locale: Locale;
 }): Metadata {
   const images = [{ url: image ?? DEFAULT_OG_IMAGE }];
+  const alternateLocales = PUBLISHED_LOCALES.filter(
+    (candidate) => candidate !== locale
+  ).map((candidate) => OG_LOCALE[candidate]);
 
   return {
     title,
     description,
-    alternates: { canonical: path },
+    alternates: alternatesFor(path, locale),
+    // An unpublished locale renders, but must not enter the index while it is
+    // still serving another language's copy.
+    ...(isPublishedLocale(locale) ? {} : { robots: { index: false, follow: false } }),
     openGraph: {
       title,
       description,
-      url: path,
+      url: localizedPath(locale, path),
       images,
+      locale: OG_LOCALE[locale],
+      alternateLocale: alternateLocales,
     },
     twitter: {
       card: "summary_large_image",
@@ -56,7 +108,7 @@ export function buildMetadata({
 }
 
 /**
- * Article structured data for insight/playbook/newsletter detail pages.
+ * Article structured data for playbook detail pages.
  * `dateModified` mirrors `datePublished` — there's no separately-tracked
  * "last updated" date in the content model, so reusing the publish date is
  * the honest option rather than inventing one.
@@ -67,14 +119,16 @@ export function buildArticleJsonLd({
   path,
   image,
   datePublished,
+  locale,
 }: {
   title: string;
   description: string;
   path: string;
   image: string;
   datePublished: string;
+  locale: Locale;
 }) {
-  const url = `${SITE_URL}${path}`;
+  const url = `${SITE_URL}${localizedPath(locale, path)}`;
   return {
     "@context": "https://schema.org",
     "@type": "Article",
@@ -83,6 +137,7 @@ export function buildArticleJsonLd({
     image: image.startsWith("http") ? image : `${SITE_URL}${image}`,
     datePublished,
     dateModified: datePublished,
+    inLanguage: locale,
     author: ORGANIZATION,
     publisher: ORGANIZATION,
     mainEntityOfPage: { "@type": "WebPage", "@id": url },
@@ -110,12 +165,14 @@ export function buildJobPostingJsonLd({
   path,
   location,
   employmentType,
+  locale,
 }: {
   title: string;
   description: string;
   path: string;
   location?: string;
   employmentType?: string;
+  locale: Locale;
 }) {
   const [locality] = (location ?? "").split(",").map((part) => part.trim());
 
@@ -124,8 +181,9 @@ export function buildJobPostingJsonLd({
     "@type": "JobPosting",
     title,
     description,
+    inLanguage: locale,
     hiringOrganization: ORGANIZATION,
-    url: `${SITE_URL}${path}`,
+    url: `${SITE_URL}${localizedPath(locale, path)}`,
     ...(locality && {
       jobLocation: {
         "@type": "Place",

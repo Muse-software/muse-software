@@ -1,0 +1,526 @@
+{
+  "Common": {
+    "skipToContent": "Skip to content",
+    "previous": "Previous",
+    "next": "Next",
+    "pagination": {
+      "label": "Pagination",
+      "prev": "Prev",
+      "next": "Next",
+      "previousPage": "Previous page",
+      "nextPage": "Next page"
+    }
+  },
+
+  "Nav": {
+    "header": "Main navigation header",
+    "homeAriaLabel": "Muse home",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "socialsHeading": "Socials",
+    "socialsLabel": "Social links",
+    "empty": "No items",
+    "items": {
+      "home": { "label": "Home", "ariaLabel": "Home" },
+      "explore": { "label": "Explore", "ariaLabel": "Explore" },
+      "about": { "label": "About Us", "ariaLabel": "About us" },
+      "careers": { "label": "Careers", "ariaLabel": "Careers" },
+      "playbooks": { "label": "Playbooks", "ariaLabel": "Playbooks" },
+      "newsletter": { "label": "Newsletter", "ariaLabel": "Newsletter" },
+      "contact": { "label": "Contact Us", "ariaLabel": "Contact us" },
+      "getStarted": { "label": "Get Started", "ariaLabel": "Get started" }
+    }
+  },
+
+  "Footer": {
+    "rights": "{year} Muse Studios. All rights reserved.",
+    "playbooks": "Playbooks",
+    "careers": "Careers",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service"
+  },
+
+  "CTA": {
+    "heading": "Tell us what you’re trying to build.",
+    "button": "Get started"
+  },
+
+  "Article": {
+    "faqHeading": "Frequently asked questions"
+  },
+
+  "Home": {
+    "hero": {
+      "headlineLead": "Everyone has an AI strategy.",
+      "headlineTurn": "Almost nobody has shipped one.",
+      "tagline": "We’re a product team in Riyadh.",
+      "subtitle": "We actually build the thing, not just the deck about the thing.",
+      "cta": "Get in touch"
+    },
+    "approach": {
+      "eyebrow": "Our approach",
+      "heading": "Muse helps you shift from AI-absent to AI-native.",
+      "learnMore": "Learn more",
+      "cards": {
+        "ai-transformation": {
+          "body": "Staying AI-absent isn't a neutral choice. We find the highest-leverage places to put AI to work in how your business actually runs, and stand up the systems that do it, with guardrails from day one.",
+          "promise": "Every engagement ends with something running in production, not a slide deck."
+        },
+        "product-engineering": {
+          "body": "Good ideas stall when engineering can't move at the pace the business needs. We design and ship production-grade software, and the same senior team stays with you from first prototype to production scale.",
+          "promise": "You see it running early and often, not in one reveal at the end."
+        },
+        "gamification-experience": {
+          "body": "New tools compete with old habits, and habits win by default. We design the reward systems, onboarding and prototypes that make a change stick instead of quietly dying.",
+          "promise": "You're clicking through something real in the first week."
+        }
+      }
+    },
+    "manifesto": {
+      "heading": "The next decade of software gets decided in the next two years.",
+      "paragraph1": "The cost of building good software is collapsing. That doesn’t help you on its own. It means the gap between the companies that move and the ones that plan is about to get permanent.",
+      "paragraph2": "You could drive that from inside. Most won’t, and not for lack of ambition. Day to day operations always win the calendar.",
+      "paragraph3": "We’re not interested in your roadmap for this quarter. We’re interested in the one that matters in five years.",
+      "cta": "Get started"
+    },
+    "playbooks": {
+      "eyebrow": "Playbooks",
+      "heading": "Practical guides, not theory.",
+      "viewAll": "View all playbooks"
+    },
+    "pressure": {
+      "lead": "AI isn’t optional.",
+      "emphasis": "Waiting is the risk."
+    },
+    "ticker": "Built for the AI-native era",
+    "faq": {
+      "heading": "Questions? We have answers.",
+      "items": [
+        {
+          "q": "How is Muse different from a typical dev shop?",
+          "a": "We're a small, senior team, not a rotating cast of contractors. No 100-slide strategy decks with nothing behind them. We scope fast, build with you, and measure ourselves on what actually shipped."
+        },
+        {
+          "q": "What does AI transformation actually mean?",
+          "a": "Finding where AI removes real friction in how your business runs, building the systems that do it reliably, and getting your team actually using them. Then repeating that cycle as the tools improve."
+        },
+        {
+          "q": "Who's on the team?",
+          "a": "A small senior team based in Riyadh. The people who scope your work are the people who build it, so you're talking to engineers in the first conversation rather than a sales layer. Names and backgrounds are on the about page."
+        },
+        {
+          "q": "How does pricing work?",
+          "a": "Every engagement is scoped and priced on its own, once we understand what you're actually trying to do. Tell us the problem and we'll come back with a number and exactly what sits inside it."
+        },
+        {
+          "q": "Who do you typically work with?",
+          "a": "Teams that want to move at startup speed. That runs from a founder shipping a first product to an enterprise team trying to get an AI initiative out of pilot purgatory."
+        }
+      ]
+    }
+  },
+
+  "About": {
+    "hero": {
+      "eyebrow": "About Us",
+      "title": "Riyadh-built. Globally standard.",
+      "subtitle": "A Saudi technology studio building distinctive digital experiences — from Riyadh, for the world."
+    },
+    "tabs": {
+      "about": "About",
+      "mission": "Mission",
+      "vision": "Vision",
+      "values": "Values"
+    },
+    "about": {
+      "paragraph1": "Muse Studios is a Saudi technology company specializing in custom website development and distinctive digital design solutions. Founded in Riyadh by a team of ambitious and creative Saudi talents, the company was built on a shared vision to redefine digital experiences through innovation, craftsmanship, and forward-thinking design.",
+      "paragraph2": "Driven by passion and a commitment to excellence, we create websites that go beyond functionality — delivering unique digital experiences that reflect each brand’s identity and help businesses stand out in an increasingly competitive market. By combining modern technology, strategic thinking, and creative design, we transform ideas into impactful digital products.",
+      "paragraph3": "At Muse Studios, we believe that every project is an opportunity to leave a lasting impression. Our mission is to empower businesses with exceptional digital solutions while contributing to the growth of Saudi Arabia’s evolving technology landscape through creativity, innovation, and local talent."
+    },
+    "mission": "To empower businesses and entrepreneurs with innovative digital solutions by designing and developing exceptional websites that combine creativity, functionality, and cutting-edge technology, helping our clients build meaningful digital experiences and achieve sustainable growth.",
+    "vision": "To become one of Saudi Arabia’s leading digital studios, recognized for creating unique web experiences, inspiring innovation, and shaping the future of digital design and development through Saudi talent and global standards.",
+    "values": [
+      {
+        "name": "Innovation",
+        "copy": "We continuously explore new ideas, technologies, and creative approaches to deliver distinctive digital solutions."
+      },
+      {
+        "name": "Excellence",
+        "copy": "We are committed to the highest standards of quality in every project, from concept to launch."
+      },
+      {
+        "name": "Creativity",
+        "copy": "We believe great design is more than aesthetics — it is a powerful tool for storytelling, engagement, and impact."
+      },
+      {
+        "name": "Collaboration",
+        "copy": "We work closely with our clients and partners, building strong relationships based on trust and shared success."
+      },
+      {
+        "name": "Passion",
+        "copy": "Our passion for technology and design drives us to create meaningful work and push boundaries in everything we do."
+      },
+      {
+        "name": "Growth Mindset",
+        "copy": "We embrace learning, adaptation, and continuous improvement to stay ahead in an evolving digital world."
+      },
+      {
+        "name": "Saudi Talent",
+        "copy": "We are proud to be built by Saudi creatives and developers, contributing to the Kingdom's growing digital ecosystem and vision for the future."
+      }
+    ],
+    "beliefs": {
+      "heading": "What we believe",
+      "previous": "Previous belief",
+      "next": "Next belief",
+      "items": [
+        "Digital transformation isn't optional anymore — it's the difference between growing and getting replaced by someone who moved faster.",
+        "There are three kinds of businesses today: digitally absent, digitally competent, and digitally native. Most are stuck in the middle.",
+        "The only way to build something that lasts is to treat design, engineering, and AI as one discipline — not three separate handoffs.",
+        "Most companies don't lack ambition. They lack a team that can execute at a global standard, from right here in Saudi Arabia."
+      ]
+    },
+    "leadership": {
+      "eyebrow": "Leadership",
+      "team": [
+        {
+          "name": "Abdullah Al Subaie",
+          "title": "Chief Executive Officer",
+          "initials": "AA",
+          "bio": "Abdullah leads Muse Studios' overall strategy and client partnerships, setting the direction for how the studio grows and who it chooses to work with. He's focused on building a team that can execute at a global standard while staying rooted in the Saudi market Muse was built to serve."
+        },
+        {
+          "name": "Mohammad Aamir",
+          "title": "Chief Technology Officer",
+          "initials": "MA",
+          "bio": "Mohammad leads engineering and product delivery at Muse Studios, setting the technical bar for every client engagement. He's focused on keeping the studio's output fast without cutting corners, and on holding the same standard internally that Muse asks of the work it takes on."
+        }
+      ]
+    },
+    "careersTeaser": {
+      "eyebrow": "Join us",
+      "heading": "We're a small team, growing carefully.",
+      "body": "We're a young studio, still small on purpose. See the roles we're hiring for right now.",
+      "cta": "View careers"
+    },
+    "ticker": "Built by builders, trusted by leaders"
+  },
+
+  "Explore": {
+    "hero": {
+      "eyebrow": "Explore",
+      "title": "What we build.",
+      "subtitle": "Three ways we help teams move at startup speed. Pick one, or combine all three."
+    }
+  },
+
+  "Services": {
+    "overview": "Overview",
+    "whatThatLooksLike": "What that looks like",
+    "learnMore": "Learn more",
+    "detail": {
+      "eyebrow": "Explore",
+      "getStarted": "Get Started",
+      "whyYouNeedUs": "Why you need us",
+      "whatWeDo": "What we do",
+      "whyWorkWithUs": "Why work with us",
+      "ticker": "Built for the AI-native era"
+    }
+  },
+
+  "Playbooks": {
+    "hero": {
+      "eyebrow": "Playbooks",
+      "title": "Practical guides, not theory.",
+      "subtitle": "Step-by-step frameworks we actually use when scoping and shipping client work."
+    },
+    "all": "All",
+    "empty": "No playbooks in this category yet.",
+    "cardMeta": "{category} · {minutes} min read",
+    "minRead": "{minutes} min read",
+    "detail": {
+      "byline": "Noura Aldosary",
+      "relatedHeading": "Related playbooks",
+      "relatedMeta": "Playbook · {minutes} min read"
+    }
+  },
+
+  "Careers": {
+    "hero": {
+      "eyebrow": "Careers",
+      "title": "Come build with us.",
+      "subtitle": "We're a small, senior team based in Riyadh. These are the kinds of roles we typically grow into — reach out even if nothing below is an exact match."
+    },
+    "all": "All",
+    "viewJd": "View full JD",
+    "detail": {
+      "eyebrow": "Careers · {department}",
+      "responsibilities": "Responsibilities",
+      "requirements": "Requirements",
+      "niceToHave": "Nice to have",
+      "apply": "Apply for this role"
+    }
+  },
+
+  "Newsletter": {
+    "hero": {
+      "eyebrow": "Newsletter",
+      "title": "Get the field notes in your inbox.",
+      "subtitle": "The same thinking behind our Playbooks, sent directly — no need to check back."
+    },
+    "points": [
+      "One short, opinionated read — no filler, no 10-tip listicles.",
+      "What we're actually seeing across client engagements, not general AI news.",
+      "Sent when there's something worth saying, not on a fixed schedule."
+    ],
+    "form": {
+      "emailLabel": "Email address",
+      "emailPlaceholder": "you@company.com",
+      "submit": "Subscribe",
+      "submitting": "Subscribing…",
+      "successSubscribed": "You're on the list — the next issue lands in your inbox.",
+      "successNoted": "Thanks — we've noted your email and will add you once signups are live.",
+      "consent": "By subscribing, you agree to receive occasional emails from Muse Studios. You can unsubscribe at any time. See our <terms>Terms</terms> & <privacy>Privacy Policy</privacy>.",
+      "termsLabel": "Terms",
+      "privacyLabel": "Privacy Policy"
+    }
+  },
+
+  "Contact": {
+    "hero": {
+      "eyebrow": "Contact Us",
+      "title": "Let's talk.",
+      "subtitle": "Tell us what you're building — we usually reply the same day."
+    },
+    "methods": {
+      "whatsapp": "WhatsApp",
+      "email": "Email"
+    },
+    "orFindUsOn": "Or find us on",
+    "formHeading": "Or send us a message",
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "company": "Company (optional)",
+      "projectType": "Project type",
+      "selectOne": "Select one",
+      "budget": "Budget range",
+      "selectRange": "Select a range",
+      "message": "What are you building?",
+      "submit": "Send message",
+      "submitting": "Sending…",
+      "successDeliveredTitle": "Message sent.",
+      "successNotedTitle": "Got it, thanks.",
+      "successDeliveredBody": "We've received your message and will reply within a business day.",
+      "successNotedBody": "We've noted your message. For a faster reply in the meantime, reach us directly on WhatsApp or email.",
+      "projectTypes": {
+        "AI Transformation": "AI Transformation",
+        "Product Engineering": "Product Engineering",
+        "Gamification & Experience": "Gamification & Experience",
+        "Other": "Other"
+      },
+      "budgets": {
+        "Under 50K SAR": "Under 50K SAR",
+        "50K–150K SAR": "50K–150K SAR",
+        "150K–500K SAR": "150K–500K SAR",
+        "500K+ SAR": "500K+ SAR",
+        "Not sure yet": "Not sure yet"
+      }
+    }
+  },
+
+  "GetStarted": {
+    "hero": {
+      "eyebrow": "Get Started",
+      "title": "Ready to build with Muse?",
+      "subtitle": "From product engineering to end-to-end AI transformation, we'll help you win the next decade."
+    },
+    "points": [
+      "See how Saudi businesses are executing AI transformation end to end",
+      "Get access to our senior product and engineering talent",
+      "Build a bespoke partnership scoped to your specific bottlenecks"
+    ],
+    "form": {
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "email": "Work Email",
+      "phone": "Phone Number",
+      "company": "Company Name",
+      "jobTitle": "Job Title",
+      "annualRevenue": "Annual Revenue",
+      "selectOne": "Select one…",
+      "servicesLegend": "Which services are you interested in?",
+      "needs": "Describe your specific needs",
+      "hearAboutUs": "How did you hear about us?",
+      "other": "Please specify",
+      "submit": "Submit",
+      "submitting": "Submitting…",
+      "successTitle": "Thank you",
+      "successDelivered": "Your request has been received — our team will reach out within 1–2 business days to discuss how Muse can accelerate your goals.",
+      "successNoted": "We've noted your request. For a faster reply in the meantime, reach us directly on WhatsApp or email.",
+      "services": {
+        "AI Transformation": "AI Transformation",
+        "Product Engineering": "Product Engineering",
+        "Gamification & Experience": "Gamification & Experience",
+        "Not sure yet": "Not sure yet"
+      },
+      "revenueBands": {
+        "Under 5M SAR": "Under 5M SAR",
+        "5M–20M SAR": "5M–20M SAR",
+        "20M–75M SAR": "20M–75M SAR",
+        "75M–200M SAR": "75M–200M SAR",
+        "200M–500M SAR": "200M–500M SAR",
+        "500M+ SAR": "500M+ SAR"
+      },
+      "hearAboutOptions": {
+        "Search Engine (Google, Bing, etc)": "Search Engine (Google, Bing, etc)",
+        "AI App (ChatGPT, Perplexity, etc)": "AI App (ChatGPT, Perplexity, etc)",
+        "X": "X",
+        "LinkedIn": "LinkedIn",
+        "Instagram": "Instagram",
+        "YouTube": "YouTube",
+        "Referral": "Referral",
+        "Newsletter": "Newsletter",
+        "Other": "Other"
+      }
+    }
+  },
+
+  "Forms": {
+    "errors": {
+      "rate_limited": "Too many requests. Please try again in a minute.",
+      "invalid_body": "Invalid request body.",
+      "missing_fields_contact": "Name, email, and message are required.",
+      "missing_fields": "Please fill in all required fields.",
+      "invalid_email": "Please provide a valid email address.",
+      "email_required": "A valid email is required.",
+      "too_long": "One or more fields are too long.",
+      "generic": "Something went wrong. Please try again.",
+      "network": "Something went wrong. Please try again, or reach us on WhatsApp."
+    }
+  },
+
+  "Legal": {
+    "eyebrow": "Legal",
+    "lastUpdated": "Last updated {updated}",
+    "updated": "July 2026",
+    "privacy": {
+      "title": "Privacy Policy",
+      "sections": [
+        {
+          "heading": "Information we collect",
+          "body": "When you submit a form on this site (contact, get started, or newsletter signup), we collect the information you provide directly — such as your name, email address, and the details of your enquiry — along with technical data attached to that submission, including your IP address, browser/user-agent string, the page you submitted from, and a timestamp. We use this to respond to you and to identify and filter spam or abusive submissions."
+        },
+        {
+          "heading": "How we use it",
+          "body": "We use this information to respond to enquiries, deliver the services you request, and improve this website. We do not sell your personal information to third parties."
+        },
+        {
+          "heading": "Cookies",
+          "body": "This site may use cookies or similar technologies for basic analytics and to remember your preferences. You can control cookies through your browser settings."
+        },
+        {
+          "heading": "Your rights",
+          "body": "You can request access to, correction of, or deletion of your personal information at any time by contacting us using the details below."
+        },
+        {
+          "heading": "Contact",
+          "body": "Questions about this policy can be sent to info@muse.sa."
+        }
+      ]
+    },
+    "terms": {
+      "title": "Terms of Service",
+      "sections": [
+        {
+          "heading": "Acceptance of terms",
+          "body": "By using this website, you agree to these terms. If you don't agree, please don't use the site."
+        },
+        {
+          "heading": "Use of this site",
+          "body": "This site is provided for the purpose of learning about Muse Studios and getting in touch about potential work. You agree not to misuse the site or interfere with its normal operation."
+        },
+        {
+          "heading": "Intellectual property",
+          "body": "All content on this site — including the Muse Studios name, logo, and design — is the property of Muse Studios and may not be reproduced without permission."
+        },
+        {
+          "heading": "No warranty",
+          "body": "This site is provided as-is, without warranties of any kind, express or implied."
+        },
+        {
+          "heading": "Changes to these terms",
+          "body": "We may update these terms from time to time. Continued use of the site after changes means you accept the updated terms."
+        },
+        {
+          "heading": "Contact",
+          "body": "Questions about these terms can be sent to info@muse.sa."
+        }
+      ]
+    }
+  },
+
+  "NotFound": {
+    "eyebrow": "404",
+    "title": "This page doesn't exist.",
+    "subtitle": "The link may be out of date, or the page may have moved. Here's where to go instead.",
+    "suggestions": {
+      "home": "Home",
+      "explore": "Explore",
+      "playbooks": "Playbooks",
+      "contact": "Contact Us"
+    }
+  },
+
+  "Metadata": {
+    "siteName": "Muse",
+    "titleTemplate": "%s | Muse",
+    "siteDescription": "We are your all-in-one partner helping you set & execute your digital strategy at startup speed.",
+    "organizationDescription": "A product team in Riyadh. AI transformation, product engineering, and gamification & experience.",
+    "home": {
+      "title": "Muse Studios | AI Transformation & Product Engineering, Riyadh",
+      "description": "Everyone has an AI strategy. Almost nobody has shipped one. Muse is a product team in Riyadh working on AI transformation, product engineering, and gamification & experience."
+    },
+    "about": {
+      "title": "About Us",
+      "description": "Muse Studios is a Saudi technology company in Riyadh building distinctive digital experiences through innovation, craftsmanship, and forward-thinking design."
+    },
+    "explore": {
+      "title": "Explore",
+      "description": "AI transformation, product engineering, and gamification & experience. How Muse Studios builds."
+    },
+    "careers": {
+      "title": "Careers",
+      "description": "Join the small, senior team building Muse Studios from Riyadh."
+    },
+    "playbooks": {
+      "title": "Playbooks",
+      "description": "Practical, step-by-step guides for scoping and shipping AI and engineering work."
+    },
+    "newsletter": {
+      "title": "Newsletter",
+      "description": "Get Muse Studios' field notes on AI transformation and engineering in your inbox."
+    },
+    "contact": {
+      "title": "Contact Us",
+      "description": "Tell Muse Studios what you're building — reach us on WhatsApp, email, or social."
+    },
+    "getStarted": {
+      "title": "Get Started",
+      "description": "Tell Muse Studios about your business — we'll help you win the next decade."
+    },
+    "privacy": {
+      "title": "Privacy Policy",
+      "description": "How Muse Studios collects, uses, and protects your information."
+    },
+    "terms": {
+      "title": "Terms of Service",
+      "description": "The terms that govern use of the Muse Studios website and services."
+    }
+  },
+
+  "LanguageSwitcher": {
+    "ar": "العربية",
+    "en": "English"
+  }
+}

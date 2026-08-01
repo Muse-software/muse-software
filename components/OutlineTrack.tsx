@@ -1,5 +1,6 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import { useHorizontalScroll } from "../lib/useHorizontalScroll";
 
 type OutlineTrackProps = {
@@ -7,6 +8,7 @@ type OutlineTrackProps = {
 };
 
 export default function OutlineTrack({ items }: OutlineTrackProps) {
+  const t = useTranslations("Common");
   const { trackRef, scroll } = useHorizontalScroll();
 
   return (
@@ -29,7 +31,7 @@ export default function OutlineTrack({ items }: OutlineTrackProps) {
       <div className="mt-6 flex gap-3">
         <button
           type="button"
-          aria-label="Previous"
+          aria-label={t("previous")}
           onClick={() => scroll(-1, 20, 320)}
           className="grid h-11 w-11 place-items-center border border-white/30 text-white transition-colors hover:border-[#fd4601] hover:text-[#fd4601]"
         >
@@ -39,7 +41,7 @@ export default function OutlineTrack({ items }: OutlineTrackProps) {
         </button>
         <button
           type="button"
-          aria-label="Next"
+          aria-label={t("next")}
           onClick={() => scroll(1, 20, 320)}
           className="grid h-11 w-11 place-items-center border border-white/30 text-white transition-colors hover:border-[#fd4601] hover:text-[#fd4601]"
         >

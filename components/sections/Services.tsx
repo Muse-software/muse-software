@@ -1,8 +1,10 @@
-import Link from "next/link";
+import { getTranslations } from "next-intl/server";
+import { Link } from "@/i18n/navigation";
 import Image from "next/image";
 import dynamic from "next/dynamic";
 import Icon from "../Icon";
-import { services } from "../../lib/content";
+import { getServices } from "../../lib/content";
+import type { Locale } from "@/i18n/routing";
 
 // three.js (~518KB) code-split into its own chunk for this purely
 // decorative, aria-hidden orb — still SSR'd (Glossy3D's own render is a
@@ -10,17 +12,19 @@ import { services } from "../../lib/content";
 // the shared JS every route pays for.
 const Glossy3D = dynamic(() => import("../Glossy3D"));
 
-export default function Services() {
+export default async function Services({ locale }: { locale: Locale }) {
+  const t = await getTranslations("Services");
+
   return (
     <section className="relative bg-[#060608] py-20 md:py-28">
       <Glossy3D
         variant="ring"
         size={320}
-        className="pointer-events-none absolute -right-24 top-10 hidden opacity-70 md:block"
+        className="pointer-events-none absolute -end-24 top-10 hidden opacity-70 md:block"
       />
       <div className="relative mx-auto w-full max-w-[1100px] px-5 md:px-10">
         <div className="flex flex-col gap-14">
-          {services.map((service) => (
+          {getServices(locale).map((service) => (
             <div key={service.slug} className="border border-white/10">
               <div className="relative h-48 w-full md:h-64">
                 <Image
@@ -43,7 +47,7 @@ export default function Services() {
               <div className="mt-8 grid gap-8 md:grid-cols-2">
                 <div>
                   <p className="text-xs font-semibold uppercase tracking-[0.3em] text-white/50">
-                    Overview
+                    {t("overview")}
                   </p>
                   {service.intro.map((paragraph, i) => (
                     <p key={i} className="mt-3 text-base leading-7 text-white/70">
@@ -53,7 +57,7 @@ export default function Services() {
                 </div>
                 <div>
                   <p className="text-xs font-semibold uppercase tracking-[0.3em] text-white/50">
-                    What that looks like
+                    {t("whatThatLooksLike")}
                   </p>
                   <ul className="mt-3 space-y-2">
                     {service.whatWeDo.map((item) => (
@@ -73,8 +77,8 @@ export default function Services() {
                 href={`/services/${service.slug}`}
                 className="mt-8 inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.2em] text-[#fd4601] transition-colors hover:text-white"
               >
-                Learn more
-                <span aria-hidden="true">→</span>
+                {t("learnMore")}
+                <span aria-hidden="true" className="arrow-inline">→</span>
               </Link>
               </div>
             </div>
