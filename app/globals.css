@@ -186,6 +186,42 @@
     font-family: "Space Grotesk", var(--font-plex-arabic), sans-serif;
   }
 
+  /*
+    Hero headline highlight — the white block on the second line.
+
+    It is a highlighter, not a card: the fill should hug the glyphs. That means
+    the painted box has to track the *ink* extent, and the two scripts differ
+    far too much for one set of metrics. Measured from the real loaded faces at
+    700 weight via canvas actualBoundingBox, in em:
+
+                      ink ascent  ink descent  ink height   font line box
+      Space Grotesk        0.720        0.200       0.920            1.270
+      Plex Sans Arabic     0.932        0.460       1.392            1.510
+
+    Arabic ink is 51% taller and its descenders drop more than twice as far.
+    A single tight line-height leaves ق, ي, ب and ذ hanging outside the white
+    and reading as clipped, which is exactly what happened at leading 1.15.
+
+    So each script gets a line-height solved to sit ~0.05em above its ink, and
+    the leftover descent is added as padding-bottom rather than as symmetric
+    leading — symmetric leading deep enough for the descenders would put an
+    equal gap on top and stop it hugging anything. Both land on the same 0.05em
+    optical gap all round.
+
+    Scoped by [lang="ar"] to match the font stacks above. Everything is in em
+    so the hug survives the clamped font size at every viewport.
+  */
+  .hero-highlight {
+    line-height: 0.85;
+    padding-block: 0 0.17em;
+    padding-inline: 0.08em;
+  }
+
+  [lang="ar"] .hero-highlight {
+    line-height: 1.29;
+    padding-block: 0 0.2em;
+  }
+
   /* Muse Studios crosshair grid texture — the brand guideline's real
      double-rule crosshair pattern (Patterns-1), traced from
      docs/Assets/Powerpoint-02.jpg rather than approximated. */

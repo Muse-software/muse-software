@@ -95,20 +95,12 @@ export default function Hero() {
             style={{ fontSize: "clamp(1.1rem, 5.2vw, 4.75rem)" }}
           >
             <span className="block whitespace-nowrap">{t("headlineLead")}</span>
-            {/* Highlighter, not a card: the fill hugs the glyphs. Gradient
-                hairline comes from the two-layer background trick, maroon
-                clipped to the padding box and the orange-to-amber ramp to the
-                border box, showing through a transparent 1px border. Square
-                corners are deliberate. */}
-            <span
-              className="block whitespace-nowrap px-[0.18em] py-[0.04em] text-[#fe4701]"
-              style={{
-                border: "1px solid transparent",
-                borderRadius: 0,
-                background:
-                  "linear-gradient(#4C0014, #4C0014) padding-box, linear-gradient(100deg, #fe4701, #ffbd0a) border-box",
-              }}
-            >
+            {/* Highlighter, not a card: a plain white fill hugging the glyphs,
+                no outline, square corners. The box metrics are per-script and
+                live in globals.css under `.hero-highlight` — Arabic ink is
+                half again as tall as Latin and its descenders drop twice as
+                far, so one line-height cannot hug both. */}
+            <span className="hero-highlight block whitespace-nowrap bg-white text-black">
               {t("headlineTurn")}
             </span>
           </h1>
