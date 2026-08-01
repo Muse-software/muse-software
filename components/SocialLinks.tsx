@@ -1,3 +1,5 @@
+import { getTranslations } from "next-intl/server";
+
 /**
  * Single source of truth for social icon glyphs and the hover interaction
  * (siblings dim, hovered one turns accent orange) — reused everywhere
@@ -32,6 +34,14 @@ export const socialIconGlyphs: Record<string, React.ReactNode> = {
   ),
 };
 
+/**
+ * `label` is an identity key, not display copy: it selects the glyph from
+ * `socialIconGlyphs`, keys the Footer/contact subset filters, and is the
+ * React key. It deliberately stays English in every locale. The accessible
+ * name is a separate lookup (`Common.socials.<label>`) because these links
+ * are icon-only — the aria-label is the *only* name a screen reader gets, so
+ * "Email" has to translate even though the four platform names do not.
+ */
 export type Social = { label: string; href: string };
 
 /**
@@ -51,7 +61,7 @@ export const allSocials: Social[] = [
   { label: "Email", href: "mailto:info@muse.sa" },
 ];
 
-export default function SocialLinks({
+export default async function SocialLinks({
   socials,
   className,
   iconClassName,
@@ -60,6 +70,8 @@ export default function SocialLinks({
   className?: string;
   iconClassName?: string;
 }) {
+  const t = await getTranslations("Common");
+
   return (
     <ul role="list" className={`social-links flex items-center gap-4 ${className ?? ""}`}>
       {socials.map((social) => (
@@ -68,7 +80,7 @@ export default function SocialLinks({
             href={social.href}
             target="_blank"
             rel="noopener noreferrer"
-            aria-label={social.label}
+            aria-label={t(`socials.${social.label}`)}
             className="social-links-item -m-1 inline-flex items-center p-1"
           >
             <span className={iconClassName ?? "h-5 w-5 [&_svg]:h-full [&_svg]:w-full"}>

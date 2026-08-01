@@ -9,6 +9,13 @@
       "next": "Next",
       "previousPage": "Previous page",
       "nextPage": "Next page"
+    },
+    "socials": {
+      "LinkedIn": "LinkedIn",
+      "X": "X",
+      "Instagram": "Instagram",
+      "WhatsApp": "WhatsApp",
+      "Email": "Email"
     }
   },
 
@@ -21,14 +28,14 @@
     "socialsLabel": "Social links",
     "empty": "No items",
     "items": {
-      "home": { "label": "Home", "ariaLabel": "Home" },
-      "explore": { "label": "Explore", "ariaLabel": "Explore" },
-      "about": { "label": "About Us", "ariaLabel": "About us" },
-      "careers": { "label": "Careers", "ariaLabel": "Careers" },
-      "playbooks": { "label": "Playbooks", "ariaLabel": "Playbooks" },
-      "newsletter": { "label": "Newsletter", "ariaLabel": "Newsletter" },
-      "contact": { "label": "Contact Us", "ariaLabel": "Contact us" },
-      "getStarted": { "label": "Get Started", "ariaLabel": "Get started" }
+      "home": "Home",
+      "explore": "Explore",
+      "about": "About Us",
+      "careers": "Careers",
+      "playbooks": "Playbooks",
+      "newsletter": "Newsletter",
+      "contact": "Contact Us",
+      "getStarted": "Get Started"
     }
   },
 
@@ -239,7 +246,6 @@
     "cardMeta": "{category} · {minutes} min read",
     "minRead": "{minutes} min read",
     "detail": {
-      "byline": "Noura Aldosary",
       "relatedHeading": "Related playbooks",
       "relatedMeta": "Playbook · {minutes} min read"
     }

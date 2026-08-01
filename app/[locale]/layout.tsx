@@ -38,8 +38,6 @@ const NAV_ROUTES = [
   { key: "getStarted", link: "/get-started" },
 ] as const;
 
-const socialItems = allSocials.map(({ label, href }) => ({ label, link: href }));
-
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
@@ -107,9 +105,17 @@ export default async function LocaleLayout({
   const common = await getTranslations("Common");
 
   const menuItems = NAV_ROUTES.map(({ key, link }) => ({
-    label: t(`items.${key}.label`),
-    ariaLabel: t(`items.${key}.ariaLabel`),
+    label: t(`items.${key}`),
     link,
+  }));
+
+  // Built here rather than at module scope because the accessible name is a
+  // translation lookup. `label` stays the English identity key (it selects the
+  // glyph inside the menu); `ariaLabel` is what a screen reader announces.
+  const socialItems = allSocials.map(({ label, href }) => ({
+    label,
+    ariaLabel: common(`socials.${label}`),
+    link: href,
   }));
 
   return (

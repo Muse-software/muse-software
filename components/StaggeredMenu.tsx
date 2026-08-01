@@ -7,11 +7,15 @@ import MuseLogo from './MuseLogo';
 
 export interface StaggeredMenuItem {
   label: string;
-  ariaLabel: string;
   link: string;
 }
 export interface StaggeredMenuSocialItem {
+  /** Identity key — selects the glyph and stays English in every locale. */
   label: string;
+  /** Accessible name. These links are icon-only, so this is the only name a
+   *  screen reader gets; "Email" translates even though the platform names
+   *  do not. Falls back to `label` when the caller supplies nothing. */
+  ariaLabel?: string;
   link: string;
 }
 /**
@@ -474,6 +478,14 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
                 items.map((it, idx) => {
                   const isExternal = it.link.startsWith('http') || it.link.startsWith('mailto:');
                   const linkClass = "sm-panel-item relative text-black font-semibold cursor-pointer leading-none tracking-[-2px] uppercase transition-[background,color] duration-150 ease-linear inline-block no-underline pe-[1.4em]";
+                  // The aria-label repeats the visible label rather than
+                  // varying from it. It cannot simply be dropped: when
+                  // numbering is on, `.sm-panel-item::after` sets
+                  // `content: counter(smItem)`, and CSS generated content
+                  // counts toward the accessible name — the link would
+                  // announce as "About Us 03". Naming it explicitly keeps the
+                  // decorative counter out while staying an exact match for
+                  // the visible text, which is what voice-control users speak.
                   const inner = (
                     <span className="sm-panel-itemLabel inline-block [transform-origin:50%_100%] will-change-transform">
                       {it.label}
@@ -487,7 +499,7 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
                           href={it.link}
                           target="_blank"
                           rel="noopener noreferrer"
-                          aria-label={it.ariaLabel}
+                          aria-label={it.label}
                           data-index={idx + 1}
                           onClick={closeMenu}
                         >
@@ -497,7 +509,7 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
                         <Link
                           className={linkClass}
                           href={it.link}
-                          aria-label={it.ariaLabel}
+                          aria-label={it.label}
                           data-index={idx + 1}
                           onClick={closeMenu}
                         >
@@ -531,16 +543,16 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
                         href={s.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        aria-label={s.label}
+                        aria-label={s.ariaLabel ?? s.label}
                         className="sm-socials-link font-medium text-[#111] no-underline relative inline-flex items-center gap-2 p-2 -m-2 transition-[color,opacity] duration-300 ease-linear [&_svg]:w-6 [&_svg]:h-6"
                       >
                         {socialIcons[s.label] ? (
                           <>
                             {socialIcons[s.label]}
-                            <span className="sr-only">{s.label}</span>
+                            <span className="sr-only">{s.ariaLabel ?? s.label}</span>
                           </>
                         ) : (
-                          s.label
+                          (s.ariaLabel ?? s.label)
                         )}
                       </a>
                     </li>

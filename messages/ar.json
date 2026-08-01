@@ -9,6 +9,13 @@
       "next": "التالي",
       "previousPage": "الصفحة السابقة",
       "nextPage": "الصفحة التالية"
+    },
+    "socials": {
+      "LinkedIn": "LinkedIn",
+      "X": "X",
+      "Instagram": "Instagram",
+      "WhatsApp": "WhatsApp",
+      "Email": "البريد الإلكتروني"
     }
   },
 
@@ -21,14 +28,14 @@
     "socialsLabel": "روابط التواصل",
     "empty": "لا توجد عناصر",
     "items": {
-      "home": { "label": "الرئيسية", "ariaLabel": "الرئيسية" },
-      "explore": { "label": "استكشف", "ariaLabel": "استكشف" },
-      "about": { "label": "من نحن", "ariaLabel": "من نحن" },
-      "careers": { "label": "الوظائف", "ariaLabel": "الوظائف" },
-      "playbooks": { "label": "الأدلة العملية", "ariaLabel": "الأدلة العملية" },
-      "newsletter": { "label": "النشرة البريدية", "ariaLabel": "النشرة البريدية" },
-      "contact": { "label": "تواصل معنا", "ariaLabel": "تواصل معنا" },
-      "getStarted": { "label": "ابدأ الآن", "ariaLabel": "ابدأ الآن" }
+      "home": "الرئيسية",
+      "explore": "استكشف",
+      "about": "من نحن",
+      "careers": "الوظائف",
+      "playbooks": "الأدلة العملية",
+      "newsletter": "النشرة البريدية",
+      "contact": "تواصل معنا",
+      "getStarted": "ابدأ الآن"
     }
   },
 
@@ -239,7 +246,6 @@
     "cardMeta": "{category} · {minutes, plural, one {دقيقة واحدة} two {دقيقتان} few {{minutes, number, latn} دقائق} other {{minutes, number, latn} دقيقة}} للقراءة",
     "minRead": "{minutes, plural, one {دقيقة واحدة} two {دقيقتان} few {{minutes, number, latn} دقائق} other {{minutes, number, latn} دقيقة}} للقراءة",
     "detail": {
-      "byline": "نورة الدوسري",
       "relatedHeading": "أدلة ذات صلة",
       "relatedMeta": "دليل عملي · {minutes, plural, one {دقيقة واحدة} two {دقيقتان} few {{minutes, number, latn} دقائق} other {{minutes, number, latn} دقيقة}} للقراءة"
     }

@@ -90,7 +90,6 @@ export default async function PlaybookPage({
       })}
       title={playbook.title}
       date={playbook.date}
-      byline={t("detail.byline")}
       featuredImage={playbook.featuredImage}
       content={playbook.content}
       faqs={playbook.faqs}

@@ -63,7 +63,19 @@ export function alternatesFor(path: string, locale: Locale): Metadata["alternate
 // title/description/url inheriting from the homepage), that auto-merge
 // never kicks in — so pages without their own photo need to reference the
 // generated default explicitly, or they'd end up with no image at all.
-const DEFAULT_OG_IMAGE = "/opengraph-image";
+//
+// The two locales are produced by different pipelines on purpose. English is
+// the `next/og` (Satori) route. Arabic cannot be: Satori shapes Arabic glyphs
+// but does not run the bidi algorithm, so a sentence renders with its words
+// mirrored, and neither `direction: rtl` nor the RLE/RLM control characters
+// change that (measured on Next 16.1.6 — the control characters also render as
+// visible tofu). The Arabic card is therefore pre-rendered by headless
+// Chromium, which does standard UAX#9 bidi, via `scripts/build-og-image-ar.mjs`.
+// The card carries no per-page content, so nothing is lost by baking it.
+const DEFAULT_OG_IMAGE: Record<Locale, string> = {
+  en: "/opengraph-image",
+  ar: "/og/opengraph-image-ar.png",
+};
 
 export function buildMetadata({
   title,
@@ -78,7 +90,7 @@ export function buildMetadata({
   image?: string;
   locale: Locale;
 }): Metadata {
-  const images = [{ url: image ?? DEFAULT_OG_IMAGE }];
+  const images = [{ url: image ?? DEFAULT_OG_IMAGE[locale] }];
   const alternateLocales = PUBLISHED_LOCALES.filter(
     (candidate) => candidate !== locale
   ).map((candidate) => OG_LOCALE[candidate]);
