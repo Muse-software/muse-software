@@ -77,7 +77,7 @@ export default async function Services({ locale }: { locale: Locale }) {
                 href={`/services/${service.slug}`}
                 className="mt-8 inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.2em] text-[#fd4601] transition-colors hover:text-white"
               >
-                {t("learnMore")}
+                {service.cta}
                 <span aria-hidden="true" className="arrow-inline">→</span>
               </Link>
               </div>

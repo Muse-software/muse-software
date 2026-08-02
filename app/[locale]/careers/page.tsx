@@ -1,5 +1,6 @@
 import SubpageHero from "@/components/sections/SubpageHero";
 import CareersList from "@/components/sections/CareersList";
+import CardDither from "@/components/CardDither";
 import CTA from "@/components/sections/CTA";
 import { getCareerRoles } from "@/lib/content";
 import { buildMetadata } from "@/lib/seo";
@@ -26,7 +27,8 @@ export default async function CareersPage({ params }: Props) {
   const t = await getTranslations("Careers.hero");
 
   return (
-    <div className="min-h-screen bg-[#060608] text-white">
+    <div className="relative isolate min-h-screen bg-[#060608] text-white">
+      <CardDither />
       <SubpageHero eyebrow={t("eyebrow")} title={t("title")} subtitle={t("subtitle")} />
       <CareersList roles={getCareerRoles(locale)} />
       <CTA />

@@ -1,4 +1,5 @@
 import { getLocale, getTranslations } from "next-intl/server";
+import CardDither from "@/components/CardDither";
 import SubpageHero from "@/components/sections/SubpageHero";
 import { Link } from "@/i18n/navigation";
 import { localeDirection, type Locale } from "@/i18n/routing";
@@ -39,22 +40,24 @@ export default async function NotFound() {
     <div
       lang={locale}
       dir={localeDirection[locale]}
-      className={`${fontVariables} min-h-screen bg-[#060608] text-white antialiased`}
+      className={`${fontVariables} relative isolate min-h-screen bg-[#060608] text-white antialiased`}
     >
+      <CardDither />
       <SubpageHero
         eyebrow={t("eyebrow")}
         title={t("title")}
         subtitle={t("subtitle")}
       />
 
-      <section className="bg-[#060608] pb-20 md:pb-28">
+      <section className="pb-20 md:pb-28">
         <div className="mx-auto w-full max-w-[1400px] px-5 md:px-10">
           <div className="grid gap-4 border-t border-white/10 pt-10 sm:grid-cols-2">
             {suggestions.map((suggestion) => (
               <Link
                 key={suggestion.href}
                 href={suggestion.href}
-                className="group flex items-center justify-between gap-6 border border-white/15 p-6 transition-colors duration-300 hover:border-[#fd4601] hover:bg-[#fd4601] hover:text-black md:p-8"
+                data-dither-card
+                className="group flex items-center justify-between gap-6 border border-white/15 p-6 transition-colors duration-300 hover:border-[#fd4601] md:p-8"
               >
                 <span className="font-space-grotesk text-lg font-bold md:text-xl">
                   {t(`suggestions.${suggestion.key}`)}

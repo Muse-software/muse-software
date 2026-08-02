@@ -61,10 +61,12 @@ Full values and mix ratios in [[Brand Colour & Type]]. Short version: deep maroo
 
 The deck uses a thin crosshair grid pattern as its recurring texture, at low contrast over both the orange and the maroon. It is the cheapest way to make a layout feel like ours. SVG elements are in `99 Meta/Attachments/Brand` and in the `Export/SVG` folder outside the vault.
 
+**Superseded on the website, 2026-08-01.** The crosshair came off and the dither replaced it as the only texture, see [[Brand Texture]] and [[Decision Log]]. Used as a full bleed wash behind half empty sections it read as wallpaper thrown on top. The deck and print are not affected by that call and still use the crosshair.
+
 ## Copy that ships with the brand
 
 The About, Mission and Vision in deck v0.02 describe a website development agency and are being replaced, see [[Deck Copy v0.03]]. Do not reuse that text anywhere: not on the website, not in a bio, not in a proposal.
 
 ## Voice
 
-See [[Brand Voice]]. Two registers, and the public one is deliberately not corporate.
+See [[Brand Voice]]. Three registers, and the public one is deliberately not corporate.

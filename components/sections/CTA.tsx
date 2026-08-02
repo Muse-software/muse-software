@@ -1,40 +1,74 @@
 import { getTranslations } from "next-intl/server";
-import { Link } from "@/i18n/navigation";
-import WordReveal from "../WordReveal";
+import DitherCursor from "../DitherCursor";
+import DitherField from "../DitherField";
 import MuseLogo from "../MuseLogo";
-import Motion3D from "../Motion3D";
+import PillButton from "../PillButton";
+import WordReveal from "../WordReveal";
 
+/**
+ * Closing CTA: a rounded panel inset in the page black, with dither bands
+ * inside its top and bottom edges and the pointer-driven ink shader running
+ * between them.
+ *
+ * It was an orange panel with black ink until 2026-08-02, and the problem was
+ * where it sits. This is the last thing before the footer, and the footer is a
+ * full orange panel of its own — so the page ended on two orange blocks
+ * stacked with a strip of black between them, and the CTA read as a piece of
+ * the footer rather than as the close of the argument. Inverting it puts the
+ * orange somewhere it does work: the type and the ink, on black.
+ *
+ * `bg-black` is a shade *under* the page's `#060608` rather than over it, so
+ * the panel is not outlined by a lighter fill. What makes it read as a panel
+ * is the hairline orange border and the dither reaching its edges — which is
+ * the same thing the texture was doing on the orange version, just now
+ * carrying the shape as well as the surface.
+ *
+ * The bands exist because the ink shader paints nothing at all until the
+ * pointer moves: without them the panel was flat for anyone who scrolled here
+ * and stopped, and flat forever on a phone. They dissolve toward the middle
+ * from both ends, so the copy and the button sit on clean black.
+ */
 export default async function CTA() {
   const t = await getTranslations("CTA");
 
   return (
-    <section className="bg-[#060608] px-5 pt-24 md:px-10 md:pt-32">
-      <div className="mx-auto flex w-full max-w-[1400px] flex-col items-center gap-8 text-center">
-        <MuseLogo showWordmark={false} iconClassName="h-10 w-auto text-[#fd4601]" />
-        <WordReveal
-          as="h2"
-          className="font-space-grotesk text-4xl font-bold leading-[1.05] text-white md:text-6xl"
-        >
-          {t("heading")}
-        </WordReveal>
-        <Link
-          href="/get-started"
-          className="inline-flex items-center gap-5 border border-black bg-white py-3 ps-6 pe-4 text-lg font-medium font-space-grotesk text-black transition-colors duration-200 hover:bg-[#fd4601]"
-        >
-          {t("button")}
-          <svg width="18" height="18" viewBox="0 0 30 30" fill="none" className="arrow-inline" aria-hidden="true">
-            <rect width="30" height="30" fill="black" />
-            <path
-              d="M10.0066 22V21.0033H11.0053V20.0066H12.004V19.0099H13.0026V18.0132H14.0013V17.0165H15V16.0198H15.9987V15.0231H16.9974V14.0264H17.996V13.0297H18.9947V12.033H19.9934V17.0316H22V8H13.004V10.0026H18.0145V10.9993H17.0159V11.996H16.0172V12.9927H15.0185V13.9895H14.0198V14.9862H13.0211V15.9829H12.0225V16.9796H11.0238V17.9763H10.0251V18.973H9.02642V19.9697H8V21.9723H10.0066V22Z"
-              fill="white"
-            />
-          </svg>
-        </Link>
-      </div>
+    <section className="px-5 py-24 md:px-10 md:py-32">
+      <div className="relative mx-auto w-full max-w-[1400px] overflow-hidden rounded-3xl border border-[#fd4601]/25 bg-black px-6 py-16 text-center text-[#fd4601] md:rounded-[2rem] md:px-12 md:py-24">
+        {/* Decorative, desktop-only, and unmounted until the section is near
+            the viewport — see DitherCursor. `absolute` keeps it inside the
+            panel's rounded clip instead of covering the page. Orange now, and
+            at full opacity: the old 10% was tuned for black ink bleeding into
+            a saturated orange field, and orange on black has the opposite
+            problem — too little of it and the stroke never resolves. */}
+        <DitherCursor color="#fd4601" radius={0.1} opacity={0.55} position="absolute" />
 
-      <div className="relative mx-auto mt-16 h-64 w-full max-w-[1400px] overflow-hidden md:h-96">
-        <Motion3D frame={3} variant="float" className="opacity-80" />
-        <div className="absolute inset-0 bg-linear-to-t from-[#060608] via-transparent to-transparent" />
+        {/* The panel's two edges, as one masked field. Same noise-driven
+            shader as the subpage heroes; the CSS lattice that was here first
+            read as a halftone screen laid over the panel rather than as the
+            panel's own surface. The mask is in `.cta-bands`. */}
+        <DitherField className="cta-bands opacity-70" />
+
+        <div className="relative z-10 flex flex-col items-center gap-8">
+          <MuseLogo showWordmark={false} iconClassName="h-10 w-auto text-[#fd4601]" />
+
+          <WordReveal
+            as="h2"
+            className="max-w-[18ch] font-space-grotesk text-4xl font-bold leading-[1.05] md:text-6xl"
+          >
+            {t("heading")}
+          </WordReveal>
+
+          {/* Full #fd4601, not a tint of it. The orange is 6.06:1 on black and
+              passes AA comfortably; at 80% it drops to 4.14:1 and fails for
+              body copy. So the subheading is separated from the heading by
+              size and weight rather than by fading the colour, which is the
+              move the orange panel could afford and this one cannot. */}
+          <p className="max-w-[46ch] text-lg leading-relaxed">{t("subheading")}</p>
+
+          <PillButton href="/get-started" variant="onDark">
+            {t("button")}
+          </PillButton>
+        </div>
       </div>
     </section>
   );

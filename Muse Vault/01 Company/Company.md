@@ -23,6 +23,7 @@ Muse Studios. Founded in Riyadh. A product company that funds itself with client
 - [[Brand Colour & Type]] exact values, ratios, fonts
 - [[Brand Voice]] three registers, and the words we do not use
 - [[Website Voice]] the register the site is written in, and what we are not allowed to claim yet
+- [[Habbar Voice Study]] a read of the site we want to sound like, what to take from it and what to leave
 - [[Deck Copy v0.03]] replacement About, Mission, Vision and bios, in both languages
 
 ## Source material

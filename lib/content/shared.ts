@@ -28,6 +28,13 @@ export type Service = {
   slug: string;
   title: string;
   summary: string;
+  /**
+   * The card CTA. Per service rather than one shared "Learn more", because
+   * three different headings ending in the identical label tells the reader
+   * the three cards are the same thing. See "Applied" point 4 in the Website
+   * Voice note in the vault. Read by both Approach and Services.
+   */
+  cta: string;
   image: string;
   icon: "gear" | "shield" | "share";
   intro: string[];

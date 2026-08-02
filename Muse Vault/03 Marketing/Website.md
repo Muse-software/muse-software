@@ -106,7 +106,17 @@ Was the top issue, and it is now resolved for client names. Recorded here rather
 
 Principle, now written down in [[Website Voice#We do not claim what is not decided]]: removing a section is honest, keeping a fake one is not. [[Marketing#Where things stand today]] says case studies: none yet, no client work delivered. The site now agrees with that.
 
-Two consequences worth knowing. `/explore` lost its only maroon block, so the page runs near black end to end until something real replaces it. And the ticker on `/about` still reads "Built by builders, trusted by leaders", which is a trust claim with no clients behind it and belongs in the same clean up.
+One consequence worth knowing. `/explore` lost its only maroon block, so the page runs near black end to end until something real replaces it. The `/about` ticker was the other loose end here and it was cleaned up on 2026-08-01, see below.
+
+### The about page, rewritten 2026-08-01
+
+`/about` had been running the dead v0.02 deck copy in both locales, the text the [[Decision Log]] killed on 2026-07-30 for describing a custom website development agency and for using five of the phrases banned in [[Brand Voice]]. Replaced from [[Deck Copy v0.03]]. The seven generic values went with it, replaced by the six in that note, each one line and each of them something a competitor could not post unchanged.
+
+**One deliberate departure from the source, and it needs to be known.** [[Deck Copy v0.03]] leads on "we build and publish our own apps". That was written on 2026-07-30. [[Website Voice#We do not claim what is not decided]] came the day after and is stricter, and [[Ventures]] is three ideas with none built, so an unqualified claim of published apps would send a reader looking for a catalogue that does not exist. The Ventures half was dropped and the page now describes only the client work, the standard and the Saudi position, all of which are true today.
+
+That leaves [[Deck Copy v0.03]] and the live site disagreeing on what Muse is. The deck says two pillars, the site says one. Worth resolving in the note rather than leaving the website as the accidental source of truth, and it resolves itself the day a venture ships.
+
+The `/about` ticker went from "Built by builders, trusted by leaders" to "Nothing ships that we wouldn't use ourselves", which is a standard we actually hold rather than a trust claim we cannot support. The Arabic is "لا نطلق ما لا نستخدمه نحن", already the wording used in `lib/content/ar/services.ts`.
 
 ### The content history does not exist
 
@@ -197,8 +207,8 @@ Both are documented in the repo README, and both are decisions rather than bugs.
 In order.
 
 - [x] Remove the invented client blocks. Done 2026-08-01, see [[#The invented blocks, removed 2026-08-01]]
-- [ ] Replace the `/about` copy, which is still the dead v0.02 deck text, with [[Deck Copy v0.03]]
-- [ ] Drop the "trusted by leaders" ticker on `/about`, same problem as the logos
+- [x] Replace the `/about` copy, which was still the dead v0.02 deck text, with [[Deck Copy v0.03]]. Done 2026-08-01, both locales, see [[#The about page, rewritten 2026-08-01]]
+- [x] Drop the "trusted by leaders" ticker on `/about`. Done 2026-08-01, replaced with "Nothing ships that we wouldn't use ourselves", which is a real standard rather than a trust claim
 - [x] Decide what the 28 playbooks are. Answered 2026-08-01, they are real anonymised work
 - [ ] Say so on `/playbooks`, in one line, so real experience stops reading as generated
 - [ ] Reconcile "no client work delivered" in [[Marketing#Where things stand today]] with 28 write ups of delivered work
@@ -207,13 +217,15 @@ In order.
 - [ ] Real headshots for [[Roles]], or drop the leadership block
 - [ ] Reconcile [[Marketing#Where things stand today]] with what is actually live
 - [ ] Put the two nav accessibility fixes back, `inert` on the closed panel and a Tab trap while open. Dropped with the nav revert, neither caused the break
+- [ ] Finish the Arabic spoken pass. The homepage was already spoken and `/about` and careers are done; what is left is the `/explore`, `/newsletter`, `/contact` and `/get-started` subtitles plus the intros in `lib/content/ar/services.ts`. See [[Habbar Voice Study#What this leaves outstanding]]. Has to happen before the native review, not after
+- [ ] Decide whether the English approach heading follows the Arabic from AI-absent to uses against builds, or the two stay deliberately different. See [[Arabic Termbase#The coined pair]]
 - [ ] Point the socials at it, see [[Channels#Activation checklist]]
 
 ## Open questions
 
 1. ~~**What are the 28 playbooks?**~~ Answered 2026-08-01: real previous work, anonymised because most clients cannot be named. See [[#The content history does not exist]]. What remains is how to say so on the page, and whether to restate [[Marketing#Where things stand today]]
 2. **Is a backdated archive acceptable?** Insights and the newsletter both carry dates implying a history we do not have. Either accept it as normal marketing practice and say so once, or restate the dates. Not something to leave undecided by accident
-3. **When does Arabic land?** English only today. Our claimed edge is Arabic and RTL. A site that does not demonstrate it undercuts the pitch
+3. **When does Arabic land?** Built and drafted, not published. `/ar` is gated behind `PUBLISHED_LOCALES` until the native review in [[Brand Voice#Arabic voice]] passes, and the review is now behind the register change of 2026-08-01, so the spoken pass above comes first. Our claimed edge is Arabic and RTL, and a site that does not demonstrate it undercuts the pitch, which is what makes this the longest running open item rather than a nice to have
 4. **Who publishes?** Content in code means every article needs an engineer. Fine now, a bottleneck the moment [[Marketing Lead Brief]] is filled
 5. **What gets measured?** No analytics found in the code. Nothing currently tells us whether any of this works, see [[Measurement]]
 

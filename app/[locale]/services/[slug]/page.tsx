@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import { Link } from "@/i18n/navigation";
 import SubpageHero from "@/components/sections/SubpageHero";
+import PageDither from "@/components/PageDither";
 import OutlineTrack from "@/components/OutlineTrack";
 import Ticker from "@/components/Ticker";
 import CTA from "@/components/sections/CTA";
@@ -47,7 +48,10 @@ export default async function ServiceDetailPage({
   const t = await getTranslations("Services.detail");
 
   return (
-    <div className="min-h-screen bg-[#060608] text-white">
+    /* `relative isolate` and the bare sections below are PageDither's two
+       requirements — see the component. */
+    <div className="relative isolate min-h-screen bg-[#060608] text-white">
+      <PageDither />
       <SubpageHero
         eyebrow={t("eyebrow")}
         title={service.title}
@@ -56,7 +60,7 @@ export default async function ServiceDetailPage({
       />
 
       {/* Intro / context */}
-      <section className="bg-[#060608] pb-4">
+      <section className="pb-4">
         <div className="mx-auto w-full max-w-[900px] px-5 md:px-10">
           <div className="space-y-4 border-t border-white/10 pt-10">
             {service.intro.map((paragraph, i) => (
@@ -74,8 +78,10 @@ export default async function ServiceDetailPage({
         </div>
       </section>
 
-      {/* Strategy / What we believe + pillars */}
-      <section className="bg-[#4C0014] py-16 md:py-24">
+      {/* Strategy / What we believe + pillars. The maroon these two sections
+          carried came off on 2026-08-02 — see Manifesto. The page wash is what
+          separates them from the black either side now. */}
+      <section className="py-16 md:py-24">
         <div className="mx-auto w-full max-w-[1000px] px-5 md:px-10">
           <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#fd4601]">
             {service.approachHeading}
@@ -112,7 +118,7 @@ export default async function ServiceDetailPage({
       </section>
 
       {/* Why you need us */}
-      <section className="bg-[#060608] py-16 md:py-24">
+      <section className="py-16 md:py-24">
         <div className="mx-auto w-full max-w-[900px] px-5 md:px-10">
           <p className="text-xs font-semibold uppercase tracking-[0.3em] text-white/50">
             {t("whyYouNeedUs")}
@@ -132,7 +138,7 @@ export default async function ServiceDetailPage({
       </section>
 
       {/* What we do */}
-      <section className="bg-[#060608] pb-16 md:pb-24">
+      <section className="pb-16 md:pb-24">
         <div className="mx-auto w-full max-w-[1100px] px-5 md:px-10">
           <p className="text-xs font-semibold uppercase tracking-[0.3em] text-white/50">
             {t("whatWeDo")}
@@ -148,7 +154,7 @@ export default async function ServiceDetailPage({
 
       {/* Why work with us (optional) */}
       {service.whyWorkWithUs && (
-        <section className="bg-[#4C0014] py-16 md:py-24">
+        <section className="py-16 md:py-24">
           <div className="mx-auto w-full max-w-[1000px] px-5 md:px-10">
             <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#fd4601]">
               {t("whyWorkWithUs")}

@@ -11,15 +11,18 @@
       "Email": "Email"
     }
   },
-
   "Nav": {
     "header": "Main navigation header",
     "homeAriaLabel": "Muse home",
+    "menuLabel": "Menu",
     "openMenu": "Open menu",
     "closeMenu": "Close menu",
-    "socialsHeading": "Socials",
     "socialsLabel": "Social links",
-    "empty": "No items",
+    "groups": {
+      "explore": "Explore",
+      "company": "Company",
+      "contact": "Contact"
+    },
     "items": {
       "home": "Home",
       "explore": "Explore",
@@ -30,31 +33,36 @@
       "getStarted": "Get Started"
     }
   },
-
   "Footer": {
+    "blurb": "Tell us what you're building. We'll tell you what it would take, and whether we're the right team for it.",
+    "cta": "Get started",
+    "reachOut": "Reach out to us",
+    "locationName": "Riyadh",
+    "location": "Riyadh, Saudi Arabia",
+    "columns": {
+      "company": "Company",
+      "explore": "Explore"
+    },
     "rights": "{year} Muse Studios. All rights reserved.",
-    "careers": "Careers",
     "privacy": "Privacy Policy",
     "terms": "Terms of Service"
   },
-
   "CTA": {
-    "heading": "Tell us what you’re trying to build.",
+    "heading": "Tell us what you're trying to build.",
+    "subheading": "The first conversation is with the people who would build it, not a sales layer.",
     "button": "Get started"
   },
-
   "Home": {
     "hero": {
       "headlineLead": "Everyone has an AI strategy.",
       "headlineTurn": "Almost nobody has shipped one.",
-      "tagline": "We’re a product team in Riyadh.",
+      "tagline": "We're a product team in Riyadh.",
       "subtitle": "We actually build the thing, not just the deck about the thing.",
       "cta": "Get in touch"
     },
     "approach": {
       "eyebrow": "Our approach",
       "heading": "Muse helps you shift from AI-absent to AI-native.",
-      "learnMore": "Learn more",
       "cards": {
         "ai-transformation": {
           "body": "Staying AI-absent isn't a neutral choice. We find the highest-leverage places to put AI to work in how your business actually runs, and stand up the systems that do it, with guardrails from day one.",
@@ -72,13 +80,13 @@
     },
     "manifesto": {
       "heading": "The next decade of software gets decided in the next two years.",
-      "paragraph1": "The cost of building good software is collapsing. That doesn’t help you on its own. It means the gap between the companies that move and the ones that plan is about to get permanent.",
-      "paragraph2": "You could drive that from inside. Most won’t, and not for lack of ambition. Day to day operations always win the calendar.",
-      "paragraph3": "We’re not interested in your roadmap for this quarter. We’re interested in the one that matters in five years.",
+      "paragraph1": "The cost of building good software is collapsing. That doesn't help you on its own. It means the gap between the companies that move and the ones that plan is about to get permanent.",
+      "paragraph2": "You could drive that from inside. Most won't, and not for lack of ambition. Day to day operations always win the calendar.",
+      "paragraph3": "We're not interested in your roadmap for this quarter. We're interested in the one that matters in five years.",
       "cta": "Get started"
     },
     "pressure": {
-      "lead": "AI isn’t optional.",
+      "lead": "AI isn't optional.",
       "emphasis": "Waiting is the risk."
     },
     "ticker": "Built for the AI-native era",
@@ -108,12 +116,11 @@
       ]
     }
   },
-
   "About": {
     "hero": {
       "eyebrow": "About Us",
       "title": "Riyadh-built. Globally standard.",
-      "subtitle": "A Saudi technology studio building distinctive digital experiences — from Riyadh, for the world."
+      "subtitle": "A product company working with businesses that want it built properly."
     },
     "tabs": {
       "about": "About",
@@ -122,40 +129,36 @@
       "values": "Values"
     },
     "about": {
-      "paragraph1": "Muse Studios is a Saudi technology company specializing in custom website development and distinctive digital design solutions. Founded in Riyadh by a team of ambitious and creative Saudi talents, the company was built on a shared vision to redefine digital experiences through innovation, craftsmanship, and forward-thinking design.",
-      "paragraph2": "Driven by passion and a commitment to excellence, we create websites that go beyond functionality — delivering unique digital experiences that reflect each brand’s identity and help businesses stand out in an increasingly competitive market. By combining modern technology, strategic thinking, and creative design, we transform ideas into impactful digital products.",
-      "paragraph3": "At Muse Studios, we believe that every project is an opportunity to leave a lasting impression. Our mission is to empower businesses with exceptional digital solutions while contributing to the growth of Saudi Arabia’s evolving technology landscape through creativity, innovation, and local talent."
+      "paragraph1": "Muse is a product company based in Riyadh. We work with businesses that want their product built properly.",
+      "paragraph2": "That covers product, design, engineering and brand. Some engagements run a few weeks, some run a year. What does not change is the standard: real data, every state designed, nothing shipped that we would not use ourselves.",
+      "paragraph3": "We are Saudi, we hire Saudis, and we would rather see good work stay in the Kingdom."
     },
-    "mission": "To empower businesses and entrepreneurs with innovative digital solutions by designing and developing exceptional websites that combine creativity, functionality, and cutting-edge technology, helping our clients build meaningful digital experiences and achieve sustainable growth.",
-    "vision": "To become one of Saudi Arabia’s leading digital studios, recognized for creating unique web experiences, inspiring innovation, and shaping the future of digital design and development through Saudi talent and global standards.",
+    "mission": "Build software that people here actually want to use, and raise the standard of what gets shipped in the Kingdom.",
+    "vision": "A Saudi product company known for shipping exceptional software, whose products are used every day and whose work sets the bar locally.",
     "values": [
       {
+        "name": "Craftsmanship",
+        "copy": "The details nobody is paid to notice get done anyway."
+      },
+      {
         "name": "Innovation",
-        "copy": "We continuously explore new ideas, technologies, and creative approaches to deliver distinctive digital solutions."
+        "copy": "Shown in what we ship, never claimed in a sentence."
       },
       {
-        "name": "Excellence",
-        "copy": "We are committed to the highest standards of quality in every project, from concept to launch."
+        "name": "Quality",
+        "copy": "There is a written bar, and nothing goes out below it."
       },
       {
-        "name": "Creativity",
-        "copy": "We believe great design is more than aesthetics — it is a powerful tool for storytelling, engagement, and impact."
+        "name": "Long term thinking",
+        "copy": "We choose the option that is better in two years."
       },
       {
-        "name": "Collaboration",
-        "copy": "We work closely with our clients and partners, building strong relationships based on trust and shared success."
+        "name": "Execution",
+        "copy": "Shipped beats planned."
       },
       {
-        "name": "Passion",
-        "copy": "Our passion for technology and design drives us to create meaningful work and push boundaries in everything we do."
-      },
-      {
-        "name": "Growth Mindset",
-        "copy": "We embrace learning, adaptation, and continuous improvement to stay ahead in an evolving digital world."
-      },
-      {
-        "name": "Saudi Talent",
-        "copy": "We are proud to be built by Saudi creatives and developers, contributing to the Kingdom's growing digital ecosystem and vision for the future."
+        "name": "Trust",
+        "copy": "We say what is true, including when it costs us the work."
       }
     ],
     "beliefs": {
@@ -163,9 +166,9 @@
       "previous": "Previous belief",
       "next": "Next belief",
       "items": [
-        "Digital transformation isn't optional anymore — it's the difference between growing and getting replaced by someone who moved faster.",
+        "Digital transformation isn't optional anymore. It's the difference between growing and getting replaced by someone who moved faster.",
         "There are three kinds of businesses today: digitally absent, digitally competent, and digitally native. Most are stuck in the middle.",
-        "The only way to build something that lasts is to treat design, engineering, and AI as one discipline — not three separate handoffs.",
+        "The only way to build something that lasts is to treat design, engineering, and AI as one discipline, not three separate handoffs.",
         "Most companies don't lack ambition. They lack a team that can execute at a global standard, from right here in Saudi Arabia."
       ]
     },
@@ -192,9 +195,8 @@
       "body": "We're a young studio, still small on purpose. See the roles we're hiring for right now.",
       "cta": "View careers"
     },
-    "ticker": "Built by builders, trusted by leaders"
+    "ticker": "Nothing ships that we wouldn't use ourselves"
   },
-
   "Explore": {
     "hero": {
       "eyebrow": "Explore",
@@ -202,11 +204,9 @@
       "subtitle": "Three ways we help teams move at startup speed. Pick one, or combine all three."
     }
   },
-
   "Services": {
     "overview": "Overview",
     "whatThatLooksLike": "What that looks like",
-    "learnMore": "Learn more",
     "detail": {
       "eyebrow": "Explore",
       "getStarted": "Get Started",
@@ -216,12 +216,11 @@
       "ticker": "Built for the AI-native era"
     }
   },
-
   "Careers": {
     "hero": {
       "eyebrow": "Careers",
       "title": "Come build with us.",
-      "subtitle": "We're a small, senior team based in Riyadh. These are the kinds of roles we typically grow into — reach out even if nothing below is an exact match."
+      "subtitle": "We're a small, senior team based in Riyadh. These are the kinds of roles we typically grow into, so reach out even if nothing below is an exact match."
     },
     "all": "All",
     "viewJd": "View full JD",
@@ -233,7 +232,6 @@
       "apply": "Apply for this role"
     }
   },
-
   "Newsletter": {
     "hero": {
       "eyebrow": "Newsletter",
@@ -241,7 +239,7 @@
       "subtitle": "The same thinking that goes into the work, sent directly. No need to check back."
     },
     "points": [
-      "One short, opinionated read — no filler, no 10-tip listicles.",
+      "One short, opinionated read. No filler, no 10-tip listicles.",
       "What we're actually seeing across client engagements, not general AI news.",
       "Sent when there's something worth saying, not on a fixed schedule."
     ],
@@ -250,19 +248,18 @@
       "emailPlaceholder": "you@company.com",
       "submit": "Subscribe",
       "submitting": "Subscribing…",
-      "successSubscribed": "You're on the list — the next issue lands in your inbox.",
-      "successNoted": "Thanks — we've noted your email and will add you once signups are live.",
+      "successSubscribed": "You're on the list. The next issue lands in your inbox.",
+      "successNoted": "Thanks, we've noted your email and will add you once signups are live.",
       "consent": "By subscribing, you agree to receive occasional emails from Muse Studios. You can unsubscribe at any time. See our <terms>Terms</terms> & <privacy>Privacy Policy</privacy>.",
       "termsLabel": "Terms",
       "privacyLabel": "Privacy Policy"
     }
   },
-
   "Contact": {
     "hero": {
       "eyebrow": "Contact Us",
       "title": "Let's talk.",
-      "subtitle": "Tell us what you're building — we usually reply the same day."
+      "subtitle": "Tell us what you're building. We usually reply the same day."
     },
     "methods": {
       "whatsapp": "WhatsApp",
@@ -293,22 +290,21 @@
       },
       "budgets": {
         "Under 50K SAR": "Under 50K SAR",
-        "50K–150K SAR": "50K–150K SAR",
-        "150K–500K SAR": "150K–500K SAR",
+        "50K–150K SAR": "50K-150K SAR",
+        "150K–500K SAR": "150K-500K SAR",
         "500K+ SAR": "500K+ SAR",
         "Not sure yet": "Not sure yet"
       }
     }
   },
-
   "GetStarted": {
     "hero": {
       "eyebrow": "Get Started",
       "title": "Ready to build with Muse?",
-      "subtitle": "From product engineering to end-to-end AI transformation, we'll help you win the next decade."
+      "subtitle": "From product engineering to end-to-end AI transformation. Every engagement ends with something running in production."
     },
     "points": [
-      "See how Saudi businesses are executing AI transformation end to end",
+      "Get a scoped plan for where AI actually removes friction in your business",
       "Get access to our senior product and engineering talent",
       "Build a bespoke partnership scoped to your specific bottlenecks"
     ],
@@ -328,7 +324,7 @@
       "submit": "Submit",
       "submitting": "Submitting…",
       "successTitle": "Thank you",
-      "successDelivered": "Your request has been received — our team will reach out within 1–2 business days to discuss how Muse can accelerate your goals.",
+      "successDelivered": "Your request has been received. Our team will reach out within 1 to 2 business days to discuss how Muse can accelerate your goals.",
       "successNoted": "We've noted your request. For a faster reply in the meantime, reach us directly on WhatsApp or email.",
       "services": {
         "AI Transformation": "AI Transformation",
@@ -338,10 +334,10 @@
       },
       "revenueBands": {
         "Under 5M SAR": "Under 5M SAR",
-        "5M–20M SAR": "5M–20M SAR",
-        "20M–75M SAR": "20M–75M SAR",
-        "75M–200M SAR": "75M–200M SAR",
-        "200M–500M SAR": "200M–500M SAR",
+        "5M–20M SAR": "5M-20M SAR",
+        "20M–75M SAR": "20M-75M SAR",
+        "75M–200M SAR": "75M-200M SAR",
+        "200M–500M SAR": "200M-500M SAR",
         "500M+ SAR": "500M+ SAR"
       },
       "hearAboutOptions": {
@@ -357,7 +353,6 @@
       }
     }
   },
-
   "Forms": {
     "errors": {
       "rate_limited": "Too many requests. Please try again in a minute.",
@@ -371,7 +366,6 @@
       "network": "Something went wrong. Please try again, or reach us on WhatsApp."
     }
   },
-
   "Legal": {
     "eyebrow": "Legal",
     "lastUpdated": "Last updated {updated}",
@@ -381,7 +375,7 @@
       "sections": [
         {
           "heading": "Information we collect",
-          "body": "When you submit a form on this site (contact, get started, or newsletter signup), we collect the information you provide directly — such as your name, email address, and the details of your enquiry — along with technical data attached to that submission, including your IP address, browser/user-agent string, the page you submitted from, and a timestamp. We use this to respond to you and to identify and filter spam or abusive submissions."
+          "body": "When you submit a form on this site (contact, get started, or newsletter signup), we collect the information you provide directly, such as your name, email address, and the details of your enquiry, along with technical data attached to that submission, including your IP address, browser/user-agent string, the page you submitted from, and a timestamp. We use this to respond to you and to identify and filter spam or abusive submissions."
         },
         {
           "heading": "How we use it",
@@ -414,7 +408,7 @@
         },
         {
           "heading": "Intellectual property",
-          "body": "All content on this site — including the Muse Studios name, logo, and design — is the property of Muse Studios and may not be reproduced without permission."
+          "body": "All content on this site, including the Muse Studios name, logo, and design, is the property of Muse Studios and may not be reproduced without permission."
         },
         {
           "heading": "No warranty",
@@ -431,7 +425,6 @@
       ]
     }
   },
-
   "NotFound": {
     "eyebrow": "404",
     "title": "This page doesn't exist.",
@@ -443,11 +436,10 @@
       "contact": "Contact Us"
     }
   },
-
   "Metadata": {
     "siteName": "Muse",
     "titleTemplate": "%s | Muse",
-    "siteDescription": "We are your all-in-one partner helping you set & execute your digital strategy at startup speed.",
+    "siteDescription": "A product team in Riyadh. We build the thing, not the deck about the thing.",
     "organizationDescription": "A product team in Riyadh. AI transformation, product engineering, and gamification & experience.",
     "home": {
       "title": "Muse Studios | AI Transformation & Product Engineering, Riyadh",
@@ -455,7 +447,7 @@
     },
     "about": {
       "title": "About Us",
-      "description": "Muse Studios is a Saudi technology company in Riyadh building distinctive digital experiences through innovation, craftsmanship, and forward-thinking design."
+      "description": "Muse Studios is a product company in Riyadh. We work with businesses on product, design, engineering and brand."
     },
     "explore": {
       "title": "Explore",
@@ -471,11 +463,11 @@
     },
     "contact": {
       "title": "Contact Us",
-      "description": "Tell Muse Studios what you're building — reach us on WhatsApp, email, or social."
+      "description": "Tell Muse Studios what you're building. Reach us on WhatsApp, email, or social."
     },
     "getStarted": {
       "title": "Get Started",
-      "description": "Tell Muse Studios about your business — we'll help you win the next decade."
+      "description": "Tell Muse Studios what you're building. Every engagement ends with something running in production."
     },
     "privacy": {
       "title": "Privacy Policy",
@@ -486,7 +478,6 @@
       "description": "The terms that govern use of the Muse Studios website and services."
     }
   },
-
   "LanguageSwitcher": {
     "ar": "العربية",
     "en": "English"

@@ -3,7 +3,8 @@
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import dynamic from "next/dynamic";
-import { useEffect, useState } from "react";
+import DitherCursor from "../DitherCursor";
+import { useResponsivePixelSize } from "@/lib/use-responsive-pixel-size";
 
 /**
  * The shader background is client-only and pulls in three + postprocessing.
@@ -12,68 +13,70 @@ import { useEffect, useState } from "react";
  */
 const PixelBlast = dynamic(() => import("../PixelBlast"), { ssr: false });
 
-/**
- * The shader multiplies pixelSize by the device pixel ratio (PixelBlast.tsx,
- * `uPixelSize` in setSize), so a fixed 6 becomes 12 to 18 device pixels on a
- * phone and the field reads as coarse blocks rather than a dither. Step it
- * down with the viewport so the texture stays the same visual weight.
- *
- * pixelSize is in PixelBlast's effect dependency array, so a change here
- * rebuilds the WebGL context. That is fine because this only fires when a
- * breakpoint is actually crossed, not on every resize frame.
- */
+/** Coarser than DitherField's 3/4/5: this is the blocky, jittered hero field,
+ *  not the fine dot dissolve behind the subpage headers. */
 const PIXEL_SIZES = { mobile: 4, tablet: 5, desktop: 6 } as const;
 
-function useResponsivePixelSize() {
-  const [size, setSize] = useState<number>(PIXEL_SIZES.desktop);
+/**
+ * Which surface sits behind the headline.
+ *
+ * - `pixel` is the shipped hero: an always-on orange pixel field that drifts
+ *   on its own and answers a click with a ripple.
+ * - `dither` is the "minimal" template's treatment: nothing until you move
+ *   the pointer, then ink spreading through a Bayer stipple and decaying
+ *   behind you. Quieter, and it needs a mouse to exist at all, so on a phone
+ *   the hero is plain black.
+ *
+ * Both are wired up so the two can be compared on the real page rather than
+ * described. `pixel` is the default and `/[locale]` is untouched; the `dither`
+ * version is served at `/[locale]/preview/hero-dither`. Once one is chosen,
+ * the other branch and the preview route come out.
+ */
+export type HeroVariant = "pixel" | "dither";
 
-  useEffect(() => {
-    const tablet = window.matchMedia("(min-width: 768px)");
-    const desktop = window.matchMedia("(min-width: 1280px)");
-    const update = () =>
-      setSize(
-        desktop.matches
-          ? PIXEL_SIZES.desktop
-          : tablet.matches
-            ? PIXEL_SIZES.tablet
-            : PIXEL_SIZES.mobile,
-      );
-    update();
-    tablet.addEventListener("change", update);
-    desktop.addEventListener("change", update);
-    return () => {
-      tablet.removeEventListener("change", update);
-      desktop.removeEventListener("change", update);
-    };
-  }, []);
-
-  return size;
-}
-
-export default function Hero() {
+export default function Hero({ variant = "pixel" }: { variant?: HeroVariant }) {
   const t = useTranslations("Home.hero");
-  const pixelSize = useResponsivePixelSize();
+  const pixelSize = useResponsivePixelSize(
+    PIXEL_SIZES.mobile,
+    PIXEL_SIZES.tablet,
+    PIXEL_SIZES.desktop,
+  );
 
   return (
     <section className="relative flex min-h-[34rem] h-[70vh] md:h-screen flex-col overflow-hidden bg-black">
-      {/* Dithered pixel field — decorative; click anywhere for a ripple */}
-      <div aria-hidden="true" className="absolute inset-0">
-        <PixelBlast
-          variant="square"
-          pixelSize={pixelSize}
-          color="#FE4701"
-          patternScale={3}
-          patternDensity={1.2}
-          pixelSizeJitter={0.4}
-          enableRipples
-          rippleSpeed={0.4}
-          rippleThickness={0.12}
-          rippleIntensityScale={1.5}
-          speed={0.6}
-          edgeFade={0.2}
-          transparent
+      {/* Decorative background field */}
+      {variant === "pixel" ? (
+        <div aria-hidden="true" className="absolute inset-0">
+          <PixelBlast
+            variant="square"
+            pixelSize={pixelSize}
+            color="#FE4701"
+            patternScale={3}
+            patternDensity={1.2}
+            pixelSizeJitter={0.4}
+            enableRipples
+            rippleSpeed={0.4}
+            rippleThickness={0.12}
+            rippleIntensityScale={1.5}
+            speed={0.6}
+            edgeFade={0.2}
+            transparent
+          />
+        </div>
+      ) : (
+        /* `absolute`, not the component's `fixed` default: the ink has to stay
+           inside the hero and stop at its bottom edge, not follow the pointer
+           down the rest of the page. A wider brush and a slower decay than the
+           CTA's, because this is the full viewport rather than a panel. */
+        <DitherCursor
+          position="absolute"
+          color="#fd4601"
+          radius={0.12}
+          decay={0.003}
+          intensity={0.6}
+          opacity={0.9}
         />
-      </div>
+      )}
 
       {/* Bottom fade, doing two jobs: it puts the tagline bar on solid dark, and
           it resolves the section's burgundy into the page black (#060608) so the

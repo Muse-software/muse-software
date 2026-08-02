@@ -69,7 +69,7 @@ Verify all of this against current sources before building.
 - Gender segregated contexts exist in many businesses, and products serving them need to reflect that in structure rather than as an afterthought. See [[Productised Solutions#Local requirements worth remembering]] for concrete cases
 - Photography and illustration should show people from here. Stock imagery of the wrong context is immediately obvious and undermines trust
 - Family and group dynamics matter. Many decisions are made collectively, so a product designed around a lone individual user may be modelling the wrong thing
-- Formality register in Arabic is a real design decision. Too casual reads as unprofessional, too formal reads as a government form
+- Formality register in Arabic is a real design decision. Too casual reads as unprofessional, too formal reads as a government form. Our own answer is to refuse the choice and split the register by page function, MSA spine and spoken body, decided 2026-08-01 in [[Arabic Termbase#The register, decided]]. Worth applying to product work too, not just the site
 
 ## Regulation to check
 

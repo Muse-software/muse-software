@@ -6,7 +6,7 @@ export default async function CareersTeaser() {
   const t = await getTranslations("About.careersTeaser");
 
   return (
-    <section className="relative overflow-hidden bg-[#4C0014] py-16 md:py-24">
+    <section className="relative overflow-hidden bg-black py-16 md:py-24">
       <Image
         src="/photos/hero-group-silhouette.jpg"
         alt=""
@@ -14,7 +14,12 @@ export default async function CareersTeaser() {
         sizes="100vw"
         className="object-cover opacity-25"
       />
-      <div className="absolute inset-0 bg-linear-to-r from-[#4C0014] via-[#4C0014]/80 to-[#4C0014]/40" />
+      {/* The scrim that keeps the copy legible over the photo. It was three
+          stops of `#4C0014` before the maroon came off the site; it is the
+          page black now, and it runs on the block axis rather than `to-r` —
+          the physical direction meant the text column sat on the transparent
+          end of its own scrim once the layout mirrored into Arabic. */}
+      <div className="absolute inset-0 bg-linear-to-t from-black via-black/85 to-black/45" />
       <div className="relative mx-auto flex w-full max-w-[1000px] flex-col items-start gap-6 px-5 md:flex-row md:items-center md:justify-between md:px-10">
         <div>
           <p className="text-xs font-semibold uppercase tracking-[0.3em] text-white/50">

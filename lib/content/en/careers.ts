@@ -31,7 +31,7 @@ export const careerRoles: CareerRole[] = [
     "slug": "digital-marketing-director",
     "title": "Digital Marketing Director",
     "department": "Marketing",
-    "blurb": "Own Muse Studios' own brand presence and demand generation, end to end.",
+    "blurb": "Own how Muse shows up in public, and the demand that follows from it.",
     "location": "Riyadh, Saudi Arabia (on-site)",
     "employmentType": "Full-time",
     "compensation": "Competitive, based on experience",
@@ -44,7 +44,7 @@ export const careerRoles: CareerRole[] = [
     ],
     "requirements": [
       "5+ years leading marketing for a B2B or agency-model business",
-      "Strong writing skills — able to produce or closely direct content personally",
+      "Strong writing skills, able to produce or closely direct content personally",
       "Comfortable owning a budget and being measured against pipeline impact",
       "Fluent in Arabic and English"
     ],

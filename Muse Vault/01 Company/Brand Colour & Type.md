@@ -9,6 +9,8 @@ tags: [company, brand, reference]
 
 Colour is lifted from [[Brand Guideline PDF]] pages 17, 18 and 22 and should stay exact to it. Type no longer matches the deck: the English face was changed on 2026-07-30, see [[Decision Log]]. This note is the copy and paste source, and it wins over the deck where the two disagree.
 
+**The website has drifted from this note and it is not reconciled.** Three gaps, all recorded in [[Brand Texture#Open]]: the site sets the orange as `#fd4601` rather than the `#FE4701` below, the maroon is not used on the site at all, and the secondary palette appears nowhere. Nothing here is retracted, because whether the deck or the site is the authority is undecided. Read the two together until it is settled.
+
 ## Primary
 
 | Name | Hex | CMYK | Role |

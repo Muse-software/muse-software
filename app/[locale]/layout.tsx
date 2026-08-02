@@ -17,25 +17,16 @@ import "../globals.css";
 // nest two <html> elements. `app/global-error.tsx` renders its own
 // <html>/<body> because it replaces this whole tree when it fires.
 
-// Code-split GSAP (and the rest of the nav's animation logic) into its own
-// chunk instead of the shared bundle every route pays for — still rendered
-// server-side (no ssr:false) so the header/logo/toggle button are present
-// in the initial HTML with no flash-of-missing-nav; only the JS weight is
-// deferred to its own async chunk.
-const StaggeredMenu = dynamic(() => import("@/components/StaggeredMenu"));
-
-// Route shape lives in code, labels live in `messages/*.json` under `Nav.items`
-// — the two are joined at render time so a translation never has to carry a
-// URL and a URL change never has to be repeated in two message files.
-const NAV_ROUTES = [
-  { key: "home", link: "/" },
-  { key: "explore", link: "/explore" },
-  { key: "about", link: "/about" },
-  { key: "careers", link: "/careers" },
-  { key: "newsletter", link: "/newsletter" },
-  { key: "contact", link: "/contact" },
-  { key: "getStarted", link: "/get-started" },
-] as const;
+// Code-split the nav's animation logic into its own chunk instead of the
+// shared bundle every route pays for — still rendered server-side (no
+// ssr:false) so the pill, logo and toggle are present in the initial HTML
+// with no flash-of-missing-nav; only the JS weight is deferred.
+//
+// SiteHeader replaced StaggeredMenu on 2026-08-01. The route/label split that
+// used to live here moved into the component, because the new header groups
+// its routes into named cards and the grouping is layout, not configuration.
+// StaggeredMenu itself is at `archive/components/StaggeredMenu.tsx`.
+const SiteHeader = dynamic(() => import("@/components/SiteHeader"));
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -100,22 +91,7 @@ export default async function LocaleLayout({
   // build's route table is the only place it shows up.
   setRequestLocale(locale);
 
-  const t = await getTranslations("Nav");
   const common = await getTranslations("Common");
-
-  const menuItems = NAV_ROUTES.map(({ key, link }) => ({
-    label: t(`items.${key}`),
-    link,
-  }));
-
-  // Built here rather than at module scope because the accessible name is a
-  // translation lookup. `label` stays the English identity key (it selects the
-  // glyph inside the menu); `ariaLabel` is what a screen reader announces.
-  const socialItems = allSocials.map(({ label, href }) => ({
-    label,
-    ariaLabel: common(`socials.${label}`),
-    link: href,
-  }));
 
   return (
     <html lang={locale} dir={localeDirection[locale]}>
@@ -133,36 +109,17 @@ export default async function LocaleLayout({
           </a>
           <PageLoader />
           {/*
-            The panel slides in from the inline start edge, which is the left
-            in Arabic. The component was already RTL-capable: the GSAP
-            offscreen maths and the [data-position='left'] CSS both key off
-            this one prop, so mirroring the nav costs a ternary. The header
-            itself needs nothing — it is a flex row, so `dir` swaps the logo
-            and the toggle for free and the toggle lands on the same side the
-            panel opens from.
+            The header needs no RTL prop of its own. It is a centred pill whose
+            inner row is a flex `justify-between`, so `dir` swaps the logo and
+            the toggle for free, and the card grid below reflows the same way.
+            Everything directional inside it (the link nudge on hover, the
+            up-and-out arrow) is handled there with logical properties and
+            `.arrow-inline`.
+
+            Socials are passed in rather than imported inside the component so
+            the canonical list in SocialLinks stays the single source of URLs.
           */}
-          <StaggeredMenu
-            position={localeDirection[locale] === "rtl" ? "left" : "right"}
-            isFixed={true}
-            items={menuItems}
-            socialItems={socialItems}
-            labels={{
-              header: t("header"),
-              home: t("homeAriaLabel"),
-              openMenu: t("openMenu"),
-              closeMenu: t("closeMenu"),
-              socialsHeading: t("socialsHeading"),
-              socialsLabel: t("socialsLabel"),
-              empty: t("empty"),
-            }}
-            colors={["#fd4601", "#c23800"]}
-            menuButtonColor="#ffffff"
-            openMenuButtonColor="#000"
-            changeMenuColorOnOpen={true}
-            accentColor="#fd4601"
-            displayItemNumbering={true}
-            displaySocials={true}
-          />
+          <SiteHeader socials={allSocials} />
           <main id="main-content" tabIndex={-1}>
             {children}
           </main>

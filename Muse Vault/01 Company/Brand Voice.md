@@ -7,7 +7,7 @@ tags: [company, brand, writing]
 
 # Brand Voice
 
-Two registers, one personality. Getting this distinction right is what lets us be premium in craft without sounding corporate.
+Three registers, one personality. Getting this distinction right is what lets us be premium in craft without sounding corporate.
 
 | Where | Register |
 |---|---|
@@ -35,15 +35,43 @@ What it does not mean: sloppy, oversharing, or trend chasing for its own sake. T
 
 See [[Content Engine]] for the formats this voice lives in.
 
-## Principles, both registers
+## Principles, all three registers
 
 **Show the work instead of describing it.** A clip of a screen being rebuilt beats a paragraph about our commitment to excellence.
 
 **Specific beats impressive.** "Booking flow went from six taps to two" says more than "streamlined user experience".
 
-**Short sentences.** If a sentence needs a comma to survive, it probably needs a full stop instead.
+**Short sentences.** If a sentence needs a comma to survive, it probably needs a full stop instead. One exception, [[#The verb chain]].
 
 **No inflation.** We do not need to be the leading, premier, cutting edge anything. State what we did.
+
+## Two devices
+
+Added 2026-08-01 from [[Habbar Voice Study]]. Both work in Arabic and English, and both are ways of executing the principles above rather than additions to them.
+
+### The correction pivot
+
+State the thing, then define it against the near miss a competitor would have settled for. `X، مو Y` in Arabic, "X, not Y" in English.
+
+> نبحث ونقرأ سلوك الناس عشان نعرف وش يحرّكهم فعلًا، مو وش المفروض يحرّكهم
+
+> we deliver what they need, not just what they asked for
+
+This does the [[Website Voice#The specificity test]] job automatically, because naming what you are not doing forces a real distinction into the sentence.
+
+**The gate.** This shape is one step from the empty AI tell, "not just a tool, a revolution". Before using it, check that the rejected half describes something a real competitor actually does. If Y rejects nothing, cut the whole construction rather than trying to save it.
+
+### The verb chain
+
+Stacked first person plural verbs, comma chained, closed by a purpose clause on حتى or بهدف, or on "until" in English.
+
+> نبحث، ونفكّر، ونجرب، ونختبر، ونصقل، ونعدّل حتى نوصل لفكرة أثرها يدوم سنين
+
+> we research, ideate, experiment, test, and refine until we land on an idea
+
+It makes a process read as one continuous motion instead of a list of stages, which a run of short sentences cannot do.
+
+**Bounded.** Once per section, as the rhythmic beat. It is a named exception to the short sentence rule, not a repeal of it. Two chains in one section and the page starts to sound breathless.
 
 ## Banned phrases
 
@@ -68,11 +96,17 @@ Straight quotes only. No em dashes, no en dashes, no guillemets. Applies to the 
 
 Arabic is not a translation of the English. It is written natively.
 
-- Modern Standard Arabic for anything formal: contracts, proposals, legal
-- Clean, plain Saudi register for product copy and social. Not stiff, not heavy slang
+The Arabic runs two registers split by page function, decided 2026-08-01. [[Arabic Termbase#The register, decided]] is the authority and holds the marker list; the short version is here.
+
+- **MSA for the spine.** Headings, service names, numbered steps, nav, form labels, product UI, and all of contracts, proposals and legal
+- **Saudi spoken for the body.** Marketing site paragraphs, CTAs, careers copy, social. عشان، وش، مو، اللي، بس are in
+- **One or two markers per paragraph.** Five is performing the register rather than writing in it
+- **No rare or classical vocabulary.** If a word needs a glossary it is out, however elegant. See [[Habbar Voice Study#The classical vocabulary layer]]
+- **No deep dialect either.** تبي، أبغى، أبشر are a person texting, not a company writing
 - Never machine translate anything customer facing. Someone who writes Arabic well reviews everything
-- Social Arabic can sit closer to how people actually speak than product copy does. That is the register most Saudi accounts get wrong in one direction or the other
 - Numerals, dates and currency follow [[Localization Playbook]]
+
+The register most Saudi companies get wrong, and they get it wrong in both directions. Too formal reads as a government form, too loose reads as a personal account. The split is how you avoid picking one and living with its failure mode everywhere.
 
 ## Applied
 

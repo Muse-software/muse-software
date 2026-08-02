@@ -16,8 +16,11 @@ import { PUBLISHED_LOCALES, routing, type Locale } from "@/i18n/routing";
  * switcher to the same `PUBLISHED_LOCALES` constant that already controls
  * `noindex`, the sitemap and the hreflang set means going live is one constant
  * change in one file, with nothing left to remember.
+ *
+ * Colours are for the orange footer panel, which is its only mount point. If
+ * it is ever placed on page black again these need to invert back to white.
  */
-export default function LanguageSwitcher() {
+export default function LanguageSwitcher({ className }: { className?: string }) {
   const t = useTranslations("LanguageSwitcher");
   const pathname = usePathname();
   const params = useParams();
@@ -44,7 +47,10 @@ export default function LanguageSwitcher() {
   }
 
   return (
-    <div className="flex items-center gap-2" aria-live="polite">
+    // Spacing is a prop because this renders null most of the time. A wrapper
+    // supplying the margin from outside cannot know that, so it reserves the
+    // space regardless — which is exactly what it was doing in the footer.
+    <div className={`flex items-center gap-2 ${className ?? ""}`} aria-live="polite">
       {routing.locales
         .filter((locale) => PUBLISHED_LOCALES.includes(locale))
         .map((locale) => {
@@ -59,8 +65,8 @@ export default function LanguageSwitcher() {
               aria-current={isActive ? "true" : undefined}
               className={`px-2 py-1 text-xs font-semibold uppercase tracking-[0.2em] transition-colors ${
                 isActive
-                  ? "text-white"
-                  : "text-white/50 hover:text-[#fd4601] disabled:opacity-50"
+                  ? "text-black"
+                  : "text-black/60 hover:text-black disabled:opacity-50"
               }`}
             >
               {t(locale)}

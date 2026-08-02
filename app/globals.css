@@ -22,16 +22,46 @@
     box-sizing: border-box;
   }
 
-  /* Several full-bleed decorative elements (the ticker's rotate+scale,
-     Motion3D's duplicated-frame loop) paint visually beyond their own
-     layout box by design — `overflow: hidden` on an element clips its
-     children, not its own transformed visual footprint, so that has to be
-     caught one level up. Nothing on this site legitimately needs page-level
+  /* Full-bleed decorative elements (the ticker's rotate+scale) paint
+     visually beyond their own layout box by design — `overflow: hidden` on
+     an element clips its children, not its own transformed visual
+     footprint, so that has to be caught one level up. Nothing on this
+     site legitimately needs page-level
      horizontal scroll (all intentional horizontal scrolling happens inside
      contained overflow-x-auto tracks), so this is a safe, zero-visual-impact
-     backstop rather than a targeted fix per component. */
+     backstop rather than a targeted fix per component.
+
+     This rule is on `html` ALONE, and the matching `overflow-x: hidden` that
+     used to sit on `body` is gone. It has to stay that way.
+
+     The root element's overflow is propagated to the viewport, and the
+     viewport is what clips — so the backstop still works with one rule. But
+     propagation only falls through to `body` when `html`'s own overflow is
+     `visible`, and it is not: `overflow-x: hidden` computes `overflow-y` to
+     `auto`. So a second declaration on `body` is not a redundant safety net,
+     it applies to `body` itself and turns it into a scroll container that
+     never scrolls. Every `position: sticky` descendant then resolves against
+     that box instead of the viewport and silently stops sticking — which is
+     exactly what had happened to the Approach section's heading column.
+
+     Measured in headless Chromium, sticky element with `top: 100px` after
+     scrolling 1500px: with the `body` rule its top was -700px (scrolled away
+     with the page), without it, 100px.
+
+     `clip`, not `hidden`, and that is the other half of the fix. `hidden`
+     makes a box a scroll container that merely hides its scrollbar: with the
+     `body` rule removed and `html` left on `hidden`, the ticker's 15px
+     overhang stopped being clipped and the page could genuinely scroll
+     sideways again — `window.scrollTo(9999, 0)` moved it 15px at 1400 and 5px
+     at 360, in both locales. `clip` clips without ever becoming a scroll
+     container, which is what this rule always meant. It also cannot break
+     sticky, so it stays safe as a page-wide backstop.
+
+     The ticker's overhang is additionally clipped at the ticker itself, which
+     is where it belongs — see Ticker.tsx. This stays as the backstop for
+     whatever comes next. */
   html {
-    overflow-x: hidden;
+    overflow-x: clip;
   }
 
   body {
@@ -39,7 +69,6 @@
     color: var(--text-primary);
     font-family: var(--font-sans), "SF Pro Text", system-ui, sans-serif;
     min-height: 100vh;
-    overflow-x: hidden;
   }
 
   h1,
@@ -222,23 +251,341 @@
     padding-block: 0 0.2em;
   }
 
-  /* Muse Studios crosshair grid texture — the brand guideline's real
-     double-rule crosshair pattern (Patterns-1), traced from
-     docs/Assets/Powerpoint-02.jpg rather than approximated. */
-  .pattern-crosshair {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48'%3E%3Cg stroke='%23fd4601' stroke-opacity='0.4' stroke-width='1'%3E%3Cline x1='22' y1='6' x2='22' y2='42'/%3E%3Cline x1='26' y1='6' x2='26' y2='42'/%3E%3Cline x1='6' y1='22' x2='42' y2='22'/%3E%3Cline x1='6' y1='26' x2='42' y2='26'/%3E%3C/g%3E%3C/svg%3E");
-    background-repeat: repeat;
+  /* Softens a decorative layer on all four edges so a band dissolves into the
+     page instead of ending on a straight line — a full-bleed layer over flat
+     page black otherwise ends on a visible rule exactly where its box does,
+     on the vertical edges as much as the horizontal ones.
+
+     Symmetrical about the inline axis, so it needs no RTL counterpart: there
+     is no left/right asymmetry for `dir` to flip.
+
+     (This is all that survives of the crosshair/halftone pattern utilities.
+     The brand patterns were removed from the site on 2026-08-01: used as a
+     full-bleed wash behind half-empty sections they read as wallpaper thrown
+     on top, and the dot dither is now the site's only texture.) */
+  .dissolve-band {
+    --dissolve:
+      linear-gradient(to bottom, transparent 0%, #000 38%, #000 64%, transparent 100%),
+      linear-gradient(to right, transparent 0%, #000 14%, #000 86%, transparent 100%);
+    -webkit-mask-image: var(--dissolve);
+    mask-image: var(--dissolve);
+    /* Keep only what both gradients cover, so the corners fall away too.
+       `source-in` is the legacy WebKit spelling of `intersect`. */
+    -webkit-mask-composite: source-in;
+    mask-composite: intersect;
   }
 
-  /* Muse Studios halftone dissolve — dot-field texture standing in for the
-     brand's pixelated dissolve pattern. */
-  .pattern-halftone {
+  /* ------------------------------------------------------------------
+     The card hover field.
+
+     One PixelBlast for a whole page, masked to whichever card the pointer
+     is on. Cards need the same dither as everything else, and the reason
+     they did not have it is that a shader per card means a WebGL context
+     per card — browsers keep on the order of 8-16 and drop the oldest past
+     that, so a three-card grid plus a hero plus the CTA starts losing them.
+
+     Only one card can be hovered at a time, though, which makes the whole
+     problem go away: a single fixed, viewport-sized canvas, with the mask
+     moved onto the hovered card'''s rect. CardDither writes the rect.
+
+     Two earlier attempts are worth recording, because both failed for the
+     same underlying reason. The first was a CSS lattice of four offset dot
+     grids on a 2x2 Bayer matrix, which read as a printed halftone screen —
+     too regular, and motionless. The second intersected that lattice with
+     a thresholded feTurbulence mask to break up the regularity, which read
+     as camouflage: the noise clumped into blobs at a completely different
+     scale from the dots. Neither is what the shader does. It thresholds
+     dots out of a drifting noise field, and the dots stay dots. That is
+     not something gradients can approximate, so the field is the field.
+
+     The mask is an ellipse rather than the card'''s rectangle, so the
+     dither falls off before the border instead of ending on it — the same
+     edge fade the subpage headers use. */
+  .card-dither {
+    position: fixed;
+    inset: 0;
+    z-index: -10;
+    pointer-events: none;
+    user-select: none;
+    opacity: 0;
+    transition: opacity 260ms ease;
+    -webkit-mask-image: radial-gradient(ellipse 62% 62% at 50% 50%, #000 18%, transparent 100%);
+    mask-image: radial-gradient(ellipse 62% 62% at 50% 50%, #000 18%, transparent 100%);
+    -webkit-mask-size: var(--cd-w, 0px) var(--cd-h, 0px);
+    mask-size: var(--cd-w, 0px) var(--cd-h, 0px);
+    -webkit-mask-position: var(--cd-x, 0px) var(--cd-y, 0px);
+    mask-position: var(--cd-x, 0px) var(--cd-y, 0px);
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+  }
+
+  .card-dither[data-active="true"] {
+    opacity: var(--cd-opacity, 0.85);
+  }
+
+  /* The fade is the only motion the field needs on arrival; the drift is
+     already running. Under reduced motion it simply appears. */
+  @media (prefers-reduced-motion: reduce) {
+    .card-dither {
+      transition: none;
+    }
+  }
+
+  /* ------------------------------------------------------------------
+     The page wash.
+
+     Runs under a whole page so the sections read as one surface rather
+     than a stack, and it is what replaced the maroon. `#4C0014` was the
+     site's only device for saying "this section is different", and a flat
+     colour block says it much too loudly — the home page's central
+     argument read as a different site from the sections either side of
+     it. A texture that swells and fades across a boundary does the same
+     job by rhythm, and it is the only version that survives the boundary
+     moving when copy changes.
+
+     The field itself is PixelBlast, the same noise-driven dot shader as
+     the subpage heroes — NOT the `.dither` lattice above. A first version
+     did use the CSS grid here and it read as a printed halftone screen:
+     regular, static, and obviously placed. What makes the subpage hero's
+     field look like dither rather than like a pattern is that the dots
+     are thresholded out of a drifting noise field, so they are unevenly
+     spaced and they change. That cannot be faked with `repeating-`
+     anything, so this one spends the WebGL context.
+
+     Only one context, though, and only ever a viewport of pixels: the
+     canvas is `fixed`, and it is the *mask* that scrolls. `--wash-page`
+     sizes the mask box to the full document height and `--wash-scroll`
+     slides it, so the five blooms are anchored to positions in the page
+     and travel through the viewport as you go — the composition of a
+     full-height layer at the cost of a viewport-sized one. PageDither
+     writes both variables.
+
+     Bloom positions are physical (left/right), so unlike everything else
+     in this file they do get an RTL counterpart — the composition mirrors
+     with the layout, the way the Ticker's tilt and the Approach column's
+     entrance already do. */
+  .page-wash {
+    --b1x: 86%;
+    --b2x: 12%;
+    --b3x: 52%;
+    --b4x: 90%;
+    --b5x: 16%;
+    --wash:
+      radial-gradient(52% 11% at var(--b1x) 14%, #000, transparent),
+      radial-gradient(46% 10% at var(--b2x) 31%, #000, transparent),
+      radial-gradient(56% 12% at var(--b3x) 48%, #000, transparent),
+      radial-gradient(44% 10% at var(--b4x) 66%, #000, transparent),
+      radial-gradient(50% 11% at var(--b5x) 84%, #000, transparent);
+    position: fixed;
+    inset: 0;
+    z-index: -10;
+    pointer-events: none;
+    user-select: none;
+    opacity: var(--wash-opacity, 0.22);
+    -webkit-mask-image: var(--wash);
+    mask-image: var(--wash);
+    -webkit-mask-size: 100% var(--wash-page, 300vh);
+    mask-size: 100% var(--wash-page, 300vh);
+    -webkit-mask-position: 0 calc(-1 * var(--wash-scroll, 0px));
+    mask-position: 0 calc(-1 * var(--wash-scroll, 0px));
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+  }
+
+  [dir="rtl"] .page-wash {
+    --b1x: 14%;
+    --b2x: 88%;
+    --b3x: 48%;
+    --b4x: 10%;
+    --b5x: 84%;
+  }
+
+  /* The CTA panel's two edges, as one masked field instead of two. Same
+     shader and same reason as the page wash — the CSS lattice that was
+     here read as a halftone screen laid over the panel rather than as the
+     panel's own surface. Block axis only, so no RTL counterpart. */
+  .cta-bands {
+    --bands:
+      linear-gradient(to bottom, #000 0%, #000 8%, transparent 38%),
+      linear-gradient(to top, #000 0%, #000 8%, transparent 38%);
+    -webkit-mask-image: var(--bands);
+    mask-image: var(--bands);
+  }
+
+  /* ------------------------------------------------------------------
+     The Bayer lattice — PLAYGROUND ONLY, nothing shipped uses this.
+
+     Four dot grids on one cell, offset to the four sub-positions of a 2x2
+     Bayer matrix, so that masking more layers in fills dots in Bayer order
+     rather than just brightening them:
+
+         layer 1 . . . . 3
+         layer 2 . 4 . 2 .
+         layer 3 . . . . .
+         layer 4 . . . . .
+
+     It was the site's card-hover and CTA-band texture for about a day and
+     is no longer used by any shipped component. Two rounds of review
+     killed it, and both verdicts are worth keeping next to the code: at
+     rest the exact grid reads as a printed halftone screen rather than as
+     dither ("too organised"), and breaking the grid up with a thresholded
+     feTurbulence mask read as camouflage, because the noise clumped at a
+     completely different scale from the dots. What the shader does — and
+     what neither of these does — is threshold dots out of a drifting noise
+     field so the dots stay dots. Shipped surfaces are all PixelBlast now:
+     see PageDither, CardDither and DitherField.
+
+     It is still here because `components/playground/` is built on it and
+     is exploring a different question — density as a *variable*, per
+     docs/dither-system-plan.md — for which an addressable four-layer
+     lattice is the right primitive and the shader is not. Delete this
+     block along with `components/playground/` if that exploration lands
+     somewhere else. */
+  .dither {
+    --dither-cell: 6px;
+    /* Radius, so the dot is ~45% of the cell across. Below about a third
+       the grid stops reading as dots and turns into flat noise. */
+    --dither-dot: 1.3px;
+    --dither-color: currentColor;
+    --dither-x: 50%;
+    --dither-y: 50%;
+    position: absolute;
+    inset: 0;
+    display: block;
+    overflow: hidden;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  /* A band across one block edge of the host rather than the whole box. */
+  .dither-band {
+    inset: auto 0 auto 0;
+    height: var(--dither-band-height, clamp(5.5rem, 18vw, 11rem));
+  }
+  .dither-band.dither-down {
+    top: 0;
+  }
+  .dither-band.dither-up {
+    bottom: 0;
+  }
+
+  .dither-layer {
+    position: absolute;
+    inset: 0;
     background-image: radial-gradient(
-      circle,
-      currentColor 1px,
-      transparent 1.4px
+      circle at center,
+      var(--dither-color) var(--dither-dot),
+      transparent calc(var(--dither-dot) + 0.6px)
     );
-    background-size: 7px 7px;
+    background-size: var(--dither-cell) var(--dither-cell);
+    -webkit-mask-image: var(--dither-mask);
+    mask-image: var(--dither-mask);
+  }
+
+  /* The 2x2 Bayer offsets. Order matters: it is the order dots switch on
+     in, so 1 is the last to fade out and 4 the first. */
+  .dither-layer:nth-child(1) {
+    background-position: 0 0;
+  }
+  .dither-layer:nth-child(2) {
+    background-position: calc(var(--dither-cell) / 2) calc(var(--dither-cell) / 2);
+  }
+  .dither-layer:nth-child(3) {
+    background-position: calc(var(--dither-cell) / 2) 0;
+  }
+  .dither-layer:nth-child(4) {
+    background-position: 0 calc(var(--dither-cell) / 2);
+  }
+
+  /* Dense at the block start, dissolving toward the end. The stop pairs are
+     staggered rather than evenly spaced: density has to fall off faster
+     than linearly or the tail reads as a flat half-tone rug. */
+  .dither-down .dither-layer:nth-child(1) {
+    --dither-mask: linear-gradient(to bottom, #000 0%, #000 46%, transparent 100%);
+  }
+  .dither-down .dither-layer:nth-child(2) {
+    --dither-mask: linear-gradient(to bottom, #000 0%, #000 24%, transparent 68%);
+  }
+  .dither-down .dither-layer:nth-child(3) {
+    --dither-mask: linear-gradient(to bottom, #000 0%, #000 8%, transparent 44%);
+  }
+  .dither-down .dither-layer:nth-child(4) {
+    --dither-mask: linear-gradient(to bottom, #000 0%, transparent 24%);
+  }
+
+  .dither-up .dither-layer:nth-child(1) {
+    --dither-mask: linear-gradient(to top, #000 0%, #000 46%, transparent 100%);
+  }
+  .dither-up .dither-layer:nth-child(2) {
+    --dither-mask: linear-gradient(to top, #000 0%, #000 24%, transparent 68%);
+  }
+  .dither-up .dither-layer:nth-child(3) {
+    --dither-mask: linear-gradient(to top, #000 0%, #000 8%, transparent 44%);
+  }
+  .dither-up .dither-layer:nth-child(4) {
+    --dither-mask: linear-gradient(to top, #000 0%, transparent 24%);
+  }
+
+  /* Concentric circles on one point, each layer reaching less far, so
+     density falls off in Bayer steps out to the edge of the brush.
+     `--dither-burst` scales all four. */
+  .dither-pointer .dither-layer:nth-child(1) {
+    --dither-mask: radial-gradient(
+      circle calc(200px * var(--dither-burst, 1)) at var(--dither-x) var(--dither-y),
+      #000 0%,
+      #000 16%,
+      transparent 100%
+    );
+  }
+  .dither-pointer .dither-layer:nth-child(2) {
+    --dither-mask: radial-gradient(
+      circle calc(148px * var(--dither-burst, 1)) at var(--dither-x) var(--dither-y),
+      #000 0%,
+      #000 14%,
+      transparent 100%
+    );
+  }
+  .dither-pointer .dither-layer:nth-child(3) {
+    --dither-mask: radial-gradient(
+      circle calc(102px * var(--dither-burst, 1)) at var(--dither-x) var(--dither-y),
+      #000 0%,
+      #000 12%,
+      transparent 100%
+    );
+  }
+  .dither-pointer .dither-layer:nth-child(4) {
+    --dither-mask: radial-gradient(
+      circle calc(60px * var(--dither-burst, 1)) at var(--dither-x) var(--dither-y),
+      #000 0%,
+      #000 10%,
+      transparent 100%
+    );
+  }
+
+  /* No position to follow. Two of the four layers, so it is visibly the
+     same material at half density rather than a solid screen. */
+  .dither-wash .dither-layer:nth-child(1),
+  .dither-wash .dither-layer:nth-child(2) {
+    --dither-mask: linear-gradient(#000, #000);
+  }
+  .dither-wash .dither-layer:nth-child(3),
+  .dither-wash .dither-layer:nth-child(4) {
+    --dither-mask: linear-gradient(transparent, transparent);
+  }
+
+
+  /* Soft copper light under a dither band, anchored low and centred, so the
+     dots read as texture over depth rather than as a flat field on black.
+     Centred horizontally, so it needs no RTL treatment. Pair it with a
+     dissolve — the gradient is still warm at the box's bottom edge on its own,
+     which is the one edge these bands sit flush against something. */
+  .copper-bloom {
+    background: radial-gradient(
+      70% 90% at 50% 82%,
+      rgba(253, 70, 1, 0.3) 0%,
+      rgba(253, 70, 1, 0.09) 42%,
+      transparent 72%
+    );
   }
 
   /* Social icon pattern shared by the nav panel, Footer, and Contact page —
@@ -262,67 +609,13 @@
   .social-links-item:focus-visible {
     color: #fd4601;
   }
-}
 
-/* Motion3D — a single copper 3D render frame from the brand guideline
-   (docs/Assets/Powerpoint-05/06/07 — a chain-like stack), scrolled
-   horizontally in a seamless infinite loop so it reads as a continuously
-   moving DNA strand. The frame is duplicated side by side in Motion3D.tsx
-   inside this 200%-wide flex wrapper; translating left by exactly -50%
-   moves by one copy's width, so the second copy is already in place when
-   the first scrolls out — no jump at the wrap, same duplicate-and-loop
-   technique as the site's own ticker (.ticker-track below). */
-.motion3d-scroll {
-  position: relative;
-  width: 200%;
-  will-change: transform;
-}
-
-.motion3d-scroll-fast {
-  animation: motion3dScroll 100s linear infinite;
-}
-
-.motion3d-scroll-slow {
-  animation: motion3dScroll 180s linear infinite;
-}
-
-@keyframes motion3dScroll {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
-}
-
-/* Duplicate-and-loop only stays seamless if it travels toward the copy, and
-   `transform` is a physical axis that `dir` does not flip. Under RTL the flex
-   row places the second copy to the *left* of the first, so the container's
-   start edge is its right edge and the whole 200%-wide strip already hangs off
-   to the left. Continuing to translate negatively drags both copies further
-   left and opens a growing empty gap on the right. The mirrored keyframe
-   travels the other way, which is where the copy actually is. */
-@keyframes motion3dScrollRtl {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(50%);
-  }
-}
-
-[dir="rtl"] .motion3d-scroll-fast {
-  animation-name: motion3dScrollRtl;
-}
-
-[dir="rtl"] .motion3d-scroll-slow {
-  animation-name: motion3dScrollRtl;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .motion3d-scroll-fast,
-  .motion3d-scroll-slow {
-    animation: none;
+  /* Same interaction on an orange surface, where the accent hover colour is
+     invisible against the background. The footer panel is the only such
+     surface; the dim-the-siblings half of the pattern is unchanged. */
+  .social-links-on-accent .social-links-item:hover,
+  .social-links-on-accent .social-links-item:focus-visible {
+    color: #000000;
   }
 }
 
@@ -386,10 +679,11 @@
   }
 }
 
-/* Same mirror as motion3dScrollRtl, and the same reason: the wrapper is a flex
-   row, so under RTL the aria-hidden duplicate track sits to the left of the
-   real one and the marquee has to travel right to reach it. Left unmirrored,
-   an Arabic ticker scrolls into empty orange for 26 seconds and then jumps. */
+/* `transform` is a physical axis that `dir` does not flip, so the keyframe has
+   to be mirrored by hand: the wrapper is a flex row, so under RTL the
+   aria-hidden duplicate track sits to the left of the real one and the marquee
+   has to travel right to reach it. Left unmirrored, an Arabic ticker scrolls
+   into empty orange for 26 seconds and then jumps. */
 @keyframes tickerScrollRtl {
   from {
     transform: translateX(0);
@@ -449,4 +743,1189 @@
     opacity: 0;
     transform: scale(0.9);
   }
+}
+
+/* ====================================================================
+   DITHER PLAYGROUND — PROPOSAL, NOT SHIPPED.
+
+   Everything from here to the end of the file backs the component
+   catalogue in `docs/dither-system-plan.md`, rendered at
+   `/[locale]/playground/dither`. Nothing above this line depends on
+   anything below it, so the whole experiment removes in three deletes:
+   this block, `components/playground/`, and `app/[locale]/playground/`.
+
+   The one exception is the two `@property` registrations immediately
+   below, which DO affect the shipped `.dither-pointer`. Both are
+   deliberately declared with initial values equal to the fallbacks the
+   shipped CSS already passes to `var()`, so behaviour is unchanged
+   today and only becomes visible to a component that opts in by
+   transitioning them. Read the note on `--dither-burst` before
+   touching it.
+   ==================================================================== */
+
+/* A custom property only interpolates if the browser knows its type;
+   unregistered, `--dither-burst` snaps between values instead of easing
+   and the whole CSS-only hover in `.dither-wick` is impossible.
+
+   `initial-value: 1` is load-bearing, not a guess. The shipped masks
+   read this as `var(--dither-burst, 1)` (globals.css `.dither-pointer`),
+   and a registered property ALWAYS has a value, so that fallback can
+   never fire again. Anything other than 1 here silently changes what a
+   card renders with JS off or under keyboard focus, which is exactly
+   the case the fallback existed for. */
+@property --dither-burst {
+  syntax: "<number>";
+  inherits: true;
+  initial-value: 1;
+}
+
+/* Density as a value, 0 to 1. Nothing shipped reads this yet. */
+@property --dither-level {
+  syntax: "<number>";
+  inherits: true;
+  initial-value: 0;
+}
+
+/* --------------------------------------------------------------------
+   Cell presets.
+
+   `.dither` hard-codes a 6px cell with a 1.3px dot radius, tuned for
+   card-sized surfaces. That ratio (dot ≈ 0.217 × cell, so the dot is
+   about 43% of the cell across) is the thing that makes the grid read
+   as dots rather than as flat noise, so it is held constant and only
+   the cell scales. Display type at 120px needs `xl` or the dots
+   disappear into the strokes; a 24px icon needs no lattice at all and
+   uses the dashed-stroke treatment further down instead. */
+.dither-cell-sm {
+  --dither-cell: 4px;
+  --dither-dot: 0.9px;
+}
+.dither-cell-md {
+  --dither-cell: 6px;
+  --dither-dot: 1.3px;
+}
+.dither-cell-lg {
+  --dither-cell: 10px;
+  --dither-dot: 2.2px;
+}
+.dither-cell-xl {
+  --dither-cell: 16px;
+  --dither-dot: 3.5px;
+}
+
+/* --------------------------------------------------------------------
+   `.dither-ramp` — density as a value.
+
+   The whole thesis of the plan doc in fifteen declarations. Layers
+   switch on in Bayer order as `--dither-level` rises, so 0.25 is one
+   grid, 0.5 is two, 1.0 is all four. Density ramps; brightness does
+   not, which is the difference between dithering and fading.
+
+   Opacity rather than four more masks, because this has to compose
+   with whatever positional mask the component is already using. The
+   `* 4` makes each layer cross-fade over its own quarter of the range
+   rather than popping, which at these dot sizes reads as smoother
+   without reading as a fade.
+
+   No mask is set, so `mask-image` resolves to `none` and each layer is
+   full-bleed until a direction class says otherwise. Block-agnostic,
+   so RTL-safe by construction. */
+.dither-ramp .dither-layer {
+  transition: opacity 420ms ease;
+}
+.dither-ramp .dither-layer:nth-child(1) {
+  opacity: clamp(0, calc(var(--dither-level) * 4), 1);
+}
+.dither-ramp .dither-layer:nth-child(2) {
+  opacity: clamp(0, calc((var(--dither-level) - 0.25) * 4), 1);
+}
+.dither-ramp .dither-layer:nth-child(3) {
+  opacity: clamp(0, calc((var(--dither-level) - 0.5) * 4), 1);
+}
+.dither-ramp .dither-layer:nth-child(4) {
+  opacity: clamp(0, calc((var(--dither-level) - 0.75) * 4), 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dither-ramp .dither-layer {
+    transition: none;
+  }
+}
+
+/* --------------------------------------------------------------------
+   `.dither-ramp-inline` — `.dither-down`, rotated onto the inline axis.
+
+   Same staggered stop pairs as the shipped block-axis version, and the
+   same reason for the stagger: density has to fall off faster than
+   linearly or the tail reads as a flat half-tone rug rather than a
+   dissolve.
+
+   This is one of the few masks on the site that runs on a PHYSICAL
+   axis, so unlike `.dither-down` it does need an RTL counterpart. Left
+   unmirrored, an Arabic headline dissolves at the start of the
+   sentence instead of the end. */
+.dither-ramp-inline .dither-layer:nth-child(1) {
+  --dither-mask: linear-gradient(to right, #000 0%, #000 46%, transparent 100%);
+}
+.dither-ramp-inline .dither-layer:nth-child(2) {
+  --dither-mask: linear-gradient(to right, #000 0%, #000 24%, transparent 68%);
+}
+.dither-ramp-inline .dither-layer:nth-child(3) {
+  --dither-mask: linear-gradient(to right, #000 0%, #000 8%, transparent 44%);
+}
+.dither-ramp-inline .dither-layer:nth-child(4) {
+  --dither-mask: linear-gradient(to right, #000 0%, transparent 24%);
+}
+
+[dir="rtl"] .dither-ramp-inline .dither-layer:nth-child(1) {
+  --dither-mask: linear-gradient(to left, #000 0%, #000 46%, transparent 100%);
+}
+[dir="rtl"] .dither-ramp-inline .dither-layer:nth-child(2) {
+  --dither-mask: linear-gradient(to left, #000 0%, #000 24%, transparent 68%);
+}
+[dir="rtl"] .dither-ramp-inline .dither-layer:nth-child(3) {
+  --dither-mask: linear-gradient(to left, #000 0%, #000 8%, transparent 44%);
+}
+[dir="rtl"] .dither-ramp-inline .dither-layer:nth-child(4) {
+  --dither-mask: linear-gradient(to left, #000 0%, transparent 24%);
+}
+
+/* --------------------------------------------------------------------
+   `.dither-crest` — dense along the centre line, dissolving both ways.
+
+   P5's seam. The shipped `.cta-bands` is the inverse of this (dense at
+   both edges, clear in the middle) and belongs to a panel; a seam
+   between two sections needs the density AT the boundary. Block axis,
+   symmetric, so no RTL counterpart. */
+.dither-crest .dither-layer:nth-child(1) {
+  --dither-mask: linear-gradient(to bottom, transparent 0%, #000 50%, transparent 100%);
+}
+.dither-crest .dither-layer:nth-child(2) {
+  --dither-mask: linear-gradient(to bottom, transparent 16%, #000 50%, transparent 84%);
+}
+.dither-crest .dither-layer:nth-child(3) {
+  --dither-mask: linear-gradient(to bottom, transparent 30%, #000 50%, transparent 70%);
+}
+.dither-crest .dither-layer:nth-child(4) {
+  --dither-mask: linear-gradient(to bottom, transparent 40%, #000 50%, transparent 60%);
+}
+
+/* `.dither-pinch` — dense at both block edges, clear through the
+   middle. Two gradients per layer in one `mask-image` list, which
+   composites with `add` by default; same construction as `.cta-bands`,
+   but staggered across the four layers so the falloff is a density
+   ramp rather than one grid fading. */
+.dither-pinch .dither-layer:nth-child(1) {
+  --dither-mask:
+    linear-gradient(to bottom, #000 0%, #000 10%, transparent 46%),
+    linear-gradient(to top, #000 0%, #000 10%, transparent 46%);
+}
+.dither-pinch .dither-layer:nth-child(2) {
+  --dither-mask:
+    linear-gradient(to bottom, #000 0%, #000 6%, transparent 30%),
+    linear-gradient(to top, #000 0%, #000 6%, transparent 30%);
+}
+.dither-pinch .dither-layer:nth-child(3) {
+  --dither-mask:
+    linear-gradient(to bottom, #000 0%, transparent 18%),
+    linear-gradient(to top, #000 0%, transparent 18%);
+}
+.dither-pinch .dither-layer:nth-child(4) {
+  --dither-mask:
+    linear-gradient(to bottom, #000 0%, transparent 9%),
+    linear-gradient(to top, #000 0%, transparent 9%);
+}
+
+/* `.dither-fray` — dense through the middle, dispersing at both inline
+   ends. P6's rule. Symmetric about the inline axis, so RTL-safe for
+   the same reason `.dissolve-band` is. */
+.dither-fray .dither-layer:nth-child(1) {
+  --dither-mask: linear-gradient(to right, transparent 0%, #000 6%, #000 94%, transparent 100%);
+}
+.dither-fray .dither-layer:nth-child(2) {
+  --dither-mask: linear-gradient(to right, transparent 4%, #000 20%, #000 80%, transparent 96%);
+}
+.dither-fray .dither-layer:nth-child(3) {
+  --dither-mask: linear-gradient(to right, transparent 14%, #000 34%, #000 66%, transparent 86%);
+}
+.dither-fray .dither-layer:nth-child(4) {
+  --dither-mask: linear-gradient(to right, transparent 24%, #000 45%, #000 55%, transparent 76%);
+}
+
+/* A rule is ONE row of dots, and the four-layer lattice is a two-dimensional
+   grid: layers 2 and 4 are offset half a cell down the block axis, so a
+   12px-tall rule on a 6px cell renders three or four staggered rows and reads
+   as a woven ribbon rather than as a line. Verified in the browser, which is
+   the only way this shows up.
+
+   Dropping the two block-offset layers leaves 1 and 3, which differ only on
+   the inline axis. The fray masks then give exactly what a rule wants: dots a
+   full cell apart at the ends where only layer 1 survives, and twice as dense
+   through the middle where layer 3 joins it. Still a real Bayer density ramp,
+   just one row of it. */
+.dither-rule-row {
+  height: var(--dither-cell);
+}
+.dither-rule-row .dither-layer:nth-child(2),
+.dither-rule-row .dither-layer:nth-child(4) {
+  display: none;
+}
+
+/* The hairline that the fray disperses FROM, for `variant="core"`. The
+   inverse mask of the layers above: solid where they are densest, gone
+   where they scatter, so the rule reads as one object dissolving into
+   its own dots rather than as a line with a pattern beside it. */
+.dither-rule-core {
+  position: absolute;
+  inset-inline: 0;
+  top: 50%;
+  height: 1px;
+  background: currentColor;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 38%, #000 62%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, #000 38%, #000 62%, transparent 100%);
+}
+
+/* --------------------------------------------------------------------
+   `.dither-mask` — dither inside (or knocked out of) any shape.
+
+   A `mix-blend-mode: multiply` sandwich in an isolated stacking
+   context. The group's backdrop is the ground colour with the dither
+   painted over it; the stencil on top multiplies against that.
+
+   - fill:     stencil is WHITE type on the ground. Multiply keeps the
+               backdrop wherever the stencil is white (inside the
+               glyphs) and crushes the rest to near-black. The dither
+               ends up inside the letterforms.
+   - knockout: stencil is ground-coloured type on WHITE. The inverse:
+               the field runs full bleed and the words are holes in it.
+
+   Chosen over the two obvious alternatives because both fail here.
+   `background-clip: text` needs four duplicated copies of the text,
+   one per Bayer layer, because each layer carries its own mask, and
+   they have to stay in pixel lockstep across a font swap. An SVG
+   `<text>` inside a `mask-image` data URI cannot load the page's
+   webfont and does not fall back reliably, which breaks Arabic
+   outright. This keeps ONE real text node: selectable, in the
+   accessibility tree, and shaped natively in either script.
+
+   Two known costs, both acceptable and neither hidden: a blended layer
+   loses subpixel antialiasing, which is invisible at display sizes and
+   would not be at body sizes; and the ground is `#060608` rather than
+   pure black so the component seams into the page, at the price of
+   multiplying to near-black rather than black. On a `bg-black` surface
+   such as the Hero, override `--dither-mask-ground`. */
+.dither-mask {
+  --dither-mask-ground: #060608;
+  position: relative;
+  display: inline-block;
+  isolation: isolate;
+  background: var(--dither-mask-ground);
+}
+
+/* This whole block sits OUTSIDE `@layer utilities`, and unlayered rules beat
+   layered ones in the cascade regardless of specificity. That means a Tailwind
+   `block w-full` at a call site would LOSE to the `display: inline-block`
+   above, silently, with no specificity warning to explain it. So the display
+   variant is a class here rather than a utility there. Anything else in this
+   block that sets a layout property has the same constraint. */
+.dither-mask-block {
+  display: block;
+  width: 100%;
+}
+
+.dither-mask-field {
+  position: absolute;
+  inset: 0;
+  display: block;
+  /* The lattice inherits its dot colour from `currentColor`. */
+  color: var(--muse-orange);
+}
+
+.dither-mask-stencil {
+  position: relative;
+  display: block;
+  mix-blend-mode: multiply;
+}
+
+/* Descenders, and this one only showed up on /ar.
+
+   The stencil's own background box is what defines "inside the sandwich".
+   Glyph ink that overflows it has no backdrop left to multiply against, so it
+   composites straight through as pure WHITE — an Arabic headline rendered with
+   a row of bright white tails and nuqta hanging below the dither band.
+
+   So any call site that hugs its text needs block padding deep enough for the
+   font's full ink extent, and Arabic drops about twice as far as Latin. Same
+   per-script problem, and the same fix, as `.hero-highlight`.
+
+   A modifier rather than a rule on `.dither-mask-stencil` itself, for two
+   reasons. This block is unlayered and would beat a Tailwind `py-*` at a call
+   site that wants its own generous padding, silently. And it belongs on the
+   element carrying the DISPLAY font size, not on the stencil wrapper: `em` on
+   the wrapper resolves against the inherited 16px, so `0.38em` bought 6px of
+   padding for a 72px headline and the first attempt at this fix did nothing.
+
+   The numbers are measured, not chosen. Canvas `TextMetrics` on the real
+   rendered string at 72px/1.05:
+
+                        Latin     Arabic
+     ink descent        0.208em   0.458em
+     ink ascent         0.722em   0.861em
+     overflows the box  0.03em    0.28em   (last line, below)
+
+   Arabic is not "a bit deeper", it is more than twice as deep, and the
+   overflow is real ink: the two nuqta under the final ي of "في" were hanging
+   below the band as bright white marks. */
+.dither-mask-hug {
+  padding-block: 0.04em 0.14em;
+}
+
+[lang="ar"] .dither-mask-hug {
+  padding-block: 0.06em 0.38em;
+}
+
+.dither-mask-fill .dither-mask-stencil {
+  background: var(--dither-mask-ground);
+  color: #fff;
+}
+
+.dither-mask-knockout .dither-mask-stencil {
+  background: #fff;
+  color: var(--dither-mask-ground);
+}
+
+/* --------------------------------------------------------------------
+   `.dither-wick` — P9's card hover, with no JS at all.
+
+   SUPERSEDED, and kept for comparison only. It was written against
+   `DitherHover`, which ran a requestAnimationFrame loop per card; the
+   pitch was that a CSS transition scales to a grid where twelve loops
+   do not. `CardDither` then replaced `DitherHover` with one shared
+   shader canvas whose mask moves to the hovered card, which serves any
+   number of cards on one context and one loop. See the component file.
+
+   The brush is pinned to a corner and a CSS transition on
+   `--dither-burst` does the swell, which is the whole reason that
+   property is registered at the top of this block.
+
+   Non-hover devices get a low static pool rather than nothing, which
+   is the call `.dither-wash` already makes: on a touch screen the
+   static state IS what the card renders, so it should be the honest
+   one. This component owns its opacity as well as its burst, so it
+   cannot be left permanently invisible by a call site passing only a
+   `group-hover:` opacity.
+
+   `--dither-x` is a physical corner, so it flips under RTL. */
+.dither-wick {
+  --dither-x: 0%;
+  --dither-y: 100%;
+  --dither-burst: 0.5;
+  opacity: 0.28;
+}
+
+[dir="rtl"] .dither-wick {
+  --dither-x: 100%;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .dither-wick {
+    --dither-burst: 0;
+    opacity: 0;
+    transition:
+      opacity 420ms ease,
+      --dither-burst 620ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .group:hover .dither-wick,
+  .group:focus-visible .dither-wick {
+    --dither-burst: 1.05;
+    opacity: 0.5;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dither-wick {
+    transition: none;
+  }
+}
+
+/* --------------------------------------------------------------------
+   `.dither-icon-path` — P8, and the scale argument in two rules.
+
+   At 24px the lattice is the wrong tool: a 6px cell inside a 1.5px
+   stroke catches one dot and reads as damage. What reads as dither at
+   icon scale is the STROKE becoming a dot run. A zero-length dash with
+   a round cap renders a dot of exactly `stroke-width` across, so every
+   existing path in `components/Icon.tsx` becomes a halftone with no
+   new geometry.
+
+   The dash period is a variable because `DitherIcon` rewrites it: at
+   render it is in user units (uniform spacing, but the pattern does
+   not close cleanly on a circle), and after one measuring pass it is
+   in `pathLength` units, where the period is 1 and every path is
+   assigned a whole number of dots. See the component.
+
+   Hover interpolates `0 period` to `period 0`, so the dots grow into
+   dashes and then into a solid stroke: the icon RESOLVES under
+   attention rather than lighting up.
+
+   The class goes on the `<svg>` and the rule reaches its geometry, so
+   this works on all fourteen icons in `components/Icon.tsx` unchanged,
+   and on any icon added later, with no per-icon markup. */
+.dither-icon :is(path, circle, rect, line, ellipse, polyline, polygon) {
+  stroke-dasharray: 0 var(--dither-dash, 3.2);
+  transition: stroke-dasharray 460ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.group:hover .dither-icon :is(path, circle, rect, line, ellipse, polyline, polygon),
+.group:focus-visible .dither-icon :is(path, circle, rect, line, ellipse, polyline, polygon),
+.dither-icon-solid :is(path, circle, rect, line, ellipse, polyline, polygon) {
+  stroke-dasharray: var(--dither-dash, 3.2) 0;
+}
+
+/* The measuring pass rewrites both `pathLength` and `--dither-dash` in
+   one task. Without this the transition would animate the dash NUMBER
+   from 3.2 to 1 while `pathLength` had already rescaled the unit under
+   it, so every icon would sit visibly sparse for 460ms on mount and
+   then settle. The component sets `data-measured` a frame later. */
+.dither-icon:not([data-measured]) :is(path, circle, rect, line, ellipse, polyline, polygon) {
+  transition: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dither-icon :is(path, circle, rect, line, ellipse, polyline, polygon) {
+    transition: none;
+  }
+}
+
+/* --------------------------------------------------------------------
+   `.dither-underline` — P22.
+
+   One element, one declaration block, and it appears on every inline
+   link on the site. The underline is a row of dots that doubles in
+   density on hover: `background-size` is animatable, so the whole
+   interaction is a single transition with no extra DOM and no JS.
+
+   `box-decoration-break: clone` so a link wrapping onto a second line
+   gets its own underline instead of one stretched run. */
+.dither-underline {
+  background-image: radial-gradient(
+    circle at 50% 100%,
+    currentColor 0.85px,
+    transparent 1.2px
+  );
+  background-size: 4px 2px;
+  background-repeat: repeat-x;
+  background-position: 0 100%;
+  padding-bottom: 0.18em;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  transition:
+    background-size 280ms ease,
+    color 200ms ease;
+}
+
+.dither-underline:hover,
+.dither-underline:focus-visible {
+  background-size: 2px 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dither-underline {
+    transition: none;
+  }
+}
+
+/* --------------------------------------------------------------------
+   `.dither-quote` — P11, the dither highlighter.
+
+   Dither behind the text's own line boxes, so the haze is ragged-right
+   and stops exactly where each line ends.
+
+   The plan doc specced this on `.dither-mask` and that turned out to
+   be unnecessary: `box-decoration-break: clone` already gives every
+   line box its own background rect, and multiple `background-image`
+   entries on ONE element give the Bayer offsets. So this is one
+   element, one text node, no blend mode, no duplication. Two of the
+   four offsets rather than all four, which is `.dither-wash`'s
+   half-density and keeps white body copy legible over the dots.
+
+   Metrics are per-script for the same reason `.hero-highlight` is:
+   Arabic ink is half again as tall as Latin and its descenders drop
+   twice as far, so one padding pair cannot hug both. */
+.dither-quote {
+  --dither-cell: 6px;
+  --dither-dot: 1.3px;
+  --dither-color: var(--muse-orange);
+  background-image:
+    radial-gradient(
+      circle at center,
+      var(--dither-color) var(--dither-dot),
+      transparent calc(var(--dither-dot) + 0.6px)
+    ),
+    radial-gradient(
+      circle at center,
+      var(--dither-color) var(--dither-dot),
+      transparent calc(var(--dither-dot) + 0.6px)
+    );
+  background-size: var(--dither-cell) var(--dither-cell);
+  background-position: 0 0, calc(var(--dither-cell) / 2) calc(var(--dither-cell) / 2);
+  padding-inline: 0.24em;
+  padding-block: 0.04em 0.16em;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+[lang="ar"] .dither-quote {
+  padding-block: 0.02em 0.22em;
+}
+
+/* Arabic drops one cell preset. A 16px cell gives a Latin capital four dots
+   across and an Arabic stroke one, so the same setting that reads as dither in
+   English reads as damage in Arabic. Same class of per-script problem as
+   `.hero-highlight`, solved the same way: in CSS, so the component stays a
+   Server Component with no locale prop. */
+[lang="ar"] .dither-display {
+  --dither-cell: 10px;
+  --dither-dot: 2.2px;
+}
+
+/* --------------------------------------------------------------------
+   Square dots.
+
+   The lattice draws circles because `.dither` was built to match
+   DitherField's rendered halftone, and DitherField asks PixelBlast for
+   `variant="circle"`. The Hero asks for `variant="square"`, and that is
+   the blockier, more pixel-native reading — it also matches the pixel
+   arrow in `PillButton`, which is the one piece of brand artwork that
+   is literally drawn on a grid.
+
+   One conic gradient per dot, which is the only way to get a hard-edged
+   square out of a tiling background: a conic centred at (s, s) with its
+   first 75% transparent leaves exactly the quadrant where x < s and
+   y < s, and bounded by the tile that quadrant IS the square [0,s]².
+   Linear gradients can only make stripes, and a data-URI `<rect>`
+   cannot take a custom property.
+
+   The square sits at the tile's top-left where the circle sat at its
+   centre, so the whole grid shifts half a cell. That is a uniform
+   translation and the four Bayer offsets stay correct relative to each
+   other, which is all that matters.
+
+   Scoped to a `.dither-squares` ancestor rather than changed on
+   `.dither-layer` itself, so round and square can be compared without
+   touching the block above. Put it on the page wrapper. */
+.dither-squares .dither-layer {
+  /* ~1.85x the circle's radius, so a square covers about the same area
+     as the dot it replaces and the two read at the same density. */
+  --dither-sq: calc(var(--dither-dot) * 1.85);
+  background-image: conic-gradient(
+    at var(--dither-sq) var(--dither-sq),
+    transparent 75%,
+    var(--dither-color) 0
+  );
+}
+
+.dither-squares .dither-quote {
+  --dither-sq: calc(var(--dither-dot) * 1.85);
+  background-image:
+    conic-gradient(at var(--dither-sq) var(--dither-sq), transparent 75%, var(--dither-color) 0),
+    conic-gradient(at var(--dither-sq) var(--dither-sq), transparent 75%, var(--dither-color) 0);
+}
+
+.dither-squares .dither-underline {
+  background-image: conic-gradient(at 1.7px 1.7px, transparent 75%, currentColor 0);
+  background-size: 4px 1.7px;
+}
+
+.dither-squares .dither-underline:hover,
+.dither-squares .dither-underline:focus-visible {
+  background-size: 2.4px 1.7px;
+}
+
+/* A zero-length dash with a SQUARE cap renders a square of side
+   `stroke-width`, exactly as a round cap renders a circle of that
+   diameter — so the icons follow the same switch with one property.
+   The square is oriented along the path, so dots around a curve tilt
+   with it, which is what a plotted halftone does anyway. */
+.dither-squares .dither-icon :is(path, circle, rect, line, ellipse, polyline, polygon) {
+  stroke-linecap: square;
+  /* The brand icon weight is 1.5, and at 1.5 the switch is invisible: a
+     2.25-device-pixel square and a 2.25-device-pixel circle are the same
+     mark. Verified — `stroke-linecap` computed to `square` and the icons
+     still looked round. The dot size IS the stroke width here, so making
+     the shape legible means carrying a little more weight. 1.9 is the
+     least that reads as square while still resolving to a stroke that
+     sits next to the outline set without looking bold. */
+  stroke-width: 1.9;
+}
+
+/* --------------------------------------------------------------------
+   `.dither-plate` — the panel tones.
+
+   `DitherKnockout` had exactly one colour arrangement: orange dither on
+   page black with the words punched out dark. Verified in the browser,
+   over the shader field, it was close to illegible — the shader's dots
+   come and go with the noise, so a dark hole in a sparse field has
+   nothing to be a hole IN.
+
+   So the arrangement becomes a variable. Three surfaces (page black,
+   accent, accent inverted) times two ways of placing the type (over the
+   field, or cut out of it). The type colour, the dot colour and the
+   plate colour move together, because they are one decision.
+
+   Contrast is NOT uniform across these, and the differences are real:
+
+     tone            type on plate      ratio   verdict
+     ink             #fff on #060608    19.9    any size
+     accentBlack     #fff on #fd4601     3.4    LARGE TEXT ONLY
+     accentWhite     #000 on #fd4601     6.2    any size
+     inkKnockout     texture, not colour
+     accentKnockout  texture, not colour
+
+   `accentBlack` is the one to watch: 3.4:1 clears the 3:1 bar for text
+   at 24px bold or 18.66px+, and fails everywhere else. Its black dots
+   darken the field under the type, which helps, but not by enough to
+   promote it. Display headlines only. `accentWhite` is the accent tone
+   that is safe at any size. */
+.dither-plate {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+/* `--dither-color` is set on the `.dither` DESCENDANT, not on the plate,
+   and that is not a stylistic choice. `.dither` declares
+   `--dither-color: currentColor` on itself, so a value inherited from an
+   ancestor never reaches the layers — the plate's declaration was simply
+   ignored and every tone drew its dots in the TYPE colour instead. The
+   two accent tones therefore rendered exactly inverted (white dots under
+   white type, black under black) which is how it was caught. */
+.dither-plate-ink {
+  background: var(--page-bg);
+  color: #fff;
+}
+.dither-plate-ink .dither {
+  --dither-color: var(--muse-orange);
+}
+
+.dither-plate-accentBlack {
+  background: var(--muse-orange);
+  color: #fff;
+}
+.dither-plate-accentBlack .dither {
+  --dither-color: #000;
+}
+
+.dither-plate-accentWhite {
+  background: var(--muse-orange);
+  color: #000;
+}
+.dither-plate-accentWhite .dither {
+  --dither-color: #fff;
+}
+
+/* Type laid over the field, which needs no blend mode at all and is
+   therefore the one arrangement with no Safari question mark. */
+.dither-plate-type {
+  position: relative;
+  z-index: 1;
+}
+
+/* Knockout on the page-black plate: white stencil ground so `multiply`
+   keeps the field everywhere, dark letterforms so the words crush to
+   the plate colour and read as holes in it. */
+.dither-plate-knockout-ink {
+  background: #fff;
+  color: var(--page-bg);
+  mix-blend-mode: multiply;
+  position: relative;
+}
+
+/* Knockout on the ACCENT plate cannot be `multiply`. Multiply only
+   darkens, and the words here have to come back UP to the plate colour
+   with the black dots removed from inside them. `lighten` does exactly
+   that: the stencil is black everywhere except orange letterforms, so
+   max() keeps the field outside the type and lifts the type to solid
+   orange. Same trick, opposite direction. */
+.dither-plate-knockout-accent {
+  background: #000;
+  color: var(--muse-orange);
+  mix-blend-mode: lighten;
+  position: relative;
+}
+
+/* --------------------------------------------------------------------
+   Solid glyphs.
+
+   The dashed stroke in `.dither-icon` is the right answer for outline
+   iconography and no answer at all for a mark that is a FILL — there is
+   no stroke to dash. Those go through `DitherMask` instead, which needs
+   a solid silhouette to use as a stencil, so the outline set is filled.
+
+   First attempt fattened the stroke to 3.4 as well, so that open paths
+   would close up into bars. Every icon turned into the same blob: at
+   44px a 3.4-unit stroke on a 24-unit viewBox swallows the counters,
+   and a shield, a globe and a lock all become one disc. So the stroke
+   stays near its original weight and only genuinely CLOSED shapes are
+   offered — the fill does the work, not the stroke. */
+.dither-icon-fill :is(path, circle, rect, line, ellipse, polyline, polygon) {
+  fill: currentColor;
+  stroke-width: 2;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+  stroke-dasharray: none;
+}
+
+/* --------------------------------------------------------------------
+   `.dither-ramp-inline-end` — the inline ramp, running the other way.
+
+   `.dither-ramp-inline` above is dense at the inline START. P15's split
+   hero needs the mirror of that: a field on the inline END half of the
+   composition, densest at the outer edge and dissolving toward the type
+   in the middle. Same stop pairs, opposite direction, and the same
+   physical-axis problem, so it carries its own RTL counterpart.
+
+   Written out rather than done with `scaleX(-1)` on the container: a
+   transform would flip the four Bayer offsets relative to each other as
+   well, and while a symmetric grid hides that today it stops being true
+   the moment a layer gets an asymmetric mask. */
+.dither-ramp-inline-end .dither-layer:nth-child(1) {
+  --dither-mask: linear-gradient(to left, #000 0%, #000 46%, transparent 100%);
+}
+.dither-ramp-inline-end .dither-layer:nth-child(2) {
+  --dither-mask: linear-gradient(to left, #000 0%, #000 24%, transparent 68%);
+}
+.dither-ramp-inline-end .dither-layer:nth-child(3) {
+  --dither-mask: linear-gradient(to left, #000 0%, #000 8%, transparent 44%);
+}
+.dither-ramp-inline-end .dither-layer:nth-child(4) {
+  --dither-mask: linear-gradient(to left, #000 0%, transparent 24%);
+}
+
+[dir="rtl"] .dither-ramp-inline-end .dither-layer:nth-child(1) {
+  --dither-mask: linear-gradient(to right, #000 0%, #000 46%, transparent 100%);
+}
+[dir="rtl"] .dither-ramp-inline-end .dither-layer:nth-child(2) {
+  --dither-mask: linear-gradient(to right, #000 0%, #000 24%, transparent 68%);
+}
+[dir="rtl"] .dither-ramp-inline-end .dither-layer:nth-child(3) {
+  --dither-mask: linear-gradient(to right, #000 0%, #000 8%, transparent 44%);
+}
+[dir="rtl"] .dither-ramp-inline-end .dither-layer:nth-child(4) {
+  --dither-mask: linear-gradient(to right, #000 0%, transparent 24%);
+}
+
+/* --------------------------------------------------------------------
+   `.dither-rail` — P7, progress as texture.
+
+   A narrow column of dither beside a stepped process, one segment per
+   step, whose density rises as that step is passed. Progress without a
+   filled bar and without a second colour.
+
+   `.dither` sets `inset: 0`, so the rail has to claw back three of the
+   four edges. They are LOGICAL: the rail sits on the inline start edge,
+   which is the left in English and the right in Arabic, and `inset: 0
+   auto 0 0` would pin it to the left in both.
+
+   Two cells wide. One cell is a single column of dots and reads as a
+   dotted border; three is a band. At two, the Bayer offsets are visible
+   as a weave and the thing reads as the same material as everything
+   else on the page.
+
+   RULE 7 IS THE CONSTRAINT HERE, not a footnote. Scroll drives the
+   RAIL's density and nothing else — every step's heading and body copy
+   is fully opaque at all times, whether or not the observer has fired,
+   whether or not JS ran. What scroll changes is the texture beside the
+   words, never the words. */
+.dither-rail {
+  inset-block: 0;
+  inset-inline-start: 0;
+  inset-inline-end: auto;
+  width: calc(var(--dither-cell) * 2);
+}
+
+/* The step marker: a filled square that lights to the accent once its
+   step is reached. Square rather than round to match `.dither-squares`
+   — and unlike the lattice this one is a single box, so it needs no
+   conic gradient, it just stops being a circle. */
+.dither-rail-marker {
+  position: absolute;
+  inset-inline-start: 0;
+  top: 0.55em;
+  width: calc(var(--dither-cell) * 2);
+  height: calc(var(--dither-cell) * 2);
+  background: currentColor;
+  opacity: 0.25;
+  transition:
+    opacity 420ms ease,
+    background-color 420ms ease;
+}
+
+[data-rail-seen="true"] .dither-rail-marker {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dither-rail-marker {
+    transition: none;
+  }
+}
+
+/* --------------------------------------------------------------------
+   `.dither-panel` — P12, the panel whose frame IS the dither.
+
+   The CTA panel's treatment generalised. A bordered box where the field
+   reaches all four edges, so the border can drop to a hairline or go
+   away entirely and the shape still holds. Reusable for an engagement
+   model, a featured item, a callout.
+
+   `--dither-level` is the emphasis, and that is the whole point of the
+   component: three panels side by side can be ranked without a badge,
+   a second colour or a size change (rule 3). Registered at the top of
+   this block, so it interpolates.
+
+   `overflow: hidden` and `isolation: isolate` are both load-bearing —
+   the field is absolutely positioned to the panel and would otherwise
+   paint over whatever the panel is sitting in. */
+.dither-panel {
+  --dither-level: 0.3;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  transition: border-color 420ms ease;
+}
+
+.dither-panel > *:not(.dither) {
+  position: relative;
+  z-index: 1;
+}
+
+/* Emphasis follows attention rather than a hard-coded ranking. See the
+   note on the specimen: Muse publishes three services as peers and does
+   not recommend one, so a statically denser panel would be asserting a
+   hierarchy that does not exist (rule 9). Pointing at one is real state,
+   and it is the honest thing for density to encode here.
+
+   Pure CSS on `.group`, so this costs no JS and no rAF loop — the same
+   arrangement `.dither-wick` uses, for the same reason. */
+.dither-panel-interactive {
+  --dither-level: 0.22;
+}
+
+.group:hover .dither-panel-interactive,
+.group:focus-within .dither-panel-interactive,
+.dither-panel-interactive:hover,
+.dither-panel-interactive:focus-within {
+  --dither-level: 1;
+  border-color: rgba(253, 70, 1, 0.45);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dither-panel {
+    transition: none;
+  }
+}
+
+/* --------------------------------------------------------------------
+   `.dither-duotone` — P10, the photograph given a house treatment.
+
+   The site's stock photography is currently its weakest visual layer:
+   it is generic, and it is the one surface carrying no brand material
+   at all. This resolves it to orange-on-black and puts the halftone
+   over it.
+
+   The duotone is a multiply against an orange plate, which is a real
+   luminance ramp rather than a tint: grayscale the image, multiply it
+   onto `--muse-orange`, and white maps to orange while black maps to
+   black. `contrast(1.55)` pushes the midtones apart first, or the whole
+   frame lands in the middle of the ramp and reads as a flat wash.
+
+   The lattice on top blends `screen`, so the dots lighten the shadows
+   toward the plate colour and the image picks up a visible dot
+   structure in exactly the areas a printed halftone would show it.
+
+   This is option (a) from the plan, and it is honest about what it is:
+   a screen laid over a photo, not a threshold. A true 1-bit dither
+   needs a one-shot canvas 2D Bayer pass cached as a data URL — CSP
+   allows it (`img-src data: blob:`) but it must not run on the critical
+   path. Build that only if the effect is chosen.
+
+   `mix-blend-mode` is not animatable, so the return to the real photo
+   is a cross-fade between two stacked images rather than a filter
+   transition. Same arrangement `Approach` already uses for its icon to
+   photo swap. */
+.dither-duotone {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: var(--muse-orange);
+}
+
+.dither-duotone-treated img {
+  filter: grayscale(1) contrast(1.55) brightness(1.05);
+  mix-blend-mode: multiply;
+}
+
+.dither-duotone .dither {
+  mix-blend-mode: screen;
+  --dither-color: var(--muse-orange);
+}
+
+/* --------------------------------------------------------------------
+   `.dither-pill` — P23, the button filling with its own material.
+
+   `PillButton` already eases from a 6px radius to a 50px one over 500ms
+   and scales its arrow chip. This adds the field, bursting outward FROM
+   the chip, so the control resolves rather than lighting up — the same
+   move `.dither-icon` makes, on the other end of the size range.
+
+   The brush origin is the chip, which sits at the inline END of the
+   button, so `--dither-x` is physical and flips. 88% rather than 100%
+   because the chip has its own inline padding and a burst centred on
+   the very edge throws away half its area outside the box.
+
+   Kept low: this is orange dither under BLACK text on a white button,
+   and the button's job is to be pressed, not to be looked at. 0.22 is
+   where the fill is visible as material and the label has not moved. */
+.dither-pill {
+  --dither-x: 88%;
+  --dither-y: 50%;
+  --dither-burst: 0;
+  --dither-color: var(--muse-orange);
+  opacity: 0.22;
+}
+
+[dir="rtl"] .dither-pill {
+  --dither-x: 12%;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .dither-pill {
+    transition: --dither-burst 620ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .group:hover .dither-pill,
+  .group:focus-visible .dither-pill {
+    --dither-burst: 1.15;
+  }
+}
+
+/* No hover to wait for, so the fill is simply there. Same call
+   `.dither-wash` and `.dither-wick` both make: on a touch screen the
+   static state IS what the control renders, so it should be the honest
+   one rather than nothing. */
+@media not all and (hover: hover) {
+  .dither-pill {
+    --dither-burst: 0.85;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dither-pill {
+    transition: none;
+    --dither-burst: 0.85;
+  }
+}
+
+/* --------------------------------------------------------------------
+   `.dither-focus` — P24, and the answer is "yes, but outside".
+
+   A dotted focus ring on its own is a worse focus ring. Focus
+   indication is a WCAG 2.4.11 obligation with a 3:1 contrast floor
+   against adjacent colours, and a dot grid at roughly 40% coverage
+   does not carry the same effective contrast as the solid rule it
+   replaced — it just looks like one at a glance, which is the worst
+   possible outcome for an affordance whose entire job is to be
+   unmissable.
+
+   So the solid ring stays exactly as it is and the dither goes OUTSIDE
+   it. Compliance is unchanged, and the house material is still what
+   announces the focus. If that reads as too much, the honest fallback
+   is no dither here at all rather than a thinner solid ring.
+
+   The ring is one pseudo-element with two masks composited `exclude`,
+   which cuts the middle out and leaves a frame. `-webkit-mask-composite:
+   xor` is the older spelling of the same operation and is what Safari
+   still reads. */
+.dither-focus {
+  position: relative;
+  outline-offset: 2px;
+}
+
+.dither-focus:focus-visible {
+  outline: 2px solid var(--muse-orange);
+}
+
+.dither-focus:focus-visible::after {
+  content: "";
+  position: absolute;
+  inset: -12px;
+  padding: 6px;
+  pointer-events: none;
+  background-image: radial-gradient(
+    circle at center,
+    var(--muse-orange) 1.1px,
+    transparent 1.7px
+  );
+  background-size: 5px 5px;
+  -webkit-mask-image: linear-gradient(#000, #000), linear-gradient(#000, #000);
+  mask-image: linear-gradient(#000, #000), linear-gradient(#000, #000);
+  -webkit-mask-clip: content-box, border-box;
+  mask-clip: content-box, border-box;
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
+.dither-squares .dither-focus:focus-visible::after {
+  background-image: conic-gradient(at 2px 2px, transparent 75%, var(--muse-orange) 0);
+}
+
+/* --------------------------------------------------------------------
+   `.dither-aperture` — P14, the one motion on arrival.
+
+   Page black, then a circular aperture opens from the centre over
+   900ms and settles. `--dither-burst` is registered, so the four
+   concentric `.dither-pointer` masks interpolate as one and the field
+   genuinely opens rather than cross-fading in.
+
+   4 is not arbitrary: layer 1's mask is a 200px circle scaled by the
+   burst, so 4 puts its edge at 800px — past the corner of a hero at
+   the site's 1100px measure. Under that, the aperture stops opening
+   before it clears the box and the corners stay visibly dark.
+
+   `forwards`, because the end state is the resting state. This must
+   never loop and never re-fire on scroll; it is an arrival, and the
+   second time you see it it is a page that cannot sit still.
+
+   `PageLoader` already runs a 100-cell halftone dissolve on every
+   navigation. Both on the home page is one dissolve too many — see the
+   open question in the plan doc. */
+@keyframes dither-aperture-open {
+  from {
+    --dither-burst: 0;
+  }
+  to {
+    --dither-burst: 4;
+  }
+}
+
+@keyframes dither-aperture-type {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.dither-aperture {
+  --dither-x: 50%;
+  --dither-y: 50%;
+  --dither-burst: 4;
+}
+
+[data-aperture="opening"] .dither-aperture {
+  animation: dither-aperture-open 900ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* A heading animating ONCE, on arrival, which is the one thing rule 7
+   permits. It is deliberately shorter than the aperture and delayed, so
+   the type lands into an opening field rather than racing it. */
+[data-aperture="opening"] .dither-aperture-type {
+  animation: dither-aperture-type 560ms ease 240ms both;
+}
+
+/* Renders open, immediately, with no animation. The component also
+   never sets `data-aperture` when the query matches, so this is a
+   second line of defence rather than the only one. */
+@media (prefers-reduced-motion: reduce) {
+  [data-aperture="opening"] .dither-aperture,
+  [data-aperture="opening"] .dither-aperture-type {
+    animation: none;
+  }
+}
+
+/* --------------------------------------------------------------------
+   `.inverse-bento` — P25, the texture belonging to the surface.
+
+   One continuous field spans the whole grid and the cards are holes
+   punched in a black sheet over it, so the dither is a property of the
+   page underneath rather than something each card carries. A grid of
+   windows rather than a grid of tiles.
+
+   Strictly cheaper than per-card treatments: one field for any number
+   of cards, at any count, with no hover plumbing at all.
+
+   The gutters are the CELLS' borders rather than a `gap`, and that is
+   the trick that makes it work for any grid including spans. A gap
+   would let the field show through between the cards, which is the
+   exact inverse of the effect. A border in the page colour paints over
+   it, and because every cell carries its own the outer edge gets a
+   frame for free and the field never leaks past the container. */
+.inverse-bento {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: var(--page-bg);
+}
+
+.inverse-bento-grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 0;
+}
+
+.inverse-bento-cell {
+  border: 10px solid var(--page-bg);
+}
+
+/* --------------------------------------------------------------------
+   `.dither-faq` — P21, the open state as a change of material.
+
+   An accordion where the open panel carries a wash and the closed ones
+   do not, so what tells you which one is open is the surface itself
+   rather than a rotated chevron. The chevron stays: this replaces
+   nothing, it adds the thing that is legible from across the room.
+
+   Density is the state variable, which is the section 0 thesis applied
+   to the smallest possible piece of UI.
+
+   0.26, and it took two passes. The first was 0.4, set as a Tailwind
+   utility at the call site, and it was both too strong and in the wrong
+   place: `pinch` puts its density at the item's two block edges, but a
+   collapsed FAQ row is only ~250px tall, so those two bands are most of
+   the item and the answer ended up reading through a coarse orange
+   screen. Rule 8 caps texture behind body copy at roughly 25% effective
+   coverage before the paragraph needs its own scrim, and this was well
+   over.
+
+   0.26 is checked rather than eyeballed, because "looks busy" and
+   "fails contrast" are different problems with different fixes and this
+   one turned out to be the first. The lattice at full density is ~60%
+   coverage, so at 0.26 the effective coverage is ~15.6%, inside the
+   ceiling. And the worst case a glyph can sit on is a dot pixel:
+   #fd4601 at 0.26 over #060608 is rgb(70, 23, 6), which is 15.4:1
+   against white — against 19.9:1 in the gaps. Both pass AA at any size,
+   so what is left is texture, not a legibility problem.
+
+   It lives here rather than at the call site for the reason the whole
+   block has to keep relearning: these rules are unlayered, so
+   `.dither-faq-item .dither` beats a Tailwind `opacity-*` silently, with
+   no specificity warning to explain why the utility did nothing. One
+   owner, and it is the one that wins. */
+.dither-faq-item .dither {
+  opacity: 0.26;
+}
+
+/* --------------------------------------------------------------------
+   Playground chrome. Specimen-sheet furniture only, no component in the
+   catalogue depends on any of it. */
+.spec-grid {
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.028) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.028) 1px, transparent 1px);
+  background-size: 48px 48px;
 }

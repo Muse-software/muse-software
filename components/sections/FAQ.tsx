@@ -14,7 +14,8 @@ export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section className="bg-[#060608] py-20 md:py-32">
+    // No background: the page wash runs underneath — see PageDither.
+    <section className="py-20 md:py-32">
       <div className="mx-auto w-full max-w-[900px] px-5 md:px-10">
         <WordReveal
           as="h2"

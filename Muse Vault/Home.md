@@ -79,7 +79,8 @@ Full logic and the capacity rule in [[Business Lines]].
 - [[Product Philosophy]] adapt what is proven, localise it deeply, ship, publish, decide with the number
 - [[Positioning]] what we are and what we are not
 - [[Brand Identity]] logo, palette, type
-- [[Brand Voice]] two registers, and why the public one is not corporate
+- [[Brand Texture]] the dither, the only texture we use, and the rules for placing it
+- [[Brand Voice]] three registers, and why the public one is not corporate
 - [[Localization Playbook]] the part most people get wrong
 - [[Quality Bar]] what done means here
 - [[Localisation Precedents]] the evidence that this model works, with sources

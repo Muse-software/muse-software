@@ -1,6 +1,6 @@
 import Image from "next/image";
 import WordReveal from "../WordReveal";
-import Motion3D from "../Motion3D";
+import DitherField from "../DitherField";
 
 type SubpageHeroProps = {
   eyebrow: string;
@@ -9,29 +9,7 @@ type SubpageHeroProps = {
   image?: string;
 };
 
-// Deterministic per-page pick so each subpage gets a different frame,
-// framing, and loop style instead of the exact same motion treatment.
-const objectPositionOptions = [
-  "object-[85%_50%]",
-  "object-[15%_40%]",
-  "object-[70%_20%]",
-  "object-[30%_75%]",
-];
-
-function pickVariant(seed: string) {
-  let hash = 0;
-  for (let i = 0; i < seed.length; i++) {
-    hash = (hash * 31 + seed.charCodeAt(i)) >>> 0;
-  }
-  const frame = ((hash % 3) + 1) as 1 | 2 | 3;
-  const variant: "pan" | "float" = hash % 2 === 0 ? "pan" : "float";
-  const objectPosition = objectPositionOptions[hash % objectPositionOptions.length];
-  return { frame, variant, objectPosition };
-}
-
 export default function SubpageHero({ eyebrow, title, subtitle, image }: SubpageHeroProps) {
-  const { frame, variant, objectPosition } = pickVariant(title);
-
   return (
     <section className="relative overflow-hidden bg-[#060608] pb-16 pt-40 md:pb-20 md:pt-48">
       {image ? (
@@ -48,12 +26,16 @@ export default function SubpageHero({ eyebrow, title, subtitle, image }: Subpage
         </>
       ) : (
         <>
-          <Motion3D frame={frame} variant={variant} className="opacity-60" objectPosition={objectPosition} priority />
-          <div className="absolute inset-0 bg-linear-to-r from-[#060608] via-[#060608]/55 to-[#060608]/20" />
-          <div className="absolute inset-0 bg-linear-to-t from-[#060608] via-transparent to-[#060608]/50" />
+          <DitherField className="opacity-90" />
+          {/* One vertical scrim, doing two jobs: it keeps the orange eyebrow off
+              the orange dot field, and it resolves the section into the page
+              black at the bottom edge so the header meets the next section with
+              no seam. Vertical on purpose — the gradient this replaced ran
+              `to-r`, a physical axis that `dir` does not flip, so under Arabic
+              the text landed on the *transparent* end of its own scrim. */}
+          <div className="absolute inset-0 bg-linear-to-t from-[#060608] via-[#060608]/50 to-transparent" />
         </>
       )}
-      <div className="pattern-crosshair pointer-events-none absolute inset-0 opacity-40" aria-hidden="true" />
       <div className="relative mx-auto w-full max-w-[1400px] px-5 md:px-10">
         <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#fd4601]">
           {eyebrow}

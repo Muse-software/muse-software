@@ -64,6 +64,38 @@ Four photos in `public/photos` are now referenced only by the archived data and
 are kept for a restore: `cover-neon-city.jpg`, `cover-red-light-figure.jpg`,
 `cover-orange-blur.jpg`, `hero-silhouette-sunset.jpg`.
 
+## StaggeredMenu, the previous nav (archived 2026-08-01)
+
+`components/StaggeredMenu.tsx` → `archive/components/StaggeredMenu.tsx`.
+
+Replaced by `components/SiteHeader.tsx`, a port of the "minimal" landing
+template's header: a centred pill that widens on scroll and expands into a
+three-card grid, retoned for a dark page. Archived rather than deleted at
+Abdullah's request, because the decision is a look, not a defect — the
+component works.
+
+It is a React Bits component ported to TypeScript, 619 lines, and it carries
+work that is not obvious from the outside and would be expensive to redo:
+
+- GSAP open/close choreography with layered colour panels and per-item
+  stagger, all driven off one `position: 'left' | 'right'` prop, which is what
+  made it mirror into Arabic for the cost of a ternary in the layout
+- Its chrome strings are a `labels` prop rather than hardcoded English (a
+  deviation from upstream), so it stays presentational with no next-intl
+  coupling
+- Item numbering, the socials column, and the click-away/`isFixed` behaviours
+
+To restore it, move the file back to `components/`, then rebuild the props the
+layout used to pass. They are in commit `c865f68`, in `app/[locale]/layout.tsx`:
+`menuItems` built from a `NAV_ROUTES` table joined against `Nav.items`, and
+`socialItems` built from `allSocials` with `Common.socials.*` accessible names.
+
+Two message keys it needed were dropped from `messages/*.json` at the same
+time and would have to come back: `Nav.socialsHeading` (a visually hidden
+heading over its socials list) and `Nav.empty` (its "no items" fallback). The
+new header has neither. `Nav.menuLabel` and `Nav.groups.*` are new and belong
+to the replacement.
+
 ## Redirects
 
 `/insights`, `/insights/*`, `/playbooks`, `/playbooks/*` and their `/ar` and

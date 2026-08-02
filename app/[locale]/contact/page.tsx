@@ -1,4 +1,5 @@
 import dynamic from "next/dynamic";
+import CardDither from "@/components/CardDither";
 import SubpageHero from "@/components/sections/SubpageHero";
 import ContactForm from "@/components/sections/ContactForm";
 import Icon from "@/components/Icon";
@@ -49,14 +50,15 @@ export default async function ContactPage({ params }: Props) {
   const t = await getTranslations("Contact");
 
   return (
-    <div className="min-h-screen bg-[#060608] text-white">
+    <div className="relative isolate min-h-screen bg-[#060608] text-white">
+      <CardDither />
       <SubpageHero
         eyebrow={t("hero.eyebrow")}
         title={t("hero.title")}
         subtitle={t("hero.subtitle")}
       />
 
-      <section className="relative overflow-hidden bg-[#060608] py-16 md:py-24">
+      <section className="relative overflow-hidden py-16 md:py-24">
         <Glossy3D
           size={280}
           className="pointer-events-none absolute -bottom-16 -end-16 hidden opacity-60 md:block"
@@ -69,15 +71,14 @@ export default async function ContactPage({ params }: Props) {
                 href={method.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex items-center justify-between gap-6 border border-white/15 p-8 transition-colors duration-300 hover:border-[#fd4601] hover:bg-[#fd4601] hover:text-black md:p-10"
+                data-dither-card
+                className="group flex items-center justify-between gap-6 border border-white/15 p-8 transition-colors duration-300 hover:border-[#fd4601] md:p-10"
               >
                 <div>
                   <p className="font-space-grotesk text-xl font-bold md:text-2xl">
                     {t(`methods.${method.key}`)}
                   </p>
-                  <p className="mt-2 text-white/60 group-hover:text-black/70">
-                    {method.detail}
-                  </p>
+                  <p className="mt-2 text-white/60">{method.detail}</p>
                 </div>
                 <Icon name={method.icon} className="h-8 w-8 shrink-0" />
               </a>
@@ -97,7 +98,7 @@ export default async function ContactPage({ params }: Props) {
         </div>
       </section>
 
-      <section className="bg-[#060608] pb-20 md:pb-28">
+      <section className="pb-20 md:pb-28">
         <div className="mx-auto w-full max-w-[700px] px-5 md:px-10">
           <h2 className="font-space-grotesk text-2xl font-bold text-white md:text-3xl">
             {t("formHeading")}

@@ -5,16 +5,17 @@ export const services: Service[] = [
     "slug": "ai-transformation",
     "icon": "gear",
     "title": "AI Transformation",
-    "summary": "Your enterprise AI strategy, architected and executed — not just decked.",
+    "summary": "Your enterprise AI strategy, architected and executed, not just decked.",
+    "cta": "Plan the transformation",
     "image": "/photos/pillar-ai-transformation.jpg",
     "intro": [
-      "As the cost of intelligence approaches zero, Saudi businesses that stay AI-absent will fall behind. Winning the next decade means going AI-native now.",
+      "As the cost of intelligence approaches zero, Saudi businesses that stay AI-absent will fall behind. The gap compounds every quarter you wait.",
       "We architect your AI strategy and execute it across three pillars: product, process, and people transformation."
     ],
     "approachHeading": "Strategy",
     "approachIntro": [
       "No 6-month diagnostics. No 200-slide presentations.",
-      "We get straight to it — 2 to 6 week holistic and function-specific audits that surface the most compelling AI use cases, quantify ROI, and map an implementation roadmap.",
+      "We get straight to it. 2 to 6 week holistic and function-specific audits that surface the most compelling AI use cases, quantify ROI, and map an implementation roadmap.",
       "Every engagement ends with a clear adoption report your team can run with, or hand back to us for execution."
     ],
     "pillars": [
@@ -69,6 +70,7 @@ export const services: Service[] = [
     "icon": "shield",
     "title": "Product Engineering",
     "summary": "High-velocity engineering-as-a-service, without sacrificing quality.",
+    "cta": "Build the product",
     "image": "/photos/pillar-product-engineering.jpg",
     "intro": [
       "From first prototype to production scale, we design and ship production-grade software fast, without dropping the quality bar to get there."
@@ -78,7 +80,7 @@ export const services: Service[] = [
     "pillars": [
       {
         "title": "We hire the best",
-        "body": "One senior engineer can do more than ten mediocre ones — so that's who we hire."
+        "body": "One senior engineer can do more than ten mediocre ones, so that's who we hire."
       },
       {
         "title": "We use AI (a lot)",
@@ -156,6 +158,7 @@ export const services: Service[] = [
     "icon": "share",
     "title": "Gamification & Experience",
     "summary": "Turn adoption into something people actually want to do.",
+    "cta": "Design the experience",
     "image": "/photos/pillar-gamification.jpg",
     "intro": [
       "Interactive, rewarding digital experiences that make change stick instead of stalling out."
@@ -179,7 +182,7 @@ export const services: Service[] = [
     "whyHeadline": "Adoption dies quietly, long before anyone notices",
     "whyReasons": [
       "New tools compete with old habits, and habits usually win by default.",
-      "Most onboarding is a tour, not an experience — people forget it by day two.",
+      "Most onboarding is a tour, not an experience, and people forget it by day two.",
       "Reward systems built without behavioral grounding train the wrong behavior.",
       "Without instrumentation, you find out adoption failed months after it did."
     ],
@@ -206,7 +209,7 @@ export const services: Service[] = [
     "whyWorkWithUs": [
       {
         "title": "One Team, Start to Finish",
-        "body": "The same team that designs the experience ships it — no handoff gap."
+        "body": "The same team that designs the experience ships it, with no handoff gap."
       },
       {
         "title": "Weekly Playable Builds",

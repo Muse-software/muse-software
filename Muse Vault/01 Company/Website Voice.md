@@ -81,6 +81,21 @@ The claim gets made by the site being genuinely bilingual and native in both scr
 
 Until that is built, the site says nothing about it. See [[Localization Playbook]] and [[Website#Open questions]].
 
+## The Arabic on this page runs two registers
+
+Decided 2026-08-01, see [[Decision Log]]. Separate from the rule above: that one is about not claiming Arabic capability, this one is about how the Arabic is actually written.
+
+MSA for the spine, headings and service names and the numbered steps. Saudi spoken for the body paragraphs and the CTAs. Full rule and the marker list in [[Arabic Termbase#The register, decided]].
+
+What this means for the English is nothing directly, and that is deliberate. The two languages are written natively rather than in parallel, so the Arabic getting a spoken layer does not license the English to get a casual one. The English register in this note is unchanged.
+
+## Two devices
+
+Both added 2026-08-01 from [[Habbar Voice Study]], both defined in [[Brand Voice#Two devices]], both used in Arabic and English.
+
+- **The correction pivot**, X not Y, gated on the rejected half being something a competitor actually does
+- **The verb chain**, once per section, as the beat
+
 ## The pillars are internal
 
 Decided 2026-08-01. [[Business Lines]] is how we divide responsibility internally. It is not how we describe ourselves to anyone outside, and Ventures, Marketing and Studio never appear as public language.
@@ -94,7 +109,7 @@ The shape of a section, in order:
 1. **Headline.** A position, stated. Short. It should be arguable, which is how you know it says something
 2. **Body.** What we actually do about it, specific enough that a reader could check it
 3. **Proof, where we have it.** A number, a named constraint, something real. Where we have none, say less rather than filling the space
-4. **One action.** A verb, and a single thing to do
+4. **One action.** A verb, and a single thing to do. The verb changes with the section and is drawn from what that section is actually about. Four cards under four different headings ending in the same "Get in touch" tells the reader the four cards are the same thing. This is where we have been getting the least out of a rule we already had
 
 ## Reference
 

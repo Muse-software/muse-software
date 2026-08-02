@@ -20,7 +20,11 @@ export default async function Leadership() {
         <div className="mt-8 grid gap-8 md:grid-cols-2">
           {team.map((person) => (
             <div key={person.name} className="border border-white/10 p-8">
-              <div className="flex h-16 w-16 items-center justify-center bg-[#4C0014] font-space-grotesk text-xl font-bold text-[#fd4601]">
+              {/* Was a maroon tile; the maroon came off the site on
+                  2026-08-02 (see Manifesto). An orange wash of the initials'
+                  own colour keeps the tile reading as a tile without
+                  reintroducing a second hue for one 64px square. */}
+              <div className="flex h-16 w-16 items-center justify-center bg-[#fd4601]/12 font-space-grotesk text-xl font-bold text-[#fd4601]">
                 {person.initials}
               </div>
               <h3 className="mt-5 font-space-grotesk text-xl font-bold text-white">

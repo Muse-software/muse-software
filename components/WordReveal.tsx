@@ -1,6 +1,6 @@
 "use client";
 
-import { ElementType, Fragment, useEffect, useRef } from "react";
+import { ElementType, Fragment, useEffect, useRef, type ReactNode, type Ref } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -68,20 +68,20 @@ type WordRevealProps = {
   as?: ElementType;
   className?: string;
   wordClassName?: string;
-  /**
-   * "stagger" fires once as the block nears the viewport (used for section
-   * headings). "scrub" ties opacity/position directly to scroll position, so
-   * the text reveals itself as you scroll past it (used for the manifesto).
-   */
-  mode?: "stagger" | "scrub";
 };
 
+/**
+ * Headings only. A `mode="scrub"` variant used to exist that tied word opacity
+ * to scroll position; the Manifesto ran its body copy through it and you
+ * arrived at the section to find sentences half-faded mid-line. Removed rather
+ * than left available: reading should never depend on how far you have
+ * scrolled. The reveal below fires once, as a block nears the viewport.
+ */
 export default function WordReveal({
   children,
   as = "span",
   className,
   wordClassName,
-  mode = "stagger",
 }: WordRevealProps) {
   const ref = useRef<HTMLElement | null>(null);
 
@@ -100,55 +100,39 @@ export default function WordReveal({
     const ctx = gsap.context(() => {
       gsap.set(words, { opacity: 0, yPercent: -100 });
 
-      if (mode === "scrub") {
+      const tweenVars = {
+        opacity: 1,
+        yPercent: 0,
+        stagger: 0.03,
+        duration: 0.7,
+        ease: "power2.out",
+      };
+
+      if (el.getBoundingClientRect().top < window.innerHeight * 0.85) {
+        // Already inside the "top 85%" zone the instant this mounts — true
+        // for every SubpageHero heading, which is always above the fold. A
+        // ScrollTrigger created after the element has already crossed its own
+        // start point is documented to fire its toggleActions immediately,
+        // but that specific path proved unreliable in practice: on a
+        // client-side route change the words' opacity would resolve to 1
+        // while yPercent stayed permanently pinned at its initial -100
+        // (confirmed via the computed transform, not just a visual glance),
+        // overlapping whatever sits above the heading. Skipping ScrollTrigger
+        // entirely for the common "already visible" case removes the failure
+        // mode rather than chasing its timing.
+        gsap.to(words, tweenVars);
+      } else {
+        // Genuinely below the fold — animate once actually scrolled into
+        // view. A real future scroll event drives this, so it isn't exposed
+        // to the same just-mounted timing issue.
         gsap.to(words, {
-          opacity: 1,
-          yPercent: 0,
-          stagger: 0.015,
-          ease: "none",
+          ...tweenVars,
           scrollTrigger: {
             trigger: el,
-            start: "top bottom",
-            end: "top 20%",
-            scrub: 0.8,
+            start: "top 85%",
+            toggleActions: "play none none none",
           },
         });
-      } else {
-        const tweenVars = {
-          opacity: 1,
-          yPercent: 0,
-          stagger: 0.03,
-          duration: 0.7,
-          ease: "power2.out",
-        };
-
-        if (el.getBoundingClientRect().top < window.innerHeight * 0.85) {
-          // Already inside the "top 85%" zone the instant this mounts —
-          // true for every SubpageHero heading, which is always above the
-          // fold. A ScrollTrigger created after the element has already
-          // crossed its own start point is documented to fire its
-          // toggleActions immediately, but that specific path proved
-          // unreliable in practice: on a client-side route change the
-          // words' opacity would resolve to 1 while yPercent stayed
-          // permanently pinned at its initial -100 (confirmed via the
-          // computed transform, not just a visual glance), overlapping
-          // whatever sits above the heading. Skipping ScrollTrigger
-          // entirely for the common "already visible" case removes the
-          // failure mode rather than chasing its timing.
-          gsap.to(words, tweenVars);
-        } else {
-          // Genuinely below the fold — animate once actually scrolled into
-          // view. A real future scroll event drives this, so it isn't
-          // exposed to the same just-mounted timing issue.
-          gsap.to(words, {
-            ...tweenVars,
-            scrollTrigger: {
-              trigger: el,
-              start: "top 85%",
-              toggleActions: "play none none none",
-            },
-          });
-        }
       }
     }, el);
 
@@ -177,14 +161,33 @@ export default function WordReveal({
       resizeObserver.disconnect();
       window.clearTimeout(stopObserving);
     };
-  }, [mode]);
+  }, []);
 
   const runs = toBidiRuns(children);
   // `as` is a runtime value, not a JSX-recognizable capitalized identifier —
   // aliasing it lets JSX treat it as a dynamic component/tag while still
   // passing `ref` the normal way, instead of hand-building the props object
   // that createElement needed (which is what tripped react-hooks/refs).
-  const Tag = as;
+  //
+  // The cast is what makes that alias type-check. A bare `ElementType` is the
+  // union of every intrinsic element and every component, and JSX resolves a
+  // union's props by intersecting them — which for that union collapses to
+  // `never`, so *any* prop passed here is an error (`ref`, `className` and
+  // `children` each reported one, and `next build` failed on all three).
+  //
+  // Restating it as `ElementType<TagProps>` is worse, not better: that maps
+  // the same enormous union through a generic and TS gives up with "union type
+  // too complex to represent". A single function-component signature is the
+  // one form that both erases the union and keeps the three props this call
+  // site passes actually checked — the alternative being `any`, which would
+  // stop checking them at all. It goes through `unknown` because `as` is a
+  // string at runtime for every current caller ("h1", "h2"), and React accepts
+  // both, but the two types do not overlap for a direct assertion.
+  const Tag = as as unknown as (props: {
+    ref?: Ref<HTMLElement | null>;
+    className?: string;
+    children?: ReactNode;
+  }) => ReactNode;
 
   return (
     <Tag ref={ref} className={className}>

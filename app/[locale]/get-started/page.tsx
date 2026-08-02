@@ -1,4 +1,4 @@
-import Image from "next/image";
+import DitherField from "@/components/DitherField";
 import Icon from "@/components/Icon";
 import GetStartedForm from "@/components/sections/GetStartedForm";
 import SubpageHero from "@/components/sections/SubpageHero";
@@ -46,15 +46,13 @@ export default async function GetStartedPage({ params }: Props) {
               ))}
             </div>
 
+            {/* Balances the column against the tall form. Desktop only, and
+                deliberately just texture: it held a leftover hero render that
+                read as a stock photo standing in for content this page does not
+                have. */}
             <div className="relative mt-6 hidden h-[520px] w-full overflow-hidden md:block">
-              <Image
-                src="/hero-bg-new.webp"
-                alt=""
-                fill
-                unoptimized
-                className="object-cover object-top"
-              />
-              <div className="absolute inset-0 bg-linear-to-t from-[#060608] via-transparent to-transparent" />
+              <div aria-hidden="true" className="copper-bloom dissolve-band absolute inset-0" />
+              <DitherField className="dissolve-band opacity-80" />
             </div>
           </div>
 

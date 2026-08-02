@@ -13,10 +13,27 @@ const withNextIntl = createNextIntlPlugin("./i18n/request.ts");
 // stays until inline scripts are eliminated entirely (there's currently one:
 // the homepage JSON-LD block) or the site adopts per-route dynamic rendering.
 const securityHeaders = [
+  // Two `blob:` allowances were added for the 3D hero, both measured against a
+  // real load rather than guessed at:
+  //
+  //   worker-src  three's DRACOLoader decompresses the monitor model in a
+  //               worker it builds by inlining the decoder into a Blob. Without
+  //               this it falls through to `default-src 'self'`, which does not
+  //               cover `blob:`, and the model fails to load outright.
+  //   connect-src GLTFLoader hands the model's embedded texture to
+  //               ImageBitmapLoader as a blob URL, which fetches it. Blocked,
+  //               the geometry still draws but every monitor renders untextured.
+  //
+  // Two things are deliberately *absent*. `'wasm-unsafe-eval'`: Draco ships a
+  // faster WebAssembly decoder, but enabling wasm compilation relaxes
+  // script-src for every script on the site, so the loader is pinned to the
+  // plain-JS decoder instead (see useComputersModel.ts). And `blob:` in
+  // script-src, which troika-three-text needs for its glyph worker — the hero
+  // paints text with a 2D canvas texture instead, so it never comes up.
   {
     key: "Content-Security-Policy",
     value:
-      "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self' data:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+      "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self' data:; connect-src 'self' blob:; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
   },
   { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
   { key: "X-Frame-Options", value: "DENY" },

@@ -2,7 +2,7 @@ import SubpageHero from "@/components/sections/SubpageHero";
 import AboutTabs from "@/components/sections/AboutTabs";
 import Leadership from "@/components/sections/Leadership";
 import BeliefSlider from "@/components/sections/BeliefSlider";
-import TrustedBy from "@/components/sections/TrustedBy";
+import PressureStatement from "@/components/sections/PressureStatement";
 import CareersTeaser from "@/components/sections/CareersTeaser";
 import Ticker from "@/components/Ticker";
 import CTA from "@/components/sections/CTA";
@@ -39,7 +39,14 @@ export default async function AboutPage({ params }: Props) {
       <AboutTabs />
       <Leadership />
       <BeliefSlider />
-      <TrustedBy />
+      {/* No Manifesto on this page to fold the line into, so it stays its own
+          beat — but sized to its content instead of the 50vh of flat pattern
+          it used to sit in. */}
+      <section className="bg-[#060608] px-5 py-14 md:px-10 md:py-20">
+        <div className="mx-auto w-full max-w-[1250px]">
+          <PressureStatement />
+        </div>
+      </section>
       <CareersTeaser />
       <Ticker text={t("ticker")} />
       <CTA />
