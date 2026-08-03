@@ -1,6 +1,6 @@
 "use client";
 
-import { useTranslations } from "next-intl";
+import TrackNav from "./TrackNav";
 import { useHorizontalScroll } from "../lib/useHorizontalScroll";
 
 type OutlineTrackProps = {
@@ -8,7 +8,6 @@ type OutlineTrackProps = {
 };
 
 export default function OutlineTrack({ items }: OutlineTrackProps) {
-  const t = useTranslations("Common");
   const { trackRef, scroll } = useHorizontalScroll();
 
   return (
@@ -28,28 +27,7 @@ export default function OutlineTrack({ items }: OutlineTrackProps) {
           </div>
         ))}
       </div>
-      <div className="mt-6 flex gap-3">
-        <button
-          type="button"
-          aria-label={t("previous")}
-          onClick={() => scroll(-1, 20, 320)}
-          className="grid h-11 w-11 place-items-center border border-white/30 text-white transition-colors hover:border-[#fd4601] hover:text-[#fd4601]"
-        >
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <path d="M15 5L8 12L15 19" stroke="currentColor" strokeWidth="1.5" />
-          </svg>
-        </button>
-        <button
-          type="button"
-          aria-label={t("next")}
-          onClick={() => scroll(1, 20, 320)}
-          className="grid h-11 w-11 place-items-center border border-white/30 text-white transition-colors hover:border-[#fd4601] hover:text-[#fd4601]"
-        >
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <path d="M9 5L16 12L9 19" stroke="currentColor" strokeWidth="1.5" />
-          </svg>
-        </button>
-      </div>
+      <TrackNav className="mt-6" onScroll={(direction) => scroll(direction, 20, 320)} />
     </div>
   );
 }

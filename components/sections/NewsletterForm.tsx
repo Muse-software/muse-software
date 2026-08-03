@@ -27,9 +27,13 @@ export default function NewsletterForm() {
         <label htmlFor="newsletter-email" className="sr-only">
           {t("emailLabel")}
         </label>
+        {/* LTR field, RTL page — an email address, and its `you@company.com`
+            placeholder, are Latin strings that should not inherit the page's
+            direction. See the note in ContactForm. */}
         <input
           id="newsletter-email"
           type="email"
+          dir="ltr"
           name="email"
           required
           placeholder={t("emailPlaceholder")}

@@ -78,7 +78,35 @@ export default async function ContactPage({ params }: Props) {
                   <p className="font-space-grotesk text-xl font-bold md:text-2xl">
                     {t(`methods.${method.key}`)}
                   </p>
-                  <p className="mt-2 text-white/60">{method.detail}</p>
+                  {/*
+                    `dir="ltr"` on the run, not on the paragraph.
+
+                    A phone number is not direction-neutral just because it is
+                    digits. In an RTL paragraph the leading "+" resolves to a
+                    neutral, N2 gives it the paragraph's own RTL direction, and
+                    each digit group is an LTR island inside it — so the groups
+                    reorder around the sign. Measured on /ar/contact before this
+                    change, by reading the rendered x of every character:
+
+                      source: "+966 59 273 1040"
+                      screen: "1040 273 59 966+"
+
+                    That is a wrong phone number on the page, not a cosmetic
+                    complaint. HTML's UA sheet gives any element carrying `dir`
+                    an `unicode-bidi: isolate`, so a `dir="ltr"` span both fixes
+                    the internal order and keeps the whole run anchored at the
+                    paragraph's start edge — the number stays on the right with
+                    the Arabic label above it, and reads correctly.
+
+                    It covers `info@muse.sa` too. That one already resolved LTR
+                    on its own (every character is Latin or a neutral between
+                    two Latin runs), but it resolved correctly by accident, and
+                    the accident stops holding the moment the string gains a
+                    leading or trailing neutral.
+                  */}
+                  <p className="mt-2 text-white/60">
+                    <span dir="ltr">{method.detail}</span>
+                  </p>
                 </div>
                 <Icon name={method.icon} className="h-8 w-8 shrink-0" />
               </a>

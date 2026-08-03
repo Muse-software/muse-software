@@ -224,6 +224,15 @@
     },
     "all": "All",
     "viewJd": "View full JD",
+    "generalSubject": "Interested in joining Muse Studios",
+    "applySubject": "Application: {role}",
+    "departments": {
+      "Engineering": "Engineering",
+      "Design": "Design",
+      "Strategy": "Strategy",
+      "Operations": "Operations",
+      "Marketing": "Marketing"
+    },
     "detail": {
       "eyebrow": "Careers · {department}",
       "responsibilities": "Responsibilities",

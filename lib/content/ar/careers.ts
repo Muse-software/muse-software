@@ -6,10 +6,16 @@ import type { CareerRole } from "../shared";
  * `../ar/services.ts`.
  *
  * `department` stays an English union value because `shared.ts` types it as
- * one and the careers filter compares against it. The visible department name
- * is a display concern the list resolves separately; translating the value
- * here would silently break the filter, which is the same trap Phase 2 hit
- * with the form select values (plan section 15, correction 4).
+ * one and the careers filter compares against it. Translating the value here
+ * would silently break the filter, which is the same trap Phase 2 hit with the
+ * form select values (plan section 15, correction 4).
+ *
+ * The visible department name is resolved separately, from
+ * `Careers.departments` in the message catalogue. That lookup did not exist
+ * until 2026-08-03 — the value was rendered raw, so /ar/careers showed
+ * "Strategy", "Marketing" and "Engineering" in Latin in the filter row and
+ * again on every card. Adding a role with a new department means adding its
+ * label to both catalogues.
  */
 export const careerRoles: CareerRole[] = [
   {
@@ -23,7 +29,7 @@ export const careerRoles: CareerRole[] = [
     responsibilities: [
       "تحديد فرص الأعمال الجديدة وتأهيلها عبر القطاعات المستهدفة",
       "بناء مسار من العملاء المحتملين وإدارته، من أول تواصل حتى توقيع العقد",
-      "تمثيل Muse Studios في اجتماعات العملاء والعروض والتفاوض على المقترحات",
+      "تمثيل الاستوديو في اجتماعات العملاء والعروض والتفاوض على المقترحات",
       "العمل عن قرب مع فريق التنفيذ لتحديد نطاق المشاريع بدقة قبل بيعها",
       "الحفاظ على العلاقات مع العملاء الحاليين لاكتشاف فرص التوسّع",
     ],
@@ -42,12 +48,12 @@ export const careerRoles: CareerRole[] = [
     slug: "digital-marketing-director",
     title: "مدير التسويق الرقمي",
     department: "Marketing",
-    blurb: "تملّك حضور Muse أمام الناس، والطلب اللي يجي منه.",
+    blurb: "تملّك حضورنا أمام الناس، والطلب اللي يجي منه.",
     location: "الرياض، السعودية (من المقر)",
     employmentType: "دوام كامل",
     compensation: "تنافسي، حسب الخبرة",
     responsibilities: [
-      "تملّك استراتيجية التسويق في Muse Studios عبر المحتوى والتواصل الاجتماعي والإعلانات المدفوعة والشراكات",
+      "تملّك استراتيجية التسويق عندنا عبر المحتوى والتواصل الاجتماعي والإعلانات المدفوعة والشراكات",
       "بناء وإدارة محرك المحتوى خلف النشرة البريدية وكل ما ننشره",
       "تشغيل حملات صناعة الطلب التي تحوّل الانتباه إلى فرص مؤهلة",
       "إدارة اتساق العلامة في كل نقطة تماس عامة",

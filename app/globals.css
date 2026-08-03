@@ -130,6 +130,114 @@
     transform: scaleX(-1);
   }
 
+  /*
+    Arabic letter-spacing. The single most damaging thing the Latin type scale
+    does to the Arabic pages, and it is destructive in BOTH directions.
+
+    Arabic is cursive: letters inside a word join, and the joining stroke is
+    part of the glyph. `letter-spacing` inserts its value at every glyph
+    boundary, so a positive value opens a gap at each seam and the word stops
+    reading as one word — the service card CTA "خطّط للتحوّل" was carrying
+    +2.4px between every letter, which is what "there's a space between each
+    character" was. A negative value does the opposite and marches the glyphs
+    into each other; the footer's 96px "تواصل معنا" was at -2.4px.
+
+    Measured on /ar before this rule, worst case per utility:
+
+      tracking-[0.3em]   +3.6px @ 12px   every section eyebrow (9 call sites)
+      tracking-[0.2em]   +2.8px @ 14px   card CTAs, Leadership titles, all form labels
+      tracking-wider     +0.7px @ 14px   footer column headings
+      tracking-tight     -2.4px @ 96px   hero h1 + tagline, footer line, menu label
+
+    Fixed here rather than at the ~30 call sites, and keyed on the attribute
+    selector rather than on a list of class names, for the reason that matters
+    most: it cannot be forgotten. A new eyebrow pasted from an existing one
+    inherits the fix instead of reintroducing the bug, and the English side is
+    untouched because the rule is scoped to [lang="ar"].
+
+    `[class*="tracking-"]` is surgical despite looking blunt — it matches only
+    elements that actually asked for tracking, and at (0,2,0) it outranks
+    Tailwind's (0,1,0) utility regardless of source order, so it does not
+    depend on this block sitting after the `@import`.
+
+    It also deliberately catches a Latin run inside an Arabic page. An eyebrow
+    reading "LinkedIn" on /ar should be set like its Arabic siblings, not like
+    its English twin, or the same row of labels is typeset two ways.
+
+    `uppercase` is left on the call sites. It is a no-op in Arabic — the script
+    has no case — so it costs nothing, and stripping it would mean editing
+    every eyebrow for no rendered difference.
+  */
+  [lang="ar"] [class*="tracking-"] {
+    letter-spacing: normal;
+  }
+
+  /*
+    Arabic display leading. The other half of the same problem: the type scale's
+    tight leadings are solved against Latin ink, and Arabic ink is far taller.
+
+    Measured with canvas `actualBoundingBox` on the real loaded faces, over the
+    site's own strings (which use shadda and hamza freely — تحوّل، علّمنا، مبنيّ):
+
+                          ink ascent  ink descent  ink height
+      Space Grotesk 700        0.720        0.200       0.920
+      Space Grotesk 500        0.700        0.200       0.900
+      Plex Sans Arabic 700     1.057        0.460       1.517
+      Plex Sans Arabic 500     0.830        0.450       1.280
+
+    So `leading-[1.05]` gives a 37.8px line box to hold 54.6px of bold Arabic
+    ink at text-4xl. Consecutive lines do not just crowd, they interleave: on
+    /ar at 390px the CTA heading rendered with the ة of "المشكلة" inside the ت
+    of "تواجهها" below it and "بناء" sitting in the previous line's descenders.
+    Caught in a WebKit mobile screenshot, not by any of the numeric probes.
+
+    1.55, and the value is the measurement rather than a preference: the bold ink
+    height above is 1.517em, plus a little over 0.03em of headroom for a stacked
+    mark this sample did not happen to contain.
+
+    1.3 and 1.35 both look clean on today's copy and neither is safe. Below the
+    ink height the line boxes genuinely overlap, and it only reads as fine while
+    the colliding glyphs happen not to be horizontally adjacent — that is one
+    headline away from breaking, which is the same trap the `max-w-[10ch]` clamp
+    on the Approach heading fell into. See the note there.
+
+    Keyed on `.font-space-grotesk` rather than on the individual `leading-*`
+    utilities, and that is the whole point of the rule. Two separate groups of
+    headings were below the floor and only one of them declares a leading at
+    all:
+
+      - the explicit tight steps — `leading-none`, `leading-[1.05]`,
+        `leading-[1.1]`, `leading-[1.15]`, `leading-[1.25]` — on the Hero,
+        SubpageHero, Approach, Manifesto, CTA, PressureStatement and footer line;
+      - and the section headings that declare no leading and simply inherit
+        Tailwind's size-paired default: `text-2xl` is 1.333 and `md:text-3xl` is
+        1.2, both under the floor. Ten of those wrap to two lines at real
+        viewports on /, /explore and the two service pages.
+
+    Enumerating leading utilities would have fixed the first group and missed the
+    second entirely, and the second is the one that grows every time a heading is
+    added. `.font-space-grotesk` is the site's display-type marker — it is on
+    every heading, button and brand string and on no body copy, which is exactly
+    the set that wants Arabic leading. Body copy is left alone: it inherits from
+    `body` and already runs 1.6-1.8, well clear of the 1.28em medium-weight ink.
+
+    One consequence worth knowing: a `.font-space-grotesk` element that also sets
+    `leading-8` or looser would be pulled DOWN to 1.55, since this is (0,2,0)
+    against a utility's (0,1,0). Nothing does that today, and a display string
+    that wants looser leading than 1.55 should say so with its own class here.
+
+    `.hero-highlight` is unaffected and must stay that way: it keeps its own
+    measured 1.29 because it is a single nowrap line whose padding is solved to
+    contain its ink. It carries no `.font-space-grotesk` of its own and sets
+    `line-height` directly, so it wins on both counts. See the note further down.
+
+    `.ticker-item` is unaffected too, being unlayered — also correct, since it is
+    a single nowrap line.
+  */
+  [lang="ar"] .font-space-grotesk {
+    line-height: 1.55;
+  }
+
   .no-scrollbar::-webkit-scrollbar {
     display: none;
   }
@@ -659,11 +767,31 @@
      beats layered CSS in the cascade no matter the specificity. */
   font-size: clamp(1.1rem, 2vw, 1.5rem);
   text-transform: uppercase;
-  letter-spacing: 0.02em;
+  /* Through a variable so the Arabic override below is a value change rather
+     than a second `letter-spacing` declaration. Both matter:
+
+     `.ticker-item` is unlayered, and unlayered CSS beats layered CSS no matter
+     the specificity, so the `[class*="tracking-"]` reset in @layer utilities
+     cannot reach it — the override has to live here beside it.
+
+     And a plain `letter-spacing: normal` in that override does not survive the
+     build. Verified against the CSS the dev server actually serves: the
+     declaration was compiled away entirely and `.ticker-item` still computed
+     0.48px on /ar, while the identical `normal` inside @layer utilities came
+     through untouched. Lightning CSS elides it as the property's initial value.
+     A custom property carries no such meaning to the optimizer, so the value
+     survives — and it reads as one decision with two settings, which is what
+     it is. */
+  letter-spacing: var(--ticker-tracking, 0.02em);
 }
 
 [lang="ar"] .ticker-item {
   font-family: "Space Grotesk", var(--font-plex-arabic), sans-serif;
+  /* Same cursive-join problem as the `[class*="tracking-"]` rule in @layer
+     utilities: 0.02em is only 0.48px at the clamped 24px, but it lands at every
+     joining seam of a single Arabic phrase repeated eight times across the full
+     width of the page. */
+  --ticker-tracking: 0;
 }
 
 .ticker-dot {

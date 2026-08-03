@@ -38,10 +38,15 @@ export default async function CareerRolePage({
   const role = getCareerRole(locale, slug);
   if (!role) return notFound();
 
+  // Two namespaces rather than one: `departments` and `applySubject` are shared
+  // with the list page, so they live one level up under `Careers`.
   const t = await getTranslations("Careers.detail");
+  const careers = await getTranslations("Careers");
 
+  // Was `Application: ${role.title}`, which composed an English word with an
+  // Arabic role name and handed the reader a half-translated subject line.
   const applyHref = `mailto:info@muse.sa?subject=${encodeURIComponent(
-    `Application: ${role.title}`
+    careers("applySubject", { role: role.title })
   )}`;
 
   const description = [
@@ -70,7 +75,11 @@ export default async function CareerRolePage({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <SubpageHero
-        eyebrow={t("eyebrow", { department: role.department })}
+        /* `role.department` is the stable English union value, not display
+           copy — interpolating it raw rendered "الوظائف · Strategy" on /ar. */
+        eyebrow={t("eyebrow", {
+          department: careers(`departments.${role.department}`),
+        })}
         title={role.title}
         subtitle={role.blurb}
       />

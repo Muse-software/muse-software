@@ -2,6 +2,7 @@
 
 import { useTranslations } from "next-intl";
 import WordReveal from "../WordReveal";
+import TrackNav from "../TrackNav";
 import { useHorizontalScroll } from "../../lib/useHorizontalScroll";
 
 export default function BeliefSlider() {
@@ -40,28 +41,12 @@ export default function BeliefSlider() {
           ))}
         </div>
 
-        <div className="mt-6 flex gap-3">
-          <button
-            type="button"
-            aria-label={t("previous")}
-            onClick={() => scroll(-1, 24, 420)}
-            className="grid h-11 w-11 place-items-center border border-white/30 text-white transition-colors hover:border-[#fd4601] hover:text-[#fd4601]"
-          >
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M15 5L8 12L15 19" stroke="currentColor" strokeWidth="1.5" />
-            </svg>
-          </button>
-          <button
-            type="button"
-            aria-label={t("next")}
-            onClick={() => scroll(1, 24, 420)}
-            className="grid h-11 w-11 place-items-center border border-white/30 text-white transition-colors hover:border-[#fd4601] hover:text-[#fd4601]"
-          >
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M9 5L16 12L9 19" stroke="currentColor" strokeWidth="1.5" />
-            </svg>
-          </button>
-        </div>
+        <TrackNav
+          className="mt-6"
+          onScroll={(direction) => scroll(direction, 24, 420)}
+          previousLabel={t("previous")}
+          nextLabel={t("next")}
+        />
       </div>
     </section>
   );

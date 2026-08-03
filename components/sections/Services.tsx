@@ -16,7 +16,25 @@ export default async function Services({ locale }: { locale: Locale }) {
   const t = await getTranslations("Services");
 
   return (
-    <section className="relative bg-[#060608] py-20 md:py-28">
+    /*
+      `overflow-x-clip` for the orb below, and it is a real bug rather than
+      tidying: `-end-24` is a 96px overhang, and on which edge it lands depends
+      on `dir`. Overflow past the inline START edge does not extend
+      `scrollWidth`, overflow past the END edge does — so the same declaration
+      is free on /ar and costs 96px of page-level horizontal scroll on /en.
+
+      Measured at 1440: /en/explore reported scrollWidth 1536 against
+      clientWidth 1440 and `window.scrollTo(9999, 0)` moved the page 96px;
+      /ar/explore moved 0. The `overflow-x: clip` backstop on `html` did not
+      catch it, because the root's overflow propagates to the viewport and the
+      propagated value still permits programmatic and keyboard scrolling — it
+      suppresses the scrollbar, not the scrollable area.
+
+      Clipping here rather than repositioning the orb, because /ar has been
+      showing the clipped composition all along (224px of a 320px ring). This
+      makes /en match it instead of inventing a third arrangement.
+    */
+    <section className="relative overflow-x-clip bg-[#060608] py-20 md:py-28">
       <Glossy3D
         variant="ring"
         size={320}

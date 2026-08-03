@@ -95,13 +95,18 @@ export default function GetStartedForm() {
           <label htmlFor="email" className={labelClass}>
             {t("email")}<span className="text-[#fd4601]">*</span>
           </label>
-          <input id="email" name="email" type="email" required className={inputClass} />
+          {/* `dir="ltr"` on both: an email address and a phone number are LTR
+              strings in any locale, and neither should inherit the page's RTL.
+              Explicit rather than inherited from the UA sheet, which only
+              happens to force LTR for `type="tel"` and not for `type="email"`
+              (measured on /ar: the email field computed `direction: rtl`). */}
+          <input id="email" name="email" type="email" dir="ltr" required className={inputClass} />
         </div>
         <div className="flex flex-col gap-2">
           <label htmlFor="phone" className={labelClass}>
             {t("phone")}<span className="text-[#fd4601]">*</span>
           </label>
-          <input id="phone" name="phone" type="tel" required className={inputClass} />
+          <input id="phone" name="phone" type="tel" dir="ltr" required className={inputClass} />
         </div>
       </div>
 

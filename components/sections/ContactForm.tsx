@@ -50,7 +50,14 @@ export default function ContactForm() {
           <label htmlFor="email" className={labelClass}>
             {t("email")}
           </label>
-          <input id="email" name="email" type="email" required className={inputClass} />
+          {/* An email address is an LTR string in any locale. Measured on /ar
+              before this: the field computed `direction: rtl`, which puts the
+              caret on the right and lets a leading or trailing neutral jump to
+              the wrong end of what has been typed. Set on the input rather than
+              left to the browser — Chromium happens to force LTR for
+              `type="tel"` in its UA sheet and not for `type="email"`, which is
+              a difference in UA sheets, not a rule to rely on. */}
+          <input id="email" name="email" type="email" dir="ltr" required className={inputClass} />
         </div>
       </div>
 

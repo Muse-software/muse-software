@@ -9,6 +9,14 @@ import type { CareerRole } from "../../lib/content";
 // translated string. `department` itself stays an English union value in both
 // locales — it is the filter's comparison key, not display copy, the same
 // stable-value rule the form selects follow.
+//
+// The other half of that rule had not been built, though. A stable English
+// *value* is only correct if something resolves it to a *label*, and nothing
+// did: both the filter chips and the card eyebrows rendered `role.department`
+// straight, so /ar/careers showed "Strategy", "Marketing" and "Engineering" in
+// Latin among Arabic role titles — twice each, once in the filter row and once
+// per card. `Careers.departments` is that lookup, keyed by the union value so a
+// role cannot carry a department the catalogue has no name for.
 const ALL = "__all__";
 
 export default function CareersList({ roles: allRoles }: { roles: CareerRole[] }) {
@@ -34,7 +42,7 @@ export default function CareersList({ roles: allRoles }: { roles: CareerRole[] }
                   : "border-white/35 text-white/60 hover:border-white/40 hover:text-white"
               }`}
             >
-              {dept === ALL ? t("all") : dept}
+              {dept === ALL ? t("all") : t(`departments.${dept}`)}
             </button>
           ))}
         </div>
@@ -44,7 +52,7 @@ export default function CareersList({ roles: allRoles }: { roles: CareerRole[] }
             const content = (
               <>
                 <p className="text-xs font-semibold uppercase tracking-[0.3em] text-white/50">
-                  {role.department}
+                  {t(`departments.${role.department}`)}
                 </p>
                 <h3 className="mt-2 font-space-grotesk text-lg font-bold text-white md:text-xl">
                   {role.title}
@@ -72,7 +80,12 @@ export default function CareersList({ roles: allRoles }: { roles: CareerRole[] }
             ) : (
               <a
                 key={role.title}
-                href="mailto:info@muse.sa?subject=Interested%20in%20joining%20Muse%20Studios"
+                /* The subject line is copy the reader sees in their own mail
+                   client, so it is translated like any other string. It was a
+                   hard-coded English sentence, which put "Interested in joining
+                   Muse Studios" in the compose window of someone who had read
+                   an entirely Arabic page. */
+                href={`mailto:info@muse.sa?subject=${encodeURIComponent(t("generalSubject"))}`}
                 data-dither-card
                 className={className}
               >
