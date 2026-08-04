@@ -5,16 +5,16 @@ export const services: Service[] = [
     "slug": "ai-transformation",
     "icon": "gear",
     "title": "AI Transformation",
-    "summary": "Your enterprise AI strategy, architected and executed, not just decked.",
+    "summary": "Your AI strategy, executed all the way to production, not just decked.",
     "cta": "Plan the transformation",
     "image": "/photos/pillar-ai-transformation.jpg",
     "intro": [
-      "As the cost of intelligence approaches zero, Saudi businesses that stay AI-absent will fall behind. The gap compounds every quarter you wait.",
-      "We architect your AI strategy and execute it across three pillars: product, process, and people transformation."
+      "The gap compounds every quarter you wait. Businesses that stay AI-absent get left behind by the ones that moved.",
+      "We build your AI strategy and run it across three fronts: product, process, and people."
     ],
     "approachHeading": "Strategy",
     "approachIntro": [
-      "No 6-month diagnostics. No 200-slide presentations.",
+      "No 6-month diagnostics. No 100-slide strategy decks with nothing behind them.",
       "We get straight to it. 2 to 6 week holistic and function-specific audits that surface the most compelling AI use cases, quantify ROI, and map an implementation roadmap.",
       "Every engagement ends with a clear adoption report your team can run with, or hand back to us for execution."
     ],
@@ -34,14 +34,14 @@ export const services: Service[] = [
         "body": "Bespoke curricula and hands-on workshops that upskill your team on new tools and workflows, so adoption sticks."
       }
     ],
-    "whyHeadline": "Becoming AI-native is difficult, but mission critical",
+    "whyHeadline": "Becoming AI-native is hard, and nobody does it for you",
     "whyReasons": [
       "No one owns AI transformation internally, so it stalls or gets half-finished.",
       "Deep technical AI expertise is required, but rarely available in-house.",
       "Cultural buy-in needs careful communication and real upskilling, not a mandate.",
       "Most consultancies overcharge, are under-qualified, or separate strategy from execution entirely."
     ],
-    "whatWeDoHeadline": "We act as your AI transformation partner, end to end.",
+    "whatWeDoHeadline": "We run it with you, from the first audit to systems in production.",
     "whatWeDo": [
       {
         "title": "Process Survey",
@@ -69,7 +69,7 @@ export const services: Service[] = [
     "slug": "product-engineering",
     "icon": "shield",
     "title": "Product Engineering",
-    "summary": "High-velocity engineering-as-a-service, without sacrificing quality.",
+    "summary": "Production-grade software, shipped fast, without dropping the quality bar.",
     "cta": "Build the product",
     "image": "/photos/pillar-product-engineering.jpg",
     "intro": [
@@ -102,7 +102,7 @@ export const services: Service[] = [
       "Velocity is a real competitive advantage in a fast-moving market.",
       "Unwinding slow, AI-resistant habits inside an existing team is genuinely difficult."
     ],
-    "whatWeDoHeadline": "We become an extension of your team, building whatever you need.",
+    "whatWeDoHeadline": "We work inside your team, not from a distance.",
     "whatWeDo": [
       {
         "title": "Application Development",
@@ -125,7 +125,7 @@ export const services: Service[] = [
         "body": "Agentic, AI-powered features tailored specifically to your business."
       }
     ],
-    "whyWorkHeadline": "We slot into your workflow for frictionless collaboration.",
+    "whyWorkHeadline": "We work inside the tools your team already uses.",
     "whyWorkWithUs": [
       {
         "title": "Dedicated Team",
