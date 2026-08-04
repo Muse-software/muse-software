@@ -15,6 +15,12 @@
 - 2 stale AR quotes in `document.html` updated (explore subtitle → "تطلق أسرع، من غير ما تتنازل عن الجودة"; get-started hero → "وأي مشروع نشتغله نسلّمه شغّال فعلًا."). All other quoted AR cells verified current by diffing against the content files.
 - Verified: measure.py all 17 pages within bounds; fonts pure Space Grotesk + IBM Plex Sans Arabic; zero em/en dashes + curly quotes; vision-checked AR pages render the new copy (e.g. "ننفّذ استراتيجيتك للذكاء الاصطناعي، مو نعرضها في شرائح.") with correct RTL/shaping.
 
+## Hotfix 2026-08-04 (night): last "X، لا Y" survivors + caption sweep
+Abdullah caught the hero subtitle still using the killed formula: "نبني الشيء نفسه، لا العرض التقديمي عنه." — my original kill-grep only matched the indefinite «لا بعرض», missing the definite «لا العرض». Fixed:
+- 3 content strings in `messages/ar.json` (hero.subtitle, Footer.worldview, Metadata.siteDescription) → «نبني الشيء نفسه فعلًا، مو بس عرض تقديمي عنه.» / «نبني الشيء نفسه، مو العرض اللي يشرحه.».
+- Rebuilt `document.html` caption sweep: my earlier checker only scanned `<td class="ar">` cells, missing `.shotcap` captions. Found + fixed 5 stale AR caption quotes (old CTA heading, AI summary, PE summary «بلا تنازل», gamification «التبنّي», contact «لنتحدث»). Full sweep of all 79 quoted fragments (cells + captions, EN + AR) now passes against current content.
+- Verified: «، لا» count ZERO in all AR content; tsc clean; build green; parity PASS; DOM check on live page confirms new hero subtitle renders and old string absent; PDF re-rendered (17 pages within bounds, fonts + punctuation clean).
+
 ## Notes
 - Screenshots taken from the local staging build (1440px + 390px viewports).
 - Mobile full-page screenshots are ~13,000px tall, so the mobile hero screen stands in for them; quoted copy covers the rest (noted on the legend page).
