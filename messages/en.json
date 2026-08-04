@@ -55,29 +55,62 @@
   },
   "Home": {
     "hero": {
-      "headlineLead": "Everyone has an AI strategy.",
-      "headlineTurn": "Almost nobody has shipped one.",
-      "tagline": "We're a product team in Riyadh.",
-      "subtitle": "We actually build the thing, not just the deck about the thing.",
-      "cta": "Get in touch"
+      "headlineLead": "We don't pitch.",
+      "headlineTurn": "We ship.",
+      "tagline": "Everything below is real work.",
+      "subtitle": "Anonymized case studies. Live experiments. Content we wrote.",
+      "cta": "View the work"
     },
-    "approach": {
-      "eyebrow": "Our approach",
-      "heading": "Muse helps you shift from AI-absent to AI-native.",
-      "cards": {
-        "ai-transformation": {
-          "body": "Staying AI-absent isn't a neutral choice. We find where AI actually earns its place in how your business runs, build the systems that do it, and put the guardrails in ourselves.",
-          "promise": "Every engagement ends with something running in production, not a slide deck."
+    "proofWall": {
+      "eyebrow": "The work speaks",
+      "heading": "What we've shipped. What we're building.",
+      "subtitle": "No decks. No strategies. Just work that's running in production or live in the wild.",
+      "items": [
+        {
+          "category": "Enterprise",
+          "title": "Core banking platform",
+          "body": "Replaced a 15-year legacy system for a PIF-level financial institution. 40+ services, zero-downtime migration, 200k daily transactions.",
+          "tags": ["TypeScript", "Kubernetes", "Event-driven"],
+          "link": "/case-studies/core-banking"
         },
-        "product-engineering": {
-          "body": "Good ideas stall when engineering can't move at the pace the business needs. We design and ship production-grade software, and the same senior team stays with you from first prototype to production scale.",
-          "promise": "You see it running early and often, not in one reveal at the end."
+        {
+          "category": "AI Feature",
+          "title": "Automated underwriting engine",
+          "body": "Cut loan decision time from 3 days to 12 minutes for a Saudi fintech. 94% accuracy vs human baseline. Shipped in 8 weeks.",
+          "tags": ["Python", "LLM", "RAG"],
+          "link": "/case-studies/underwriting"
         },
-        "gamification-experience": {
-          "body": "New tools compete with old habits, and habits win by default. We design the reward systems, onboarding and prototypes that make a change stick instead of quietly dying.",
-          "promise": "You're clicking through something real in the first week."
+        {
+          "category": "Brand Interface",
+          "title": "Consumer app redesign",
+          "body": "End-to-end redesign for a 500k-user Saudi super-app. Design system, motion language, RTL-first. 40% retention lift post-launch.",
+          "tags": ["Figma", "React Native", "Design Systems"],
+          "link": "/case-studies/super-app"
+        },
+        {
+          "category": "Venture",
+          "title": "Muse Experiments",
+          "body": "Live lab for AI-native product patterns. 3D agents, generative interfaces, local-first sync. Open source, production-grade.",
+          "tags": ["Three.js", "WebGPU", "Open Source"],
+          "link": "https://experiments.muse.sa",
+          "external": true
+        },
+        {
+          "category": "Venture",
+          "title": "Tenet",
+          "body": "AI-native knowledge base for teams that build. Not a wiki — a thinking partner. Early access live.",
+          "tags": ["Next.js", "Vercel AI SDK", "Postgres"],
+          "link": "https://tenet.muse.sa",
+          "external": true
+        },
+        {
+          "category": "Content",
+          "title": "Field Notes Newsletter",
+          "body": "Weekly dispatches on what we're seeing across engagements. No AI news. No 10-tip lists. Just field notes.",
+          "tags": ["Writing", "Strategy", "Engineering"],
+          "link": "/newsletter"
         }
-      }
+      ]
     },
     "manifesto": {
       "heading": "The next decade of software gets decided in the next two years.",

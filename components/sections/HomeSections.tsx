@@ -1,13 +1,12 @@
 import { getTranslations } from "next-intl/server";
-import Approach from "@/components/sections/Approach";
 import CTA from "@/components/sections/CTA";
 import FAQ from "@/components/sections/FAQ";
 import Hero from "@/components/sections/Hero";
 import Manifesto from "@/components/sections/Manifesto";
 import OutcomesBand from "@/components/sections/OutcomesBand";
-import WhoWeBuildFor from "@/components/sections/WhoWeBuildFor";
-import CardDither from "@/components/CardDither";
 import PageDither from "@/components/PageDither";
+import ProofWall from "@/components/sections/ProofWall";
+import ThreeDoors from "@/components/sections/ThreeDoors";
 import Ticker from "@/components/Ticker";
 import type { Locale } from "@/i18n/routing";
 
@@ -19,8 +18,8 @@ const SAME_AS = [
 
 /**
  * The home page body: everything between the nav and the footer, in order.
- * Hero → Approach → Manifesto → WhoWeBuildFor → OutcomesBand → Ticker → FAQ
- * → CTA. The hero is the always-on orange pixel field
+ * Hero → ProofWall → ThreeDoors → Manifesto → OutcomesBand → Ticker → FAQ → CTA.
+ * The hero is the always-on orange pixel field
  * (`components/PixelBlast.tsx`, via `Hero.tsx`).
  */
 export default async function HomeSections({ locale }: { locale: Locale }) {
@@ -45,17 +44,10 @@ export default async function HomeSections({ locale }: { locale: Locale }) {
        background is a hole punched in the wash. */
     <div className="relative isolate min-h-screen bg-[#060608] text-white">
       <PageDither />
-      <CardDither />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
       <Hero />
-      <Approach locale={locale} />
-      {/* The pressure line that used to sit here as its own section now closes
-          the Manifesto's argument — see PressureStatement. */}
+      <ProofWall locale={locale} />
+      <ThreeDoors locale={locale} />
       <Manifesto />
-      <WhoWeBuildFor />
       <OutcomesBand />
       <Ticker text={home("ticker")} />
       <FAQ />
