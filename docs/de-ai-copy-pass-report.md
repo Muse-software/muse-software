@@ -169,6 +169,24 @@ No AR line in this pass is a translation of its EN counterpart; each was built n
 
 ---
 
+## Independent verification evidence (Hermes, 2026-08-04 — post-merge gate)
+
+Re-ran every gate from scratch on `copy/de-ai-pass` after the executor's run, without trusting the self-report:
+
+- **TSC:** `npx tsc --noEmit` (node v24.14.0) → **clean**, zero errors.
+- **Build:** `npm run build` → **green**, ✓ compiled, 38/38 static pages generated, no route failures.
+- **Key parity:** re-derived independently — recursive walk incl. array indices + per-record array-length comparison for `intro/approachIntro/pillars/whyReasons/whatWeDo/faq/whyWorkWithUs` (services) and `responsibilities/requirements/niceToHaves` (careers), plus JSON keys — **zero asymmetry** in all three pairs (EN-only 0, AR-only 0).
+- **Kill-list grep** (extended superset incl. `leverage`, `empower`, `streamline`, `seamless`, `at scale`, `world-class`, `cross-functional`, `frictionless`, `drive growth`): **zero hits** in `messages/en.json` + `lib/content/en/`.
+- **Punctuation sweep on changed lines only** (en/em dashes, curly quotes, guillemets, Arabic-Indic digits): **clean**. Pre-existing en-dashes in budget-band JSON *keys* (`50K–150K SAR` etc.) and one em dash in a code comment are out of scope — keys are form option IDs, not prose; EN values already use hyphens.
+- **Hardcoded copy sweep** (`components/`, `app/`, rendered-text pattern): none — the only new user-facing literal is the JSON-LD labels swap, which now reuses `t("responsibilities")` / `t("requirements")`.
+- **AR register spot-check** (all 22 new AR strings vs `Arabic Termbase.md`): every body/card line sits at 1–2 markers per paragraph (`اللي/مو/وش/وين/عشان/لين/الحين/على طول`); deliverable lists (B13, C2 responsibilities) stay on the MSA spine; no classical (`نتفرّس`-type), no deep dialect (`تبي/أبغى`); second person via the verb; Latin brand names untouched. The verb chain in B1/B4 is the sanctioned Brand-Voice device (closed by `عشان`/purpose clause), once per section.
+- **Frozen coined pair:** `Home.approach.heading` (EN+AR) and the AR card first sentence `أن تكتفي بـ"استخدام" الذكاء الاصطناعي مو خيار محايد.` verified byte-for-byte unchanged in the diff; only the text after the frozen sentence was rewritten.
+- **Diff scope:** `git diff --stat` vs `staging/bilingual-ar-en` shows exactly the 6 content files + `app/[locale]/careers/[slug]/page.tsx` (JSON-LD) + 2 docs. Nothing else touched.
+
+**Pre-existing, out of scope, noted for the native reviewer:** en-dash budget-band JSON keys (EN/AR, 6 each), one em dash in a code comment in `lib/content/ar/careers.ts`, and one plain-word "stakeholders" KEEP string in the gamification FAQ.
+
+---
+
 ## Deviations from plan
 
 None. All changes match the plan's exact EN and exact AR strings verbatim, including the byte-for-byte frozen first sentence of `Home.approach.cards.ai-transformation.body` AR. No key was added, renamed, or removed. No structure-pass component was touched — only string values in `messages/{en,ar}.json`, `lib/content/{en,ar}/services.ts`, `lib/content/{en,ar}/careers.ts`, and the two JSON-LD label literals in `app/[locale]/careers/[slug]/page.tsx`.
