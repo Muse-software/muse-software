@@ -64,6 +64,9 @@ export default async function ContactPage({ params }: Props) {
           className="pointer-events-none absolute -bottom-16 -end-16 hidden opacity-60 md:block"
         />
         <div className="relative mx-auto w-full max-w-[1100px] px-5 md:px-10">
+          <p className="mb-10 max-w-[60ch] text-lg leading-8 text-white/70">
+            {t("conditional")}
+          </p>
           <div className="grid gap-6 md:grid-cols-2">
             {methods.map((method) => (
               <a

@@ -295,6 +295,7 @@
       "title": "Let's talk.",
       "subtitle": "Tell us what you're building. We usually reply the same day."
     },
+    "conditional": "If you're looking for a team to actually build the thing, not just deck it, talk to us.",
     "methods": {
       "whatsapp": "WhatsApp",
       "email": "Email"
