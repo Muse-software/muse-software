@@ -90,9 +90,29 @@ Abdullah's own lines. Keep going in that direction; borrow Tenex's *mechanics*
 
 ## G) Editorial voice sample (thamanyah — long-form, literary)
 
-Use for TONE only, not vocabulary (their sentences carry classical register our
-rules ban). The useful mechanics: opening with a concrete memory/scene,
-opinion stated as fact, short paragraphs, named people and places.
+Full 48-quote harvest: `/Users/a/thmanyah_copy_research.md`. Use for TONE
+only, not vocabulary (their sentences carry classical register our rules
+ban). The useful mechanics: opening with a concrete memory/scene, opinion
+stated as fact, short paragraphs, named people and places.
+
+Top borrowables for Muse's Arabic (all verbatim):
+
+| Source | Quote | Why |
+|---|---|---|
+| thmanyah profile | "أفضل محتوى عربي على الإنترنت." | Unapologetic superlative, zero hedging — "نفخر بأننا" never appears |
+| thmanyah article | "زائد: كيف تختزل السينما الشخصيات في صفة واحدة؟" | Signature "زائد:" secondary-hook device for newsletter/editorial titles |
+| thmanyah نشرة أها! | "نشرة يومية تصاحب كوب قهوتك الصباحي. تغنيك عن التصفّح العشوائي لشبكات التواصل" | "تغنيك عن" (spares you the trouble of) = uniquely Saudi value-prop construction — ideal for Muse's newsletter pitch |
+| thmanyah series | "ثمانية أشياء ماتعيش بدونها" | "ما X بدونها" challenge construction |
+| thmanyah series | "نجلس في كل مرة مع ضيف مختلف... وليش لها مكانة خاصة عنده" | "ليش" + "عنده" = conversational intimacy (our register allows 1-2 markers) |
+| thmanyah article | "العظمة تُقاس بمدى اتساع الأثر" | "اتساع الأثر" — measuring metaphor, not حجم/نطاق |
+| thmanyah article | "بخجل أقولها: مضحكة!" | Honest-pivot opener + single-word punch ending |
+| thmanyah article | "الكتاب ليس ترفًا بل ضرورة" | "ليس X بل Y" correction pivot |
+| thmanyah article | "قراءة ماتعة!" | "ماتعة" (pleasant), not مفيدة/مهمة — prestige endorsement |
+| thmanyah newsletter names | "بين الخطوط" / "مصدر مطّلع" / "نشرة أها!" / "نشرة إلخ" | Product-name voice range: literary → informed → playful → irreverent |
+| thmanyah banner | "ثمانية الناقل الحصري لكافة البطولات السعودية" | "X الحصري لـ Y" territory-owning construction |
+
+Local-confidence word choices to prefer: مطّلع (not خبير), تغنيك عن, ماتعة,
+اتساع, فضاءً لـ (not منصة), الحاصل في, تصاحب كوب قهوتك (daily-ritual framing).
 
 ## Sources
 - tenex.co (EN; US-based — mechanics only)
