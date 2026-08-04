@@ -52,9 +52,9 @@ export default async function CareerRolePage({
   const description = [
     role.blurb,
     role.responsibilities?.length
-      ? `Responsibilities: ${role.responsibilities.join("; ")}`
+      ? `${t("responsibilities")}: ${role.responsibilities.join("; ")}`
       : null,
-    role.requirements?.length ? `Requirements: ${role.requirements.join("; ")}` : null,
+    role.requirements?.length ? `${t("requirements")}: ${role.requirements.join("; ")}` : null,
   ]
     .filter(Boolean)
     .join(" ");
