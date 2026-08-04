@@ -1,4 +1,5 @@
 import SubpageHero from "@/components/sections/SubpageHero";
+import AboutMoment from "@/components/sections/AboutMoment";
 import AboutTabs from "@/components/sections/AboutTabs";
 import Leadership from "@/components/sections/Leadership";
 import BeliefSlider from "@/components/sections/BeliefSlider";
@@ -36,6 +37,7 @@ export default async function AboutPage({ params }: Props) {
         title={t("hero.title")}
         subtitle={t("hero.subtitle")}
       />
+      <AboutMoment />
       <AboutTabs />
       <Leadership />
       <BeliefSlider />
