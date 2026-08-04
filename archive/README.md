@@ -112,3 +112,40 @@ playbooks went, so nothing chains through a dead URL.
 3. Recreate the routes and components from the commits above.
 4. Restore the message namespaces, the nav/footer/sitemap entries, and drop the
    matching redirect.
+
+## 2026-08-04 — dev/3D hero + dither playground routes
+
+Archived from branch structure/site-implementation. Superseded: the live hero
+is the always-on pixel field (components/PixelBlast.tsx via Hero.tsx). The 3D
+monitor-wall and pointer-ink-dither hero candidates were scratch comparison
+routes, and the dither playground was a component-catalogue proposal
+(docs/dither-system-plan.md). None are in the new site structure
+(docs/muse-site-structure-plan.md §4).
+
+- `app/[locale]/hero-preview/`        — 3D monitor-wall hero preview (noindex scratch route)
+- `app/[locale]/preview/hero-dither/` — pointer-ink dither hero comparison (noindex scratch route)
+- `app/[locale]/playground/dither/`   — dither component catalogue (noindex scratch route)
+- `components/hero3d/`                — react-three-fiber monitor-wall scene (only hero-preview used it)
+- `components/sections/HeroMonitors.tsx` — the monitors hero section wrapper
+- `components/playground/`            — 34 dither-catalogue specimen components (only playground/dither used them)
+
+`Hero.tsx` was simplified alongside this: the `variant` prop, `HeroVariant`
+type, and the `dither` (DitherCursor) branch are gone — the pixel field is now
+unconditional. `HomeSections.tsx` lost the `hero` prop, `HeroChoice` type,
+`monitorGrade`, and the `children` CC-BY slot. `DitherCursor` /
+`DitherCursorScene` are unrelated and still ship (CTA panel).
+
+**`app/globals.css` was NOT touched.** The plan called for deleting the
+`.dither` utility block (~line 523) and the `DITHER PLAYGROUND` block (~line
+876–EOF) while preserving the `--dither-burst` / `--dither-level` `@property`
+registrations, on the premise that those registrations back the shipped
+`.dither-pointer`. Verification before cutting found no component anywhere in
+the live tree (outside the now-archived `components/playground/`) applies the
+`.dither-pointer`, `.dither-wash`, or `.dither-band` classes, or reads
+`--dither-burst` / `--dither-level` — `PageDither`/`CardDither`/`DitherField`
+use the separate `.page-wash` / `.card-dither` rules, not this block. That
+contradicts the plan's stated reason for the split and is exactly the
+"boundaries prove tangled" case the plan's own risk note anticipated, so the
+documented safe fallback was taken: both CSS blocks are left in `globals.css`,
+dead but valid, untouched by this pass. Frozen: nothing in `archive/` is
+maintained or expected to compile against the current app.
