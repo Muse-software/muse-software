@@ -91,13 +91,22 @@ export default async function Services({ locale }: { locale: Locale }) {
                 </div>
               </div>
 
-              <Link
-                href={`/services/${service.slug}`}
-                className="mt-8 inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.2em] text-[#fd4601] transition-colors hover:text-white"
-              >
-                {service.cta}
-                <span aria-hidden="true" className="arrow-inline">→</span>
-              </Link>
+              <div className="mt-8 flex flex-wrap items-center gap-x-8 gap-y-3">
+                <Link
+                  href={`/services/${service.slug}`}
+                  className="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.2em] text-[#fd4601] transition-colors hover:text-white"
+                >
+                  {service.cta}
+                  <span aria-hidden="true" className="arrow-inline">→</span>
+                </Link>
+                <Link
+                  href="/get-started"
+                  className="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.2em] text-white/50 transition-colors hover:text-white"
+                >
+                  {t("getStarted")}
+                  <span aria-hidden="true" className="arrow-inline">→</span>
+                </Link>
+              </div>
               </div>
             </div>
           ))}
