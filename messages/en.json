@@ -61,22 +61,41 @@
       "subtitle": "We actually build the thing, not just the deck about the thing.",
       "cta": "Get in touch"
     },
-    "approach": {
-      "eyebrow": "Our approach",
-      "heading": "Muse helps you shift from AI-absent to AI-native.",
-      "cards": {
-        "ai-transformation": {
-          "body": "Staying AI-absent isn't a neutral choice. We find where AI actually earns its place in how your business runs, build the systems that do it, and put the guardrails in ourselves.",
-          "promise": "Every engagement ends with something running in production, not a slide deck."
-        },
-        "product-engineering": {
-          "body": "Good ideas stall when engineering can't move at the pace the business needs. We design and ship production-grade software, and the same senior team stays with you from first prototype to production scale.",
-          "promise": "You see it running early and often, not in one reveal at the end."
-        },
-        "gamification-experience": {
-          "body": "New tools compete with old habits, and habits win by default. We design the reward systems, onboarding and prototypes that make a change stick instead of quietly dying.",
-          "promise": "You're clicking through something real in the first week."
-        }
+    "doors": {
+      "eyebrow": "Three ways we work",
+      "heading": "Pick the door that matches you",
+      "build": {
+        "eyebrow": "Build",
+        "title": "Production-grade software",
+        "body": "Shippable AI features, real interfaces, stakeholder-friendly communication. Built fast, without dropping the quality bar.",
+        "promise": "Every engagement ends with something running in production, not a slide deck.",
+        "cta": "Start a build"
+      },
+      "ventures": {
+        "eyebrow": "Ventures",
+        "title": "Our own products",
+        "body": "We're hunting for the golden egg. Real pipeline, real progress. Open to collaborating with people who have ideas.",
+        "promise": "We ship our own MVPs and share what we learn along the way.",
+        "cta": "See the pipeline"
+      },
+      "think": {
+        "eyebrow": "Think",
+        "title": "Knowledge & community",
+        "body": "Articles, tutorials, showcases, newsletter. Building a name in the Saudi startup and ventures community. Not just sharing knowledge — building influence.",
+        "promise": "The same thinking that goes into the work, published.",
+        "cta": "Read the latest"
+      },
+      "product-engineering": {
+        "body": "From first prototype to production scale, we design and ship production-grade software fast, without dropping the quality bar to get there.",
+        "promise": "You see the product running in front of you throughout, not in a single reveal at the end."
+      },
+      "ai-integration": {
+        "body": "We find where AI removes real friction in how your business runs, build the systems that do it reliably, and get your team actually using them.",
+        "promise": "Every engagement ends with something running in production, not a slide deck."
+      },
+      "brand-interface": {
+        "body": "Interactive, rewarding digital experiences that make change stick instead of stalling out.",
+        "promise": "You're clicking through something real in the first week."
       }
     },
     "manifesto": {
@@ -90,10 +109,6 @@
       "lead": "AI isn't optional.",
       "emphasis": "Waiting is the risk."
     },
-    "whoWeBuildFor": {
-      "heading": "The teams we work with aren't a general audience.",
-      "body": "They're <role>founders</role> shipping a first product, and <role>operators</role> trying to get an AI initiative out of pilot purgatory."
-    },
     "outcomes": {
       "heading": "We deliver outcomes, <accent>not just tools</accent>."
     },
@@ -106,7 +121,7 @@
           "a": "We're a small, senior team, not a rotating cast of contractors. No 100-slide strategy decks with nothing behind them. We scope fast, build with you, and measure ourselves on what actually shipped."
         },
         {
-          "q": "What does AI transformation actually mean?",
+          "q": "What does AI integration actually mean?",
           "a": "Finding where AI removes real friction in how your business runs, building the systems that do it reliably, and getting your team actually using them. Then repeating that cycle as the tools improve."
         },
         {

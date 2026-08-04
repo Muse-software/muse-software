@@ -46,7 +46,7 @@ import { localeDirection, type Locale } from "@/i18n/routing";
 const EASE_OUT = [0.16, 1, 0.3, 1] as const;
 
 export default function Approach({ locale }: { locale: Locale }) {
-  const t = useTranslations("Home.approach");
+  const t = useTranslations("Home.doors");
   // The locale comes down from the page rather than from `useLocale()` so it
   // arrives already narrowed to the union the content layer accepts. Only
   // slug, title, image and icon are read here, so both locales' service
@@ -88,7 +88,7 @@ export default function Approach({ locale }: { locale: Locale }) {
                 })}
           >
             <p className="text-xs font-semibold uppercase tracking-[0.3em] text-white/50">
-              {t("eyebrow")}
+              {t("build.eyebrow")}
             </p>
             {/* No `ch` clamp. There was a `max-w-[10ch]` here from the
                 original brand-guideline import, sized for a much shorter
@@ -103,7 +103,7 @@ export default function Approach({ locale }: { locale: Locale }) {
               as="h2"
               className="mt-4 font-space-grotesk text-4xl font-medium leading-[1.05] text-white md:text-5xl"
             >
-              {t("heading")}
+              {t("build.title")}
             </WordReveal>
           </motion.div>
 
@@ -129,10 +129,10 @@ export default function Approach({ locale }: { locale: Locale }) {
                       {service.title}
                     </h3>
                     <p className="mt-3 text-sm leading-6 text-white/60 md:text-base">
-                      {t(`cards.${service.slug}.body`)}
+                      {t(`${service.slug}.body`)}
                     </p>
                     <p className="mt-3 border-s-2 border-[#fd4601] ps-3 text-sm leading-6 text-white/85 md:text-base">
-                      {t(`cards.${service.slug}.promise`)}
+                      {t(`${service.slug}.promise`)}
                     </p>
                     <span className="mt-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-[#fd4601]">
                       {service.cta}{" "}

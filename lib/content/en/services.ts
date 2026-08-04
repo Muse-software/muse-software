@@ -2,84 +2,6 @@ import type { Service } from "../shared";
 
 export const services: Service[] = [
   {
-    "slug": "ai-transformation",
-    "icon": "gear",
-    "title": "AI Transformation",
-    "summary": "Your AI strategy, executed all the way to production, not just decked.",
-    "cta": "Plan the transformation",
-    "image": "/photos/pillar-ai-transformation.jpg",
-    "intro": [
-      "The gap compounds every quarter you wait. Businesses that stay AI-absent get left behind by the ones that moved.",
-      "We build your AI strategy and run it across three fronts: product, process, and people."
-    ],
-    "approachHeading": "Strategy",
-    "approachIntro": [
-      "No 6-month diagnostics. No 100-slide strategy decks with nothing behind them.",
-      "We get straight to it. A 2 to 6 week audit that finds the AI use cases actually worth doing, what they're worth, and what it takes to ship them.",
-      "Every engagement ends with a clear adoption report your team can run with, or hand back to us for execution."
-    ],
-    "pillars": [
-      {
-        "title": "Product Transformation",
-        "body": "Rebuilding what you ship so AI is native to the product, not bolted onto it.",
-        "crossLinkSlug": "product-engineering",
-        "crossLinkLabel": "Just interested in Product Engineering?"
-      },
-      {
-        "title": "Process Transformation",
-        "body": "We look at how the work actually flows, automate the parts that are worth it, and train the team so the change holds."
-      },
-      {
-        "title": "People Transformation",
-        "body": "Training built for your team and the tools they'll actually use, run as hands-on workshops, not slideware."
-      }
-    ],
-    "whyHeadline": "Becoming AI-native is hard, and nobody does it for you",
-    "whyReasons": [
-      "No one owns AI transformation internally, so it stalls or gets half-finished.",
-      "Deep technical AI expertise is required, but rarely available in-house.",
-      "Getting people to actually use it takes real training and buy-in, not a memo from the top.",
-      "Most consultancies overcharge, are under-qualified, or separate strategy from execution entirely."
-    ],
-    "whatWeDoHeadline": "We run it with you, from the first audit to systems in production.",
-    "whatWeDo": [
-      {
-        "title": "Process Survey",
-        "body": "We find where the workflow actually breaks, and what fixing it is worth."
-      },
-      {
-        "title": "Executive Survey",
-        "body": "We sit with leadership to get clear on the priorities, and where AI is actually worth doing."
-      },
-      {
-        "title": "Expert Interviews",
-        "body": "We talk to the people who run each part of the business, so the plan matches how it really works."
-      },
-      {
-        "title": "Custom Training Programs",
-        "body": "Training built around the AI tools your team will actually use, run hands-on."
-      },
-      {
-        "title": "AI Tooling",
-        "body": "The actual systems, built from a mix of off-the-shelf tools, our own, and custom code."
-      }
-    ],
-    "faq": [
-      {
-        "q": "How long before we see something concrete?",
-        "a": "The audit runs 2 to 6 weeks and ends with a clear adoption report your team can act on, whether you run it yourselves or hand execution back to us."
-      },
-      {
-        "q": "Do you only advise, or do you build it too?",
-        "a": "Both. We run it with you from the first audit all the way to systems running in production, not a strategy deck we hand off."
-      },
-      {
-        "q": "What does AI transformation actually cover?",
-        "a": "Three fronts: product, process, and people, so the change lands in what you ship, how you operate, and how your team works."
-      }
-    ]
-  },
-  {
     "slug": "product-engineering",
     "icon": "shield",
     "title": "Product Engineering",
@@ -182,10 +104,103 @@ export const services: Service[] = [
     ]
   },
   {
-    "slug": "gamification-experience",
+    "slug": "ai-integration",
+    "icon": "gear",
+    "title": "AI Integration",
+    "summary": "Shippable AI features that are actually useful, not strategy decks.",
+    "cta": "Add AI to your product",
+    "image": "/photos/pillar-ai-transformation.jpg",
+    "intro": [
+      "The gap compounds every quarter you wait. Businesses that stay AI-absent get left behind by the ones that moved.",
+      "We find where AI removes real friction in how your business runs, build the systems that do it reliably, and get your team actually using them."
+    ],
+    "approachHeading": "Strategy",
+    "approachIntro": [
+      "No 6-month diagnostics. No 100-slide strategy decks with nothing behind them.",
+      "We get straight to it. A 2 to 6 week audit that finds the AI use cases actually worth doing, what they're worth, and what it takes to ship them.",
+      "Every engagement ends with a clear adoption report your team can run with, or hand back to us for execution."
+    ],
+    "pillars": [
+      {
+        "title": "Product Transformation",
+        "body": "Rebuilding what you ship so AI is native to the product, not bolted onto it.",
+        "crossLinkSlug": "product-engineering",
+        "crossLinkLabel": "Just interested in Product Engineering?"
+      },
+      {
+        "title": "Process Transformation",
+        "body": "We look at how the work actually flows, automate the parts that are worth it, and train the team so the change holds."
+      },
+      {
+        "title": "People Transformation",
+        "body": "Training built for your team and the tools they'll actually use, run as hands-on workshops, not slideware."
+      }
+    ],
+    "whyHeadline": "Becoming AI-native is hard, and nobody does it for you",
+    "whyReasons": [
+      "No one owns AI transformation internally, so it stalls or gets half-finished.",
+      "Deep technical AI expertise is required, but rarely available in-house.",
+      "Getting people to actually use it takes real training and buy-in, not a memo from the top.",
+      "Most consultancies overcharge, are under-qualified, or separate strategy from execution entirely."
+    ],
+    "whatWeDoHeadline": "We run it with you, from the first audit to systems in production.",
+    "whatWeDo": [
+      {
+        "title": "Process Survey",
+        "body": "We find where the workflow actually breaks, and what fixing it is worth."
+      },
+      {
+        "title": "Executive Survey",
+        "body": "We sit with leadership to get clear on the priorities, and where AI is actually worth doing."
+      },
+      {
+        "title": "Expert Interviews",
+        "body": "We talk to the people who run each part of the business, so the plan matches how it really works."
+      },
+      {
+        "title": "Custom Training Programs",
+        "body": "Training built around the AI tools your team will actually use, run hands-on."
+      },
+      {
+        "title": "AI Tooling",
+        "body": "The actual systems, built from a mix of off-the-shelf tools, our own, and custom code."
+      }
+    ],
+    "whyWorkHeadline": "We run it with you, from the first audit to systems in production.",
+    "whyWorkWithUs": [
+      {
+        "title": "Same Team, Start to Finish",
+        "body": "The people who scope the audit are the people who build the systems."
+      },
+      {
+        "title": "Weekly Working Builds",
+        "body": "You see something running in production every week, not a single reveal at the end."
+      },
+      {
+        "title": "Real Training, Not Slides",
+        "body": "Your team learns by doing, with the actual tools they'll use daily."
+      }
+    ],
+    "faq": [
+      {
+        "q": "How long before we see something concrete?",
+        "a": "The audit runs 2 to 6 weeks and ends with a clear adoption report your team can act on, whether you run it yourselves or hand execution back to us."
+      },
+      {
+        "q": "Do you only advise, or do you build it too?",
+        "a": "Both. We run it with you from the first audit all the way to systems running in production, not a strategy deck we hand off."
+      },
+      {
+        "q": "What does AI integration actually cover?",
+        "a": "Three fronts: product, process, and people, so the change lands in what you ship, how you operate, and how your team works."
+      }
+    ]
+  },
+  {
+    "slug": "brand-interface",
     "icon": "share",
-    "title": "Gamification & Experience",
-    "summary": "Turn adoption into something people actually want to do.",
+    "title": "Brand & Interface",
+    "summary": "Real interfaces with real UX, not pretty pictures.",
     "cta": "Design the experience",
     "image": "/photos/pillar-gamification.jpg",
     "intro": [
