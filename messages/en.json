@@ -61,25 +61,49 @@
       "subtitle": "We actually build the thing, not just the deck about the thing.",
       "cta": "Get in touch"
     },
-    "approach": {
-      "eyebrow": "Our approach",
-      "heading": "Muse helps you shift from AI-absent to AI-native.",
-      "cards": {
-        "ai-transformation": {
-          "body": "Staying AI-absent isn't a neutral choice. We find where AI actually earns its place in how your business runs, build the systems that do it, and put the guardrails in ourselves.",
-          "promise": "Every engagement ends with something running in production, not a slide deck."
+    "theProblem": {
+      "eyebrow": "The problem we see",
+      "heading": "Everyone has a strategy. Almost nobody ships.",
+      "items": [
+        {
+          "icon": "🎯",
+          "title": "AI strategies nobody ships",
+          "body": "Every company has an AI strategy. Almost nobody has an AI feature in production. The gap between deck and reality is where value dies."
         },
-        "product-engineering": {
-          "body": "Good ideas stall when engineering can't move at the pace the business needs. We design and ship production-grade software, and the same senior team stays with you from first prototype to production scale.",
-          "promise": "You see it running early and often, not in one reveal at the end."
+        {
+          "icon": "📝",
+          "title": "Content farms, not knowledge",
+          "body": "The Saudi AI space is full of reposted threads, 10-tip listicles, and videos claiming Claude built a website that was actually hand-coded. Signal-to-noise is near zero."
         },
-        "gamification-experience": {
-          "body": "New tools compete with old habits, and habits win by default. We design the reward systems, onboarding and prototypes that make a change stick instead of quietly dying.",
-          "promise": "You're clicking through something real in the first week."
+        {
+          "icon": "🏗️",
+          "title": "Fake case studies, real budgets",
+          "body": "Agencies show logos they never worked with. Consultants sell transformations they've never executed. Clients pay for decks, not outcomes."
         }
-      }
+      ]
     },
-    "manifesto": {
+    "theStandard": {
+      "eyebrow": "The standard we hold",
+      "heading": "Muse is the quality bar. The other choice.",
+      "paragraph1": "We've seen what bad looks like. We know what good looks like. The difference isn't talent — it's whether you're willing to do the work that nobody sees.",
+      "paragraph2": "Real data in every state. Every edge case designed. Nothing ships that we wouldn't use ourselves. That's not a slogan — it's a written checklist we run on every release.",
+      "paragraph3": "The founder spent years shipping enterprise applications at PIF-level organizations. That experience isn't the story — it's the reason the standard exists. Muse is the line.",
+      "pillars": [
+        {
+          "title": "Real data, every state",
+          "body": "No lorem ipsum in reviews. No happy-path-only designs. Empty states, error states, loading states — all real, all reviewed."
+        },
+        {
+          "title": "Stakeholder-friendly by default",
+          "body": "Technical decisions explained in business terms. Weekly demos, not monthly reports. You talk to engineers, not account managers."
+        },
+        {
+          "title": "Shipped beats planned",
+          "body": "The only status that counts is running in production. A working prototype this week beats a perfect spec next quarter."
+        }
+      ]
+    },
+    "doors": {
       "heading": "The next decade of software gets decided in the next two years.",
       "paragraph1": "The cost of building good software is collapsing. That doesn't help you on its own. It means the gap between the companies that move and the ones that plan is about to get permanent.",
       "paragraph2": "You could drive that from inside. Most won't, and not for lack of ambition. Day to day operations always win the calendar.",
