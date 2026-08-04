@@ -66,7 +66,7 @@
       "heading": "Muse helps you shift from AI-absent to AI-native.",
       "cards": {
         "ai-transformation": {
-          "body": "Staying AI-absent isn't a neutral choice. We find the highest-leverage places to put AI to work in how your business actually runs, and stand up the systems that do it, with guardrails from day one.",
+          "body": "Staying AI-absent isn't a neutral choice. We find where AI actually earns its place in how your business runs, build the systems that do it, and put the guardrails in ourselves.",
           "promise": "Every engagement ends with something running in production, not a slide deck."
         },
         "product-engineering": {
@@ -119,7 +119,7 @@
         },
         {
           "q": "Who do you typically work with?",
-          "a": "Teams that want to move at startup speed. That runs from a founder shipping a first product to an enterprise team trying to get an AI initiative out of pilot purgatory."
+          "a": "Teams that want to move fast without dropping the quality bar. That runs from a founder shipping a first product to an enterprise team trying to get an AI initiative out of pilot purgatory."
         }
       ]
     }
@@ -214,7 +214,7 @@
     "hero": {
       "eyebrow": "Explore",
       "title": "What we build.",
-      "subtitle": "Three ways we help teams move at startup speed. Pick one, or combine all three."
+      "subtitle": "Three ways we help teams ship faster, without cutting corners. Pick one, or combine all three."
     }
   },
   "Services": {
@@ -360,7 +360,7 @@
       "submit": "Submit",
       "submitting": "Submitting…",
       "successTitle": "Thank you",
-      "successDelivered": "Your request has been received. Our team will reach out within 1 to 2 business days to discuss how Muse can accelerate your goals.",
+      "successDelivered": "Your request has been received. We'll get back to you within 1 to 2 business days to talk through what you're building.",
       "successNoted": "We've noted your request. For a faster reply in the meantime, reach us directly on WhatsApp or email.",
       "services": {
         "AI Transformation": "AI Transformation",
@@ -487,7 +487,7 @@
     },
     "explore": {
       "title": "Explore",
-      "description": "AI transformation, product engineering, and gamification & experience. How Muse Studios builds."
+      "description": "AI transformation, product engineering, and gamification & experience. What Muse builds, and how."
     },
     "careers": {
       "title": "Careers",

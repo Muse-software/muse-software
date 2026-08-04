@@ -15,7 +15,7 @@ export const services: Service[] = [
     "approachHeading": "Strategy",
     "approachIntro": [
       "No 6-month diagnostics. No 100-slide strategy decks with nothing behind them.",
-      "We get straight to it. 2 to 6 week holistic and function-specific audits that surface the most compelling AI use cases, quantify ROI, and map an implementation roadmap.",
+      "We get straight to it. A 2 to 6 week audit that finds the AI use cases actually worth doing, what they're worth, and what it takes to ship them.",
       "Every engagement ends with a clear adoption report your team can run with, or hand back to us for execution."
     ],
     "pillars": [
@@ -27,41 +27,41 @@ export const services: Service[] = [
       },
       {
         "title": "Process Transformation",
-        "body": "Employee surveys and stakeholder interviews define high-impact opportunities; we implement automation guided by training and change management."
+        "body": "We look at how the work actually flows, automate the parts that are worth it, and train the team so the change holds."
       },
       {
         "title": "People Transformation",
-        "body": "Bespoke curricula and hands-on workshops that upskill your team on new tools and workflows, so adoption sticks."
+        "body": "Training built for your team and the tools they'll actually use, run as hands-on workshops, not slideware."
       }
     ],
     "whyHeadline": "Becoming AI-native is hard, and nobody does it for you",
     "whyReasons": [
       "No one owns AI transformation internally, so it stalls or gets half-finished.",
       "Deep technical AI expertise is required, but rarely available in-house.",
-      "Cultural buy-in needs careful communication and real upskilling, not a mandate.",
+      "Getting people to actually use it takes real training and buy-in, not a memo from the top.",
       "Most consultancies overcharge, are under-qualified, or separate strategy from execution entirely."
     ],
     "whatWeDoHeadline": "We run it with you, from the first audit to systems in production.",
     "whatWeDo": [
       {
         "title": "Process Survey",
-        "body": "Pinpoint workflow challenges, measure business impact, and gauge readiness for AI-driven improvements."
+        "body": "We find where the workflow actually breaks, and what fixing it is worth."
       },
       {
         "title": "Executive Survey",
-        "body": "Understand leadership priorities, clarify strategic objectives, and identify the top AI opportunities."
+        "body": "We sit with leadership to get clear on the priorities, and where AI is actually worth doing."
       },
       {
         "title": "Expert Interviews",
-        "body": "Speak with stakeholders across business units to validate insights and uncover targeted solutions."
+        "body": "We talk to the people who run each part of the business, so the plan matches how it really works."
       },
       {
         "title": "Custom Training Programs",
-        "body": "Bespoke curricula and hands-on workshops that upskill teams on relevant AI tools and workflows."
+        "body": "Training built around the AI tools your team will actually use, run hands-on."
       },
       {
         "title": "AI Tooling",
-        "body": "Marry strategy with implementation using a mix of off-the-shelf tools, in-house IP, and custom builds."
+        "body": "The actual systems, built from a mix of off-the-shelf tools, our own, and custom code."
       }
     ],
     "faq": [
@@ -111,9 +111,9 @@ export const services: Service[] = [
     ],
     "whyHeadline": "Hiring in-house is slow, risky, and extremely important",
     "whyReasons": [
-      "Perfect-fit hires are mission-critical, but can take months to secure.",
+      "The right hire can take months to land, and you need them now.",
       "Hiring senior engineers has never been more expensive.",
-      "Velocity is a real competitive advantage in a fast-moving market.",
+      "Speed is a real edge when the market moves this fast.",
       "Unwinding slow, AI-resistant habits inside an existing team is genuinely difficult."
     ],
     "whatWeDoHeadline": "We work inside your team, not from a distance.",
@@ -124,19 +124,19 @@ export const services: Service[] = [
       },
       {
         "title": "Fine-Tuning Models",
-        "body": "Aligning models to your specific business objectives and use cases."
+        "body": "Tuning models to your actual use cases, not a generic benchmark."
       },
       {
         "title": "Code Migration & Refactors",
-        "body": "Language migrations, version upgrades, and strategic codebase restructuring."
+        "body": "Language migrations, version upgrades, and codebase restructuring."
       },
       {
         "title": "Data Engineering & Analysis",
-        "body": "Data warehouse migrations, cleaning, and robust preprocessing pipelines."
+        "body": "Data warehouse migrations, cleaning, and preprocessing pipelines that hold up."
       },
       {
         "title": "Custom Agentic Solutions",
-        "body": "Agentic, AI-powered features tailored specifically to your business."
+        "body": "AI agents built to do a specific job inside your business."
       }
     ],
     "whyWorkHeadline": "We work inside the tools your team already uses.",
@@ -155,7 +155,7 @@ export const services: Service[] = [
       },
       {
         "title": "Regular Check-ins",
-        "body": "Calls to review progress, roadmap, and next steps."
+        "body": "Calls to review where things stand and what's next."
       },
       {
         "title": "Something Working, Early",
