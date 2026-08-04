@@ -75,3 +75,4 @@ next-env.d.ts
 
 # Screenshots pasted into notes would otherwise vanish into the *.png rule above.
 !/Muse Vault/**/*.png
+assets/screens/

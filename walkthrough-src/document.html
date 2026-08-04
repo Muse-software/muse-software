@@ -1,0 +1,502 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Muse Site Walkthrough</title>
+<link rel="stylesheet" href="house.css">
+<style>
+/* small additions for this document */
+.page .wrap.body { padding-bottom: 14mm; }
+.subhead { margin-top: 5mm; }
+.shotcap { margin-bottom: 2.8mm; }
+.ctable td { font-size: 7.9pt; }
+.ctable td.ar { text-align: right; direction: rtl; }
+.ctable td.k { white-space: normal; }
+.mini { width: 44mm; }
+.pnrow { margin-top: 2.5mm; }
+</style>
+</head>
+<body>
+
+<!-- ============================ COVER ============================ -->
+<section class="page cover">
+  <div class="top">
+    <img class="mark" src="assets/muse-vertical-orange-crop.svg" alt="Muse Studios">
+  </div>
+  <div class="mid">
+    <h1>Muse Site Walkthrough</h1>
+    <p class="lede">Every page of muse.sa in both languages, on desktop and mobile: the screens, the copy, the register. Screenshots come from the staging build of 2026-08-04, taken at 1440px and 390px. Copy is quoted verbatim from the site's own content files.</p>
+    <p class="handback">Working walkthrough. Shows the site as shipped on staging/bilingual-ar-en, after the de-AI copy pass. The Arabic is the site's own native copy, not a translation of the English.</p>
+  </div>
+  <div class="meta">
+    <div><div class="k">Date</div><div class="v">2026-08-04</div></div>
+    <div><div class="k">Prepared by</div><div class="v">Abdullah Alsubaie</div></div>
+    <div><div class="k">Reference</div><div class="v">MUSE-SITE-02</div></div>
+    <div><div class="k">Status</div><div class="v">Draft</div></div>
+  </div>
+</section>
+
+<!-- ============================ 01 HOW TO READ ============================ -->
+<section class="page">
+  <header class="band"><span class="num">01</span><h2>How to read this</h2></header>
+  <div class="wrap body">
+    <p class="lead">Ten routes, each shown the same way: the first desktop screen, the last desktop screen, and the full mobile page, in both English and Arabic. Key copy is quoted next to each screenshot so the words stay readable at print scale.</p>
+
+    <table>
+      <thead><tr><th style="width:44mm">Route</th><th>What it is for</th></tr></thead>
+      <tbody>
+        <tr><td class="k">/</td><td>The landing: thesis, what we do, who for, why now, objections, one ask</td></tr>
+        <tr><td class="k">/explore</td><td>The full version of the three approach cards, so a buyer can pick one door or combine</td></tr>
+        <tr><td class="k">/services/*</td><td>Three deep pages, one per service. Same arc each time: hero, why, what we do, FAQ</td></tr>
+        <tr><td class="k">/about</td><td>Who we are and why now, without inflation or fake proof</td></tr>
+        <tr><td class="k">/careers</td><td>Roles plus a human fallback for candidates</td></tr>
+        <tr><td class="k">/contact</td><td>The fastest path to a human. No sales layer</td></tr>
+        <tr><td class="k">/get-started</td><td>Structured intake for a scoped project</td></tr>
+        <tr><td class="k">/newsletter</td><td>Subscribe to the field notes</td></tr>
+        <tr><td class="k">/privacy, /terms</td><td>Legal boilerplate, 5 to 6 sections each. Summarised on the last page</td></tr>
+      </tbody>
+    </table>
+
+    <div class="subhead">Screenshot legend</div>
+    <ul class="dash">
+      <li><strong>Desktop top</strong>: first screen at 1440px, the hero and what opens the page.</li>
+      <li><strong>Desktop bottom</strong>: the last screen at 1440px, final CTA and footer.</li>
+      <li><strong>Mobile top</strong>: the first screen at 390px. The full mobile page runs tens of screens tall, so the hero screen stands in for it; the quoted copy covers the rest.</li>
+    </ul>
+
+    <div class="callout">
+      <span class="lbl">Two languages, one site</span>
+      <p>Both locales carry the same keys and the same structure; nothing is missing in one and present in the other. The English and Arabic are written independently, so sentences, lengths and register differ on purpose. 404 and the legal pages are single-page boilerplate and are covered on the last page.</p>
+    </div>
+  </div>
+  <div class="foot"><img src="assets/muse-08-maroon-crop.svg" alt=""><span class="pn">2 / 17</span></div>
+</section>
+
+<!-- ============================ 02 LANDING EN ============================ -->
+<section class="page">
+  <header class="band"><span class="num">02</span><h2>The landing · English</h2></header>
+  <div class="wrap body">
+    <p class="lead">One page, one job: turn a stranger into a lead. Hero to final ask in eight sections.</p>
+
+    <div class="shot"><img src="assets/screens/en/home-desktop-top.png" alt="Home, English, desktop top"></div>
+    <div class="shotcap"><b>Desktop top.</b> Hero: "Everyone has an AI strategy." / "Almost nobody has shipped one." CTA "Get in touch".</div>
+
+    <div class="locrow">
+      <div class="m"><div class="shot"><img src="assets/screens/en/home-mobile-top.png" alt="Home, English, mobile full page"></div>
+      <div class="shotcap"><b>Mobile, hero screen.</b> Same sections, single column.</div></div>
+      <div class="d"><div class="shot"><img src="assets/screens/en/home-desktop-bottom.png" alt="Home, English, desktop bottom"></div>
+      <div class="shotcap"><b>Desktop bottom.</b> Final CTA "Tell us what you're trying to build." and the footer.</div></div>
+    </div>
+  </div>
+  <div class="foot"><img src="assets/muse-08-maroon-crop.svg" alt=""><span class="pn">3 / 17</span></div>
+</section>
+
+<!-- ============================ 03 LANDING AR ============================ -->
+<section class="page">
+  <header class="band"><span class="num">03</span><h2>The landing · العربية</h2></header>
+  <div class="wrap body">
+    <p class="lead">نفس الصفحة بالعربية: فكرة واحدة، من المقدمة إلى الطلب الأخير، بثمانية أقسام.</p>
+
+    <div class="shot"><img src="assets/screens/ar/home-desktop-top.png" alt="Home, Arabic, desktop top"></div>
+    <div class="shotcap"><b>الشاشة الأولى.</b> المقدمة: "الكل عنده استراتيجية للذكاء الاصطناعي." / "بس قليل جدًا اللي قدر ينفذها." زر "تواصل معنا".</div>
+
+    <div class="locrow">
+      <div class="m"><div class="shot"><img src="assets/screens/ar/home-mobile-top.png" alt="Home, Arabic, mobile full page"></div>
+      <div class="shotcap"><b>الجوال، أول شاشة.</b> نفس الأقسام بعمود واحد، والاتجاه من اليمين لليسار.</div></div>
+      <div class="d"><div class="shot"><img src="assets/screens/ar/home-desktop-bottom.png" alt="Home, Arabic, desktop bottom"></div>
+      <div class="shotcap"><b>آخر الشاشة.</b> الدعوة الأخيرة "علّمنا وش المشكلة اللي تواجهها" والتذييل.</div></div>
+    </div>
+  </div>
+  <div class="foot"><img src="assets/muse-08-maroon-crop.svg" alt=""><span class="pn">4 / 17</span></div>
+</section>
+
+<!-- ============================ 04 EXPLORE ============================ -->
+<section class="page">
+  <header class="band"><span class="num">04</span><h2>Explore</h2></header>
+  <div class="wrap body">
+    <p class="lead">The three doors in full. Each card carries a summary and its own verb CTA, a pattern borrowed from tenex.</p>
+
+    <div class="locrow">
+      <div class="d"><div class="shot"><img src="assets/screens/en/explore-desktop-top.png" alt="Explore, English, desktop"></div>
+      <div class="shotcap"><b>EN desktop.</b></div></div>
+      <div class="d"><div class="shot"><img src="assets/screens/ar/explore-desktop-top.png" alt="Explore, Arabic, desktop"></div>
+      <div class="shotcap"><b>AR desktop.</b></div></div>
+    </div>
+
+    <div class="locrow pnrow">
+      <div class="d"><div class="shot mini"><img src="assets/screens/en/explore-mobile-top.png" alt="Explore, English, mobile"></div>
+      <div class="shotcap"><b>EN mobile.</b></div></div>
+      <div class="d"><div class="shot mini"><img src="assets/screens/ar/explore-mobile-top.png" alt="Explore, Arabic, mobile"></div>
+      <div class="shotcap"><b>AR mobile.</b></div></div>
+      <div class="d" style="flex:2"><div class="subhead" style="margin-top:0">Key copy</div>
+        <table class="ctable">
+          <tbody>
+            <tr><td class="k" style="width:34mm">Subtitle</td><td>Three ways we help teams ship faster, without cutting corners. Pick one, or combine all three.</td></tr>
+            <tr><td class="k">Subtitle AR</td><td class="ar">ثلاث طرق نساعد فيها الفرق تتحرك بسرعة الشركات الناشئة. اختر وحدة، أو اجمعها كلها.</td></tr>
+            <tr><td class="k">Cards</td><td>AI Transformation: "Plan the transformation" · Product Engineering: "Build the product" · Gamification &amp; Experience: "Design the experience"</td></tr>
+            <tr><td class="k">Cards AR</td><td class="ar">التحوّل بالذكاء الاصطناعي: "خطّط للتحوّل" · هندسة المنتجات: "ابنِ المنتج" · التلعيب وتصميم التجربة: "صمّم التجربة"</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><img src="assets/muse-08-maroon-crop.svg" alt=""><span class="pn">5 / 17</span></div>
+</section>
+
+<!-- ============================ 05 AI TRANSFORMATION EN ============================ -->
+<section class="page">
+  <header class="band"><span class="num">05</span><h2>AI Transformation · English</h2></header>
+  <div class="wrap body">
+    <div class="shot top"><img src="assets/screens/en/services_ai-transformation-desktop-top.png" alt="AI Transformation, English, desktop top"></div>
+    <div class="shotcap"><b>Desktop top.</b> Hero: "Your AI strategy, executed all the way to production, not just decked." CTA "Plan the transformation".</div>
+
+    <div class="locrow">
+      <div class="m"><div class="shot"><img src="assets/screens/en/services_ai-transformation-mobile-top.png" alt="AI Transformation, English, mobile full"></div>
+      </div>
+      <div class="d"><div class="shot"><img src="assets/screens/en/services_ai-transformation-desktop-bottom.png" alt="AI Transformation, English, desktop bottom"></div>
+      <div class="shotcap"><b>Desktop bottom.</b> FAQ and final CTA.</div></div>
+    </div>
+
+    <div class="subhead">Key copy</div>
+    <table class="ctable">
+      <tbody>
+        <tr><td class="k" style="width:30mm">Why</td><td>"The gap compounds every quarter you wait. Businesses that stay AI-absent get left behind by the ones that moved."</td></tr>
+        <tr><td class="k">Approach</td><td>"We get straight to it. A 2 to 6 week audit that finds the AI use cases actually worth doing, what they're worth, and what it takes to ship them."</td></tr>
+        <tr><td class="k">What we do</td><td>Process Survey · Executive Survey · Expert Interviews · Custom Training Programs · AI Tooling</td></tr>
+        <tr><td class="k">FAQ</td><td>"Do you only advise, or do you build it too?" → "Both. We run it with you from the first audit all the way to systems running in production, not a strategy deck we hand off."</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="foot"><img src="assets/muse-08-maroon-crop.svg" alt=""><span class="pn">6 / 17</span></div>
+</section>
+
+<!-- ============================ 06 AI TRANSFORMATION AR ============================ -->
+<section class="page">
+  <header class="band"><span class="num">06</span><h2>التحوّل بالذكاء الاصطناعي · العربية</h2></header>
+  <div class="wrap body">
+    <div class="shot top"><img src="assets/screens/ar/services_ai-transformation-desktop-top.png" alt="AI Transformation, Arabic, desktop top"></div>
+    <div class="shotcap"><b>الشاشة الأولى.</b> "استراتيجية الذكاء الاصطناعي لمؤسستك، مصمّمة ومنفّذة، لا معروضة في شرائح." زر "خطّط للتحوّل".</div>
+
+    <div class="locrow">
+      <div class="m"><div class="shot"><img src="assets/screens/ar/services_ai-transformation-mobile-top.png" alt="AI Transformation, Arabic, mobile full"></div>
+      </div>
+      <div class="d"><div class="shot"><img src="assets/screens/ar/services_ai-transformation-desktop-bottom.png" alt="AI Transformation, Arabic, desktop bottom"></div>
+      <div class="shotcap"><b>آخر الشاشة.</b> الأسئلة الشائعة والدعوة الأخيرة.</div></div>
+    </div>
+
+    <div class="subhead">النص الأساسي</div>
+    <table class="ctable">
+      <tbody>
+        <tr><td class="k" style="width:30mm">لماذا</td><td class="ar">"كل ربع تنتظره، تكبر الفجوة بينك وبين من تحرّك. والشركة اللي تبقى غائبة عن الذكاء الاصطناعي بتتأخر."</td></tr>
+        <tr><td class="k">المنهجية</td><td class="ar">"ندخل في الموضوع على طول: مراجعة من أسبوعين إلى ستة أسابيع، تحدّد حالات استخدام الذكاء الاصطناعي اللي تستاهل فعلًا، وقيمتها، وما يلزم لإطلاقها."</td></tr>
+        <tr><td class="k">ما نقوم به</td><td class="ar">مسح العمليات · مسح القيادة · مقابلات الخبراء · برامج تدريب مخصصة · أدوات الذكاء الاصطناعي</td></tr>
+        <tr><td class="k">الأسئلة</td><td class="ar">"تستشيرون بس، ولا تبنون كمان؟" → "الاثنين. نشتغل معك من أول مراجعة إلى أنظمة تعمل فعليًا، مو مجرد عرض استراتيجي نسلّمه ونمشي."</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="foot"><img src="assets/muse-08-maroon-crop.svg" alt=""><span class="pn">7 / 17</span></div>
+</section>
+
+<!-- ============================ 07 PRODUCT ENGINEERING EN ============================ -->
+<section class="page">
+  <header class="band"><span class="num">07</span><h2>Product Engineering · English</h2></header>
+  <div class="wrap body">
+    <div class="shot top"><img src="assets/screens/en/services_product-engineering-desktop-top.png" alt="Product Engineering, English, desktop top"></div>
+    <div class="shotcap"><b>Desktop top.</b> Hero: "Production-grade software, shipped fast, without dropping the quality bar." CTA "Build the product".</div>
+
+    <div class="locrow">
+      <div class="m"><div class="shot"><img src="assets/screens/en/services_product-engineering-mobile-top.png" alt="Product Engineering, English, mobile full"></div>
+      </div>
+      <div class="d"><div class="shot"><img src="assets/screens/en/services_product-engineering-desktop-bottom.png" alt="Product Engineering, English, desktop bottom"></div>
+      <div class="shotcap"><b>Desktop bottom.</b> Why work with us and FAQ.</div></div>
+    </div>
+
+    <div class="subhead">Key copy</div>
+    <table class="ctable">
+      <tbody>
+        <tr><td class="k" style="width:30mm">Why</td><td>"The right hire can take months to land, and you need them now."</td></tr>
+        <tr><td class="k">Beliefs</td><td>We hire the best · We use AI (a lot) · We hold a written quality bar · We measure ourselves on what shipped</td></tr>
+        <tr><td class="k">What we do</td><td>Application Development · Fine-Tuning Models · Code Migration &amp; Refactors · Data Engineering &amp; Analysis · Custom Agentic Solutions</td></tr>
+        <tr><td class="k">Check-ins</td><td>"Calls to review where things stand and what's next."</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="foot"><img src="assets/muse-08-maroon-crop.svg" alt=""><span class="pn">8 / 17</span></div>
+</section>
+
+<!-- ============================ 08 PRODUCT ENGINEERING AR ============================ -->
+<section class="page">
+  <header class="band"><span class="num">08</span><h2>هندسة المنتجات · العربية</h2></header>
+  <div class="wrap body">
+    <div class="shot top"><img src="assets/screens/ar/services_product-engineering-desktop-top.png" alt="Product Engineering, Arabic, desktop top"></div>
+    <div class="shotcap"><b>الشاشة الأولى.</b> "برمجيات جاهزة للتشغيل، تُطلق بسرعة، بلا تنازل عن الجودة." زر "ابنِ المنتج".</div>
+
+    <div class="locrow">
+      <div class="m"><div class="shot"><img src="assets/screens/ar/services_product-engineering-mobile-top.png" alt="Product Engineering, Arabic, mobile full"></div>
+      </div>
+      <div class="d"><div class="shot"><img src="assets/screens/ar/services_product-engineering-desktop-bottom.png" alt="Product Engineering, Arabic, desktop bottom"></div>
+      <div class="shotcap"><b>آخر الشاشة.</b> لماذا تعمل معنا والأسئلة.</div></div>
+    </div>
+
+    <div class="subhead">النص الأساسي</div>
+    <table class="ctable">
+      <tbody>
+        <tr><td class="k" style="width:30mm">لماذا</td><td class="ar">"التعيين المناسب قد ياخذ أشهر، وأنت محتاجه الحين."</td></tr>
+        <tr><td class="k">ما نؤمن به</td><td class="ar">نوظّف الأفضل · نستخدم الذكاء الاصطناعي، كثيرًا · لدينا معيار جودة مكتوب · نقيس أنفسنا بما أُطلق</td></tr>
+        <tr><td class="k">ما نقوم به</td><td class="ar">تطوير التطبيقات · ضبط النماذج · ترحيل الشيفرة وإعادة هيكلتها · هندسة البيانات وتحليلها · حلول الوكلاء الأذكياء المخصصة</td></tr>
+        <tr><td class="k">اللقاءات</td><td class="ar">"مكالمات نراجع فيها وين وصلنا ووش الجاي."</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="foot"><img src="assets/muse-08-maroon-crop.svg" alt=""><span class="pn">9 / 17</span></div>
+</section>
+
+<!-- ============================ 09 GAMIFICATION EN ============================ -->
+<section class="page">
+  <header class="band"><span class="num">09</span><h2>Gamification &amp; Experience · English</h2></header>
+  <div class="wrap body">
+    <div class="shot top"><img src="assets/screens/en/services_gamification-experience-desktop-top.png" alt="Gamification, English, desktop top"></div>
+    <div class="shotcap"><b>Desktop top.</b> Hero: "Turn adoption into something people actually want to do." CTA "Design the experience".</div>
+
+    <div class="locrow">
+      <div class="m"><div class="shot"><img src="assets/screens/en/services_gamification-experience-mobile-top.png" alt="Gamification, English, mobile full"></div>
+      </div>
+      <div class="d"><div class="shot"><img src="assets/screens/en/services_gamification-experience-desktop-bottom.png" alt="Gamification, English, desktop bottom"></div>
+      <div class="shotcap"><b>Desktop bottom.</b> Why work with us and FAQ.</div></div>
+    </div>
+
+    <div class="subhead">Key copy</div>
+    <table class="ctable">
+      <tbody>
+        <tr><td class="k" style="width:30mm">Why</td><td>"New tools compete with old habits, and habits usually win by default."</td></tr>
+        <tr><td class="k">Beliefs</td><td>Behavior beats decoration · The first win matters most · Prototypes beat specs</td></tr>
+        <tr><td class="k">What we do</td><td>Reward System Design · Onboarding Journeys · Interactive Prototypes · Engagement Analytics</td></tr>
+        <tr><td class="k">FAQ</td><td>"Is this just points and badges?" → "No. A badge means nothing if it doesn't change what someone does next..."</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="foot"><img src="assets/muse-08-maroon-crop.svg" alt=""><span class="pn">10 / 17</span></div>
+</section>
+
+<!-- ============================ 10 GAMIFICATION AR ============================ -->
+<section class="page">
+  <header class="band"><span class="num">10</span><h2>التلعيب وتصميم التجربة · العربية</h2></header>
+  <div class="wrap body">
+    <div class="shot top"><img src="assets/screens/ar/services_gamification-experience-desktop-top.png" alt="Gamification, Arabic, desktop top"></div>
+    <div class="shotcap"><b>الشاشة الأولى.</b> "حوّل التبنّي إلى شيء يريد الناس فعله." زر "صمّم التجربة".</div>
+
+    <div class="locrow">
+      <div class="m"><div class="shot"><img src="assets/screens/ar/services_gamification-experience-mobile-top.png" alt="Gamification, Arabic, mobile full"></div>
+      </div>
+      <div class="d"><div class="shot"><img src="assets/screens/ar/services_gamification-experience-desktop-bottom.png" alt="Gamification, Arabic, desktop bottom"></div>
+      <div class="shotcap"><b>آخر الشاشة.</b> لماذا تعمل معنا والأسئلة.</div></div>
+    </div>
+
+    <div class="subhead">النص الأساسي</div>
+    <table class="ctable">
+      <tbody>
+        <tr><td class="k" style="width:30mm">لماذا</td><td class="ar">"الأدوات الجديدة تنافس عادات قديمة، والعادات تكسب عادةً تلقائيًا."</td></tr>
+        <tr><td class="k">ما نؤمن به</td><td class="ar">السلوك قبل الزينة · الفوز الأول هو الأهم · النماذج قبل المواصفات</td></tr>
+        <tr><td class="k">ما نقوم به</td><td class="ar">تصميم أنظمة التحفيز · رحلات التهيئة · نماذج تفاعلية · تحليلات التفاعل</td></tr>
+        <tr><td class="k">الأسئلة</td><td class="ar">"هذا مجرد نقاط وأوسمة؟" → "لا. الوسام ما يعني شيء إذا ما غيّر وش يسوي الشخص بعده..."</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="foot"><img src="assets/muse-08-maroon-crop.svg" alt=""><span class="pn">11 / 17</span></div>
+</section>
+
+<!-- ============================ 11 ABOUT ============================ -->
+<section class="page">
+  <header class="band"><span class="num">11</span><h2>About</h2></header>
+  <div class="wrap body">
+    <div class="locrow">
+      <div class="d"><div class="shot"><img src="assets/screens/en/about-desktop-top.png" alt="About, English, desktop"></div>
+      <div class="shotcap"><b>EN desktop.</b> "Riyadh-built. Globally standard."</div></div>
+      <div class="d"><div class="shot"><img src="assets/screens/ar/about-desktop-top.png" alt="About, Arabic, desktop"></div>
+      <div class="shotcap"><b>AR desktop.</b> "صُنع في الرياض. بمعيار عالمي."</div></div>
+    </div>
+
+    <div class="locrow pnrow">
+      <div class="d"><div class="shot mini"><img src="assets/screens/en/about-mobile-top.png" alt="About, English, mobile"></div>
+      <div class="shotcap"><b>EN mobile.</b></div></div>
+      <div class="d"><div class="shot mini"><img src="assets/screens/ar/about-mobile-top.png" alt="About, Arabic, mobile"></div>
+      <div class="shotcap"><b>AR mobile.</b></div></div>
+      <div class="d" style="flex:2"><div class="subhead" style="margin-top:0">Key copy</div>
+        <table class="ctable">
+          <tbody>
+            <tr><td class="k" style="width:30mm">Hero</td><td>"A product company working with businesses that want it built properly."</td></tr>
+            <tr><td class="k">Hero AR</td><td class="ar">"شركة منتجات رقمية، نشتغل مع الشركات اللي تريد منتجها مبني صح."</td></tr>
+            <tr><td class="k">Standard</td><td>"Real data, every state designed, nothing shipped that we would not use ourselves."</td></tr>
+            <tr><td class="k">Values</td><td>Craftsmanship · Innovation · Quality · Long term thinking · Execution · Trust</td></tr>
+            <tr><td class="k">Values AR</td><td class="ar">الإتقان · الابتكار · الجودة · التفكير بعيد المدى · التنفيذ · الثقة</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><img src="assets/muse-08-maroon-crop.svg" alt=""><span class="pn">12 / 17</span></div>
+</section>
+
+<!-- ============================ 12 CAREERS ============================ -->
+<section class="page">
+  <header class="band"><span class="num">12</span><h2>Careers</h2></header>
+  <div class="wrap body">
+    <div class="locrow">
+      <div class="d"><div class="shot"><img src="assets/screens/en/careers-desktop-top.png" alt="Careers, English, desktop"></div>
+      <div class="shotcap"><b>EN desktop.</b> "Come build with us."</div></div>
+      <div class="d"><div class="shot"><img src="assets/screens/ar/careers-desktop-top.png" alt="Careers, Arabic, desktop"></div>
+      <div class="shotcap"><b>AR desktop.</b> "تعال ابنِ معنا."</div></div>
+    </div>
+
+    <div class="locrow pnrow">
+      <div class="d"><div class="shot mini"><img src="assets/screens/en/careers-mobile-top.png" alt="Careers, English, mobile"></div>
+      <div class="shotcap"><b>EN mobile.</b></div></div>
+      <div class="d"><div class="shot mini"><img src="assets/screens/ar/careers-mobile-top.png" alt="Careers, Arabic, mobile"></div>
+      <div class="shotcap"><b>AR mobile.</b></div></div>
+      <div class="d" style="flex:2"><div class="subhead" style="margin-top:0">Roles</div>
+        <table class="ctable">
+          <tbody>
+            <tr><td class="k" style="width:30mm">Business Developer</td><td>"You're the first person a prospective client talks to, and you carry that all the way to a signed project."</td></tr>
+            <tr><td class="k">Digital Marketing Director</td><td>"Own how Muse shows up in public, and the demand that follows from it."</td></tr>
+            <tr><td class="k">GTM Engineer</td><td>"Go-to-market should run like a product. You build the tooling and automation that gets it there."</td></tr>
+            <tr><td class="k">No match</td><td>"No exact match? Say hi anyway."</td></tr>
+            <tr><td class="k">No match AR</td><td class="ar">"ما لقيت اللي يناسبك؟ سلّم علينا على أي حال."</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><img src="assets/muse-08-maroon-crop.svg" alt=""><span class="pn">13 / 17</span></div>
+</section>
+
+<!-- ============================ 13 CONTACT ============================ -->
+<section class="page">
+  <header class="band"><span class="num">13</span><h2>Contact</h2></header>
+  <div class="wrap body">
+    <div class="locrow">
+      <div class="d"><div class="shot"><img src="assets/screens/en/contact-desktop-top.png" alt="Contact, English, desktop"></div>
+      <div class="shotcap"><b>EN desktop.</b> "Let's talk."</div></div>
+      <div class="d"><div class="shot"><img src="assets/screens/ar/contact-desktop-top.png" alt="Contact, Arabic, desktop"></div>
+      <div class="shotcap"><b>AR desktop.</b> "لنتحدث."</div></div>
+    </div>
+
+    <div class="locrow pnrow">
+      <div class="d"><div class="shot mini"><img src="assets/screens/en/contact-mobile-top.png" alt="Contact, English, mobile"></div>
+      <div class="shotcap"><b>EN mobile.</b></div></div>
+      <div class="d"><div class="shot mini"><img src="assets/screens/ar/contact-mobile-top.png" alt="Contact, Arabic, mobile"></div>
+      <div class="shotcap"><b>AR mobile.</b></div></div>
+      <div class="d" style="flex:2"><div class="subhead" style="margin-top:0">Key copy</div>
+        <table class="ctable">
+          <tbody>
+            <tr><td class="k" style="width:30mm">Hero</td><td>"Tell us what you're building. We usually reply the same day."</td></tr>
+            <tr><td class="k">Hero AR</td><td class="ar">"قل لنا وش تبني، وغالبًا نردّ في نفس اليوم."</td></tr>
+            <tr><td class="k">Conditional</td><td>"If you're looking for a team to actually build the thing, not just deck it, talk to us."</td></tr>
+            <tr><td class="k">Form</td><td>Name · Email · Company (optional) · Project type · Budget range · "What are you building?"</td></tr>
+            <tr><td class="k">Form AR</td><td class="ar">الاسم · البريد الإلكتروني · الشركة (اختياري) · نوع المشروع · نطاق الميزانية · "ما الذي تبنيه؟"</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><img src="assets/muse-08-maroon-crop.svg" alt=""><span class="pn">14 / 17</span></div>
+</section>
+
+<!-- ============================ 14 GET STARTED ============================ -->
+<section class="page">
+  <header class="band"><span class="num">14</span><h2>Get started</h2></header>
+  <div class="wrap body">
+    <div class="locrow">
+      <div class="d"><div class="shot"><img src="assets/screens/en/get-started-desktop-top.png" alt="Get started, English, desktop"></div>
+      <div class="shotcap"><b>EN desktop.</b> "Ready to build with Muse?"</div></div>
+      <div class="d"><div class="shot"><img src="assets/screens/ar/get-started-desktop-top.png" alt="Get started, Arabic, desktop"></div>
+      <div class="shotcap"><b>AR desktop.</b> "مستعد تبني معنا؟"</div></div>
+    </div>
+
+    <div class="locrow pnrow">
+      <div class="d"><div class="shot mini"><img src="assets/screens/en/get-started-mobile-top.png" alt="Get started, English, mobile"></div>
+      <div class="shotcap"><b>EN mobile.</b></div></div>
+      <div class="d"><div class="shot mini"><img src="assets/screens/ar/get-started-mobile-top.png" alt="Get started, Arabic, mobile"></div>
+      <div class="shotcap"><b>AR mobile.</b></div></div>
+      <div class="d" style="flex:2"><div class="subhead" style="margin-top:0">Key copy</div>
+        <table class="ctable">
+          <tbody>
+            <tr><td class="k" style="width:30mm">Hero</td><td>"From product engineering to end-to-end AI transformation. Every engagement ends with something running in production."</td></tr>
+            <tr><td class="k">Hero AR</td><td class="ar">"من هندسة المنتجات إلى التحوّل الكامل بالذكاء الاصطناعي. وأي شغل نبدأه ينتهي بشيء يعمل فعليًا."</td></tr>
+            <tr><td class="k">Form</td><td>First Name · Last Name · Work Email · Phone · Company · Job Title · Annual Revenue · services · needs · "How did you hear about us?"</td></tr>
+            <tr><td class="k">Success</td><td>"Your request has been received. We'll get back to you within 1 to 2 business days to talk through what you're building."</td></tr>
+            <tr><td class="k">Success AR</td><td class="ar">"استلمنا طلبك، وبنرجع لك خلال يوم إلى يومين عمل عشان نفهم وش تبنيه."</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><img src="assets/muse-08-maroon-crop.svg" alt=""><span class="pn">15 / 17</span></div>
+</section>
+
+<!-- ============================ 15 NEWSLETTER ============================ -->
+<section class="page">
+  <header class="band"><span class="num">15</span><h2>Newsletter</h2></header>
+  <div class="wrap body">
+    <div class="locrow">
+      <div class="d"><div class="shot"><img src="assets/screens/en/newsletter-desktop-top.png" alt="Newsletter, English, desktop"></div>
+      <div class="shotcap"><b>EN desktop.</b> "Get the field notes in your inbox."</div></div>
+      <div class="d"><div class="shot"><img src="assets/screens/ar/newsletter-desktop-top.png" alt="Newsletter, Arabic, desktop"></div>
+      <div class="shotcap"><b>AR desktop.</b> "تصلك ملاحظاتنا الميدانية في بريدك."</div></div>
+    </div>
+
+    <div class="locrow pnrow">
+      <div class="d"><div class="shot mini"><img src="assets/screens/en/newsletter-mobile-top.png" alt="Newsletter, English, mobile"></div>
+      <div class="shotcap"><b>EN mobile.</b></div></div>
+      <div class="d"><div class="shot mini"><img src="assets/screens/ar/newsletter-mobile-top.png" alt="Newsletter, Arabic, mobile"></div>
+      <div class="shotcap"><b>AR mobile.</b></div></div>
+      <div class="d" style="flex:2"><div class="subhead" style="margin-top:0">Key copy</div>
+        <table class="ctable">
+          <tbody>
+            <tr><td class="k" style="width:30mm">Promise</td><td>"One short, opinionated read. No filler, no 10-tip listicles."</td></tr>
+            <tr><td class="k">Promise AR</td><td class="ar">"قراءة واحدة قصيرة ولها رأي، بلا حشو وبلا قوائم من عشر نصائح."</td></tr>
+            <tr><td class="k">Source</td><td>"What we're actually seeing across client engagements, not general AI news."</td></tr>
+            <tr><td class="k">Cadence</td><td>"Sent when there's something worth saying, not on a fixed schedule."</td></tr>
+            <tr><td class="k">Success</td><td>"You're on the list. The next issue lands in your inbox."</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><img src="assets/muse-08-maroon-crop.svg" alt=""><span class="pn">16 / 17</span></div>
+</section>
+
+<!-- ============================ 16 CONTENT NOTE ============================ -->
+<section class="page">
+  <header class="band"><span class="num">16</span><h2>Everything else</h2></header>
+  <div class="wrap body">
+    <p class="lead">The pages this walkthrough does not open: legal, the 404, and where the full string inventory lives.</p>
+
+    <div class="subhead">Privacy policy</div>
+    <p class="note">Five sections: Information we collect · How we use it · Cookies · Your rights · Contact. Boilerplate, deliberately left plain. <span class="ar">العناوين: المعلومات التي نجمعها · كيف نستخدمها · ملفات تعريف الارتباط · حقوقك · التواصل.</span></p>
+
+    <div class="subhead">Terms of service</div>
+    <p class="note">Six sections: Acceptance of terms · Use of this site · Intellectual property · No warranty · Changes to these terms · Contact. <span class="ar">العناوين: قبول الشروط · استخدام الموقع · الملكية الفكرية · إخلاء الضمان · تعديل الشروط · التواصل.</span></p>
+
+    <div class="subhead">404</div>
+    <p class="note">"This page doesn't exist." with three fallback links: Home, Explore, About. <span class="ar">"هذه الصفحة غير موجودة." مع روابط بديلة: الرئيسية، استكشف، من نحن.</span></p>
+
+    <div class="subhead">Where the strings live</div>
+    <table>
+      <thead><tr><th style="width:64mm">File</th><th>Holds</th></tr></thead>
+      <tbody>
+        <tr><td class="k">messages/en.json, messages/ar.json</td><td>Navigation, footer, home, explore, about, careers, newsletter, contact, get-started, forms, legal, metadata. 769 keys in parity across both locales.</td></tr>
+        <tr><td class="k">lib/content/{en,ar}/services.ts</td><td>The three service pages: heroes, intros, pillars, what we do, why work with us, FAQ.</td></tr>
+        <tr><td class="k">lib/content/{en,ar}/careers.ts</td><td>The three open roles: blurbs, responsibilities, requirements, nice-to-haves.</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout">
+      <span class="lbl">Notes</span>
+      <p>The Arabic is written natively, not translated: same meaning, its own sentences, 1 to 2 spoken markers per paragraph. 40 Arabic strings remain flagged for a native reviewer before the Arabic route goes fully live. Screenshots here are from the staging build; the live site may differ by the time this is read.</p>
+    </div>
+  </div>
+  <div class="foot"><img src="assets/muse-08-maroon-crop.svg" alt=""><span class="pn">17 / 17</span></div>
+</section>
+
+</body>
+</html>
