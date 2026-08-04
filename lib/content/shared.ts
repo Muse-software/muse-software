@@ -47,6 +47,7 @@ export type Service = {
   whatWeDo: { title: string; body: string }[];
   whyWorkHeadline?: string;
   whyWorkWithUs?: { title: string; body: string }[];
+  faq?: { q: string; a: string }[];
 };
 
 export type CareerRole = {

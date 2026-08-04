@@ -221,6 +221,13 @@
       "whyYouNeedUs": "Why you need us",
       "whatWeDo": "What we do",
       "whyWorkWithUs": "Why work with us",
+      "faq": "Questions, answered.",
+      "nav": {
+        "overview": "Overview",
+        "why": "Why",
+        "whatWeDo": "What we do",
+        "faq": "FAQ"
+      },
       "ticker": "Built for the AI-native era"
     }
   },

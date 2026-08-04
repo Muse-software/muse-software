@@ -63,6 +63,20 @@ export const services: Service[] = [
         "title": "AI Tooling",
         "body": "Marry strategy with implementation using a mix of off-the-shelf tools, in-house IP, and custom builds."
       }
+    ],
+    "faq": [
+      {
+        "q": "How long before we see something concrete?",
+        "a": "The audit runs 2 to 6 weeks and ends with a clear adoption report your team can act on, whether you run it yourselves or hand execution back to us."
+      },
+      {
+        "q": "Do you only advise, or do you build it too?",
+        "a": "Both. We run it with you from the first audit all the way to systems running in production, not a strategy deck we hand off."
+      },
+      {
+        "q": "What does AI transformation actually cover?",
+        "a": "Three fronts: product, process, and people, so the change lands in what you ship, how you operate, and how your team works."
+      }
     ]
   },
   {
@@ -151,6 +165,20 @@ export const services: Service[] = [
         "title": "Shared Comms",
         "body": "A shared channel for real-time updates, not a support queue."
       }
+    ],
+    "faq": [
+      {
+        "q": "Are you a dev shop or something else?",
+        "a": "We work inside your team, not from a distance, with a technical product manager and senior engineers who stay from first prototype to production."
+      },
+      {
+        "q": "How soon do we see working software?",
+        "a": "You see the product running in front of you throughout, not in a single reveal at the end."
+      },
+      {
+        "q": "How do you keep quality up while moving fast?",
+        "a": "There's a written quality bar: every state designed, real data only, and nothing ships that we wouldn't use ourselves."
+      }
     ]
   },
   {
@@ -218,6 +246,20 @@ export const services: Service[] = [
       {
         "title": "Data From Day One",
         "body": "Engagement tracking is built in from the first release, not bolted on later."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Is this just points and badges?",
+        "a": "No. A badge means nothing if it doesn't change what someone does next, so we design reward systems around the behavior you actually want."
+      },
+      {
+        "q": "When do we get to try something?",
+        "a": "Early. You're clicking through something real week by week, instead of reviewing a deck about how it might feel."
+      },
+      {
+        "q": "How do we know adoption is actually working?",
+        "a": "Engagement tracking is built in from the first release, so you see exactly where people drop off, and why, not months later."
       }
     ]
   }

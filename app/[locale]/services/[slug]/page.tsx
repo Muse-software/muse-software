@@ -5,6 +5,8 @@ import PageDither from "@/components/PageDither";
 import OutlineTrack from "@/components/OutlineTrack";
 import Ticker from "@/components/Ticker";
 import CTA from "@/components/sections/CTA";
+import FAQ from "@/components/sections/FAQ";
+import ServiceSubnav from "@/components/sections/ServiceSubnav";
 import { allSlugs, getService, getServices } from "@/lib/content";
 import { buildMetadata } from "@/lib/seo";
 import { getTranslations, setRequestLocale } from "next-intl/server";
@@ -59,8 +61,19 @@ export default async function ServiceDetailPage({
         image={service.image}
       />
 
+      <ServiceSubnav
+        items={[
+          { id: "overview", label: t("nav.overview") },
+          { id: "why", label: t("nav.why") },
+          { id: "what-we-do", label: t("nav.whatWeDo") },
+          ...(service.faq && service.faq.length > 0
+            ? [{ id: "faq", label: t("nav.faq") }]
+            : []),
+        ]}
+      />
+
       {/* Intro / context */}
-      <section className="pb-4">
+      <section id="overview" className="pb-4">
         <div className="mx-auto w-full max-w-[900px] px-5 md:px-10">
           <div className="space-y-4 border-t border-white/10 pt-10">
             {service.intro.map((paragraph, i) => (
@@ -118,7 +131,7 @@ export default async function ServiceDetailPage({
       </section>
 
       {/* Why you need us */}
-      <section className="py-16 md:py-24">
+      <section id="why" className="py-16 md:py-24">
         <div className="mx-auto w-full max-w-[900px] px-5 md:px-10">
           <p className="text-xs font-semibold uppercase tracking-[0.3em] text-white/50">
             {t("whyYouNeedUs")}
@@ -138,7 +151,7 @@ export default async function ServiceDetailPage({
       </section>
 
       {/* What we do */}
-      <section className="pb-16 md:pb-24">
+      <section id="what-we-do" className="pb-16 md:pb-24">
         <div className="mx-auto w-full max-w-[1100px] px-5 md:px-10">
           <p className="text-xs font-semibold uppercase tracking-[0.3em] text-white/50">
             {t("whatWeDo")}
@@ -174,6 +187,13 @@ export default async function ServiceDetailPage({
             </div>
           </div>
         </section>
+      )}
+
+      {/* Per-service FAQ (optional) */}
+      {service.faq && service.faq.length > 0 && (
+        <div id="faq">
+          <FAQ heading={t("faq")} items={service.faq} />
+        </div>
       )}
 
       <Ticker text={t("ticker")} />

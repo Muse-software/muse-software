@@ -6,11 +6,23 @@ import WordReveal from "../WordReveal";
 
 type FaqItem = { q: string; a: string };
 
-export default function FAQ() {
+/**
+ * Home renders this with no props and reads its own `Home.faq` namespace.
+ * Service detail pages pass `heading` + `items` explicitly (`Services.detail.faq`
+ * + the service's own FAQ records) so the same accordion doesn't fork.
+ */
+export default function FAQ({
+  heading,
+  items,
+}: {
+  heading?: string;
+  items?: FaqItem[];
+}) {
   const t = useTranslations("Home.faq");
   // `t.raw` because the questions are a list, not a single message — ICU has
   // no array form, so the shape is read straight out of the catalogue.
-  const faqs = t.raw("items") as FaqItem[];
+  const faqs = items ?? (t.raw("items") as FaqItem[]);
+  const resolvedHeading = heading ?? t("heading");
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
@@ -21,7 +33,7 @@ export default function FAQ() {
           as="h2"
           className="font-space-grotesk text-2xl font-bold text-white md:text-4xl"
         >
-          {t("heading")}
+          {resolvedHeading}
         </WordReveal>
 
         <div className="mt-10 md:mt-14">
