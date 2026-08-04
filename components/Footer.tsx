@@ -106,7 +106,8 @@ export default async function Footer() {
             <p className="text-balance font-space-grotesk text-5xl font-medium leading-none tracking-tight md:text-7xl lg:text-8xl">
               {t("reachOut")}
             </p>
-            <p className="mt-8 text-sm text-black/70">
+            <p className="mt-8 text-sm text-black/70">{t("worldview")}</p>
+            <p className="mt-1 text-sm text-black/70">
               {/* The year is passed as a string on purpose: as a number, ICU
                   would group it into "2,026". */}
               {t("rights", { year: String(new Date().getFullYear()) })}
