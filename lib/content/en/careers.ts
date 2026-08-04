@@ -5,16 +5,16 @@ export const careerRoles: CareerRole[] = [
     "slug": "business-developer",
     "title": "Business Developer",
     "department": "Strategy",
-    "blurb": "Build and manage the pipeline that turns conversations into signed engagements.",
+    "blurb": "You're the first person a prospective client talks to, and you carry that all the way to a signed project.",
     "location": "Riyadh, Saudi Arabia (on-site)",
     "employmentType": "Full-time",
     "compensation": "Competitive, based on experience",
     "responsibilities": [
-      "Identify and qualify new business opportunities across target industries",
-      "Build and manage a pipeline of prospective clients, from first outreach to signed contract",
+      "Qualify new business opportunities across our target industries",
+      "Carry the pipeline from first outreach to signed contract",
       "Represent Muse Studios in client meetings, presentations, and proposal negotiations",
-      "Work closely with the delivery team to scope engagements accurately before they're sold",
-      "Maintain relationships with existing clients to identify expansion opportunities"
+      "Scope engagements with the delivery team before anything is promised to a client",
+      "Stay close to existing clients, and spot where we can do more for them"
     ],
     "requirements": [
       "3+ years in business development, sales, or client-facing consulting roles",
@@ -37,8 +37,8 @@ export const careerRoles: CareerRole[] = [
     "compensation": "Competitive, based on experience",
     "responsibilities": [
       "Own Muse Studios' marketing strategy across content, social, paid, and partnerships",
-      "Build and manage the content engine behind the newsletter and everything we publish",
-      "Run demand-generation campaigns that turn attention into qualified leads",
+      "Run the content engine behind the newsletter and everything we publish",
+      "Run campaigns that turn attention into qualified leads",
       "Manage brand consistency across every public-facing touchpoint",
       "Report on what's actually working, and reallocate budget and effort accordingly"
     ],
@@ -57,7 +57,7 @@ export const careerRoles: CareerRole[] = [
     "slug": "gtm-engineer",
     "title": "GTM Engineer",
     "department": "Engineering",
-    "blurb": "Build the tooling and automation that makes go-to-market run like a product.",
+    "blurb": "Go-to-market should run like a product. You build the tooling and automation that gets it there.",
     "location": "Riyadh, Saudi Arabia (on-site or hybrid)",
     "employmentType": "Full-time",
     "compensation": "Competitive, based on experience",
