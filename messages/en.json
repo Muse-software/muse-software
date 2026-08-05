@@ -70,28 +70,44 @@
           "category": "Enterprise",
           "title": "Core banking platform",
           "body": "Replaced a 15-year legacy system for a PIF-level financial institution. 40+ services, zero-downtime migration, 200k daily transactions.",
-          "tags": ["TypeScript", "Kubernetes", "Event-driven"],
+          "tags": [
+            "TypeScript",
+            "Kubernetes",
+            "Event-driven"
+          ],
           "link": "/case-studies/core-banking"
         },
         {
           "category": "AI Feature",
           "title": "Automated underwriting engine",
           "body": "Cut loan decision time from 3 days to 12 minutes for a Saudi fintech. 94% accuracy vs human baseline. Shipped in 8 weeks.",
-          "tags": ["Python", "LLM", "RAG"],
+          "tags": [
+            "Python",
+            "LLM",
+            "RAG"
+          ],
           "link": "/case-studies/underwriting"
         },
         {
           "category": "Brand Interface",
           "title": "Consumer app redesign",
           "body": "End-to-end redesign for a 500k-user Saudi super-app. Design system, motion language, RTL-first. 40% retention lift post-launch.",
-          "tags": ["Figma", "React Native", "Design Systems"],
+          "tags": [
+            "Figma",
+            "React Native",
+            "Design Systems"
+          ],
           "link": "/case-studies/super-app"
         },
         {
           "category": "Venture",
           "title": "Muse Experiments",
           "body": "Live lab for AI-native product patterns. 3D agents, generative interfaces, local-first sync. Open source, production-grade.",
-          "tags": ["Three.js", "WebGPU", "Open Source"],
+          "tags": [
+            "Three.js",
+            "WebGPU",
+            "Open Source"
+          ],
           "link": "https://experiments.muse.sa",
           "external": true
         },
@@ -99,7 +115,11 @@
           "category": "Venture",
           "title": "Tenet",
           "body": "AI-native knowledge base for teams that build. Not a wiki — a thinking partner. Early access live.",
-          "tags": ["Next.js", "Vercel AI SDK", "Postgres"],
+          "tags": [
+            "Next.js",
+            "Vercel AI SDK",
+            "Postgres"
+          ],
           "link": "https://tenet.muse.sa",
           "external": true
         },
@@ -107,7 +127,11 @@
           "category": "Content",
           "title": "Field Notes Newsletter",
           "body": "Weekly dispatches on what we're seeing across engagements. No AI news. No 10-tip lists. Just field notes.",
-          "tags": ["Writing", "Strategy", "Engineering"],
+          "tags": [
+            "Writing",
+            "Strategy",
+            "Engineering"
+          ],
           "link": "/newsletter"
         }
       ]
@@ -155,6 +179,31 @@
           "a": "Teams that want to move fast without dropping the quality bar. That runs from a founder shipping a first product to an enterprise team trying to get an AI initiative out of pilot purgatory."
         }
       ]
+    },
+    "doors": {
+      "eyebrow": "Three ways we work",
+      "heading": "Pick the door that matches you",
+      "build": {
+        "eyebrow": "Build",
+        "title": "Production-grade software",
+        "body": "Shippable AI features, real interfaces, stakeholder-friendly communication. Built fast, without dropping the quality bar.",
+        "promise": "Every engagement ends with something running in production, not a slide deck.",
+        "cta": "Start a build"
+      },
+      "ventures": {
+        "eyebrow": "Ventures",
+        "title": "Our own products",
+        "body": "We are hunting for the golden egg. Real pipeline, real progress. Open to collaborating with people who have ideas.",
+        "promise": "We ship our own MVPs and share what we learn along the way.",
+        "cta": "See the pipeline"
+      },
+      "think": {
+        "eyebrow": "Think",
+        "title": "Knowledge & community",
+        "body": "Articles, tutorials, showcases, newsletter. Building a name in the Saudi startup and ventures community.",
+        "promise": "The same thinking that goes into the work, published.",
+        "cta": "Read the latest"
+      }
     }
   },
   "About": {

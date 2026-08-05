@@ -70,28 +70,44 @@
           "category": "Enterprise",
           "title": "Core banking platform",
           "body": "Replaced a 15-year legacy system for a PIF-level financial institution. 40+ services, zero-downtime migration, 200k daily transactions.",
-          "tags": ["TypeScript", "Kubernetes", "Event-driven"],
+          "tags": [
+            "TypeScript",
+            "Kubernetes",
+            "Event-driven"
+          ],
           "link": "/case-studies/core-banking"
         },
         {
           "category": "AI Feature",
           "title": "Automated underwriting engine",
           "body": "Cut loan decision time from 3 days to 12 minutes for a Saudi fintech. 94% accuracy vs human baseline. Shipped in 8 weeks.",
-          "tags": ["Python", "LLM", "RAG"],
+          "tags": [
+            "Python",
+            "LLM",
+            "RAG"
+          ],
           "link": "/case-studies/underwriting"
         },
         {
           "category": "Brand Interface",
           "title": "Consumer app redesign",
           "body": "End-to-end redesign for a 500k-user Saudi super-app. Design system, motion language, RTL-first. 40% retention lift post-launch.",
-          "tags": ["Figma", "React Native", "Design Systems"],
+          "tags": [
+            "Figma",
+            "React Native",
+            "Design Systems"
+          ],
           "link": "/case-studies/super-app"
         },
         {
           "category": "Venture",
           "title": "Muse Experiments",
           "body": "Live lab for AI-native product patterns. 3D agents, generative interfaces, local-first sync. Open source, production-grade.",
-          "tags": ["Three.js", "WebGPU", "Open Source"],
+          "tags": [
+            "Three.js",
+            "WebGPU",
+            "Open Source"
+          ],
           "link": "https://experiments.muse.sa",
           "external": true
         },
@@ -99,7 +115,11 @@
           "category": "Venture",
           "title": "Tenet",
           "body": "AI-native knowledge base for teams that build. Not a wiki — a thinking partner. Early access live.",
-          "tags": ["Next.js", "Vercel AI SDK", "Postgres"],
+          "tags": [
+            "Next.js",
+            "Vercel AI SDK",
+            "Postgres"
+          ],
           "link": "https://tenet.muse.sa",
           "external": true
         },
@@ -107,7 +127,11 @@
           "category": "Content",
           "title": "Field Notes Newsletter",
           "body": "Weekly dispatches on what we're seeing across engagements. No AI news. No 10-tip lists. Just field notes.",
-          "tags": ["Writing", "Strategy", "Engineering"],
+          "tags": [
+            "Writing",
+            "Strategy",
+            "Engineering"
+          ],
           "link": "/newsletter"
         }
       ]
@@ -125,14 +149,14 @@
       "ventures": {
         "eyebrow": "مبادرات",
         "title": "منتجاتنا الخاصة",
-        "body": "نطارد البيضة الذهبية. خطوط أنتاج حقيقية، تقدم حقيقي. مفتوحون للتعاون مع من عنده أفكار.",
+        "body": "نطادي البيضة الذهبية. خطوط أنتاج حقيقية، تقدم حقيقي. مفتوحون للتعاون مع من عنده أفكار.",
         "promise": "نطلق MVPs بنا ونشارك ما نتعلمه.",
         "cta": "شوف خط الإنتاج"
       },
       "think": {
         "eyebrow": "تفكير",
         "title": "معرفة ومجتمع",
-        "body": "مقالات، شروحات، معارض، نشرة. بنبني اسمنا في مجتمع رواد الأعمال والمبادرات السعودية. ما نشارك معرفتنا، بنبني نفوذ.",
+        "body": "مقالات، شروحات، معارض، نشرة. بنبني اسمنا في مجتمع رواد الأعمال والمبادرات السعودية.",
         "promise": "نفس التفكير اللي نبنيه، منشور.",
         "cta": "اقرأ الأحدث"
       }
