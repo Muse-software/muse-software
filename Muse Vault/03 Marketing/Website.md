@@ -1,7 +1,7 @@
 ---
 type: note
 created: 2026-07-31
-updated: 2026-08-01
+updated: 2026-08-05
 tags: [marketing, product]
 status: active
 ---
@@ -11,6 +11,20 @@ status: active
 What is actually built, read off the code on 2026-07-31, not off the plan. [[Marketing]] and [[Home]] both still say "In progress", which understates it. The site is close to complete as a build and blocked on content honesty, not on engineering.
 
 This note is the state of the thing. It does not replace [[Deck Copy v0.03]], which is the copy source.
+
+## Update 2026-08-05: Three homepage directions
+
+The homepage is now explored through three complete direction branches rather than one settled composition. The canonical walkthrough record is [[2026-08-05 Walkthrough PDF Rebuild]].
+
+- **Direction 1, The Studio:** identity-led. `We build our own software.` / `And yours, properly.`
+- **Direction 2, The Thesis:** argument-led. `Shipping is easy now.` / `Shipping well isn't.`
+- **Direction 3, The Proof:** evidence-led. `We don't pitch.` / `We ship.`
+
+All three use the same Three Doors architecture: Build, Ventures and Think. The cards are title-first and carry no eyebrow labels. Each branch includes a bilingual screenshot-first walkthrough with live source evidence.
+
+Important: the older `Homepage argument` and `No Arabic` sections below describe the 2026-07-31 to 2026-08-01 site snapshot. They are historical context, not the state of the three direction branches. Direction 3 still has explicit English-stored copy on parts of `/ar`; see the rebuild note for the exact sections and unresolved proof claims.
+
+The next decision is selection or synthesis. No direction is recorded as final yet.
 
 ## Where it lives
 
