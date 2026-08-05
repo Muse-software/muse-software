@@ -1,0 +1,64 @@
+{
+  "refs": [
+    {
+      "slug": "linear",
+      "company": "Linear",
+      "url": "https://linear.app",
+      "anchor": "A new species of product tool.",
+      "pattern": "Title-first value-card trio with no per-card eyebrow label; equal visual weight across lanes.",
+      "muse_section": "Three Doors (equal lanes, no eyebrows)",
+      "influence_type": "structure",
+      "class": "Direct input"
+    },
+    {
+      "slug": "salla",
+      "company": "Salla",
+      "url": "https://salla.com/",
+      "anchor": "حلول سلة تدعمك بكل خطوة من مشوارك التجاري",
+      "pattern": "Balanced capability lanes under one shared heading, each with its own subheading and short body, set natively in Arabic RTL.",
+      "muse_section": "Three Doors (shared card skeleton, EN/AR density)",
+      "influence_type": "structure + bilingual",
+      "class": "Direct input"
+    },
+    {
+      "slug": "37signals",
+      "company": "37signals",
+      "url": "https://37signals.com/",
+      "anchor": "An obligation to independence",
+      "pattern": "A numbered index of published thinking presented as the product itself, not a generic blog teaser grid.",
+      "muse_section": "Think door / manifesto stance",
+      "influence_type": "structure",
+      "class": "Direct input"
+    },
+    {
+      "slug": "thmanyah",
+      "company": "Thmanyah",
+      "url": "https://thmanyah.com/",
+      "anchor": "دور الصين القادم في الشرق الأوسط الجديد",
+      "pattern": "Native RTL editorial headline that leads directly into the story, with no eyebrow label above the heading.",
+      "muse_section": "AR RTL rhythm, Manifesto",
+      "influence_type": "copy rhythm + bilingual",
+      "class": "Direct input"
+    },
+    {
+      "slug": "figma",
+      "company": "Figma",
+      "url": "https://www.figma.com/",
+      "anchor": "The intelligent canvas for infinite creativity",
+      "pattern": "Identity-first hero headline that states what the company is, before any feature claim.",
+      "muse_section": "Hero identity-first move",
+      "influence_type": "structure",
+      "class": "Independent validation"
+    },
+    {
+      "slug": "github",
+      "company": "GitHub",
+      "url": "https://github.com/",
+      "anchor": "The future of building happens together",
+      "pattern": "Manifesto-like identity hero: a single declarative sentence carries the brand stance ahead of any product detail.",
+      "muse_section": "Manifesto / identity hero",
+      "influence_type": "copy rhythm",
+      "class": "Independent validation"
+    }
+  ]
+}

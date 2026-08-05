@@ -1,0 +1,163 @@
+{
+  "direction_name": "Direction 1: The Studio",
+  "reference_code": "MUSE-DIR-01",
+  "revision": "Revision 3",
+  "status": "Review",
+  "prepared_by": "Abdullah Alsubaie",
+  "one_liner": "The Studio is a portfolio-first homepage: it leads with what Muse builds, then lets the visitor pick the door that matches them, Build, Ventures, or Think.",
+  "cover_body": "A portfolio-first homepage direction for muse.sa. The site states the identity in one line, then organizes everything Muse does as three doors: Build, Ventures, Think. Screenshots in this walkthrough are section-exact captures from the direction build, taken at 1440x900 desktop and 390x844 mobile, both at a 2x device scale. Copy is quoted verbatim from the site's own content files.",
+  "cover_handback": "One of three homepage directions, each built and deployed separately. This walkthrough documents the Studio direction section by section, in the exact order it renders on the page, in both languages, and ends with the decisions the team needs to make before this direction ships.",
+  "nav_method_note": "The fixed header is hidden only for the instant of capture on every section after the Hero, then restored. This is presentation cleanup so the sticky pill does not paint over a heading in a screenshot; it is not a change to the section itself, and the Hero capture keeps the header visible because it documents the true first screen.",
+  "sections": {
+    "hero": {
+      "order": 1,
+      "name_en": "Hero",
+      "name_ar": "المقدمة",
+      "job": "States the company identity in two lines, backs it with a one-line proof of what that means day to day, and opens a single path forward. Everything below the fold exists to support this claim, not to repeat it.",
+      "anatomy": [
+        "Headline, two lines: an identity statement, then its turn.",
+        "Tagline: where the company is based and what kind of company it is.",
+        "Subtitle: a one-line rebuttal to the thing every studio claims.",
+        "One CTA, into the contact flow."
+      ],
+      "position_rationale": "First screen, full viewport. A visitor who never scrolls should still leave with the correct idea of what Muse is: a company that builds its own software, not an agency that talks about building software.",
+      "source_attribution": "The two-line identity-first structure is validated against Figma's own hero (Reference Evidence 5): state what the company is before any feature claim. The specific sentence is Muse's own positioning line, not adapted copy."
+    },
+    "doors": {
+      "order": 2,
+      "name_en": "Three doors",
+      "name_ar": "الأبواب الثلاثة",
+      "job": "Routes three different kinds of visitor to the right part of the business without making any of them read the other two first: a client who wants something built, a visitor curious about Muse's own products, and a reader who wants the published thinking.",
+      "anatomy": [
+        "Section heading, no eyebrow above it.",
+        "Three equal-weight cards: Build, Ventures, Think.",
+        "Per card: title, one-line body, a promise set off with a rule, a distinct verb CTA."
+      ],
+      "position_rationale": "Immediately after the identity is stated, before any argument or proof, because the fastest thing a homepage can do after 'here is what we are' is 'here is where you go next.'",
+      "source_attribution": "Card skeleton and equal visual weight are Direct input from Linear (Reference Evidence 1): title-first, no per-card eyebrow. The shared-card, distinct-lane grammar and bilingual density are Direct input from Salla's solutions section (Reference Evidence 2)."
+    },
+    "manifesto": {
+      "order": 3,
+      "name_en": "Manifesto",
+      "name_ar": "البيان",
+      "job": "Makes the why-now argument: the cost of building good software is falling, which means the gap between companies that move and companies that plan is about to become permanent. Closes with the sharpest form of that tension and a second CTA.",
+      "anatomy": [
+        "Section heading: the five-year claim.",
+        "Three short paragraphs building the argument in sequence.",
+        "Pressure statement: two short lines, plain claim then its consequence.",
+        "CTA, into the same contact flow as the Hero."
+      ],
+      "position_rationale": "After the doors, because a visitor who has already picked a door is now ready for the argument about why the choice is urgent, not before, when it would only be an abstract claim in front of an unconvinced reader.",
+      "source_attribution": "Published-thinking-as-stance is Direct input from 37signals (Reference Evidence 3): a manifesto reads as belief, not marketing copy. The identity-hero rhythm of a single declarative sentence carrying the whole stance is Independent validation against GitHub's hero (Reference Evidence 6)."
+    },
+    "outcomes": {
+      "order": 4,
+      "name_en": "Outcomes band",
+      "name_ar": "شريط النتائج",
+      "job": "One sentence, large type, stating the delivery standard: Muse ends engagements with outcomes, not just tools. A pause between the argument above and the marquee below, not a new argument.",
+      "anatomy": [
+        "Single centered paragraph, two clauses, the second one accented."
+      ],
+      "position_rationale": "A short band deliberately kept short: it closes the Manifesto's argument with a standard, then hands off to the Ticker without asking the visitor to read anything else first.",
+      "source_attribution": "No external reference source; this is Muse's own delivery-standard line, carried unchanged from the current site copy."
+    },
+    "ticker": {
+      "order": 5,
+      "name_en": "Ticker",
+      "name_ar": "الشريط المتحرك",
+      "job": "A single repeating marquee line stating Muse's own release rule: nothing ships that the studio would not use itself. Texture and a restated standard, not new information.",
+      "anatomy": [
+        "One repeated line in a scrolling band, tilted off the horizontal axis."
+      ],
+      "position_rationale": "Sits between the Outcomes band and FAQ as a visual and rhythmic break: the page has just made its two big claims (why now, what you get), and the ticker is the page taking a breath before the objections section.",
+      "source_attribution": "No external reference source; this is Muse's own internal quality bar, stated as a marquee rather than adapted from another site's pattern."
+    },
+    "faq": {
+      "order": 6,
+      "name_en": "FAQ",
+      "name_ar": "الأسئلة",
+      "job": "Answers five real objections a serious buyer raises before committing, in the buyer's own language, on the page, rather than making them ask.",
+      "anatomy": [
+        "Section heading.",
+        "Five accordion rows, first one open by default.",
+        "Each row: a question in the buyer's voice, a direct answer with no hedging."
+      ],
+      "position_rationale": "After the standard has been stated (Outcomes, Ticker) and before the final ask (CTA), because objection-handling belongs right before the point of decision, not earlier where it would read as defensive.",
+      "source_attribution": "Objection-handling-as-trust-section is a pattern this direction shares with MOZN's FAQ structure, documented in the source-evidence research bank; the specific questions and answers are Muse's own, not adapted copy."
+    },
+    "cta": {
+      "order": 7,
+      "name_en": "Final CTA",
+      "name_ar": "الدعوة الأخيرة",
+      "job": "Closes the page with one direct ask, framed around the visitor's problem rather than around Muse, and a single button into the contact flow.",
+      "anatomy": [
+        "Heading: an instruction, not a question.",
+        "Subheading: who actually answers, framed against a sales layer.",
+        "One button."
+      ],
+      "position_rationale": "Last section before the footer, by definition: every argument on the page (identity, doors, why-now, standard, objections) has been made by the time a visitor reaches this point, so the only thing left to do is ask.",
+      "source_attribution": "No external reference source for the specific line; opening with the visitor's problem rather than the company is Muse's own positioning choice, consistent with the Hero's subtitle."
+    },
+    "footer": {
+      "order": 8,
+      "name_en": "Footer",
+      "name_ar": "التذييل",
+      "job": "Carries navigation, the direct contact channel, the company's one-line worldview restated, and the legal minimum: rights, privacy, terms.",
+      "anatomy": [
+        "Logo, blurb, a get-started button.",
+        "Two link columns: Company, Explore.",
+        "A rule, then an oversized 'reach out' line facing the contact block.",
+        "Location, email, social links, legal links and the rights line."
+      ],
+      "position_rationale": "Terminal by definition: it is outside <main>, renders after every page's content, and is the one section that must never appear paired with any other section's screenshot.",
+      "source_attribution": "No external reference source; the footer is Muse's own contact and legal information, not adapted from another site."
+    }
+  },
+  "objections_intro": "The FAQ answers five questions a serious buyer actually raises before committing. They are reproduced here with the same verbatim copy shown in the FAQ visual and content pages, so the appendix stands on its own without flipping back.",
+  "open_decisions": [
+    {
+      "title": "Doors as navigation, or doors as homepage sections",
+      "body": "The three doors sit mid-page and link onward to /build, /ventures and /think. They could instead become the primary site navigation, with /explore retired.",
+      "recommendation": "Keep the doors as homepage sections and keep /explore as the deep-dive summary page. A visitor who wants one door gets that door's full page; a visitor who wants all three gets the homepage summary first."
+    },
+    {
+      "title": "The Think door, before its content exists",
+      "body": "The Think door promises articles, field notes and a newsletter. The newsletter signup is live; the articles are not published yet.",
+      "recommendation": "Ship the door with the newsletter linked, and hold the articles claim until the first two pieces are actually published. A door that links to nothing published yet erodes trust faster than a door that is temporarily thin."
+    },
+    {
+      "title": "The Arabic register",
+      "body": "The Doors and FAQ copy is written in a deliberately colloquial Saudi register, while Legal and Careers content stays formal.",
+      "recommendation": "Confirm the split with a native copy review before this direction ships externally: colloquial for Hero, Doors, Manifesto and FAQ, formal for Legal and Careers."
+    },
+    {
+      "title": "Unused service entries in the content files",
+      "body": "messages/en.json and messages/ar.json carry three additional entries under Home.doors (product-engineering, ai-integration, brand-interface) that ThreeDoors.tsx never reads; only build, ventures and think render.",
+      "recommendation": "Remove the three unused entries before merge so the content files match what the site actually shows, or confirm they are intentionally held for a future service-page reuse."
+    },
+    {
+      "title": "Split legibility versus page count",
+      "body": "Every section in this direction measured under the mobile and desktop split budgets (1500 CSS px mobile, 1400 CSS px desktop) at capture time, so no section in this walkthrough required a split page.",
+      "recommendation": "If a future revision of this direction grows any section past that budget, add a labeled continuation page rather than shrinking a phone screenshot into an unreadable strip. This walkthrough's own capture measurements are recorded in capture-manifest.json for exactly that comparison."
+    }
+  ],
+  "structure_map": [
+    { "n": "1", "name": "Hero", "job": "Identity statement and one CTA" },
+    { "n": "2", "name": "Three doors", "job": "Build / Ventures / Think, three equal lanes" },
+    { "n": "3", "name": "Manifesto", "job": "Why-now argument, closed by the pressure statement" },
+    { "n": "4", "name": "Outcomes band", "job": "One-line delivery standard" },
+    { "n": "5", "name": "Ticker", "job": "Repeating release-rule marquee" },
+    { "n": "6", "name": "FAQ", "job": "Five objections, answered" },
+    { "n": "7", "name": "Final CTA", "job": "One direct ask" },
+    { "n": "8", "name": "Footer", "job": "Navigation, contact, legal" }
+  ],
+  "source_map": [
+    { "pattern": "Three-door card layout: title-first, no per-card eyebrow", "source": "Linear (linear.app)", "adaptation": "Equal-weight lanes made from Muse's own three business lines: Build, Ventures, Think." },
+    { "pattern": "Shared card skeleton across distinct capability lanes, bilingual density", "source": "Salla (salla.com)", "adaptation": "The same shared-card grammar, applied to three business lines instead of Salla's service lanes." },
+    { "pattern": "Published thinking as a first-class index, not a blog teaser grid", "source": "37signals (37signals.com)", "adaptation": "Informs the Think door's framing and the Manifesto's stance; Muse has not yet built a numbered index page." },
+    { "pattern": "Native RTL editorial rhythm, headings without eyebrows", "source": "Thmanyah (thmanyah.com)", "adaptation": "Informs the Arabic Manifesto and Doors heading rhythm: the heading carries the meaning with no label above it." },
+    { "pattern": "Identity-first hero: state what the company is before any feature claim", "source": "Figma (figma.com)", "adaptation": "Independent validation for the Hero's two-line identity structure, checked after the fact, not the origin of the copy." },
+    { "pattern": "Manifesto-like identity hero, one declarative sentence carrying the brand stance", "source": "GitHub (github.com)", "adaptation": "Independent validation for the Manifesto's register; the specific claim is Muse's own." },
+    { "pattern": "FAQ as a designed trust section, not a support afterthought", "source": "MOZN FAQ structure (documented in the research bank)", "adaptation": "Five specific, checkable objections in both languages; questions and answers are Muse's own." }
+  ]
+}
