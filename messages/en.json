@@ -105,6 +105,10 @@
       "lead": "AI isn't optional.",
       "emphasis": "Waiting is the risk."
     },
+    "whoWeBuildFor": {
+      "heading": "The teams we work with aren't a general audience.",
+      "body": "They're <role>founders</role> shipping a first product, and <role>operators</role> trying to get an AI initiative out of pilot purgatory."
+    },
     "outcomes": {
       "heading": "We deliver outcomes, <accent>not just tools</accent>."
     },
