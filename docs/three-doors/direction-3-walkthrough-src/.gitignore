@@ -1,1 +1,11 @@
-assets/screens/
+_verify/
+_contact/
+__pycache__/
+*.pyc
+
+# Reproducible Revision 3 evidence assets. Root ignores all PNGs.
+!assets/screens/
+!assets/screens/**/
+!assets/screens/**/*.png
+!assets/refs/
+!assets/refs/*.png

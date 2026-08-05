@@ -1,0 +1,241 @@
+{
+  "direction_name": "Direction 3: The Proof",
+  "reference_code": "MUSE-DIR-03",
+  "revision": "Revision 3",
+  "status": "Review",
+  "prepared_by": "Abdullah Alsubaie",
+  "one_liner": "The Proof is a work-led homepage: it opens with what Muse has actually shipped, not a thesis or a pitch, then opens the three doors as ways to act on that proof.",
+  "cover_body": "A work-led homepage direction for muse.sa. The site opens with what Muse has actually shipped rather than a thesis, then opens Build, Ventures and Think as three ways to act on that proof. Screenshots in this walkthrough are section-exact captures from the direction build, taken at 1440x900 desktop and 390x844 mobile, both at a 2x device scale. Copy is quoted verbatim from the site's own content files.",
+  "cover_handback": "One of three homepage directions, each built and deployed separately. This walkthrough documents the Proof direction section by section, in the exact order it renders on the page, in both languages, discloses where the Arabic route currently renders English copy, and ends with the decisions the team needs to make before this direction ships.",
+  "nav_method_note": "The fixed header is hidden only for the instant of capture on every section after the Hero, then restored. This is presentation cleanup so the sticky pill does not paint over a heading in a screenshot; it is not a change to the section itself, and the Hero capture keeps the header visible because it documents the true first screen.",
+  "ar_copy_is_english_sections": [
+    "hero",
+    "proof",
+    "cta",
+    "footer"
+  ],
+  "ar_disclosure_badge": "Arabic route, English copy",
+  "ar_disclosure_short": "Arabic route and RTL composition. This section's copy is currently stored in English in the Arabic catalogue, pending native localization. This is not a translation.",
+  "ar_disclosure_content": "The Arabic catalogue key for this section currently stores the same English strings shown on the English route. The layout and direction render correctly in RTL; the words themselves are English, not a runtime fallback. Native Arabic copy for this section is an open decision, not yet written (see Open Decisions, D3-AR).",
+  "sections": {
+    "hero": {
+      "order": 1,
+      "name_en": "Hero",
+      "name_ar": "المقدمة",
+      "job": "States the position in two lines, a negation then the claim it sets up: Muse does not pitch, it ships. The tagline commits to what follows being real work, and the single CTA leads straight into the Proof Wall rather than into a company pitch.",
+      "anatomy": [
+        "Headline, two lines: a plain negation, then the claim it turns into.",
+        "Tagline: a one-line commitment to what follows being real work.",
+        "Subtitle: names the three kinds of proof the page is about to show.",
+        "One CTA, into the work itself."
+      ],
+      "position_rationale": "First screen, full viewport, with the real fixed navigation visible. A proof-led homepage has to earn its claim inside the first screen before a visitor scrolls, so the Hero commits to shipping and hands off directly into the Proof Wall.",
+      "source_attribution": "No source in this direction's reference set (Reference Evidence 1 to 6) specifically informed the Hero; it is Muse's own positioning claim, not adapted copy."
+    },
+    "proof": {
+      "order": 2,
+      "name_en": "Proof Wall",
+      "name_ar": "حائط الإنجازات",
+      "job": "The direction's main surface: a grid of six work cards spanning enterprise delivery, an AI feature, a consumer redesign, two live venture products and a content channel, each tagged with its stack and category rather than described in adjectives.",
+      "anatomy": [
+        "Eyebrow: names this as the section where the work speaks.",
+        "Heading: what has shipped, what is being built.",
+        "Subtitle: no decks, no strategies, just work that is running.",
+        "Six cards: category tag, title, one proof-dense paragraph, stack tags, and a link into the case study or the live product."
+      ],
+      "position_rationale": "Directly after the Hero's claim, because a work-led direction has to make good on it immediately: the Proof Wall is the actual evidence, ahead of any doors, argument or manifesto.",
+      "source_attribution": "Stripe's four equal benefit lanes and customer-logo band are Direct input for the Proof Wall's outcome-first hierarchy (Reference Evidence 1). Whole-card, eyebrow-free navigation across shipped-work lanes is Direct input from Notion (Reference Evidence 2). Framer's live shipped-work presentation (Reference Evidence 4) and Mercury's heading-plus-metrics proof row (Reference Evidence 5) are Direct input for treating shipped work as the content surface itself, not decoration. The six cards' specific claims are Muse's own; the figures inside them, including the 94 percent accuracy line, the 40 percent retention lift line, and the PIF-level reference, are current website claims, not independently verified results (see Open Decisions, D3-PROOF)."
+    },
+    "doors": {
+      "order": 3,
+      "name_en": "Three doors",
+      "name_ar": "الأبواب الثلاثة",
+      "job": "Routes three kinds of visitor, build, ventures and think, to the part of the business that matches them, framed as ways to act on the proof just shown rather than as a general service menu.",
+      "anatomy": [
+        "Section heading, no eyebrow above it.",
+        "Three equal-weight cards: Build, Ventures, Think.",
+        "Per card: title, one-line body, a promise set off with a rule, a distinct verb CTA."
+      ],
+      "position_rationale": "After the Proof Wall establishes what Muse has actually built, the doors give a visitor three concrete ways to act on that proof, each consistent with the work just shown.",
+      "source_attribution": "No source in this direction's reference set (Reference Evidence 1 to 6) specifically informed the Doors. The shared card grammar, title, one-line body, rule-set promise, distinct verb CTA, is a pattern Muse reuses unchanged across all three homepage directions; the copy is Muse's own, not adapted from a Direction 3 evidence figure."
+    },
+    "manifesto": {
+      "order": 4,
+      "name_en": "Manifesto",
+      "name_ar": "البيان",
+      "job": "Extends the proof into a why-now argument: the cost of building good software is falling, so the gap between companies that move and companies that plan is about to become permanent. Closes with the pressure statement and a second CTA.",
+      "anatomy": [
+        "Section heading: the two-year claim.",
+        "Three short paragraphs building the argument in sequence.",
+        "Pressure statement: two short lines, a plain claim then its consequence.",
+        "CTA, into the same contact flow as the Hero."
+      ],
+      "position_rationale": "After the doors, because a visitor who has already picked a door and seen the proof is ready for the argument about why the choice is urgent now, not before the evidence has been shown.",
+      "source_attribution": "No source in this direction's reference set (Reference Evidence 1 to 6) specifically informed the Manifesto; it is Muse's own argument, not adapted copy."
+    },
+    "outcomes": {
+      "order": 5,
+      "name_en": "Outcomes band",
+      "name_ar": "شريط النتائج",
+      "job": "One sentence, large type, restating the delivery standard: Muse ends engagements with outcomes, not just tools. A pause between the Manifesto's argument and the Ticker below, not a new argument.",
+      "anatomy": [
+        "Single centered paragraph, two clauses, the second one accented."
+      ],
+      "position_rationale": "A short band kept deliberately short: it closes the Manifesto's argument with a standard, then hands off to the Ticker without asking the visitor to read anything else first.",
+      "source_attribution": "No external reference source; this is Muse's own delivery-standard line, carried unchanged from the current site copy."
+    },
+    "ticker": {
+      "order": 6,
+      "name_en": "Ticker",
+      "name_ar": "الشريط المتحرك",
+      "job": "A single repeating marquee line restating Muse's own release rule: nothing ships that the studio would not use itself. Texture and a restated standard, not new information.",
+      "anatomy": [
+        "One repeated line in a scrolling band, tilted off the horizontal axis."
+      ],
+      "position_rationale": "Sits between the Outcomes band and FAQ as a visual and rhythmic break: the page has just made its central proof and argument, and the ticker is a breath before the objections section.",
+      "source_attribution": "No external reference source; this is Muse's own internal quality bar, stated as a marquee rather than adapted from another site's pattern."
+    },
+    "faq": {
+      "order": 7,
+      "name_en": "FAQ",
+      "name_ar": "الأسئلة",
+      "job": "Answers five real objections a serious buyer raises before committing, in the buyer's own language, on the page, rather than making them ask.",
+      "anatomy": [
+        "Section heading.",
+        "Five accordion rows, first one open by default.",
+        "Each row: a question in the buyer's voice, a direct answer with no hedging."
+      ],
+      "position_rationale": "After the proof, the doors and the manifesto have all been shown, objection-handling belongs right before the final ask.",
+      "source_attribution": "No source in this direction's reference set (Reference Evidence 1 to 6) specifically informed the FAQ; the specific questions and answers are Muse's own."
+    },
+    "cta": {
+      "order": 8,
+      "name_en": "Final CTA",
+      "name_ar": "الدعوة الأخيرة",
+      "job": "Closes the page with one direct ask, framed around the visitor's own project rather than around Muse, and a single button into the contact flow.",
+      "anatomy": [
+        "Heading: an instruction, not a question.",
+        "Subheading: who actually answers, framed against a sales layer.",
+        "One button."
+      ],
+      "position_rationale": "Last section before the footer, by definition: the proof wall, the doors, the manifesto and the objections have all been shown by the time a visitor reaches this point, so the only thing left is to ask.",
+      "source_attribution": "No external reference source for the specific line; opening with the visitor's own project rather than the company is Muse's own positioning choice, consistent with the Hero's subtitle."
+    },
+    "footer": {
+      "order": 9,
+      "name_en": "Footer",
+      "name_ar": "التذييل",
+      "job": "Carries navigation, the direct contact channel, the company's one-line worldview restated, and the legal minimum: rights, privacy, terms.",
+      "anatomy": [
+        "Logo, blurb, a get-started button.",
+        "Two link columns: Company, Explore.",
+        "A rule, then an oversized reach-out line facing the contact block.",
+        "Location, email, social links, legal links and the rights line."
+      ],
+      "position_rationale": "Terminal by definition: it is outside main, renders after every page's content, and is the one section that must never appear paired with any other section's screenshot.",
+      "source_attribution": "No external reference source; the footer is Muse's own contact and legal information, not adapted from another site."
+    }
+  },
+  "objections_intro": "The FAQ answers five questions a serious buyer actually raises before committing. They are reproduced here with the same verbatim copy shown in the FAQ visual and content pages, so the appendix stands on its own without flipping back.",
+  "open_decisions": [
+    {
+      "title": "D3-AR: the Arabic route currently renders English copy on four sections plus shared chrome",
+      "body": "On this branch, messages/ar.json stores English strings for Home.hero, every Home.proofWall field and card, CTA, Footer and Nav, and i18n/request.ts performs no runtime fallback between locales. The Arabic route renders genuine RTL layout, but the words themselves are English in the Hero, the Proof Wall, the Final CTA, the Footer and the shared navigation chrome. Doors, Manifesto, Outcomes, Ticker and FAQ are genuinely Arabic.",
+      "recommendation": "Localize Home.hero, Home.proofWall, CTA, Footer and Nav into native Arabic before this direction is circulated externally. Until then, ship the walkthrough with the honest RTL and English-catalogue label used throughout this document; do not fabricate Arabic to make a screenshot look complete."
+    },
+    {
+      "title": "D3-PROOF: the Proof Wall's quantitative claims are not independently substantiated",
+      "body": "The Proof Wall states 94 percent accuracy against a human baseline, a 40 percent retention lift, and a PIF-level financial institution client, none of which carry a supporting evidence page, source citation or client name in the current build.",
+      "recommendation": "Add evidence pages that substantiate each figure, or soften or anonymize the claims further before external circulation. This walkthrough labels them as current website claims pending substantiation, not as verified results, and that label should carry over to any external-facing version of this direction."
+    },
+    {
+      "title": "Planning note undercounts the shipped section set",
+      "body": "The direction's planning note (docs/three-doors/direction-3-the-proof.md) describes a five-part homepage: Hero, Proof Wall, Three Doors, a condensed Standard Footer statement, and CTA. The current build runs Hero, Proof Wall, Three Doors, Manifesto, Outcomes Band, Ticker, FAQ and CTA before the global Footer, eight blocks plus the terminal Footer. There is no dedicated Standard Footer component, and Manifesto, Outcomes Band, Ticker and FAQ are not mentioned in the planning note at all.",
+      "recommendation": "Update the planning note to match the shipped section order, or decide whether Manifesto, Outcomes Band, Ticker and FAQ belong on this homepage before external circulation."
+    },
+    {
+      "title": "whoWeBuildFor content is written but unused",
+      "body": "messages/en.json and messages/ar.json carry a full Home.whoWeBuildFor entry, a heading and a body naming founders and operators, and a matching WhoWeBuildFor.tsx component exists in the codebase, but HomeSections.tsx never renders it on this homepage.",
+      "recommendation": "Either add the WhoWeBuildFor section back into the homepage, most naturally between Three Doors and Manifesto, or remove the unused catalogue entry and component so the content files match what the site actually shows."
+    }
+  ],
+  "structure_map": [
+    {
+      "n": "1",
+      "name": "Hero",
+      "job": "Position statement and one CTA into the work"
+    },
+    {
+      "n": "2",
+      "name": "Proof Wall",
+      "job": "Six shipped-work cards, the direction's main evidence"
+    },
+    {
+      "n": "3",
+      "name": "Three doors",
+      "job": "Build / Ventures / Think, three ways to act on the proof"
+    },
+    {
+      "n": "4",
+      "name": "Manifesto",
+      "job": "Why-now argument, closed by the pressure statement"
+    },
+    {
+      "n": "5",
+      "name": "Outcomes band",
+      "job": "One-line delivery standard"
+    },
+    {
+      "n": "6",
+      "name": "Ticker",
+      "job": "Repeating release-rule marquee"
+    },
+    {
+      "n": "7",
+      "name": "FAQ",
+      "job": "Five objections, answered"
+    },
+    {
+      "n": "8",
+      "name": "Final CTA",
+      "job": "One direct ask"
+    },
+    {
+      "n": "9",
+      "name": "Footer",
+      "job": "Navigation, contact, legal"
+    }
+  ],
+  "source_map": [
+    {
+      "pattern": "Four outcome-led benefit lanes followed by customer proof",
+      "source": "Stripe (stripe.com/payments)",
+      "adaptation": "Applied to the Proof Wall hierarchy: outcome-led proof cards first, trust context second, rather than a generic feature list."
+    },
+    {
+      "pattern": "Whole-card, eyebrow-free navigation across shipped-work lanes",
+      "source": "Notion (notion.com)",
+      "adaptation": "Informs the Proof Wall card's whole-card link behavior and the Doors' eyebrow-free titles."
+    },
+    {
+      "pattern": "A quantified proof statement shown after the site's opening claim",
+      "source": "Salla (salla.com)",
+      "adaptation": "Informs presenting a settled metric as scale evidence instead of a client-logo wall; Muse's own case-study figures replace Salla's store count, and are labeled as current website claims, not verified results."
+    },
+    {
+      "pattern": "Shipped work as the content surface itself, not decoration around a claim",
+      "source": "Framer (framer.com)",
+      "adaptation": "Informs the Proof Wall's use of real case studies and live products as the primary visual, not supporting decoration."
+    },
+    {
+      "pattern": "A proof grid tied explicitly to a stated standard",
+      "source": "Mercury (mercury.com)",
+      "adaptation": "Informs grouping the six Proof Wall cards as one designed system rather than a loose list; the specific claims inside them are Muse's own."
+    },
+    {
+      "pattern": "A dedicated, native RTL proof chapter with a full metrics row",
+      "source": "Al Rajhi Bank (alrajhibank.com.sa)",
+      "adaptation": "Direct input for the idea of a dedicated Arabic proof chapter. Direction 3's Arabic Proof Wall currently stores English copy instead of native Arabic (see Open Decisions, D3-AR)."
+    }
+  ]
+}

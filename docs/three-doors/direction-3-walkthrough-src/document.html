@@ -2,314 +2,491 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Muse Site Walkthrough: Direction 3 - The Proof</title>
+<title>Muse Site Walkthrough: Direction 3: The Proof</title>
 <link rel="stylesheet" href="house.css">
 <style>
 .page .wrap.body { padding-bottom: 14mm; }
 .subhead { margin-top: 5mm; }
-.shotcap { margin-bottom: 2.8mm; }
 .ctable td { font-size: 7.9pt; }
 .ctable td.ar { text-align: right; direction: rtl; }
-.ctable td.k { white-space: normal; }
-.mini { width: 44mm; }
-.pnrow { margin-top: 2.5mm; }
-.q { font-weight: 600; }
-.note { margin-top: 4mm; }
+.cols2 p { font-size: 8.3pt; line-height: 1.5; margin: 0 0 2.6mm; }
+.cols2 p b { font-weight: 600; }
 </style>
 </head>
 <body>
 
-<!-- ============================ COVER ============================ -->
 <section class="page cover">
   <div class="top">
     <img class="mark" src="assets/muse-vertical-orange-crop.svg" alt="Muse Studios">
   </div>
   <div class="mid">
     <h1>Muse Site Walkthrough<br>Direction 3: The Proof</h1>
-    <p class="lede">A work-led homepage direction for muse.sa. The site opens with what Muse has built, not what Muse believes: anonymized case studies, live ventures, and content, in a proof wall before any argument. Screenshots come from the direction build of 2026-08-05, taken at 1440px and 390px. Copy is quoted verbatim from the site's own content files.</p>
-    <p class="handback">One of three homepage directions, each built and deployed separately. This walkthrough shows the Proof direction in both languages, section by section, and ends with the decisions the team needs to make. Revision 2: doors rebuilt without eyebrows, Tenet card em dash fixed, AR legal terms punctuation cleaned. Hero untouched (approved).</p>
+    <p class="lede">The Proof is a work-led homepage: it opens with what Muse has actually shipped, not a thesis or a pitch, then opens the three doors as ways to act on that proof. A work-led homepage direction for muse.sa. The site opens with what Muse has actually shipped rather than a thesis, then opens Build, Ventures and Think as three ways to act on that proof. Screenshots in this walkthrough are section-exact captures from the direction build, taken at 1440x900 desktop and 390x844 mobile, both at a 2x device scale. Copy is quoted verbatim from the site's own content files.</p>
+    <p class="handback">One of three homepage directions, each built and deployed separately. This walkthrough documents the Proof direction section by section, in the exact order it renders on the page, in both languages, discloses where the Arabic route currently renders English copy, and ends with the decisions the team needs to make before this direction ships.</p>
   </div>
   <div class="meta">
     <div><div class="k">Date</div><div class="v">2026-08-05</div></div>
     <div><div class="k">Prepared by</div><div class="v">Abdullah Alsubaie</div></div>
     <div><div class="k">Reference</div><div class="v">MUSE-DIR-03</div></div>
-    <div><div class="k">Status</div><div class="v">Draft</div></div>
+    <div><div class="k">Status</div><div class="v">Review &middot; Revision 3</div></div>
   </div>
 </section>
-
-<!-- ============================ 01 HOW TO READ ============================ -->
-<section class="page">
-  <header class="band"><span class="num">01</span><h2>How to read this</h2></header>
+<section class="page visual-page section-hero locale-en">
+  <header class="band"><span class="num">02</span><h2>Hero · English</h2></header>
   <div class="wrap body">
-    <p class="lead">The Proof direction shows work before it says anything. A visitor meets the proof wall in the first screen after the hero, with nothing claimed that cannot be shown. Eight sections, top to bottom.</p>
+    <p class="lead">First screen, full viewport, real fixed navigation visible. States the position in two lines and hands off directly into the Proof Wall.</p>
 
-    <div class="subhead">Homepage, top to bottom</div>
-    <table>
-      <thead><tr><th style="width:44mm">Section</th><th>What it does</th></tr></thead>
-      <tbody>
-        <tr><td class="k">Hero</td><td>"We don't pitch. We ship." The tagline promises proof is below.</td></tr>
-        <tr><td class="k">Proof wall</td><td>Six cards: anonymized case studies, live ventures, content. Each with real detail, not vague claims.</td></tr>
-        <tr><td class="k">Three doors</td><td>Build, Ventures, Think. The ways the work happens.</td></tr>
-        <tr><td class="k">Manifesto</td><td>Why now: the next two years decide the decade.</td></tr>
-        <tr><td class="k">Outcomes band</td><td>Engagements end with outcomes, not tools.</td></tr>
-        <tr><td class="k">Ticker</td><td>Nothing ships that we would not use ourselves.</td></tr>
-        <tr><td class="k">FAQ</td><td>Five real objections, answered plainly.</td></tr>
-        <tr><td class="k">Final CTA</td><td>"Tell us what you're trying to build."</td></tr>
-      </tbody>
-    </table>
-
-    <div class="subhead">Screenshot legend</div>
-    <ul class="dash">
-      <li><strong>Desktop top / bottom</strong>: first and last screens at 1440px.</li>
-      <li><strong>Mobile top</strong>: the first screen at 390px.</li>
-      <li><strong>Proof wall</strong>: the centerpiece section, scrolled into view.</li>
-    </ul>
-
-    <div class="callout">
-      <span class="lbl">Honest proof only</span>
-      <p>Every card in the proof wall is one of two things: an anonymized case study of real shipped work, or a live venture with a real URL. There are no fake testimonials and no invented client logos anywhere on the page.</p>
-    </div>
-
-    <div class="callout">
-      <span class="lbl">Revision 2 (2026-08-05)</span>
-      <p>The doors were rebuilt without eyebrows (same canonical copy as the other directions), the Tenet card em dash became a full stop, and the AR legal terms lost their em dashes. The hero stays approved and untouched. The AR proof wall copy is still flagged for the phase 2 native writer pass.</p>
-    </div>
+    <div class="plate"><div class="fig-primary"><div class="shot"><img src="assets/screens/en/home-01-hero-en-desktop.png" alt="hero en desktop"></div><p class="plate-cap"><b>Desktop.</b> We don't pitch.</p></div><div class="fig-secondary"><div class="shot"><img src="assets/screens/en/home-01-hero-en-mobile.png" alt="hero en mobile"></div><p class="plate-cap"><b>Mobile.</b> We don't pitch.</p></div></div>
   </div>
-  <div class="foot"><img src="assets/muse-08-maroon-crop.svg" alt=""><span class="pn">2 / 10</span></div>
+  <div class="foot"><img src="assets/muse-08-maroon-crop.svg" alt=""><span class="pn">2 / 40</span></div>
 </section>
-
-<!-- ============================ 02 LANDING EN ============================ -->
-<section class="page">
-  <header class="band"><span class="num">02</span><h2>The landing · English</h2></header>
+<section class="page visual-page section-hero locale-ar">
+  <header class="band"><span class="num">03</span><h2>Hero · العربية</h2></header>
   <div class="wrap body">
-    <p class="lead">The hero states the position in two lines: "We don't pitch. We ship." The tagline promises what follows: "Everything below is real work." No thesis, no manifesto, no mission. Proof first.</p>
-
-    <div class="shot"><img src="assets/screens/en/home-desktop-top.png" alt="Home, English, desktop top"></div>
-    <div class="shotcap"><b>Desktop top.</b> Hero: "We don't pitch." / "We ship." Subtitle "Anonymized case studies. Live experiments. Content we wrote." CTA "View the work".</div>
-
-    <div class="locrow">
-      <div class="m"><div class="shot"><img src="assets/screens/en/home-mobile-top.png" alt="Home, English, mobile top"></div>
-      <div class="shotcap"><b>Mobile, hero screen.</b> Same sections, single column.</div></div>
-      <div class="d"><div class="shot"><img src="assets/screens/en/home-desktop-bottom.png" alt="Home, English, desktop bottom"></div>
-      <div class="shotcap"><b>Desktop bottom.</b> Final CTA "Tell us what you're trying to build." and the footer.</div></div>
-    </div>
+    <p class="lead ar">أول شاشة بالصفحة، بعرض الشاشة الكامل، مع بقاء القائمة الثابتة ظاهرة. تحدّد الموضع بسطرين وتنتقل مباشرة إلى حائط الإنجازات.</p>
+    <div class="callout"><span class="lbl">Arabic route, English copy</span><p>Arabic route and RTL composition. This section's copy is currently stored in English in the Arabic catalogue, pending native localization. This is not a translation.</p></div>
+    <div class="plate"><div class="fig-primary"><div class="shot"><img src="assets/screens/ar/home-01-hero-ar-desktop.png" alt="hero ar desktop"></div><p class="plate-cap"><b>Desktop.</b> We don't pitch.</p></div><div class="fig-secondary"><div class="shot"><img src="assets/screens/ar/home-01-hero-ar-mobile.png" alt="hero ar mobile"></div><p class="plate-cap"><b>Mobile.</b> We don't pitch.</p></div></div>
   </div>
-  <div class="foot"><img src="assets/muse-08-maroon-crop.svg" alt=""><span class="pn">3 / 10</span></div>
+  <div class="foot"><img src="assets/muse-08-maroon-crop.svg" alt=""><span class="pn">3 / 40</span></div>
 </section>
-
-<!-- ============================ 03 LANDING AR ============================ -->
-<section class="page">
-  <header class="band"><span class="num">03</span><h2>The landing · العربية</h2></header>
+<section class="page content-page section-hero">
+  <header class="band"><span class="num">04</span><h2>Hero &middot; content and rationale</h2></header>
   <div class="wrap body">
-    <p class="lead">نفس المقدمة بالعربية: "ما نبيع كلام. نبني ونطلق." والسطر اللي بعدها: "كل اللي تحت شغل حقيقي." الكلام مكتوب أصليًا بالعربية.</p>
+    <p class="lead">States the position in two lines, a negation then the claim it sets up: Muse does not pitch, it ships. The tagline commits to what follows being real work, and the single CTA leads straight into the Proof Wall rather than into a company pitch.</p>
+    <div class="subhead">Content anatomy</div>
+    <ul class="dash"><li>Headline, two lines: a plain negation, then the claim it turns into.</li><li>Tagline: a one-line commitment to what follows being real work.</li><li>Subtitle: names the three kinds of proof the page is about to show.</li><li>One CTA, into the work itself.</li></ul>
+    <div class="subhead">Verbatim copy</div>
+    <div class="cols2"><div><div class="subhead">English</div><p><b>Headline:</b> We don't pitch.</p><p><b>Headline, turn:</b> We ship.</p><p><b>Tagline:</b> Everything below is real work.</p><p><b>Subtitle:</b> Anonymized case studies. Live experiments. Content we wrote.</p><p><b>CTA:</b> View the work</p></div><div><div class="subhead">العربية</div><p class="ar"><b>العنوان:</b> We don't pitch.</p><p class="ar"><b>العنوان، التحول:</b> We ship.</p><p class="ar"><b>الوسم:</b> Everything below is real work.</p><p class="ar"><b>العنوان الفرعي:</b> Anonymized case studies. Live experiments. Content we wrote.</p><p class="ar"><b>الزر:</b> View the work</p></div></div>
+    <div class="callout"><span class="lbl">Arabic route, English copy</span><p>The Arabic catalogue key for this section currently stores the same English strings shown on the English route. The layout and direction render correctly in RTL; the words themselves are English, not a runtime fallback. Native Arabic copy for this section is an open decision, not yet written (see Open Decisions, D3-AR).</p></div>
+    <div class="subhead">Why it sits here</div>
+    <p>First screen, full viewport, with the real fixed navigation visible. A proof-led homepage has to earn its claim inside the first screen before a visitor scrolls, so the Hero commits to shipping and hands off directly into the Proof Wall.</p>
+    <div class="callout"><span class="lbl">Source</span><p>No source in this direction's reference set (Reference Evidence 1 to 6) specifically informed the Hero; it is Muse's own positioning claim, not adapted copy.</p></div>
 
-    <div class="shot"><img src="assets/screens/ar/home-desktop-top.png" alt="Home, Arabic, desktop top"></div>
-    <div class="shotcap"><b>الشاشة الأولى.</b> المقدمة: "ما نبيع كلام." / "نبني ونطلق." وتحتها "كل اللي تحت شغل حقيقي. دراسات حالة مجهولة الهوية. تجارب حية. محتوى كتبناه."</div>
-
-    <div class="locrow">
-      <div class="m"><div class="shot"><img src="assets/screens/ar/home-mobile-top.png" alt="Home, Arabic, mobile top"></div>
-      <div class="shotcap"><b>الجوال، أول شاشة.</b> نفس الأقسام بعمود واحد، والاتجاه من اليمين لليسار.</div></div>
-      <div class="d"><div class="shot"><img src="assets/screens/ar/home-desktop-bottom.png" alt="Home, Arabic, desktop bottom"></div>
-      <div class="shotcap"><b>آخر الشاشة.</b> الدعوة الأخيرة "قل لنا وش تبني." والتذييل.</div></div>
-    </div>
-
-    <div class="callout warn">
-      <span class="lbl">Known gap: proof wall in Arabic</span>
-      <p>The hero, doors, and closing sections are fully translated. The proof wall cards currently fall back to English while the native Arabic writer reviews the case study summaries, per the bilingual plan (English first, Arabic phase 2).</p>
-    </div>
   </div>
-  <div class="foot"><img src="assets/muse-08-maroon-crop.svg" alt=""><span class="pn">4 / 10</span></div>
+  <div class="foot"><img src="assets/muse-08-maroon-crop.svg" alt=""><span class="pn">4 / 40</span></div>
 </section>
-
-<!-- ============================ 04 PROOF WALL EN ============================ -->
-<section class="page">
-  <header class="band"><span class="num">04</span><h2>The proof wall · English</h2></header>
+<section class="page visual-page section-proof locale-en">
+  <header class="band"><span class="num">05</span><h2>Proof Wall &middot; English (1 of 2)</h2></header>
+  <div class="wrap body"><p class="lead">Section-exact Proof Wall: desktop on this page, then mobile cards 1 to 3. Cards 4 to 6 continue on the next page without cutting a card.</p><div class="plate"><div class="fig-primary"><div class="shot"><img src="assets/screens/en/home-02-proof-en-desktop.png" alt="proof en desktop"></div><p class="plate-cap"><b>Desktop.</b> What we've shipped. What we're building.</p></div><div class="fig-secondary"><div class="shot"><img src="assets/screens/en/home-02-proof-en-mobile-a.png" alt="Proof Wall en mobile part A"></div><p class="plate-cap"><b>Mobile, part A.</b> Heading and cards 1 to 3.</p></div></div></div>
+  <div class="foot"><img src="assets/muse-08-maroon-crop.svg" alt=""><span class="pn">5 / 40</span></div>
+</section>
+<section class="page visual-page section-proof proof-continuation locale-en">
+  <header class="band"><span class="num">06</span><h2>Proof Wall &middot; English (2 of 2)</h2></header>
+  <div class="wrap body"><p class="lead">Mobile continuation: cards 4 to 6 complete the section without cutting or shrinking a proof card.</p><div class="proof-continuation-stage"><div class="proof-mobile-cont"><div class="shot"><img src="assets/screens/en/home-02-proof-en-mobile-b.png" alt="Proof Wall en mobile part B"></div><p class="plate-cap"><b>Mobile, part B.</b> Cards 4 to 6. Desktop is shown on the prior page.</p></div></div></div>
+  <div class="foot"><img src="assets/muse-08-maroon-crop.svg" alt=""><span class="pn">6 / 40</span></div>
+</section>
+<section class="page visual-page section-proof locale-ar">
+  <header class="band"><span class="num">07</span><h2>Proof Wall &middot; العربية (1 of 2)</h2></header>
+  <div class="wrap body"><p class="lead ar">حائط الإنجازات بحدود القسم كاملة: نسخة سطح المكتب هنا، ثم بطاقات الجوال من 1 إلى 3. تستكمل البطاقات من 4 إلى 6 في الصفحة التالية من دون قص أي بطاقة.</p><div class="callout"><span class="lbl">Arabic route, English copy</span><p>Arabic route and RTL composition. This section's copy is currently stored in English in the Arabic catalogue, pending native localization. This is not a translation.</p></div><div class="plate"><div class="fig-primary"><div class="shot"><img src="assets/screens/ar/home-02-proof-ar-desktop.png" alt="proof ar desktop"></div><p class="plate-cap"><b>Desktop.</b> What we've shipped. What we're building.</p></div><div class="fig-secondary"><div class="shot"><img src="assets/screens/ar/home-02-proof-ar-mobile-a.png" alt="Proof Wall ar mobile part A"></div><p class="plate-cap"><b>Mobile, part A.</b> Heading and cards 1 to 3.</p></div></div></div>
+  <div class="foot"><img src="assets/muse-08-maroon-crop.svg" alt=""><span class="pn">7 / 40</span></div>
+</section>
+<section class="page visual-page section-proof proof-continuation locale-ar">
+  <header class="band"><span class="num">08</span><h2>Proof Wall &middot; العربية (2 of 2)</h2></header>
+  <div class="wrap body"><p class="lead ar">استكمال نسخة الجوال: البطاقات من 4 إلى 6 تكمل القسم من دون قص أي بطاقة أو تصغيرها.</p><div class="callout"><span class="lbl">Arabic route, English copy</span><p>Arabic route and RTL composition. This section's copy is currently stored in English in the Arabic catalogue, pending native localization. This is not a translation.</p></div><div class="proof-continuation-stage"><div class="proof-mobile-cont"><div class="shot"><img src="assets/screens/ar/home-02-proof-ar-mobile-b.png" alt="Proof Wall ar mobile part B"></div><p class="plate-cap"><b>Mobile, part B.</b> Cards 4 to 6. Desktop is shown on the prior page.</p></div></div></div>
+  <div class="foot"><img src="assets/muse-08-maroon-crop.svg" alt=""><span class="pn">8 / 40</span></div>
+</section>
+<section class="page content-page section-proof proof-content-page">
+  <header class="band"><span class="num">09</span><h2>Proof Wall &middot; content and rationale (1 of 2)</h2></header>
   <div class="wrap body">
-    <p class="lead">The centerpiece. Six cards in a 3x2 grid, each one an honest claim: a category tag, a title, one concrete detail, and a destination. The pattern is borrowed from Stripe's case study wall: proof organized as stories, not adjectives.</p>
-
-    <div class="shot"><img src="assets/screens/en/home-proofwall.png" alt="The proof wall, English"></div>
-    <div class="shotcap"><b>The proof wall, English.</b> Eyebrow "The work speaks", heading "What we've shipped. What we're building." Subtitle "No decks. No strategies. Just work that's running in production or live in the wild."</div>
-
-    <table>
-      <thead><tr><th style="width:44mm">Card</th><th>Category</th><th>Proof on the card</th></tr></thead>
-      <tbody>
-        <tr><td class="k">Core banking platform</td><td>Enterprise</td><td>"Replaced a 15-year legacy system for a PIF-level financial institution. 40+ services, zero-downtime migration, 200k daily transactions." → /case-studies/core-banking</td></tr>
-        <tr><td class="k">Automated underwriting engine</td><td>AI Feature</td><td>"Cut loan decision time from 3 days to 12 minutes for a Saudi fintech. 94% accuracy vs human baseline. Shipped in 8 weeks." → /case-studies/underwriting</td></tr>
-        <tr><td class="k">Consumer app redesign</td><td>Brand Interface</td><td>"End-to-end redesign for a 500k-user Saudi super-app. Design system, motion language, RTL-first. 40% retention lift post-launch." → /case-studies/super-app</td></tr>
-        <tr><td class="k">Muse Experiments</td><td>Venture</td><td>"Live lab for AI-native product patterns. 3D agents, generative interfaces, local-first sync. Open source, production-grade." → experiments.muse.sa</td></tr>
-        <tr><td class="k">Tenet</td><td>Venture</td><td>"AI-native knowledge base for teams that build. Not a wiki. A thinking partner. Early access live." → tenet.muse.sa</td></tr>
-        <tr><td class="k">Field Notes Newsletter</td><td>Content</td><td>"Weekly dispatches on what we're seeing across engagements. No AI news. No 10-tip lists. Just field notes." → /newsletter</td></tr>
-      </tbody>
-    </table>
+    <p class="lead">The direction's main surface: a grid of six work cards spanning enterprise delivery, an AI feature, a consumer redesign, two live venture products and a content channel, each tagged with its stack and category rather than described in adjectives.</p>
+    <div class="subhead">Content anatomy</div><ul class="dash"><li>Eyebrow: names this as the section where the work speaks.</li><li>Heading: what has shipped, what is being built.</li><li>Subtitle: no decks, no strategies, just work that is running.</li><li>Six cards: category tag, title, one proof-dense paragraph, stack tags, and a link into the case study or the live product.</li></ul>
+    <div class="subhead">Stored EN and AR catalogue overview</div><p><b>Eyebrow:</b> The work speaks</p><p><b>Heading:</b> What we've shipped. What we're building.</p><p><b>Subtitle:</b> No decks. No strategies. Just work that's running in production or live in the wild.</p><div class="callout"><span class="lbl">Arabic route, English copy</span><p>The Arabic catalogue key for this section currently stores the same English strings shown on the English route. The layout and direction render correctly in RTL; the words themselves are English, not a runtime fallback. Native Arabic copy for this section is an open decision, not yet written (see Open Decisions, D3-AR).</p></div>
+    <div class="subhead">Cards 1 to 3</div><div class="proof-copy-card"><div class="subhead">Card 1: Core banking platform</div><p><b>Category:</b> Enterprise</p><p><b>Body:</b> Replaced a 15-year legacy system for a PIF-level financial institution. 40+ services, zero-downtime migration, 200k daily transactions.</p><p><b>Tags:</b> TypeScript, Kubernetes, Event-driven</p></div><div class="proof-copy-card"><div class="subhead">Card 2: Automated underwriting engine</div><p><b>Category:</b> AI Feature</p><p><b>Body:</b> Cut loan decision time from 3 days to 12 minutes for a Saudi fintech. 94% accuracy vs human baseline. Shipped in 8 weeks.</p><p><b>Tags:</b> Python, LLM, RAG</p></div><div class="proof-copy-card"><div class="subhead">Card 3: Consumer app redesign</div><p><b>Category:</b> Brand Interface</p><p><b>Body:</b> End-to-end redesign for a 500k-user Saudi super-app. Design system, motion language, RTL-first. 40% retention lift post-launch.</p><p><b>Tags:</b> Figma, React Native, Design Systems</p></div>
   </div>
-  <div class="foot"><img src="assets/muse-08-maroon-crop.svg" alt=""><span class="pn">5 / 10</span></div>
+  <div class="foot"><img src="assets/muse-08-maroon-crop.svg" alt=""><span class="pn">9 / 40</span></div>
 </section>
-
-<!-- ============================ 05 PROOF WALL MECHANICS ============================ -->
-<section class="page">
-  <header class="band"><span class="num">05</span><h2>Why the proof wall works</h2></header>
+<section class="page content-page section-proof proof-content-page">
+  <header class="band"><span class="num">10</span><h2>Proof Wall &middot; content and rationale (2 of 2)</h2></header>
   <div class="wrap body">
-    <p class="lead">The research on work-led companies (Stripe, Vercel, Linear, Framer) produced five mechanics, and each one is present in this wall.</p>
-
-    <table class="ctable">
-      <thead><tr><th style="width:44mm">Mechanic</th><th>Source</th><th>How it appears here</th></tr></thead>
-      <tbody>
-        <tr><td class="k">Proof as stories, not adjectives</td><td>Stripe</td><td>Every card carries one concrete number or fact: 200k transactions, 12 minutes, 94% accuracy, 500k users.</td></tr>
-        <tr><td class="k">Never a metric without a name</td><td>Stripe</td><td>Each metric is tied to a named, visitable destination: a case study page or a live URL.</td></tr>
-        <tr><td class="k">Live, playable work</td><td>Framer</td><td>Muse Experiments and Tenet are live links, not screenshots. A visitor can click through and use the work.</td></tr>
-        <tr><td class="k">Recently shipped</td><td>Vercel</td><td>The wall mixes shipped client work with in-progress ventures, so the site grows as the work grows.</td></tr>
-        <tr><td class="k">Engagement, not testimonials</td><td>Linear</td><td>No quotes, no stars, no "trusted by". The work and its results carry the credibility.</td></tr>
-      </tbody>
-    </table>
-
-    <div class="subhead">The "portfolio as we go" problem</div>
-    <p>Muse is still early; a full case study library does not exist yet. The wall answers this honestly: three anonymized case studies of real shipped work, two live ventures with real URLs, one content line. As new work ships, new cards are added. Nothing on the wall is fabricated, and nothing is a placeholder for work that does not exist.</p>
-
-    <div class="callout">
-      <span class="lbl">What the wall deliberately avoids</span>
-      <p>Fake testimonials. Vague claims ("we transform businesses"). Consultant vocabulary ("synergy", "digital transformation"). Stock team photos. "Learn more" links that go nowhere. Every card has a real destination or it does not ship.</p>
-    </div>
+    <p class="lead">Cards 4 to 6 complete the exact stored content set.</p>
+    <div class="subhead">Cards 4 to 6</div><div class="proof-copy-card"><div class="subhead">Card 4: Muse Experiments</div><p><b>Category:</b> Venture</p><p><b>Body:</b> Live lab for AI-native product patterns. 3D agents, generative interfaces, local-first sync. Open source, production-grade.</p><p><b>Tags:</b> Three.js, WebGPU, Open Source</p></div><div class="proof-copy-card"><div class="subhead">Card 5: Tenet</div><p><b>Category:</b> Venture</p><p><b>Body:</b> AI-native knowledge base for teams that build. Not a wiki. A thinking partner. Early access live.</p><p><b>Tags:</b> Next.js, Vercel AI SDK, Postgres</p></div><div class="proof-copy-card"><div class="subhead">Card 6: Field Notes Newsletter</div><p><b>Category:</b> Content</p><p><b>Body:</b> Weekly dispatches on what we're seeing across engagements. No AI news. No 10-tip lists. Just field notes.</p><p><b>Tags:</b> Writing, Strategy, Engineering</p></div>
+    <div class="subhead">Why it sits here</div><p>Directly after the Hero's claim, because a work-led direction has to make good on it immediately: the Proof Wall is the actual evidence, ahead of any doors, argument or manifesto.</p>
+    <div class="callout"><span class="lbl">Source</span><p>Stripe's four equal benefit lanes and customer-logo band are Direct input for the Proof Wall's outcome-first hierarchy (Reference Evidence 1). Whole-card, eyebrow-free navigation across shipped-work lanes is Direct input from Notion (Reference Evidence 2). Framer's live shipped-work presentation (Reference Evidence 4) and Mercury's heading-plus-metrics proof row (Reference Evidence 5) are Direct input for treating shipped work as the content surface itself, not decoration. The six cards' specific claims are Muse's own; the figures inside them, including the 94 percent accuracy line, the 40 percent retention lift line, and the PIF-level reference, are current website claims, not independently verified results (see Open Decisions, D3-PROOF).</p></div>
+    <div class="callout warn"><span class="lbl">Open claim</span><p>The Proof Wall states 94 percent accuracy against a human baseline, a 40 percent retention lift, and a PIF-level financial institution client, none of which carry a supporting evidence page, source citation or client name in the current build.</p><p><b>Recommendation:</b> Add evidence pages that substantiate each figure, or soften or anonymize the claims further before external circulation. This walkthrough labels them as current website claims pending substantiation, not as verified results, and that label should carry over to any external-facing version of this direction.</p></div>
+    <div class="note">The fixed header is hidden only for the instant of capture on every section after the Hero, then restored. This is presentation cleanup so the sticky pill does not paint over a heading in a screenshot; it is not a change to the section itself, and the Hero capture keeps the header visible because it documents the true first screen.</div>
   </div>
-  <div class="foot"><img src="assets/muse-08-maroon-crop.svg" alt=""><span class="pn">6 / 10</span></div>
+  <div class="foot"><img src="assets/muse-08-maroon-crop.svg" alt=""><span class="pn">10 / 40</span></div>
 </section>
-
-<!-- ============================ 06 BELOW THE FOLD ============================ -->
-<section class="page">
-  <header class="band"><span class="num">06</span><h2>Below the fold</h2></header>
+<section class="page visual-page section-doors locale-en">
+  <header class="band"><span class="num">11</span><h2>Three doors · English</h2></header>
   <div class="wrap body">
-    <p class="lead">After the proof comes the offer. The doors, manifesto, and closing are the same blocks as the other directions; only the order changes, proof before argument.</p>
+    <p class="lead">Section-exact capture: begins at the doors heading, ends before the Manifesto heading. No Manifesto pixels in any Doors image.</p>
 
-    <table class="ctable">
-      <thead><tr><th style="width:34mm">Block</th><th>English</th><th>العربية</th></tr></thead>
-      <tbody>
-        <tr>
-          <td class="k">Doors heading</td>
-          <td>"Pick the door that matches you" (no eyebrow)</td>
-          <td class="ar">"اختر الباب اللي يناسبك" (بدون عنوان صغير)</td>
-        </tr>
-        <tr>
-          <td class="k">Doors</td>
-          <td>Build: "Your product, built". Ventures: "Our own products". Think: "Knowledge and community".</td>
-          <td class="ar">بناء: "منتجك، مبنيّ كما يجب". مشاريعنا: "منتجاتنا الخاصة". فكر: "معرفة ومجتمع".</td>
-        </tr>
-        <tr>
-          <td class="k">Manifesto</td>
-          <td>"The next decade of software gets decided in the next two years."</td>
-          <td class="ar">"عصر المنتجات الرقمية يتحدّد خلال السنتين الجاية."</td>
-        </tr>
-        <tr>
-          <td class="k">Outcomes band</td>
-          <td>"We deliver outcomes, not just tools."</td>
-          <td class="ar">"نوصّل نتيجة فعلية، مو مجرد أدوات."</td>
-        </tr>
-        <tr>
-          <td class="k">Ticker</td>
-          <td>"Nothing ships that we wouldn't use ourselves"</td>
-          <td class="ar">"لا نطلق ما لا نستخدمه نحن"</td>
-        </tr>
-        <tr>
-          <td class="k">Final CTA</td>
-          <td>"Tell us what you're trying to build."</td>
-          <td class="ar">"قل لنا وش تبني."</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <div class="locrow">
-      <div class="d"><div class="shot"><img src="assets/screens/en/home-desktop-bottom.png" alt="Home, English, bottom"></div>
-      <div class="shotcap"><b>English, last screen.</b> FAQ, final CTA and footer.</div></div>
-      <div class="d"><div class="shot"><img src="assets/screens/ar/home-desktop-bottom.png" alt="Home, Arabic, bottom"></div>
-      <div class="shotcap"><b>العربية، آخر شاشة.</b> الأسئلة، الدعوة الأخيرة، والتذييل.</div></div>
-    </div>
+    <div class="plate"><div class="fig-primary"><div class="shot"><img src="assets/screens/en/home-03-doors-en-desktop.png" alt="doors en desktop"></div><p class="plate-cap"><b>Desktop.</b> Pick the door that matches you</p></div><div class="fig-secondary"><div class="shot"><img src="assets/screens/en/home-03-doors-en-mobile.png" alt="doors en mobile"></div><p class="plate-cap"><b>Mobile.</b> Pick the door that matches you</p></div></div>
   </div>
-  <div class="foot"><img src="assets/muse-08-maroon-crop.svg" alt=""><span class="pn">7 / 10</span></div>
+  <div class="foot"><img src="assets/muse-08-maroon-crop.svg" alt=""><span class="pn">11 / 40</span></div>
 </section>
-
-<!-- ============================ 07 STRUCTURE AND SOURCING ============================ -->
-<section class="page">
-  <header class="band"><span class="num">07</span><h2>Structure and sourcing</h2></header>
+<section class="page visual-page section-doors locale-ar">
+  <header class="band"><span class="num">12</span><h2>Three doors · العربية</h2></header>
   <div class="wrap body">
-    <p class="lead">The order of the page follows the research findings from a study of work-led companies, adapted to Muse's reality. The recommended section order was: hero with proof promise, proof wall, live experiments, how we build, community, credibility anchors, CTA. Muse adapts it: the proof wall carries the experiments inside it, and community is deferred until there is a community.</p>
+    <p class="lead ar">التقاط مضبوط على حدود القسم: يبدأ من عنوان الأبواب وينتهي قبل عنوان البيان. لا تظهر أي بكسلات من البيان في صور الأبواب.</p>
 
-    <table class="ctable">
-      <thead><tr><th style="width:40mm">Pattern</th><th style="width:44mm">Source</th><th>How it is adapted</th></tr></thead>
-      <tbody>
-        <tr><td class="k">Hero promises proof</td><td>Vercel</td><td>"Everything below is real work." makes the proof the contract of the page.</td></tr>
-        <tr><td class="k">Proof wall</td><td>Stripe</td><td>Category tag, title, one concrete fact, destination. Stories, not adjectives.</td></tr>
-        <tr><td class="k">Live experiments grid</td><td>Framer</td><td>Muse Experiments and Tenet are live links, playable by any visitor.</td></tr>
-        <tr><td class="k">Build-in-public positioning</td><td>Linear</td><td>The wall mixes shipped work with in-progress ventures, and updates as work ships.</td></tr>
-        <tr><td class="k">No fake testimonials</td><td>All sources</td><td>Zero quote walls. Zero "trusted by" rows. The metrics and URLs carry the page.</td></tr>
-        <tr><td class="k">Three-door cards</td><td>tenex.co, salla.com</td><td>Build, Ventures, Think, positioned after the proof.</td></tr>
-        <tr><td class="k">FAQ trust block</td><td>tenex.co</td><td>Five real objections answered on the page, in both languages.</td></tr>
-      </tbody>
-    </table>
-
-    <div class="callout">
-      <span class="lbl">Research basis</span>
-      <p>This direction was informed by a structured study of how Stripe, Vercel, Linear, and Framer showcase real work, including their section orders, metric usage, and anti-patterns. The full research notes are in the project vault.</p>
-    </div>
+    <div class="plate"><div class="fig-primary"><div class="shot"><img src="assets/screens/ar/home-03-doors-ar-desktop.png" alt="doors ar desktop"></div><p class="plate-cap"><b>Desktop.</b> اختر الباب اللي يناسبك</p></div><div class="fig-secondary"><div class="shot"><img src="assets/screens/ar/home-03-doors-ar-mobile.png" alt="doors ar mobile"></div><p class="plate-cap"><b>Mobile.</b> اختر الباب اللي يناسبك</p></div></div>
   </div>
-  <div class="foot"><img src="assets/muse-08-maroon-crop.svg" alt=""><span class="pn">8 / 10</span></div>
+  <div class="foot"><img src="assets/muse-08-maroon-crop.svg" alt=""><span class="pn">12 / 40</span></div>
 </section>
-
-<!-- ============================ 08 OPEN DECISIONS ============================ -->
-<section class="page">
-  <header class="band"><span class="num">08</span><h2>Open decisions</h2></header>
+<section class="page content-page section-doors">
+  <header class="band"><span class="num">13</span><h2>Three doors &middot; content and rationale</h2></header>
   <div class="wrap body">
-    <p class="lead">Six decisions remain. Each carries a recommendation; a different answer from the team changes the plan.</p>
+    <p class="lead">Routes three kinds of visitor, build, ventures and think, to the part of the business that matches them, framed as ways to act on the proof just shown rather than as a general service menu.</p>
+    <div class="subhead">Content anatomy</div>
+    <ul class="dash"><li>Section heading, no eyebrow above it.</li><li>Three equal-weight cards: Build, Ventures, Think.</li><li>Per card: title, one-line body, a promise set off with a rule, a distinct verb CTA.</li></ul>
+    <div class="subhead">Verbatim copy</div>
+    <div class="cols2"><div><div class="subhead">English</div><p><b>Heading:</b> Pick the door that matches you</p><p><b>Build: title:</b> Your product, built</p><p><b>Build: body:</b> A senior squad builds inside your team, proving value in weeks, not quarters.</p><p><b>Build: promise:</b> Every engagement ends with something running in production, not a slide deck.</p><p><b>Build: CTA:</b> Start a build</p><p><b>Ventures: title:</b> Our own products</p><p><b>Ventures: body:</b> Arabic first, real data, and the details most products skip.</p><p><b>Ventures: promise:</b> We publish what we build, and keep going with whatever people actually use.</p><p><b>Ventures: CTA:</b> See what we ship</p><p><b>Think: title:</b> Knowledge and community</p><p><b>Think: body:</b> Articles, field notes, and a newsletter for people building here.</p><p><b>Think: promise:</b> The same thinking that goes into the work, published.</p><p><b>Think: CTA:</b> Read the latest</p></div><div><div class="subhead">العربية</div><p class="ar"><b>العنوان:</b> اختر الباب اللي يناسبك</p><p class="ar"><b>بناء: العنوان:</b> منتجك، مبنيّ كما يجب</p><p class="ar"><b>بناء: النص:</b> فريق خبير يبني جنبك، ويثبت قيمته خلال أسابيع، مو شهور.</p><p class="ar"><b>بناء: الوعد:</b> كل مشروع ينتهي بشيء شغّال في الإنتاج، مو عرض تقديمي.</p><p class="ar"><b>بناء: الزر:</b> ابدأ البناء</p><p class="ar"><b>مشاريعنا: العنوان:</b> منتجاتنا الخاصة</p><p class="ar"><b>مشاريعنا: النص:</b> عربي أول، بيانات حقيقية، والتفاصيل اللي يتخطاها غيرنا.</p><p class="ar"><b>مشاريعنا: الوعد:</b> ننشر اللي نبنيه، ونكمل مع اللي يستخدمه الناس فعلًا.</p><p class="ar"><b>مشاريعنا: الزر:</b> شوف اللي نطلقه</p><p class="ar"><b>فكر: العنوان:</b> معرفة ومجتمع</p><p class="ar"><b>فكر: النص:</b> مقالات، ملاحظات ميدانية، ونشرة لناس تبني هنا.</p><p class="ar"><b>فكر: الوعد:</b> نفس التفكير اللي يدخل في الشغل، ننشره.</p><p class="ar"><b>فكر: الزر:</b> اقرأ الجديد</p></div></div>
 
-    <div class="subhead">1. Which case studies are real?</div>
-    <p>Three anonymized cards exist: core banking, underwriting, super-app redesign. They describe real engagements from the founding experience, anonymized by requirement. The team must confirm each card is a true account of shipped work before launch. A fabricated card would kill the direction's credibility.</p>
-
-    <div class="subhead">2. Live URLs for the ventures</div>
-    <p>The wall links to experiments.muse.sa and tenet.muse.sa. Those domains and products must be live (or staged with real content) before the site launches. A "View live" link that 404s is worse than no link.</p>
-
-    <div class="subhead">3. Arabic proof wall</div>
-    <p>The hero, doors, and closing are fully translated, but the proof wall cards fall back to English until the native Arabic writer reviews the summaries. Recommendation: ship English-first per the bilingual plan, translate in phase 2.</p>
-
-    <div class="subhead">4. Metrics that invite scrutiny</div>
-    <p>"200k daily transactions", "94% accuracy", "40% retention lift": each is a claim a buyer will test. The case study pages must carry the evidence for each number, or the number should be softened. Recommendation: keep the numbers, build the evidence pages.</p>
-
-    <div class="subhead">5. Proof wall placement</div>
-    <p>The wall sits immediately after the hero, before the doors. This is the direction's whole point: work first. If the team finds the wall too aggressive before the pitch, it can move below the doors without changing any copy.</p>
-
-    <div class="subhead">6. Field Notes as a proof card</div>
-    <p>The newsletter is content, not shipped work. It earns a place as the third category because it shows the work in progress, the same way Linear's changelog does. Recommendation: keep it, but make sure the newsletter actually ships weekly before launch.</p>
+    <div class="subhead">Why it sits here</div>
+    <p>After the Proof Wall establishes what Muse has actually built, the doors give a visitor three concrete ways to act on that proof, each consistent with the work just shown.</p>
+    <div class="callout"><span class="lbl">Source</span><p>No source in this direction's reference set (Reference Evidence 1 to 6) specifically informed the Doors. The shared card grammar, title, one-line body, rule-set promise, distinct verb CTA, is a pattern Muse reuses unchanged across all three homepage directions; the copy is Muse's own, not adapted from a Direction 3 evidence figure.</p></div>
+    <div class="note">The fixed header is hidden only for the instant of capture on every section after the Hero, then restored. This is presentation cleanup so the sticky pill does not paint over a heading in a screenshot; it is not a change to the section itself, and the Hero capture keeps the header visible because it documents the true first screen.</div>
   </div>
-  <div class="foot"><img src="assets/muse-08-maroon-crop.svg" alt=""><span class="pn">9 / 10</span></div>
+  <div class="foot"><img src="assets/muse-08-maroon-crop.svg" alt=""><span class="pn">13 / 40</span></div>
 </section>
-
-<!-- ============================ 09 ONE-LINE COMPARISON ============================ -->
-<section class="page">
-  <header class="band"><span class="num">09</span><h2>The three directions, side by side</h2></header>
+<section class="page visual-page section-manifesto locale-en">
+  <header class="band"><span class="num">14</span><h2>Manifesto · English</h2></header>
   <div class="wrap body">
-    <p class="lead">All three directions share the same visual design, the same doors, the same closing blocks, and the same honest-proof rule. They differ only in what the visitor meets first.</p>
+    <p class="lead">Section-exact capture including the embedded pressure statement and its CTA; ends before the Outcomes band.</p>
 
-    <table class="ctable">
-      <thead><tr><th style="width:30mm"></th><th style="width:44mm">Direction 1: The Studio</th><th style="width:44mm">Direction 2: The Thesis</th><th>Direction 3: The Proof</th></tr></thead>
-      <tbody>
-        <tr><td class="k">First move</td><td>The three doors</td><td>The argument</td><td>The work</td></tr>
-        <tr><td class="k">Hero</td><td>"We build our own software. And yours, properly."</td><td>"Shipping is easy now. Shipping well isn't."</td><td>"We don't pitch. We ship."</td></tr>
-        <tr><td class="k">New section</td><td>ThreeDoors first</td><td>TheProblem + TheStandard</td><td>ProofWall</td></tr>
-        <tr><td class="k">Who it suits</td><td>Buyers who know what they need</td><td>Buyers who need to be convinced</td><td>Buyers who want to verify</td></tr>
-        <tr><td class="k">Risk</td><td>Looks like every studio site</td><td>Tone may be too sharp</td><td>Requires the work to be real</td></tr>
-        <tr><td class="k">Best test</td><td>Fastest to a pitch</td><td>Strongest differentiation</td><td>Strongest proof for skeptics</td></tr>
-      </tbody>
-    </table>
-
-    <div class="subhead">What the team decides next</div>
-    <ul class="dash">
-      <li>Pick one direction, or a blend: doors from 1, problem from 2, proof from 3.</li>
-      <li>Confirm the three anonymized case studies are true accounts of shipped work.</li>
-      <li>Confirm the venture URLs are live before launch.</li>
-      <li>Run the Arabic phase 2 pass with the native writer, especially the proof wall.</li>
-      <li>Merge the chosen direction to staging, review, then promote to main via MR.</li>
-    </ul>
-
-    <p class="note">The full copy for every direction lives in the site's content files, so any blend can be assembled without rebuilding the site.</p>
+    <div class="plate"><div class="fig-primary"><div class="shot"><img src="assets/screens/en/home-04-manifesto-en-desktop.png" alt="manifesto en desktop"></div><p class="plate-cap"><b>Desktop.</b> The next decade of software gets decided in the next two years.</p></div><div class="fig-secondary"><div class="shot"><img src="assets/screens/en/home-04-manifesto-en-mobile.png" alt="manifesto en mobile"></div><p class="plate-cap"><b>Mobile.</b> The next decade of software gets decided in the next two years.</p></div></div>
   </div>
-  <div class="foot"><img src="assets/muse-08-maroon-crop.svg" alt=""><span class="pn">10 / 10</span></div>
+  <div class="foot"><img src="assets/muse-08-maroon-crop.svg" alt=""><span class="pn">14 / 40</span></div>
 </section>
+<section class="page visual-page section-manifesto locale-ar">
+  <header class="band"><span class="num">15</span><h2>Manifesto · العربية</h2></header>
+  <div class="wrap body">
+    <p class="lead ar">التقاط مضبوط على حدود القسم يشمل جملة الضغط المدمجة وزر الدعوة الخاص بها؛ ينتهي قبل شريط النتائج.</p>
 
+    <div class="plate"><div class="fig-primary"><div class="shot"><img src="assets/screens/ar/home-04-manifesto-ar-desktop.png" alt="manifesto ar desktop"></div><p class="plate-cap"><b>Desktop.</b> عصر المنتجات الرقمية يتحدّد خلال السنتين الجاية.</p></div><div class="fig-secondary"><div class="shot"><img src="assets/screens/ar/home-04-manifesto-ar-mobile.png" alt="manifesto ar mobile"></div><p class="plate-cap"><b>Mobile.</b> عصر المنتجات الرقمية يتحدّد خلال السنتين الجاية.</p></div></div>
+  </div>
+  <div class="foot"><img src="assets/muse-08-maroon-crop.svg" alt=""><span class="pn">15 / 40</span></div>
+</section>
+<section class="page content-page section-manifesto">
+  <header class="band"><span class="num">16</span><h2>Manifesto &middot; content and rationale</h2></header>
+  <div class="wrap body">
+    <p class="lead">Extends the proof into a why-now argument: the cost of building good software is falling, so the gap between companies that move and companies that plan is about to become permanent. Closes with the pressure statement and a second CTA.</p>
+    <div class="subhead">Content anatomy</div>
+    <ul class="dash"><li>Section heading: the two-year claim.</li><li>Three short paragraphs building the argument in sequence.</li><li>Pressure statement: two short lines, a plain claim then its consequence.</li><li>CTA, into the same contact flow as the Hero.</li></ul>
+    <div class="subhead">Verbatim copy</div>
+    <div class="cols2"><div><div class="subhead">English</div><p><b>Heading:</b> The next decade of software gets decided in the next two years.</p><p><b>Paragraph 1:</b> The cost of building good software is collapsing. That doesn't help you on its own. It means the gap between the companies that move and the ones that plan is about to get permanent.</p><p><b>Paragraph 2:</b> You could drive that from inside. Most won't, and not for lack of ambition. Day to day operations always win the calendar.</p><p><b>Paragraph 3:</b> We're not interested in your roadmap for this quarter. We're interested in the one that matters in five years.</p><p><b>Pressure, lead:</b> AI isn't optional.</p><p><b>Pressure, emphasis:</b> Waiting is the risk.</p><p><b>CTA:</b> Get started</p></div><div><div class="subhead">العربية</div><p class="ar"><b>العنوان:</b> عصر المنتجات الرقمية يتحدّد خلال السنتين الجاية.</p><p class="ar"><b>الفقرة الأولى:</b> تكلفة بناء المنتجات الجيدة جالسة تنهار. ووجودك في السوق ما عاد يكفي. والفجوة بين الشركات اللي تتحرك والشركات اللي تخطّط على وشك تصير دائمة.</p><p class="ar"><b>الفقرة الثانية:</b> تقدر تقود هالتحول من الداخل. أغلب الشركات ما راح تقوده، ومو لنقص في الطموح، بل لأن التشغيل اليومي يأخذ الوقت والأولوية دائمًا.</p><p class="ar"><b>الفقرة الثالثة:</b> ما تهمنا خطة هذا الربع. اللي يهمنا خطة الخمس سنين الجاية.</p><p class="ar"><b>جملة الضغط:</b> الذكاء الاصطناعي مو خيار.</p><p class="ar"><b>التأكيد:</b> والانتظار هو الخطر.</p><p class="ar"><b>الزر:</b> ابدأ الآن</p></div></div>
+
+    <div class="subhead">Why it sits here</div>
+    <p>After the doors, because a visitor who has already picked a door and seen the proof is ready for the argument about why the choice is urgent now, not before the evidence has been shown.</p>
+    <div class="callout"><span class="lbl">Source</span><p>No source in this direction's reference set (Reference Evidence 1 to 6) specifically informed the Manifesto; it is Muse's own argument, not adapted copy.</p></div>
+    <div class="note">The fixed header is hidden only for the instant of capture on every section after the Hero, then restored. This is presentation cleanup so the sticky pill does not paint over a heading in a screenshot; it is not a change to the section itself, and the Hero capture keeps the header visible because it documents the true first screen.</div>
+  </div>
+  <div class="foot"><img src="assets/muse-08-maroon-crop.svg" alt=""><span class="pn">16 / 40</span></div>
+</section>
+<section class="page visual-page section-outcomes locale-en">
+  <header class="band"><span class="num">17</span><h2>Outcomes band · English</h2></header>
+  <div class="wrap body">
+    <p class="lead">Short band, element capture. One centered sentence between the Manifesto and the Ticker.</p>
+
+    <div class="plate"><div class="fig-primary"><div class="shot"><img src="assets/screens/en/home-05-outcomes-en-desktop.png" alt="outcomes en desktop"></div><p class="plate-cap"><b>Desktop.</b> We deliver outcomes, not just tools.</p></div><div class="fig-secondary"><div class="shot"><img src="assets/screens/en/home-05-outcomes-en-mobile.png" alt="outcomes en mobile"></div><p class="plate-cap"><b>Mobile.</b> We deliver outcomes, not just tools.</p></div></div>
+  </div>
+  <div class="foot"><img src="assets/muse-08-maroon-crop.svg" alt=""><span class="pn">17 / 40</span></div>
+</section>
+<section class="page visual-page section-outcomes locale-ar">
+  <header class="band"><span class="num">18</span><h2>Outcomes band · العربية</h2></header>
+  <div class="wrap body">
+    <p class="lead ar">شريط قصير، التقاط للعنصر كاملًا. جملة واحدة في المنتصف بين البيان والشريط المتحرك.</p>
+
+    <div class="plate"><div class="fig-primary"><div class="shot"><img src="assets/screens/ar/home-05-outcomes-ar-desktop.png" alt="outcomes ar desktop"></div><p class="plate-cap"><b>Desktop.</b> نوصّل نتيجة فعلية، مو مجرد أدوات.</p></div><div class="fig-secondary"><div class="shot"><img src="assets/screens/ar/home-05-outcomes-ar-mobile.png" alt="outcomes ar mobile"></div><p class="plate-cap"><b>Mobile.</b> نوصّل نتيجة فعلية، مو مجرد أدوات.</p></div></div>
+  </div>
+  <div class="foot"><img src="assets/muse-08-maroon-crop.svg" alt=""><span class="pn">18 / 40</span></div>
+</section>
+<section class="page content-page section-outcomes">
+  <header class="band"><span class="num">19</span><h2>Outcomes band &middot; content and rationale</h2></header>
+  <div class="wrap body">
+    <p class="lead">One sentence, large type, restating the delivery standard: Muse ends engagements with outcomes, not just tools. A pause between the Manifesto's argument and the Ticker below, not a new argument.</p>
+    <div class="subhead">Content anatomy</div>
+    <ul class="dash"><li>Single centered paragraph, two clauses, the second one accented.</li></ul>
+    <div class="subhead">Verbatim copy</div>
+    <div class="cols2"><div><div class="subhead">English</div><p><b>Heading:</b> We deliver outcomes, not just tools.</p></div><div><div class="subhead">العربية</div><p class="ar"><b>العنوان:</b> نوصّل نتيجة فعلية، مو مجرد أدوات.</p></div></div>
+
+    <div class="subhead">Why it sits here</div>
+    <p>A short band kept deliberately short: it closes the Manifesto's argument with a standard, then hands off to the Ticker without asking the visitor to read anything else first.</p>
+    <div class="callout"><span class="lbl">Source</span><p>No external reference source; this is Muse's own delivery-standard line, carried unchanged from the current site copy.</p></div>
+    <div class="note">The fixed header is hidden only for the instant of capture on every section after the Hero, then restored. This is presentation cleanup so the sticky pill does not paint over a heading in a screenshot; it is not a change to the section itself, and the Hero capture keeps the header visible because it documents the true first screen.</div>
+  </div>
+  <div class="foot"><img src="assets/muse-08-maroon-crop.svg" alt=""><span class="pn">19 / 40</span></div>
+</section>
+<section class="page visual-page section-ticker locale-en">
+  <header class="band"><span class="num">20</span><h2>Ticker · English</h2></header>
+  <div class="wrap body">
+    <p class="lead">Bounded clip around the ticker wrapper, animation frozen at its initial frame for a deterministic, legible capture.</p>
+
+    <div class="plate"><div class="fig-primary"><div class="shot"><img src="assets/screens/en/home-06-ticker-en-desktop.png" alt="ticker en desktop"></div><p class="plate-cap"><b>Desktop.</b> Nothing ships that we wouldn't use ourselves</p></div><div class="fig-secondary"><div class="shot"><img src="assets/screens/en/home-06-ticker-en-mobile.png" alt="ticker en mobile"></div><p class="plate-cap"><b>Mobile.</b> Nothing ships that we wouldn't use ourselves</p></div></div>
+  </div>
+  <div class="foot"><img src="assets/muse-08-maroon-crop.svg" alt=""><span class="pn">20 / 40</span></div>
+</section>
+<section class="page visual-page section-ticker locale-ar">
+  <header class="band"><span class="num">21</span><h2>Ticker · العربية</h2></header>
+  <div class="wrap body">
+    <p class="lead ar">التقاط محدود حول إطار الشريط المتحرك، مع تجميد الحركة عند إطارها الأول لالتقاط ثابت وواضح.</p>
+
+    <div class="plate"><div class="fig-primary"><div class="shot"><img src="assets/screens/ar/home-06-ticker-ar-desktop.png" alt="ticker ar desktop"></div><p class="plate-cap"><b>Desktop.</b> لا نطلق ما لا نستخدمه نحن</p></div><div class="fig-secondary"><div class="shot"><img src="assets/screens/ar/home-06-ticker-ar-mobile.png" alt="ticker ar mobile"></div><p class="plate-cap"><b>Mobile.</b> لا نطلق ما لا نستخدمه نحن</p></div></div>
+  </div>
+  <div class="foot"><img src="assets/muse-08-maroon-crop.svg" alt=""><span class="pn">21 / 40</span></div>
+</section>
+<section class="page content-page section-ticker">
+  <header class="band"><span class="num">22</span><h2>Ticker &middot; content and rationale</h2></header>
+  <div class="wrap body">
+    <p class="lead">A single repeating marquee line restating Muse's own release rule: nothing ships that the studio would not use itself. Texture and a restated standard, not new information.</p>
+    <div class="subhead">Content anatomy</div>
+    <ul class="dash"><li>One repeated line in a scrolling band, tilted off the horizontal axis.</li></ul>
+    <div class="subhead">Verbatim copy</div>
+    <div class="cols2"><div><div class="subhead">English</div><p><b>Line:</b> Nothing ships that we wouldn't use ourselves</p></div><div><div class="subhead">العربية</div><p class="ar"><b>السطر:</b> لا نطلق ما لا نستخدمه نحن</p></div></div>
+
+    <div class="subhead">Why it sits here</div>
+    <p>Sits between the Outcomes band and FAQ as a visual and rhythmic break: the page has just made its central proof and argument, and the ticker is a breath before the objections section.</p>
+    <div class="callout"><span class="lbl">Source</span><p>No external reference source; this is Muse's own internal quality bar, stated as a marquee rather than adapted from another site's pattern.</p></div>
+    <div class="note">The fixed header is hidden only for the instant of capture on every section after the Hero, then restored. This is presentation cleanup so the sticky pill does not paint over a heading in a screenshot; it is not a change to the section itself, and the Hero capture keeps the header visible because it documents the true first screen.</div>
+  </div>
+  <div class="foot"><img src="assets/muse-08-maroon-crop.svg" alt=""><span class="pn">22 / 40</span></div>
+</section>
+<section class="page visual-page section-faq locale-en">
+  <header class="band"><span class="num">23</span><h2>FAQ · English</h2></header>
+  <div class="wrap body">
+    <p class="lead">Element capture, first accordion item open, the component's real default state (no state was forced for the shot).</p>
+
+    <div class="plate"><div class="fig-primary"><div class="shot"><img src="assets/screens/en/home-07-faq-en-desktop.png" alt="faq en desktop"></div><p class="plate-cap"><b>Desktop.</b> Questions? We have answers.</p></div><div class="fig-secondary"><div class="shot"><img src="assets/screens/en/home-07-faq-en-mobile.png" alt="faq en mobile"></div><p class="plate-cap"><b>Mobile.</b> Questions? We have answers.</p></div></div>
+  </div>
+  <div class="foot"><img src="assets/muse-08-maroon-crop.svg" alt=""><span class="pn">23 / 40</span></div>
+</section>
+<section class="page visual-page section-faq locale-ar">
+  <header class="band"><span class="num">24</span><h2>FAQ · العربية</h2></header>
+  <div class="wrap body">
+    <p class="lead ar">التقاط للعنصر كاملًا، مع بقاء أول سؤال مفتوحًا كما هي الحالة الافتراضية الحقيقية للمكوّن.</p>
+
+    <div class="plate"><div class="fig-primary"><div class="shot"><img src="assets/screens/ar/home-07-faq-ar-desktop.png" alt="faq ar desktop"></div><p class="plate-cap"><b>Desktop.</b> أكيد عندك أسئلة.</p></div><div class="fig-secondary"><div class="shot"><img src="assets/screens/ar/home-07-faq-ar-mobile.png" alt="faq ar mobile"></div><p class="plate-cap"><b>Mobile.</b> أكيد عندك أسئلة.</p></div></div>
+  </div>
+  <div class="foot"><img src="assets/muse-08-maroon-crop.svg" alt=""><span class="pn">24 / 40</span></div>
+</section>
+<section class="page content-page section-faq">
+  <header class="band"><span class="num">25</span><h2>FAQ &middot; content and rationale</h2></header>
+  <div class="wrap body">
+    <p class="lead">Answers five real objections a serious buyer raises before committing, in the buyer's own language, on the page, rather than making them ask.</p>
+    <div class="subhead">Content anatomy</div>
+    <ul class="dash"><li>Section heading.</li><li>Five accordion rows, first one open by default.</li><li>Each row: a question in the buyer's voice, a direct answer with no hedging.</li></ul>
+    <div class="subhead">Verbatim copy</div>
+    <div class="cols2"><div><div class="subhead">English</div><p><b>Heading:</b> Questions? We have answers.</p><p><b>How is Muse different from a typical dev shop?:</b> We're a small, senior team, not a rotating cast of contractors. No 100-slide strategy decks with nothing behind them. We scope fast, build with you, and measure ourselves on what actually shipped.</p><p><b>What does AI transformation actually mean?:</b> Finding where AI removes real friction in how your business runs, building the systems that do it reliably, and getting your team actually using them. Then repeating that cycle as the tools improve.</p><p><b>Who's on the team?:</b> A small senior team based in Riyadh. The people who scope your work are the people who build it, so you're talking to engineers in the first conversation rather than a sales layer. Names and backgrounds are on the about page.</p><p><b>How does pricing work?:</b> Every engagement is scoped and priced on its own, once we understand what you're actually trying to do. Tell us the problem and we'll come back with a number and exactly what sits inside it.</p><p><b>Who do you typically work with?:</b> Teams that want to move fast without dropping the quality bar. That runs from a founder shipping a first product to an enterprise team trying to get an AI initiative out of pilot purgatory.</p></div><div><div class="subhead">العربية</div><p class="ar"><b>العنوان:</b> أكيد عندك أسئلة.</p><p class="ar"><b>وش يفرقكم عن شركات التطوير الثانية؟:</b> احنا فريق صغير من أصحاب الخبرة، مو مجموعة متعاقدين جايين عن طريق وسيط. ما راح نسوي لك عرض استراتيجي من 100 شريحة ما أحد يفهمه. بنجلس معك، ونفهم منك، ثم نحدّد النطاق ونبني معك. هدفنا مو التسليم، هدفنا نبني منتجات نفخر فيها، جودتها عالية وتخدم احتياجك فعلًا.</p><p class="ar"><b>ما معنى التحوّل بالذكاء الاصطناعي عمليًا؟:</b> الهدف مو أن كل موظفينك يستخدمون الذكاء الاصطناعي. الهدف أننا نفهم وين المكان اللي نقدر نوظّفه فيه عشان يقدّم فائدة فعلية قابلة للقياس، تحدث أثرًا في طريقة عمل شركتك. وإن احتجنا، نبني الأنظمة اللي تمكّن فريقك فعليًا على أرض الواقع. ثم نقيس الأثر ونحسّن بناءً على الاستخدام الفعلي، مو على التخيلات.</p><p class="ar"><b>مين في الفريق؟:</b> فريق صغير من أصحاب الخبرة، مقرّه الرياض. واللي يجلس معك ويحدّد نطاق عملك ويجتمع معك بشكل دوري هو نفسه اللي قاعد يشتغل عليه، بدون فريق مبيعات أو وسطاء.</p><p class="ar"><b>كيف يعمل التسعير؟:</b> كل مشروع يُحدَّد نطاقه ويُسعَّر على حدة، بعد ما نفهم وش تحاول تسوي بالضبط. خبّرنا بالمشكلة، ونرجع لك برقم يوضح وش يشمل.</p><p class="ar"><b>مع من تعملون بالعادة؟:</b> فرق تريد التحرك بسرعة من غير ما تتنازل عن الجودة. من مؤسّس يطلق منتجه الأول إلى مؤسسات وشركات كبيرة تحاول إخراج مبادرات ذكاء اصطناعي ومنتجات من مراحل تجريبية ونماذج أوّلية مالها نهاية.</p></div></div>
+
+    <div class="subhead">Why it sits here</div>
+    <p>After the proof, the doors and the manifesto have all been shown, objection-handling belongs right before the final ask.</p>
+    <div class="callout"><span class="lbl">Source</span><p>No source in this direction's reference set (Reference Evidence 1 to 6) specifically informed the FAQ; the specific questions and answers are Muse's own.</p></div>
+    <div class="note">The fixed header is hidden only for the instant of capture on every section after the Hero, then restored. This is presentation cleanup so the sticky pill does not paint over a heading in a screenshot; it is not a change to the section itself, and the Hero capture keeps the header visible because it documents the true first screen.</div>
+  </div>
+  <div class="foot"><img src="assets/muse-08-maroon-crop.svg" alt=""><span class="pn">25 / 40</span></div>
+</section>
+<section class="page visual-page section-cta locale-en">
+  <header class="band"><span class="num">26</span><h2>Final CTA · English</h2></header>
+  <div class="wrap body">
+    <p class="lead">Element capture of the closing panel only; the footer never appears on this page.</p>
+
+    <div class="plate"><div class="fig-primary"><div class="shot"><img src="assets/screens/en/home-08-cta-en-desktop.png" alt="cta en desktop"></div><p class="plate-cap"><b>Desktop.</b> Tell us what you're trying to build.</p></div><div class="fig-secondary"><div class="shot"><img src="assets/screens/en/home-08-cta-en-mobile.png" alt="cta en mobile"></div><p class="plate-cap"><b>Mobile.</b> Tell us what you're trying to build.</p></div></div>
+  </div>
+  <div class="foot"><img src="assets/muse-08-maroon-crop.svg" alt=""><span class="pn">26 / 40</span></div>
+</section>
+<section class="page visual-page section-cta locale-ar">
+  <header class="band"><span class="num">27</span><h2>Final CTA · العربية</h2></header>
+  <div class="wrap body">
+    <p class="lead ar">التقاط للوحة الختامية فقط؛ لا يظهر التذييل في هذه الصفحة.</p>
+    <div class="callout"><span class="lbl">Arabic route, English copy</span><p>Arabic route and RTL composition. This section's copy is currently stored in English in the Arabic catalogue, pending native localization. This is not a translation.</p></div>
+    <div class="plate"><div class="fig-primary"><div class="shot"><img src="assets/screens/ar/home-08-cta-ar-desktop.png" alt="cta ar desktop"></div><p class="plate-cap"><b>Desktop.</b> Tell us what you're trying to build.</p></div><div class="fig-secondary"><div class="shot"><img src="assets/screens/ar/home-08-cta-ar-mobile.png" alt="cta ar mobile"></div><p class="plate-cap"><b>Mobile.</b> Tell us what you're trying to build.</p></div></div>
+  </div>
+  <div class="foot"><img src="assets/muse-08-maroon-crop.svg" alt=""><span class="pn">27 / 40</span></div>
+</section>
+<section class="page content-page section-cta">
+  <header class="band"><span class="num">28</span><h2>Final CTA &middot; content and rationale</h2></header>
+  <div class="wrap body">
+    <p class="lead">Closes the page with one direct ask, framed around the visitor's own project rather than around Muse, and a single button into the contact flow.</p>
+    <div class="subhead">Content anatomy</div>
+    <ul class="dash"><li>Heading: an instruction, not a question.</li><li>Subheading: who actually answers, framed against a sales layer.</li><li>One button.</li></ul>
+    <div class="subhead">Verbatim copy</div>
+    <div class="cols2"><div><div class="subhead">English</div><p><b>Heading:</b> Tell us what you're trying to build.</p><p><b>Subheading:</b> The first conversation is with the people who would build it, not a sales layer.</p><p><b>Button:</b> Get started</p></div><div><div class="subhead">العربية</div><p class="ar"><b>العنوان:</b> Tell us what you're trying to build.</p><p class="ar"><b>العنوان الفرعي:</b> The first conversation is with the people who would build it, not a sales layer.</p><p class="ar"><b>الزر:</b> Get started</p></div></div>
+    <div class="callout"><span class="lbl">Arabic route, English copy</span><p>The Arabic catalogue key for this section currently stores the same English strings shown on the English route. The layout and direction render correctly in RTL; the words themselves are English, not a runtime fallback. Native Arabic copy for this section is an open decision, not yet written (see Open Decisions, D3-AR).</p></div>
+    <div class="subhead">Why it sits here</div>
+    <p>Last section before the footer, by definition: the proof wall, the doors, the manifesto and the objections have all been shown by the time a visitor reaches this point, so the only thing left is to ask.</p>
+    <div class="callout"><span class="lbl">Source</span><p>No external reference source for the specific line; opening with the visitor's own project rather than the company is Muse's own positioning choice, consistent with the Hero's subtitle.</p></div>
+    <div class="note">The fixed header is hidden only for the instant of capture on every section after the Hero, then restored. This is presentation cleanup so the sticky pill does not paint over a heading in a screenshot; it is not a change to the section itself, and the Hero capture keeps the header visible because it documents the true first screen.</div>
+  </div>
+  <div class="foot"><img src="assets/muse-08-maroon-crop.svg" alt=""><span class="pn">28 / 40</span></div>
+</section>
+<section class="page visual-page section-footer locale-en">
+  <header class="band"><span class="num">29</span><h2>Footer · English</h2></header>
+  <div class="wrap body">
+    <p class="lead">Element capture of body &gt; footer, outside &lt;main&gt;; the only page in this walkthrough where the footer appears.</p>
+
+    <div class="plate"><div class="fig-primary"><div class="shot"><img src="assets/screens/en/home-09-footer-en-desktop.png" alt="footer en desktop"></div><p class="plate-cap"><b>Desktop.</b> Reach out to us</p></div><div class="fig-secondary"><div class="shot"><img src="assets/screens/en/home-09-footer-en-mobile.png" alt="footer en mobile"></div><p class="plate-cap"><b>Mobile.</b> Reach out to us</p></div></div>
+  </div>
+  <div class="foot"><img src="assets/muse-08-maroon-crop.svg" alt=""><span class="pn">29 / 40</span></div>
+</section>
+<section class="page visual-page section-footer locale-ar">
+  <header class="band"><span class="num">30</span><h2>Footer · العربية</h2></header>
+  <div class="wrap body">
+    <p class="lead ar">التقاط لعنصر body > footer، خارج main؛ الصفحة الوحيدة في هذا الدليل التي يظهر فيها التذييل.</p>
+    <div class="callout"><span class="lbl">Arabic route, English copy</span><p>Arabic route and RTL composition. This section's copy is currently stored in English in the Arabic catalogue, pending native localization. This is not a translation.</p></div>
+    <div class="plate"><div class="fig-primary"><div class="shot"><img src="assets/screens/ar/home-09-footer-ar-desktop.png" alt="footer ar desktop"></div><p class="plate-cap"><b>Desktop.</b> Reach out to us</p></div><div class="fig-secondary"><div class="shot"><img src="assets/screens/ar/home-09-footer-ar-mobile.png" alt="footer ar mobile"></div><p class="plate-cap"><b>Mobile.</b> Reach out to us</p></div></div>
+  </div>
+  <div class="foot"><img src="assets/muse-08-maroon-crop.svg" alt=""><span class="pn">30 / 40</span></div>
+</section>
+<section class="page content-page section-footer">
+  <header class="band"><span class="num">31</span><h2>Footer &middot; content and rationale</h2></header>
+  <div class="wrap body">
+    <p class="lead">Carries navigation, the direct contact channel, the company's one-line worldview restated, and the legal minimum: rights, privacy, terms.</p>
+    <div class="subhead">Content anatomy</div>
+    <ul class="dash"><li>Logo, blurb, a get-started button.</li><li>Two link columns: Company, Explore.</li><li>A rule, then an oversized reach-out line facing the contact block.</li><li>Location, email, social links, legal links and the rights line.</li></ul>
+    <div class="subhead">Verbatim copy</div>
+    <div class="cols2"><div><div class="subhead">English</div><p><b>Blurb:</b> Tell us what you're building. We'll tell you what it would take, and whether we're the right team for it.</p><p><b>CTA:</b> Get started</p><p><b>Company column:</b> About Us, Careers, Contact Us</p><p><b>Explore column:</b> Explore, Newsletter, Get Started</p><p><b>Reach out:</b> Reach out to us</p><p><b>Worldview:</b> We build the thing, not the deck about the thing.</p><p><b>Location:</b> Riyadh, Riyadh, Saudi Arabia</p><p><b>Rights:</b> 2026 Muse Studios. All rights reserved.</p><p><b>Legal:</b> Privacy Policy, Terms of Service</p></div><div><div class="subhead">العربية</div><p class="ar"><b>النص التعريفي:</b> Tell us what you're building. We'll tell you what it would take, and whether we're the right team for it.</p><p class="ar"><b>الزر:</b> Get started</p><p class="ar"><b>عمود الشركة:</b> About Us، Careers، Contact Us</p><p class="ar"><b>عمود استكشف:</b> Explore، Newsletter، Get Started</p><p class="ar"><b>تواصل معنا:</b> Reach out to us</p><p class="ar"><b>الرؤية:</b> We build the thing, not the deck about the thing.</p><p class="ar"><b>الموقع:</b> Riyadh، Riyadh, Saudi Arabia</p><p class="ar"><b>الحقوق:</b> 2026 Muse Studios. All rights reserved.</p><p class="ar"><b>قانوني:</b> Privacy Policy، Terms of Service</p></div></div>
+    <div class="callout"><span class="lbl">Arabic route, English copy</span><p>The Arabic catalogue key for this section currently stores the same English strings shown on the English route. The layout and direction render correctly in RTL; the words themselves are English, not a runtime fallback. Native Arabic copy for this section is an open decision, not yet written (see Open Decisions, D3-AR).</p></div>
+    <div class="subhead">Why it sits here</div>
+    <p>Terminal by definition: it is outside main, renders after every page's content, and is the one section that must never appear paired with any other section's screenshot.</p>
+    <div class="callout"><span class="lbl">Source</span><p>No external reference source; the footer is Muse's own contact and legal information, not adapted from another site.</p></div>
+    <div class="note">The fixed header is hidden only for the instant of capture on every section after the Hero, then restored. This is presentation cleanup so the sticky pill does not paint over a heading in a screenshot; it is not a change to the section itself, and the Hero capture keeps the header visible because it documents the true first screen.</div>
+  </div>
+  <div class="foot"><img src="assets/muse-08-maroon-crop.svg" alt=""><span class="pn">31 / 40</span></div>
+</section>
+<section class="page">
+  <header class="band"><span class="num">32</span><h2>Objections answered</h2></header>
+  <div class="wrap body">
+    <p class="lead">The FAQ answers five questions a serious buyer actually raises before committing. They are reproduced here with the same verbatim copy shown in the FAQ visual and content pages, so the appendix stands on its own without flipping back.</p>
+    <div class="cols2"><div><div class="subhead">English</div><p><b>How is Muse different from a typical dev shop?:</b> We're a small, senior team, not a rotating cast of contractors. No 100-slide strategy decks with nothing behind them. We scope fast, build with you, and measure ourselves on what actually shipped.</p><p><b>What does AI transformation actually mean?:</b> Finding where AI removes real friction in how your business runs, building the systems that do it reliably, and getting your team actually using them. Then repeating that cycle as the tools improve.</p><p><b>Who's on the team?:</b> A small senior team based in Riyadh. The people who scope your work are the people who build it, so you're talking to engineers in the first conversation rather than a sales layer. Names and backgrounds are on the about page.</p><p><b>How does pricing work?:</b> Every engagement is scoped and priced on its own, once we understand what you're actually trying to do. Tell us the problem and we'll come back with a number and exactly what sits inside it.</p><p><b>Who do you typically work with?:</b> Teams that want to move fast without dropping the quality bar. That runs from a founder shipping a first product to an enterprise team trying to get an AI initiative out of pilot purgatory.</p></div><div><div class="subhead">العربية</div><p class="ar"><b>وش يفرقكم عن شركات التطوير الثانية؟:</b> احنا فريق صغير من أصحاب الخبرة، مو مجموعة متعاقدين جايين عن طريق وسيط. ما راح نسوي لك عرض استراتيجي من 100 شريحة ما أحد يفهمه. بنجلس معك، ونفهم منك، ثم نحدّد النطاق ونبني معك. هدفنا مو التسليم، هدفنا نبني منتجات نفخر فيها، جودتها عالية وتخدم احتياجك فعلًا.</p><p class="ar"><b>ما معنى التحوّل بالذكاء الاصطناعي عمليًا؟:</b> الهدف مو أن كل موظفينك يستخدمون الذكاء الاصطناعي. الهدف أننا نفهم وين المكان اللي نقدر نوظّفه فيه عشان يقدّم فائدة فعلية قابلة للقياس، تحدث أثرًا في طريقة عمل شركتك. وإن احتجنا، نبني الأنظمة اللي تمكّن فريقك فعليًا على أرض الواقع. ثم نقيس الأثر ونحسّن بناءً على الاستخدام الفعلي، مو على التخيلات.</p><p class="ar"><b>مين في الفريق؟:</b> فريق صغير من أصحاب الخبرة، مقرّه الرياض. واللي يجلس معك ويحدّد نطاق عملك ويجتمع معك بشكل دوري هو نفسه اللي قاعد يشتغل عليه، بدون فريق مبيعات أو وسطاء.</p><p class="ar"><b>كيف يعمل التسعير؟:</b> كل مشروع يُحدَّد نطاقه ويُسعَّر على حدة، بعد ما نفهم وش تحاول تسوي بالضبط. خبّرنا بالمشكلة، ونرجع لك برقم يوضح وش يشمل.</p><p class="ar"><b>مع من تعملون بالعادة؟:</b> فرق تريد التحرك بسرعة من غير ما تتنازل عن الجودة. من مؤسّس يطلق منتجه الأول إلى مؤسسات وشركات كبيرة تحاول إخراج مبادرات ذكاء اصطناعي ومنتجات من مراحل تجريبية ونماذج أوّلية مالها نهاية.</p></div></div>
+  </div>
+  <div class="foot"><img src="assets/muse-08-maroon-crop.svg" alt=""><span class="pn">32 / 40</span></div>
+</section>
+<section class="page decisions-page decisions-page-1">
+  <header class="band"><span class="num">33</span><h2>Open decisions (1 of 2)</h2></header>
+  <div class="wrap body">
+    <p class="lead">Each decision below carries a recommendation. A different answer from the team changes the plan.</p>
+    <div class="subhead">1. D3-AR: the Arabic route currently renders English copy on four sections plus shared chrome</div><p>On this branch, messages/ar.json stores English strings for Home.hero, every Home.proofWall field and card, CTA, Footer and Nav, and i18n/request.ts performs no runtime fallback between locales. The Arabic route renders genuine RTL layout, but the words themselves are English in the Hero, the Proof Wall, the Final CTA, the Footer and the shared navigation chrome. Doors, Manifesto, Outcomes, Ticker and FAQ are genuinely Arabic.</p><p class="pull small">Localize Home.hero, Home.proofWall, CTA, Footer and Nav into native Arabic before this direction is circulated externally. Until then, ship the walkthrough with the honest RTL and English-catalogue label used throughout this document; do not fabricate Arabic to make a screenshot look complete.</p><div class="subhead">2. D3-PROOF: the Proof Wall's quantitative claims are not independently substantiated</div><p>The Proof Wall states 94 percent accuracy against a human baseline, a 40 percent retention lift, and a PIF-level financial institution client, none of which carry a supporting evidence page, source citation or client name in the current build.</p><p class="pull small">Add evidence pages that substantiate each figure, or soften or anonymize the claims further before external circulation. This walkthrough labels them as current website claims pending substantiation, not as verified results, and that label should carry over to any external-facing version of this direction.</p>
+  </div>
+  <div class="foot"><img src="assets/muse-08-maroon-crop.svg" alt=""><span class="pn">33 / 40</span></div>
+</section>
+<section class="page decisions-page decisions-page-2">
+  <header class="band"><span class="num">34</span><h2>Open decisions (2 of 2)</h2></header>
+  <div class="wrap body">
+
+    <div class="subhead">3. Planning note undercounts the shipped section set</div><p>The direction's planning note (docs/three-doors/direction-3-the-proof.md) describes a five-part homepage: Hero, Proof Wall, Three Doors, a condensed Standard Footer statement, and CTA. The current build runs Hero, Proof Wall, Three Doors, Manifesto, Outcomes Band, Ticker, FAQ and CTA before the global Footer, eight blocks plus the terminal Footer. There is no dedicated Standard Footer component, and Manifesto, Outcomes Band, Ticker and FAQ are not mentioned in the planning note at all.</p><p class="pull small">Update the planning note to match the shipped section order, or decide whether Manifesto, Outcomes Band, Ticker and FAQ belong on this homepage before external circulation.</p><div class="subhead">4. whoWeBuildFor content is written but unused</div><p>messages/en.json and messages/ar.json carry a full Home.whoWeBuildFor entry, a heading and a body naming founders and operators, and a matching WhoWeBuildFor.tsx component exists in the codebase, but HomeSections.tsx never renders it on this homepage.</p><p class="pull small">Either add the WhoWeBuildFor section back into the homepage, most naturally between Three Doors and Manifesto, or remove the unused catalogue entry and component so the content files match what the site actually shows.</p>
+  </div>
+  <div class="foot"><img src="assets/muse-08-maroon-crop.svg" alt=""><span class="pn">34 / 40</span></div>
+</section>
+<section class="page structure-page">
+  <header class="band"><span class="num">35</span><h2>Structure map</h2></header>
+  <div class="wrap body">
+    <p class="lead">The homepage in exact rendered order, top to bottom, as it appears in Muse's Direction 3: The Proof build.</p>
+    <table><thead><tr><th style="width:12mm">#</th><th style="width:38mm">Section</th><th>Job</th></tr></thead>
+    <tbody><tr><td class="k">1</td><td>Hero</td><td>Position statement and one CTA into the work</td></tr><tr><td class="k">2</td><td>Proof Wall</td><td>Six shipped-work cards, the direction's main evidence</td></tr><tr><td class="k">3</td><td>Three doors</td><td>Build / Ventures / Think, three ways to act on the proof</td></tr><tr><td class="k">4</td><td>Manifesto</td><td>Why-now argument, closed by the pressure statement</td></tr><tr><td class="k">5</td><td>Outcomes band</td><td>One-line delivery standard</td></tr><tr><td class="k">6</td><td>Ticker</td><td>Repeating release-rule marquee</td></tr><tr><td class="k">7</td><td>FAQ</td><td>Five objections, answered</td></tr><tr><td class="k">8</td><td>Final CTA</td><td>One direct ask</td></tr><tr><td class="k">9</td><td>Footer</td><td>Navigation, contact, legal</td></tr></tbody></table>
+  </div>
+  <div class="foot"><img src="assets/muse-08-maroon-crop.svg" alt=""><span class="pn">35 / 40</span></div>
+</section>
+<section class="page source-page">
+  <header class="band"><span class="num">36</span><h2>Source map (1 of 2)</h2></header>
+  <div class="wrap body">
+    <p class="lead">External influences are indexed below. Muse-owned lines are labeled as such on their content pages. The sources shown here are the same sources shown as live evidence next.</p>
+    <table class="ctable"><thead><tr><th style="width:52mm">Pattern</th><th style="width:34mm">Source</th><th>Adaptation</th></tr></thead>
+    <tbody><tr><td class="k">Four outcome-led benefit lanes followed by customer proof</td><td>Stripe (stripe.com/payments)</td><td>Applied to the Proof Wall hierarchy: outcome-led proof cards first, trust context second, rather than a generic feature list.</td></tr><tr><td class="k">Whole-card, eyebrow-free navigation across shipped-work lanes</td><td>Notion (notion.com)</td><td>Informs the Proof Wall card's whole-card link behavior and the Doors' eyebrow-free titles.</td></tr><tr><td class="k">A quantified proof statement shown after the site's opening claim</td><td>Salla (salla.com)</td><td>Informs presenting a settled metric as scale evidence instead of a client-logo wall; Muse's own case-study figures replace Salla's store count, and are labeled as current website claims, not verified results.</td></tr></tbody></table>
+
+  </div>
+  <div class="foot"><img src="assets/muse-08-maroon-crop.svg" alt=""><span class="pn">36 / 40</span></div>
+</section>
+<section class="page source-page">
+  <header class="band"><span class="num">37</span><h2>Source map (2 of 2)</h2></header>
+  <div class="wrap body">
+
+    <table class="ctable"><thead><tr><th style="width:52mm">Pattern</th><th style="width:34mm">Source</th><th>Adaptation</th></tr></thead>
+    <tbody><tr><td class="k">Shipped work as the content surface itself, not decoration around a claim</td><td>Framer (framer.com)</td><td>Informs the Proof Wall's use of real case studies and live products as the primary visual, not supporting decoration.</td></tr><tr><td class="k">A proof grid tied explicitly to a stated standard</td><td>Mercury (mercury.com)</td><td>Informs grouping the six Proof Wall cards as one designed system rather than a loose list; the specific claims inside them are Muse's own.</td></tr><tr><td class="k">A dedicated, native RTL proof chapter with a full metrics row</td><td>Al Rajhi Bank (alrajhibank.com.sa)</td><td>Direct input for the idea of a dedicated Arabic proof chapter. Direction 3's Arabic Proof Wall currently stores English copy instead of native Arabic (see Open Decisions, D3-AR).</td></tr></tbody></table>
+    <div class="callout"><span class="lbl">No fabricated proof</span><p>Every figure and metric on this homepage is a current, quoted website claim. None is independently verified by this walkthrough; see Open Decisions, D3-PROOF.</p></div>
+  </div>
+  <div class="foot"><img src="assets/muse-08-maroon-crop.svg" alt=""><span class="pn">37 / 40</span></div>
+</section>
+<section class="page reference-page reference-page-1">
+  <header class="band"><span class="num">38</span><h2>Reference evidence (1 of 3)</h2></header>
+  <div class="wrap body">
+    <p class="lead">6 live figures captured today: 6 direct input figures and 0 independent validation figures. Outcome or scale numbers shown on a source's own page are that company's marketing claim, not independently verified by Muse.</p>
+
+        <div class="ref-plate">
+          <div class="shot"><img src="assets/refs/stripe.png" alt="Stripe"></div>
+          <div class="meta">
+            <span class="badge">Direct input</span>
+            <p class="co">Stripe</p>
+            <p class="row"><a href="https://stripe.com/payments">https://stripe.com/payments</a></p>
+            <p class="row"><b>Captured</b> 2026-08-05</p>
+            <p class="row"><b>Pattern</b> Four equal benefit lanes translate conversion, global reach, fraud control and delivery speed into outcome-led proof, followed by a recognizable customer-logo band.</p>
+            <p class="row"><b>Informs</b> Proof Wall: structure + proof hierarchy</p>
+          </div>
+        </div>
+        <div class="ref-plate">
+          <div class="shot"><img src="assets/refs/notion.png" alt="Notion"></div>
+          <div class="meta">
+            <span class="badge">Direct input</span>
+            <p class="co">Notion</p>
+            <p class="row"><a href="https://www.notion.com">https://www.notion.com</a></p>
+            <p class="row"><b>Captured</b> 2026-08-05</p>
+            <p class="row"><b>Pattern</b> Whole-card navigation across shipped-work lanes, each card leading with a one-word or short title and a two-to-five word one-liner, no eyebrow, no separate button.</p>
+            <p class="row"><b>Informs</b> Proof Wall / Doors card behavior: interaction + structure</p>
+          </div>
+        </div>
+  </div>
+  <div class="foot"><img src="assets/muse-08-maroon-crop.svg" alt=""><span class="pn">38 / 40</span></div>
+</section>
+<section class="page reference-page reference-page-2">
+  <header class="band"><span class="num">39</span><h2>Reference evidence (2 of 3)</h2></header>
+  <div class="wrap body">
+
+
+        <div class="ref-plate">
+          <div class="shot"><img src="assets/refs/salla.png" alt="Salla"></div>
+          <div class="meta">
+            <span class="badge">Direct input</span>
+            <p class="co">Salla</p>
+            <p class="row"><a href="https://salla.com">https://salla.com</a></p>
+            <p class="row"><b>Captured</b> 2026-08-05</p>
+            <p class="row"><b>Pattern</b> A quantified proof statement shown after the site's opening thesis: a settled metric stands in for a client-logo wall.</p>
+            <p class="row"><b>Informs</b> Proof / metrics band: structure + bilingual</p>
+          </div>
+        </div>
+        <div class="ref-plate">
+          <div class="shot"><img src="assets/refs/framer.png" alt="Framer"></div>
+          <div class="meta">
+            <span class="badge">Direct input</span>
+            <p class="co">Framer</p>
+            <p class="row"><a href="https://www.framer.com">https://www.framer.com</a></p>
+            <p class="row"><b>Captured</b> 2026-08-05</p>
+            <p class="row"><b>Pattern</b> Live, shipped product previews presented as the content surface itself, not decoration wrapped around a marketing claim.</p>
+            <p class="row"><b>Informs</b> Proof Wall visual proof: interaction</p>
+          </div>
+        </div>
+  </div>
+  <div class="foot"><img src="assets/muse-08-maroon-crop.svg" alt=""><span class="pn">39 / 40</span></div>
+</section>
+<section class="page reference-page reference-page-3">
+  <header class="band"><span class="num">40</span><h2>Reference evidence (3 of 3)</h2></header>
+  <div class="wrap body">
+
+
+        <div class="ref-plate">
+          <div class="shot"><img src="assets/refs/mercury.png" alt="Mercury"></div>
+          <div class="meta">
+            <span class="badge">Direct input</span>
+            <p class="co">Mercury</p>
+            <p class="row"><a href="https://mercury.com">https://mercury.com</a></p>
+            <p class="row"><b>Captured</b> 2026-08-05</p>
+            <p class="row"><b>Pattern</b> A proof grid of four metric cells tied explicitly to a stated standard, covering adoption, scale, durability and product experience as one designed system.</p>
+            <p class="row"><b>Informs</b> Proof metrics band: structure</p>
+          </div>
+        </div>
+        <div class="ref-plate">
+          <div class="shot"><img src="assets/refs/al-rajhi.png" alt="Al Rajhi Bank"></div>
+          <div class="meta">
+            <span class="badge">Direct input</span>
+            <p class="co">Al Rajhi Bank</p>
+            <p class="row"><a href="https://www.alrajhibank.com.sa/ar">https://www.alrajhibank.com.sa/ar</a></p>
+            <p class="row"><b>Captured</b> 2026-08-05</p>
+            <p class="row"><b>Pattern</b> A native RTL proof chapter: heading, one line of context, then a full five-cell metrics row captured after its reveal animation settles.</p>
+            <p class="row"><b>Informs</b> Arabic proof hierarchy: structure + bilingual</p>
+          </div>
+        </div>
+  </div>
+  <div class="foot"><img src="assets/muse-08-maroon-crop.svg" alt=""><span class="pn">40 / 40</span></div>
+</section>
 </body>
 </html>

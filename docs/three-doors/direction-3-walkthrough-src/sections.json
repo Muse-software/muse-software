@@ -1,0 +1,158 @@
+{
+  "branch": "direction/3-the-proof",
+  "base_url": "http://localhost:3100",
+  "hero_assert_en": "We don't pitch.",
+  "hero_assert_ar": "We don't pitch.",
+  "viewports": {
+    "desktop": {
+      "width": 1440,
+      "height": 900,
+      "device_scale_factor": 2
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "device_scale_factor": 2
+    }
+  },
+  "budgets": {
+    "desktop": 1400,
+    "mobile": 1500
+  },
+  "settle_ms": 1800,
+  "sections": [
+    {
+      "order": 1,
+      "slug": "hero",
+      "root": {
+        "type": "css",
+        "selector": "main#main-content section:nth-of-type(1)"
+      },
+      "anchor_tag": "h1",
+      "anchor_en": "We don't pitch.",
+      "anchor_ar": "We don't pitch.",
+      "nav_hidden": false,
+      "capture_mode_hint": "element",
+      "ar_copy_is_english": true
+    },
+    {
+      "order": 2,
+      "slug": "proof",
+      "root": {
+        "type": "heading-ancestor",
+        "tag": "h2"
+      },
+      "anchor_tag": "h2",
+      "anchor_en": "What we've shipped. What we're building.",
+      "anchor_ar": "What we've shipped. What we're building.",
+      "nav_hidden": true,
+      "capture_mode_hint": "semantic-cards",
+      "ar_copy_is_english": true,
+      "split_card_selector": ":scope > div > div:nth-child(2) > div",
+      "split_card_count": 6,
+      "split_after_card": 3
+    },
+    {
+      "order": 3,
+      "slug": "doors",
+      "root": {
+        "type": "heading-ancestor",
+        "tag": "h2"
+      },
+      "anchor_tag": "h2",
+      "anchor_en": "Pick the door that matches you",
+      "anchor_ar": "اختر الباب اللي يناسبك",
+      "nav_hidden": true,
+      "capture_mode_hint": "element",
+      "ar_copy_is_english": false
+    },
+    {
+      "order": 4,
+      "slug": "manifesto",
+      "root": {
+        "type": "heading-ancestor",
+        "tag": "h2"
+      },
+      "anchor_tag": "h2",
+      "anchor_en": "The next decade of software gets decided in the next two years.",
+      "anchor_ar": "عصر المنتجات الرقمية يتحدّد خلال السنتين الجاية.",
+      "nav_hidden": true,
+      "capture_mode_hint": "element",
+      "ar_copy_is_english": false
+    },
+    {
+      "order": 5,
+      "slug": "outcomes",
+      "root": {
+        "type": "text-ancestor",
+        "tag": "p"
+      },
+      "anchor_tag": "p",
+      "anchor_en": "We deliver outcomes, not just tools.",
+      "anchor_ar": "نوصّل نتيجة فعلية، مو مجرد أدوات.",
+      "nav_hidden": true,
+      "capture_mode_hint": "element",
+      "hide_overlapping_next": true,
+      "ar_copy_is_english": false
+    },
+    {
+      "order": 6,
+      "slug": "ticker",
+      "root": {
+        "type": "css",
+        "selector": ".ticker-wrapper"
+      },
+      "anchor_tag": "item",
+      "anchor_en": "Nothing ships that we wouldn't use ourselves",
+      "anchor_ar": "لا نطلق ما لا نستخدمه نحن",
+      "nav_hidden": true,
+      "capture_mode_hint": "bounded",
+      "freeze_animation": true,
+      "hide_overlapping_next": true,
+      "ar_copy_is_english": false
+    },
+    {
+      "order": 7,
+      "slug": "faq",
+      "root": {
+        "type": "heading-ancestor",
+        "tag": "h2"
+      },
+      "anchor_tag": "h2",
+      "anchor_en": "Questions? We have answers.",
+      "anchor_ar": "أكيد عندك أسئلة.",
+      "nav_hidden": true,
+      "capture_mode_hint": "element",
+      "normalize_faq": true,
+      "ar_copy_is_english": false
+    },
+    {
+      "order": 8,
+      "slug": "cta",
+      "root": {
+        "type": "heading-ancestor",
+        "tag": "h2"
+      },
+      "anchor_tag": "h2",
+      "anchor_en": "Tell us what you're trying to build.",
+      "anchor_ar": "Tell us what you're trying to build.",
+      "nav_hidden": true,
+      "capture_mode_hint": "element",
+      "ar_copy_is_english": true
+    },
+    {
+      "order": 9,
+      "slug": "footer",
+      "root": {
+        "type": "css",
+        "selector": "body > footer"
+      },
+      "anchor_tag": "text",
+      "anchor_en": "Reach out to us",
+      "anchor_ar": "Reach out to us",
+      "nav_hidden": true,
+      "capture_mode_hint": "element",
+      "ar_copy_is_english": true
+    }
+  ]
+}

@@ -262,3 +262,105 @@ a { color: var(--maroon); text-decoration: underline; text-underline-offset: 1.6
 .shot.top { width: 150mm; }
 .ctable td { font-size: 7.9pt; }
 .ctable td.ar { text-align: right; }
+
+/* ---- shared figure blocks: visual pages + reference plates ------------ */
+/* .plate: one visual page, desktop as the large primary figure, mobile as
+   the smaller secondary figure beside it. .plate-split: stacked A/B phone
+   parts when a section needed a continuation page. .ref-plate: one live
+   reference-evidence figure with its full metadata block. Verbatim across
+   every direction's src folder; do not fork per branch. */
+
+.plate { display: flex; gap: 6mm; align-items: flex-start; margin-bottom: 4.5mm; }
+.visual-page .plate {
+  min-height: 145mm;
+  align-items: center;
+  padding: 6mm 0;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+.plate .fig-primary { flex: 1 1 auto; min-width: 0; }
+.plate .fig-secondary { flex: 0 0 46mm; width: 46mm; }
+.plate-cap { font-size: 7.4pt; color: var(--muted); margin: 1.3mm 0 0; line-height: 1.45; }
+.plate-cap b { color: var(--maroon); font-weight: 600; }
+
+.plate-split { display: flex; flex-direction: column; gap: 3mm; }
+.plate-split .part { border: 1px solid var(--rule); background: #0b0b0c; line-height: 0; break-inside: avoid; }
+.plate-split .part img { width: 100%; height: auto; display: block; }
+.plate-split .partlbl { font-size: 6.8pt; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--orange); margin: 0 0 1mm; }
+
+.ref-plate { display: flex; gap: 6mm; margin-bottom: 6mm; break-inside: avoid; }
+.ref-plate .shot { flex: 0 0 92mm; width: 92mm; }
+.ref-plate .meta { flex: 1 1 auto; min-width: 0; }
+.ref-plate .meta .co { font-size: 11pt; font-weight: 600; margin: 0 0 1.6mm; }
+.ref-plate .meta .row { font-size: 8pt; margin-bottom: 1.5mm; line-height: 1.5; }
+.ref-plate .meta .row b { font-weight: 600; }
+.ref-plate .badge {
+  display: inline-block; font-size: 6.6pt; font-weight: 700; letter-spacing: .1em;
+  text-transform: uppercase; padding: 1mm 2.4mm; border: 1px solid var(--orange); color: var(--orange);
+  margin-bottom: 1.8mm;
+}
+
+.content-page.section-doors .cols2 p {
+  font-size: 7.8pt;
+  line-height: 1.4;
+  margin-bottom: 2.1mm;
+}
+.structure-page td {
+  font-size: 9pt;
+  padding-top: 3.8mm;
+  padding-bottom: 3.8mm;
+}
+.content-page.section-faq .cols2 p {
+  font-size: 7.9pt;
+  line-height: 1.45;
+  margin-bottom: 2.1mm;
+}
+.decisions-page-2 .body,
+.source-page .body {
+  min-height: 158mm;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.section-proof .plate .fig-secondary { flex-basis: 42mm; width: 42mm; }
+.proof-continuation-stage {
+  min-height: 158mm;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5mm 0;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+.proof-mobile-cont { width: 60mm; }
+.proof-mobile-cont .shot { width: 60mm; }
+.proof-copy-card {
+  padding: 2.2mm 3mm;
+  margin: 0 0 2mm;
+  border: 1px solid var(--rule);
+  break-inside: avoid;
+}
+.proof-copy-card .subhead { margin-top: 0; }
+.proof-copy-card p { font-size: 7.7pt; line-height: 1.4; margin-bottom: 1.2mm; }
+.proof-content-page .callout p { font-size: 7.8pt; line-height: 1.42; }
+.reference-page-3 .body {
+  min-height: 150mm;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.proof-content-page .callout.warn { border-color: var(--orange); background: #fff8f3; }
+.proof-content-page .callout.warn .lbl { color: var(--orange); }
+.source-page .ctable { width: 100%; table-layout: fixed; }
+.source-page .ctable th:nth-child(1),
+.source-page .ctable td:nth-child(1) { width: 44% !important; }
+.source-page .ctable th:nth-child(2),
+.source-page .ctable td:nth-child(2) { width: 24% !important; }
+.source-page .ctable th:nth-child(3),
+.source-page .ctable td:nth-child(3) { width: 32% !important; }
+.source-page .ctable th,
+.source-page .ctable td {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  white-space: normal !important;
+}

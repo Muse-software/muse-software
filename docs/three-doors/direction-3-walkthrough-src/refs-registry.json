@@ -1,0 +1,66 @@
+{
+  "refs": [
+    {
+      "slug": "stripe",
+      "company": "Stripe",
+      "url": "https://stripe.com/payments",
+      "anchor": "Convert more customers",
+      "pattern": "Four equal benefit lanes translate conversion, global reach, fraud control and delivery speed into outcome-led proof, followed by a recognizable customer-logo band.",
+      "muse_section": "Proof Wall",
+      "influence_type": "structure + proof hierarchy",
+      "class": "Direct input"
+    },
+    {
+      "slug": "notion",
+      "company": "Notion",
+      "url": "https://www.notion.com",
+      "anchor": "Bring all your work together.",
+      "pattern": "Whole-card navigation across shipped-work lanes, each card leading with a one-word or short title and a two-to-five word one-liner, no eyebrow, no separate button.",
+      "muse_section": "Proof Wall / Doors card behavior",
+      "influence_type": "interaction + structure",
+      "class": "Direct input"
+    },
+    {
+      "slug": "salla",
+      "company": "Salla",
+      "url": "https://salla.com",
+      "anchor": "أكثر من 68 ألف متجر نشط",
+      "pattern": "A quantified proof statement shown after the site's opening thesis: a settled metric stands in for a client-logo wall.",
+      "muse_section": "Proof / metrics band",
+      "influence_type": "structure + bilingual",
+      "class": "Direct input"
+    },
+    {
+      "slug": "framer",
+      "company": "Framer",
+      "url": "https://www.framer.com",
+      "anchor": "Shipped with Framer",
+      "pattern": "Live, shipped product previews presented as the content surface itself, not decoration wrapped around a marketing claim.",
+      "muse_section": "Proof Wall visual proof",
+      "influence_type": "interaction",
+      "class": "Direct input"
+    },
+    {
+      "slug": "mercury",
+      "company": "Mercury",
+      "url": "https://mercury.com",
+      "anchor": "You’re creating something to stand the test of time. So are we.",
+      "pattern": "A proof grid of four metric cells tied explicitly to a stated standard, covering adoption, scale, durability and product experience as one designed system.",
+      "muse_section": "Proof metrics band",
+      "influence_type": "structure",
+      "class": "Direct input",
+      "capture_mode": "ancestor-element",
+      "ancestor_levels": 5
+    },
+    {
+      "slug": "al-rajhi",
+      "company": "Al Rajhi Bank",
+      "url": "https://www.alrajhibank.com.sa/ar",
+      "anchor": "لأرقامنا بصمة",
+      "pattern": "A native RTL proof chapter: heading, one line of context, then a full five-cell metrics row captured after its reveal animation settles.",
+      "muse_section": "Arabic proof hierarchy",
+      "influence_type": "structure + bilingual",
+      "class": "Direct input"
+    }
+  ]
+}
