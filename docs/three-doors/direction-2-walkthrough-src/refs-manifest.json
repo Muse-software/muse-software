@@ -1,0 +1,100 @@
+{
+  "refs": [
+    {
+      "slug": "basecamp",
+      "file": "basecamp.png",
+      "company": "Basecamp",
+      "url": "https://basecamp.com",
+      "anchor": "Tell me if this sounds about right.",
+      "pattern": "A sentence-led problem argument that reads as a specific editorial claim, not a generic pain-point grid.",
+      "muse_section": "The Problem",
+      "influence_type": "copy rhythm + structure",
+      "class": "Direct input",
+      "captured_at": "2026-08-05T10:30:31Z",
+      "out_px": {
+        "width": 2880,
+        "height": 1800
+      }
+    },
+    {
+      "slug": "retool",
+      "file": "retool.png",
+      "company": "Retool",
+      "url": "https://retool.com",
+      "anchor": "Why enterprises choose Retool",
+      "pattern": "A named-standard section built from concrete, named contrasts, each card rejecting a specific tradeoff.",
+      "muse_section": "The Standard",
+      "influence_type": "structure",
+      "class": "Direct input",
+      "captured_at": "2026-08-05T10:30:37Z",
+      "out_px": {
+        "width": 2880,
+        "height": 1800
+      }
+    },
+    {
+      "slug": "mozn",
+      "file": "mozn.png",
+      "company": "MOZN",
+      "url": "https://www.mozn.ai",
+      "anchor": "Frequently asked questions",
+      "pattern": "Objection handling presented as a designed trust section rather than a support afterthought. Captured from the current live English FAQ only; MOZN's Arabic FAQ is currently empty and its 'Globally Recognized Technologies' section is hidden, so neither is usable evidence.",
+      "muse_section": "FAQ",
+      "influence_type": "structure",
+      "class": "Direct input",
+      "captured_at": "2026-08-05T10:30:42Z",
+      "out_px": {
+        "width": 2880,
+        "height": 1800
+      }
+    },
+    {
+      "slug": "salla",
+      "file": "salla.png",
+      "company": "Salla",
+      "url": "https://salla.com/",
+      "anchor": "حلول سلة تدعمك بكل خطوة من مشوارك التجاري",
+      "pattern": "Balanced capability lanes under one shared heading, each with its own subheading, short body and CTA, set natively in Arabic RTL.",
+      "muse_section": "Three Doors",
+      "influence_type": "structure + bilingual",
+      "class": "Direct input",
+      "captured_at": "2026-08-05T10:30:50Z",
+      "out_px": {
+        "width": 2880,
+        "height": 1800
+      }
+    },
+    {
+      "slug": "netlify",
+      "file": "netlify.png",
+      "company": "Netlify",
+      "url": "https://www.netlify.com/",
+      "anchor": "Build your way. Ship on one platform.",
+      "pattern": "Three sequential actions presented as a logical path, each with a distinct verb CTA. Captured after normal cookie/banner dismissal.",
+      "muse_section": "Three Doors (path sequencing)",
+      "influence_type": "interaction",
+      "class": "Direct input",
+      "captured_at": "2026-08-05T10:30:58Z",
+      "out_px": {
+        "width": 2880,
+        "height": 1800
+      }
+    },
+    {
+      "slug": "intercom",
+      "file": "intercom.png",
+      "company": "Intercom",
+      "url": "https://www.intercom.com",
+      "anchor": "A true partner with deep domain expertise",
+      "pattern": "Operational trust architecture: a named partner claim backed by concrete domain specifics, positioned ahead of a close.",
+      "muse_section": "FAQ / trust close",
+      "influence_type": "structure",
+      "class": "Independent validation",
+      "captured_at": "2026-08-05T10:31:44Z",
+      "out_px": {
+        "width": 2880,
+        "height": 1800
+      }
+    }
+  ]
+}

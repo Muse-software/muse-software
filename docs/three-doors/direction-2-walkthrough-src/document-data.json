@@ -1,0 +1,255 @@
+{
+  "direction_name": "Direction 2: The Thesis",
+  "reference_code": "MUSE-DIR-02",
+  "revision": "Revision 3",
+  "status": "Review",
+  "prepared_by": "Abdullah Alsubaie",
+  "one_liner": "The Thesis is an argument-led homepage: it names the market problem, states the quality bar Muse holds against it, then opens the three doors as consequences of that standard, not as a service menu.",
+  "cover_body": "An argument-first homepage direction for muse.sa. The site states its founding claim in the hero, names the problem it is arguing against, states the standard it holds itself to, then opens Build, Ventures and Think as three ways to act on that standard. Screenshots in this walkthrough are section-exact captures from the direction build, taken at 1440x900 desktop and 390x844 mobile, both at a 2x device scale. Copy is quoted verbatim from the site's own content files.",
+  "cover_handback": "One of three homepage directions, each built and deployed separately. This walkthrough documents the Thesis direction section by section, in the exact order it renders on the page, in both languages, and ends with the decisions the team needs to make before this direction ships.",
+  "nav_method_note": "The fixed header is hidden only for the instant of capture on every section after the Hero, then restored. This is presentation cleanup so the sticky pill does not paint over a heading in a screenshot; it is not a change to the section itself, and the Hero capture keeps the header visible because it documents the true first screen.",
+  "sections": {
+    "hero": {
+      "order": 1,
+      "name_en": "Hero",
+      "name_ar": "المقدمة",
+      "job": "States the founding thesis in two lines: shipping is easy now, shipping well is not. Backs it with a one-line proof of what Muse actually is, and opens a single path forward. Everything below the fold argues for this claim; nothing repeats it.",
+      "anatomy": [
+        "Headline, two lines: a plain claim, then its turn.",
+        "Tagline: where the company is based and what kind of company it is.",
+        "Subtitle: a one-line claim about actually building versus presenting.",
+        "One CTA, into the contact flow."
+      ],
+      "position_rationale": "First screen, full viewport. A visitor who never scrolls should still leave with the correct idea: this is a company arguing a specific position on quality, not a generic AI-transformation pitch.",
+      "source_attribution": "The two-line thesis structure carries Muse's own positioning claim. No source in this direction's reference set (Reference Evidence 1 to 6) specifically informed the Hero; it is not adapted copy."
+    },
+    "problem": {
+      "order": 2,
+      "name_en": "The Problem",
+      "name_ar": "المشكلة",
+      "job": "States the market problem the thesis argues against: strategy decks with nothing shipped, AI content noise, and fabricated case studies. Sets up why a named standard is needed at all.",
+      "anatomy": [
+        "Eyebrow: names this as the problem Muse sees.",
+        "Heading: the strategy-versus-shipping gap.",
+        "Three cards, each naming one concrete failure mode: unshipped AI strategies, content-farm noise, fabricated case studies."
+      ],
+      "position_rationale": "Directly after the Hero states the thesis, because the claim that shipping well is hard needs the concrete problem stated before the Standard that answers it can land.",
+      "source_attribution": "The sentence-led problem argument, naming a specific failure mode rather than a generic pain-point grid, is Direct input from Basecamp's problem argument (Reference Evidence 1). The three failure modes described are Muse's own observations of the Saudi market, not adapted copy."
+    },
+    "standard": {
+      "order": 3,
+      "name_en": "The Standard",
+      "name_ar": "المعيار",
+      "job": "Names the quality bar the thesis holds itself to: real data in every state, nothing shipped the team wouldn't use itself, and the founder's enterprise-delivery background as the reason the standard exists, not the story.",
+      "anatomy": [
+        "Eyebrow: names this as the standard Muse holds.",
+        "Heading: Muse as the quality bar, the other choice.",
+        "Three paragraphs building the standard's argument in sequence.",
+        "Three pillars: real data every state, stakeholder-friendly by default, shipped beats planned."
+      ],
+      "position_rationale": "Directly after the Problem names the failure mode, the Standard names the specific bar Muse holds instead, on its own maroon band so it reads as a distinct claim before the Doors show it applied.",
+      "source_attribution": "The new-standard-through-concrete-contrast structure is Direct input from Retool's 'Why enterprises choose Retool' section (Reference Evidence 2): each pillar names and rejects a specific tradeoff. The specific paragraphs and pillars are Muse's own, not adapted copy."
+    },
+    "doors": {
+      "order": 4,
+      "name_en": "Three doors",
+      "name_ar": "الأبواب الثلاثة",
+      "job": "Routes three kinds of visitor to the part of the business that matches them, framed as what holding the standard just described actually looks like in practice, not as a general service menu.",
+      "anatomy": [
+        "Section heading, no eyebrow above it.",
+        "Three equal-weight cards: Build, Ventures, Think.",
+        "Per card: title, one-line body, a promise set off with a rule, a distinct verb CTA."
+      ],
+      "position_rationale": "After the thesis, the problem and the standard are all stated, the doors are the standard applied: three concrete paths a visitor can take, each consistent with the bar just described.",
+      "source_attribution": "The shared-card grammar and bilingual density are Direct input from Salla's solutions section (Reference Evidence 4): balanced capability lanes under one heading. The sequential, distinct-verb path structure is Direct input from Netlify's three-action flow (Reference Evidence 5), applied here to Build, Ventures and Think in order. The specific door copy is Muse's own."
+    },
+    "manifesto": {
+      "order": 5,
+      "name_en": "Manifesto",
+      "name_ar": "البيان",
+      "job": "Extends the thesis into a why-now argument: the cost of building good software is falling, so the gap between companies that move and companies that plan is about to become permanent. Closes with the sharpest form of that tension and a second CTA.",
+      "anatomy": [
+        "Section heading: the two-year claim.",
+        "Three short paragraphs building the argument in sequence.",
+        "Pressure statement: two short lines, plain claim then its consequence.",
+        "CTA, into the same contact flow as the Hero."
+      ],
+      "position_rationale": "After the doors, because a visitor who has already picked a door is ready for the argument about why the choice is urgent now, continuing the same thesis rather than opening a new one.",
+      "source_attribution": "No source in this direction's reference set (Reference Evidence 1 to 6) specifically informed the Manifesto; it continues the Standard's argument in Muse's own words, not adapted copy."
+    },
+    "outcomes": {
+      "order": 6,
+      "name_en": "Outcomes band",
+      "name_ar": "شريط النتائج",
+      "job": "One sentence, large type, restating the delivery standard: Muse ends engagements with outcomes, not just tools. A pause between the Manifesto's argument and the Ticker below, not a new argument.",
+      "anatomy": [
+        "Single centered paragraph, two clauses, the second one accented."
+      ],
+      "position_rationale": "A short band deliberately kept short: it closes the Manifesto's argument with a standard, then hands off to the Ticker without asking the visitor to read anything else first.",
+      "source_attribution": "No external reference source; this is Muse's own delivery-standard line, carried unchanged from the current site copy."
+    },
+    "ticker": {
+      "order": 7,
+      "name_en": "Ticker",
+      "name_ar": "الشريط المتحرك",
+      "job": "A single repeating marquee line restating Muse's own release rule: nothing ships that the studio would not use itself. Texture and a restated standard, not new information.",
+      "anatomy": [
+        "One repeated line in a scrolling band, tilted off the horizontal axis."
+      ],
+      "position_rationale": "Sits between the Outcomes band and FAQ as a visual and rhythmic break: the page has just made its central argument, and the ticker is a breath before the objections section.",
+      "source_attribution": "No external reference source; this is Muse's own internal quality bar, stated as a marquee rather than adapted from another site's pattern."
+    },
+    "faq": {
+      "order": 8,
+      "name_en": "FAQ",
+      "name_ar": "الأسئلة",
+      "job": "Answers five real objections a serious buyer raises before committing, in the buyer's own language, on the page, rather than making them ask.",
+      "anatomy": [
+        "Section heading.",
+        "Five accordion rows, first one open by default.",
+        "Each row: a question in the buyer's voice, a direct answer with no hedging."
+      ],
+      "position_rationale": "After the standard has been named and argued (Standard, Manifesto, Outcomes, Ticker) and before the final ask (CTA), because objection-handling belongs right before the point of decision.",
+      "source_attribution": "Objection-handling as a designed trust section is Direct input from MOZN's current English FAQ (Reference Evidence 3). The operational trust architecture, naming domain expertise ahead of a close, is Independent validation against Intercom's trust section (Reference Evidence 6), surfaced after the fact and not the origin of Muse's copy. The specific questions and answers are Muse's own."
+    },
+    "cta": {
+      "order": 9,
+      "name_en": "Final CTA",
+      "name_ar": "الدعوة الأخيرة",
+      "job": "Closes the page with one direct ask, framed around the visitor's problem rather than around Muse, and a single button into the contact flow.",
+      "anatomy": [
+        "Heading: an instruction, not a question.",
+        "Subheading: who actually answers, framed against a sales layer.",
+        "One button."
+      ],
+      "position_rationale": "Last section before the footer, by definition: every argument on the page, the thesis, the problem, the standard, the doors, the manifesto, the objections, has been made by the time a visitor reaches this point, so the only thing left is to ask.",
+      "source_attribution": "No external reference source for the specific line; opening with the visitor's problem rather than the company is Muse's own positioning choice, consistent with the Hero's subtitle."
+    },
+    "footer": {
+      "order": 10,
+      "name_en": "Footer",
+      "name_ar": "التذييل",
+      "job": "Carries navigation, the direct contact channel, the company's one-line worldview restated, and the legal minimum: rights, privacy, terms.",
+      "anatomy": [
+        "Logo, blurb, a get-started button.",
+        "Two link columns: Company, Explore.",
+        "A rule, then an oversized 'reach out' line facing the contact block.",
+        "Location, email, social links, legal links and the rights line."
+      ],
+      "position_rationale": "Terminal by definition: it is outside <main>, renders after every page's content, and is the one section that must never appear paired with any other section's screenshot.",
+      "source_attribution": "No external reference source; the footer is Muse's own contact and legal information, not adapted from another site."
+    }
+  },
+  "objections_intro": "The FAQ answers five questions a serious buyer actually raises before committing. They are reproduced here with the same verbatim copy shown in the FAQ visual and content pages, so the appendix stands on its own without flipping back.",
+  "open_decisions": [
+    {
+      "title": "Planned Proof Wall and Experience Signal are not on this homepage",
+      "body": "The direction's planning note (docs/three-doors/direction-2-the-thesis.md) describes a homepage Proof Wall and an Experience Signal section referencing the founder's background. Neither renders in the current build: HomeSections.tsx runs Hero, The Problem, The Standard, Three Doors, Manifesto, Outcomes Band, Ticker, FAQ and CTA, then the global Footer. The founder's enterprise-delivery background appears only inside The Standard's third paragraph.",
+      "recommendation": "Update the planning note to match the shipped section order, or decide whether a dedicated Proof Wall belongs on this homepage before external circulation. Do not describe a Proof Wall as present in any external-facing material until it exists."
+    },
+    {
+      "title": "whoWeBuildFor content is written but unused",
+      "body": "messages/en.json and messages/ar.json carry a full Home.whoWeBuildFor entry (a heading and a body naming founders and operators) and a matching WhoWeBuildFor.tsx component exists in the codebase, but HomeSections.tsx never renders it on this homepage.",
+      "recommendation": "Either add the WhoWeBuildFor section back into the homepage, most naturally between Three Doors and Manifesto, or remove the unused catalogue entry and component so the content files match what the site actually shows."
+    },
+    {
+      "title": "The Arabic register",
+      "body": "The Problem, Standard, Doors and FAQ copy on this direction is written in a deliberately colloquial Saudi register (for example, the Standard's own line translates to 'not lorem ipsum in reviews'), while Legal and Careers content elsewhere on the site stays formal.",
+      "recommendation": "Confirm the split with a native copy review before this direction ships externally: colloquial for Hero, Problem, Standard, Doors, Manifesto and FAQ, formal for Legal and Careers."
+    },
+    {
+      "title": "MOZN as a live reference, not a copied source",
+      "body": "MOZN's current English FAQ is used as live evidence for the objection-handling pattern (Reference Evidence 3). MOZN's Arabic FAQ is currently empty and a 'Globally Recognized Technologies' section is hidden on the live page; neither is usable evidence.",
+      "recommendation": "Keep MOZN as a Direct-input structure reference only. Do not cite the Arabic FAQ or the hidden section as evidence in any later revision of this direction."
+    },
+    {
+      "title": "Whole-section Standard capture versus automatic splitting",
+      "body": "The measured English mobile Standard is 1604 CSS px high and the Arabic version is 1386 CSS px. The first automatic child split duplicated the maroon section and cut its argument mid-pillar because an absolute background layer was mistaken for a semantic split boundary. A full element capture remains legible at the 46 mm phone width used in the PDF.",
+      "recommendation": "Keep The Standard on force-element capture for both locales and both devices. If the copy grows, add explicit semantic split selectors for the heading and pillar groups rather than restoring geometric midpoint splitting."
+    }
+  ],
+  "structure_map": [
+    {
+      "n": "1",
+      "name": "Hero",
+      "job": "Founding thesis and one CTA"
+    },
+    {
+      "n": "2",
+      "name": "The Problem",
+      "job": "The market failure this thesis argues against"
+    },
+    {
+      "n": "3",
+      "name": "The Standard",
+      "job": "The quality bar Muse holds instead"
+    },
+    {
+      "n": "4",
+      "name": "Three doors",
+      "job": "Build / Ventures / Think, the standard applied"
+    },
+    {
+      "n": "5",
+      "name": "Manifesto",
+      "job": "Why-now argument, closed by the pressure statement"
+    },
+    {
+      "n": "6",
+      "name": "Outcomes band",
+      "job": "One-line delivery standard"
+    },
+    {
+      "n": "7",
+      "name": "Ticker",
+      "job": "Repeating release-rule marquee"
+    },
+    {
+      "n": "8",
+      "name": "FAQ",
+      "job": "Five objections, answered"
+    },
+    {
+      "n": "9",
+      "name": "Final CTA",
+      "job": "One direct ask"
+    },
+    {
+      "n": "10",
+      "name": "Footer",
+      "job": "Navigation, contact, legal"
+    }
+  ],
+  "source_map": [
+    {
+      "pattern": "Sentence-led problem argument naming a specific failure mode",
+      "source": "Basecamp (basecamp.com)",
+      "adaptation": "Three Muse-observed failure modes (unshipped AI strategy, content-farm noise, fabricated case studies) replace Basecamp's own claim."
+    },
+    {
+      "pattern": "New-standard section built from concrete, named contrasts",
+      "source": "Retool (retool.com)",
+      "adaptation": "Three pillars naming what Muse actually does (real data, stakeholder access, shipped over planned) replace Retool's enterprise contrasts."
+    },
+    {
+      "pattern": "FAQ as a designed trust section, not a support afterthought",
+      "source": "MOZN's current English FAQ (mozn.ai)",
+      "adaptation": "Five specific, checkable objections in both languages; questions and answers are Muse's own. MOZN's empty Arabic FAQ and hidden section are not used."
+    },
+    {
+      "pattern": "Shared card grammar across distinct capability lanes, bilingual density",
+      "source": "Salla (salla.com)",
+      "adaptation": "Applied to Build, Ventures and Think instead of Salla's service lanes."
+    },
+    {
+      "pattern": "Sequential paths with distinct verb CTAs",
+      "source": "Netlify (netlify.com)",
+      "adaptation": "Informs treating the three doors as an ordered sequence of actions rather than a static menu."
+    },
+    {
+      "pattern": "Operational trust architecture ahead of a close",
+      "source": "Intercom (intercom.com)",
+      "adaptation": "Independent validation for the FAQ's trust-before-close position; the specific claims are Muse's own."
+    }
+  ]
+}

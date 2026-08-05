@@ -1,0 +1,1168 @@
+{
+  "branch": "direction/2-the-thesis",
+  "hero_assert_en": "Shipping is easy now.",
+  "hero_assert_ar": "الإطلاق سهل.",
+  "captured_at": "2026-08-05T10:19:08Z",
+  "shots": [
+    {
+      "file": "home-01-hero-en-desktop.png",
+      "section": "hero",
+      "order": 1,
+      "locale": "en",
+      "device": "desktop",
+      "part": null,
+      "url": "http://localhost:3100/en",
+      "html_lang": "en",
+      "html_dir": "ltr",
+      "anchor": "h1: Shipping is easy now.",
+      "root_selector": "main#main-content section:nth-of-type(1)",
+      "capture_mode": "element",
+      "nav_hidden": false,
+      "bbox": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 900
+      },
+      "out_px": {
+        "width": 2880,
+        "height": 1800
+      },
+      "next_section_anchor": "Everyone has a strategy. Almost nobody ships.",
+      "next_section_excluded": true,
+      "ar_copy_is_english": false,
+      "notes": ""
+    },
+    {
+      "file": "home-02-problem-en-desktop.png",
+      "section": "problem",
+      "order": 2,
+      "locale": "en",
+      "device": "desktop",
+      "part": null,
+      "url": "http://localhost:3100/en",
+      "html_lang": "en",
+      "html_dir": "ltr",
+      "anchor": "h2: Everyone has a strategy. Almost nobody ships.",
+      "root_selector": "nearest <section> ancestor of h2:'Everyone has a strategy. Almost nobody ships.'",
+      "capture_mode": "element",
+      "nav_hidden": true,
+      "bbox": {
+        "x": 0,
+        "y": 121,
+        "width": 1440,
+        "height": 658
+      },
+      "out_px": {
+        "width": 2880,
+        "height": 1316
+      },
+      "next_section_anchor": "Muse is the quality bar. The other choice.",
+      "next_section_excluded": true,
+      "ar_copy_is_english": false,
+      "notes": ""
+    },
+    {
+      "file": "home-04-doors-en-desktop.png",
+      "section": "doors",
+      "order": 4,
+      "locale": "en",
+      "device": "desktop",
+      "part": null,
+      "url": "http://localhost:3100/en",
+      "html_lang": "en",
+      "html_dir": "ltr",
+      "anchor": "h2: Pick the door that matches you",
+      "root_selector": "nearest <section> ancestor of h2:'Pick the door that matches you'",
+      "capture_mode": "element",
+      "nav_hidden": true,
+      "bbox": {
+        "x": 0,
+        "y": 74,
+        "width": 1440,
+        "height": 751
+      },
+      "out_px": {
+        "width": 2880,
+        "height": 1502
+      },
+      "next_section_anchor": "The next decade of software gets decided in the next two years.",
+      "next_section_excluded": true,
+      "ar_copy_is_english": false,
+      "notes": ""
+    },
+    {
+      "file": "home-05-manifesto-en-desktop.png",
+      "section": "manifesto",
+      "order": 5,
+      "locale": "en",
+      "device": "desktop",
+      "part": null,
+      "url": "http://localhost:3100/en",
+      "html_lang": "en",
+      "html_dir": "ltr",
+      "anchor": "h2: The next decade of software gets decided in the next two years.",
+      "root_selector": "nearest <section> ancestor of h2:'The next decade of software gets decided in the next two years.'",
+      "capture_mode": "element",
+      "nav_hidden": true,
+      "bbox": {
+        "x": 0,
+        "y": -48,
+        "width": 1440,
+        "height": 996.375
+      },
+      "out_px": {
+        "width": 2880,
+        "height": 1994
+      },
+      "next_section_anchor": "We deliver outcomes, not just tools.",
+      "next_section_excluded": true,
+      "ar_copy_is_english": false,
+      "notes": ""
+    },
+    {
+      "file": "home-08-faq-en-desktop.png",
+      "section": "faq",
+      "order": 8,
+      "locale": "en",
+      "device": "desktop",
+      "part": null,
+      "url": "http://localhost:3100/en",
+      "html_lang": "en",
+      "html_dir": "ltr",
+      "anchor": "h2: Questions? We have answers.",
+      "root_selector": "nearest <section> ancestor of h2:'Questions? We have answers.'",
+      "capture_mode": "element",
+      "nav_hidden": true,
+      "bbox": {
+        "x": 0,
+        "y": 27.375,
+        "width": 1440,
+        "height": 845
+      },
+      "out_px": {
+        "width": 2880,
+        "height": 1692
+      },
+      "next_section_anchor": "Tell us what you're trying to build.",
+      "next_section_excluded": true,
+      "ar_copy_is_english": false,
+      "notes": ""
+    },
+    {
+      "file": "home-09-cta-en-desktop.png",
+      "section": "cta",
+      "order": 9,
+      "locale": "en",
+      "device": "desktop",
+      "part": null,
+      "url": "http://localhost:3100/en",
+      "html_lang": "en",
+      "html_dir": "ltr",
+      "anchor": "h2: Tell us what you're trying to build.",
+      "root_selector": "nearest <section> ancestor of h2:\"Tell us what you're trying to build.\"",
+      "capture_mode": "element",
+      "nav_hidden": true,
+      "bbox": {
+        "x": 0,
+        "y": 32.375,
+        "width": 1440,
+        "height": 834.5
+      },
+      "out_px": {
+        "width": 2880,
+        "height": 1670
+      },
+      "next_section_anchor": "Reach out to us",
+      "next_section_excluded": true,
+      "ar_copy_is_english": false,
+      "notes": ""
+    },
+    {
+      "file": "home-10-footer-en-desktop.png",
+      "section": "footer",
+      "order": 10,
+      "locale": "en",
+      "device": "desktop",
+      "part": null,
+      "url": "http://localhost:3100/en",
+      "html_lang": "en",
+      "html_dir": "ltr",
+      "anchor": "text: Reach out to us",
+      "root_selector": "body > footer",
+      "capture_mode": "element",
+      "nav_hidden": true,
+      "bbox": {
+        "x": 0,
+        "y": 98.875,
+        "width": 1440,
+        "height": 801.5
+      },
+      "out_px": {
+        "width": 2880,
+        "height": 1606
+      },
+      "next_section_anchor": null,
+      "next_section_excluded": true,
+      "ar_copy_is_english": false,
+      "notes": ""
+    },
+    {
+      "file": "home-01-hero-ar-desktop.png",
+      "section": "hero",
+      "order": 1,
+      "locale": "ar",
+      "device": "desktop",
+      "part": null,
+      "url": "http://localhost:3100/ar",
+      "html_lang": "ar",
+      "html_dir": "rtl",
+      "anchor": "h1: الإطلاق سهل.",
+      "root_selector": "main#main-content section:nth-of-type(1)",
+      "capture_mode": "element",
+      "nav_hidden": false,
+      "bbox": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 900
+      },
+      "out_px": {
+        "width": 2880,
+        "height": 1800
+      },
+      "next_section_anchor": "الكل عنده استراتيجية. قليل اللي ينفذ.",
+      "next_section_excluded": true,
+      "ar_copy_is_english": false,
+      "notes": ""
+    },
+    {
+      "file": "home-02-problem-ar-desktop.png",
+      "section": "problem",
+      "order": 2,
+      "locale": "ar",
+      "device": "desktop",
+      "part": null,
+      "url": "http://localhost:3100/ar",
+      "html_lang": "ar",
+      "html_dir": "rtl",
+      "anchor": "h2: الكل عنده استراتيجية. قليل اللي ينفذ.",
+      "root_selector": "nearest <section> ancestor of h2:'الكل عنده استراتيجية. قليل اللي ينفذ.'",
+      "capture_mode": "element",
+      "nav_hidden": true,
+      "bbox": {
+        "x": 0,
+        "y": 133,
+        "width": 1440,
+        "height": 634.390625
+      },
+      "out_px": {
+        "width": 2880,
+        "height": 1270
+      },
+      "next_section_anchor": "Muse هو معيار الجودة. الخيار الثاني.",
+      "next_section_excluded": true,
+      "ar_copy_is_english": false,
+      "notes": ""
+    },
+    {
+      "file": "home-04-doors-ar-desktop.png",
+      "section": "doors",
+      "order": 4,
+      "locale": "ar",
+      "device": "desktop",
+      "part": null,
+      "url": "http://localhost:3100/ar",
+      "html_lang": "ar",
+      "html_dir": "rtl",
+      "anchor": "h2: اختر الباب اللي يناسبك",
+      "root_selector": "nearest <section> ancestor of h2:'اختر الباب اللي يناسبك'",
+      "capture_mode": "element",
+      "nav_hidden": true,
+      "bbox": {
+        "x": 0,
+        "y": 99.671875,
+        "width": 1440,
+        "height": 699.890625
+      },
+      "out_px": {
+        "width": 2880,
+        "height": 1402
+      },
+      "next_section_anchor": "عصر المنتجات الرقمية يتحدّد خلال السنتين الجاية.",
+      "next_section_excluded": true,
+      "ar_copy_is_english": false,
+      "notes": ""
+    },
+    {
+      "file": "home-05-manifesto-ar-desktop.png",
+      "section": "manifesto",
+      "order": 5,
+      "locale": "ar",
+      "device": "desktop",
+      "part": null,
+      "url": "http://localhost:3100/ar",
+      "html_lang": "ar",
+      "html_dir": "rtl",
+      "anchor": "h2: عصر المنتجات الرقمية يتحدّد خلال السنتين الجاية.",
+      "root_selector": "nearest <section> ancestor of h2:'عصر المنتجات الرقمية يتحدّد خلال السنتين الجاية.'",
+      "capture_mode": "element",
+      "nav_hidden": true,
+      "bbox": {
+        "x": 0,
+        "y": -3.4375,
+        "width": 1440,
+        "height": 906.28125
+      },
+      "out_px": {
+        "width": 2880,
+        "height": 1814
+      },
+      "next_section_anchor": "نوصّل نتيجة فعلية، مو مجرد أدوات.",
+      "next_section_excluded": true,
+      "ar_copy_is_english": false,
+      "notes": ""
+    },
+    {
+      "file": "home-08-faq-ar-desktop.png",
+      "section": "faq",
+      "order": 8,
+      "locale": "ar",
+      "device": "desktop",
+      "part": null,
+      "url": "http://localhost:3100/ar",
+      "html_lang": "ar",
+      "html_dir": "rtl",
+      "anchor": "h2: أكيد عندك أسئلة.",
+      "root_selector": "nearest <section> ancestor of h2:'أكيد عندك أسئلة.'",
+      "capture_mode": "element",
+      "nav_hidden": true,
+      "bbox": {
+        "x": 0,
+        "y": 11.84375,
+        "width": 1440,
+        "height": 875.796875
+      },
+      "out_px": {
+        "width": 2880,
+        "height": 1754
+      },
+      "next_section_anchor": "قل لنا وش تبني.",
+      "next_section_excluded": true,
+      "ar_copy_is_english": false,
+      "notes": ""
+    },
+    {
+      "file": "home-09-cta-ar-desktop.png",
+      "section": "cta",
+      "order": 9,
+      "locale": "ar",
+      "device": "desktop",
+      "part": null,
+      "url": "http://localhost:3100/ar",
+      "html_lang": "ar",
+      "html_dir": "rtl",
+      "anchor": "h2: قل لنا وش تبني.",
+      "root_selector": "nearest <section> ancestor of h2:'قل لنا وش تبني.'",
+      "capture_mode": "element",
+      "nav_hidden": true,
+      "bbox": {
+        "x": 0,
+        "y": 63.640625,
+        "width": 1440,
+        "height": 772.25
+      },
+      "out_px": {
+        "width": 2880,
+        "height": 1546
+      },
+      "next_section_anchor": "تواصل معنا",
+      "next_section_excluded": true,
+      "ar_copy_is_english": false,
+      "notes": ""
+    },
+    {
+      "file": "home-10-footer-ar-desktop.png",
+      "section": "footer",
+      "order": 10,
+      "locale": "ar",
+      "device": "desktop",
+      "part": null,
+      "url": "http://localhost:3100/ar",
+      "html_lang": "ar",
+      "html_dir": "rtl",
+      "anchor": "text: تواصل معنا",
+      "root_selector": "body > footer",
+      "capture_mode": "element",
+      "nav_hidden": true,
+      "bbox": {
+        "x": 0,
+        "y": 169.890625,
+        "width": 1440,
+        "height": 730.046875
+      },
+      "out_px": {
+        "width": 2880,
+        "height": 1462
+      },
+      "next_section_anchor": null,
+      "next_section_excluded": true,
+      "ar_copy_is_english": false,
+      "notes": ""
+    },
+    {
+      "file": "home-01-hero-en-mobile.png",
+      "section": "hero",
+      "order": 1,
+      "locale": "en",
+      "device": "mobile",
+      "part": null,
+      "url": "http://localhost:3100/en",
+      "html_lang": "en",
+      "html_dir": "ltr",
+      "anchor": "h1: Shipping is easy now.",
+      "root_selector": "main#main-content section:nth-of-type(1)",
+      "capture_mode": "element",
+      "nav_hidden": false,
+      "bbox": {
+        "x": 0,
+        "y": 0,
+        "width": 390,
+        "height": 590.796875
+      },
+      "out_px": {
+        "width": 780,
+        "height": 1182
+      },
+      "next_section_anchor": "Everyone has a strategy. Almost nobody ships.",
+      "next_section_excluded": true,
+      "ar_copy_is_english": false,
+      "notes": ""
+    },
+    {
+      "file": "home-02-problem-en-mobile.png",
+      "section": "problem",
+      "order": 2,
+      "locale": "en",
+      "device": "mobile",
+      "part": null,
+      "url": "http://localhost:3100/en",
+      "html_lang": "en",
+      "html_dir": "ltr",
+      "anchor": "h2: Everyone has a strategy. Almost nobody ships.",
+      "root_selector": "nearest <section> ancestor of h2:'Everyone has a strategy. Almost nobody ships.'",
+      "capture_mode": "element",
+      "nav_hidden": true,
+      "bbox": {
+        "x": 0,
+        "y": -115.203125,
+        "width": 390,
+        "height": 1074
+      },
+      "out_px": {
+        "width": 780,
+        "height": 2150
+      },
+      "next_section_anchor": "Muse is the quality bar. The other choice.",
+      "next_section_excluded": true,
+      "ar_copy_is_english": false,
+      "notes": ""
+    },
+    {
+      "file": "home-04-doors-en-mobile.png",
+      "section": "doors",
+      "order": 4,
+      "locale": "en",
+      "device": "mobile",
+      "part": null,
+      "url": "http://localhost:3100/en",
+      "html_lang": "en",
+      "html_dir": "ltr",
+      "anchor": "h2: Pick the door that matches you",
+      "root_selector": "nearest <section> ancestor of h2:'Pick the door that matches you'",
+      "capture_mode": "element",
+      "nav_hidden": true,
+      "bbox": {
+        "x": 0,
+        "y": -208.203125,
+        "width": 390,
+        "height": 1261
+      },
+      "out_px": {
+        "width": 780,
+        "height": 2524
+      },
+      "next_section_anchor": "The next decade of software gets decided in the next two years.",
+      "next_section_excluded": true,
+      "ar_copy_is_english": false,
+      "notes": ""
+    },
+    {
+      "file": "home-05-manifesto-en-mobile.png",
+      "section": "manifesto",
+      "order": 5,
+      "locale": "en",
+      "device": "mobile",
+      "part": null,
+      "url": "http://localhost:3100/en",
+      "html_lang": "en",
+      "html_dir": "ltr",
+      "anchor": "h2: The next decade of software gets decided in the next two years.",
+      "root_selector": "nearest <section> ancestor of h2:'The next decade of software gets decided in the next two years.'",
+      "capture_mode": "element",
+      "nav_hidden": true,
+      "bbox": {
+        "x": 0,
+        "y": -37.203125,
+        "width": 390,
+        "height": 918.5
+      },
+      "out_px": {
+        "width": 780,
+        "height": 1840
+      },
+      "next_section_anchor": "We deliver outcomes, not just tools.",
+      "next_section_excluded": true,
+      "ar_copy_is_english": false,
+      "notes": ""
+    },
+    {
+      "file": "home-08-faq-en-mobile.png",
+      "section": "faq",
+      "order": 8,
+      "locale": "en",
+      "device": "mobile",
+      "part": null,
+      "url": "http://localhost:3100/en",
+      "html_lang": "en",
+      "html_dir": "ltr",
+      "anchor": "h2: Questions? We have answers.",
+      "root_selector": "nearest <section> ancestor of h2:'Questions? We have answers.'",
+      "capture_mode": "element",
+      "nav_hidden": true,
+      "bbox": {
+        "x": 0,
+        "y": 3.6875,
+        "width": 390,
+        "height": 837
+      },
+      "out_px": {
+        "width": 780,
+        "height": 1676
+      },
+      "next_section_anchor": "Tell us what you're trying to build.",
+      "next_section_excluded": true,
+      "ar_copy_is_english": false,
+      "notes": ""
+    },
+    {
+      "file": "home-09-cta-en-mobile.png",
+      "section": "cta",
+      "order": 9,
+      "locale": "en",
+      "device": "mobile",
+      "part": null,
+      "url": "http://localhost:3100/en",
+      "html_lang": "en",
+      "html_dir": "ltr",
+      "anchor": "h2: Tell us what you're trying to build.",
+      "root_selector": "nearest <section> ancestor of h2:\"Tell us what you're trying to build.\"",
+      "capture_mode": "element",
+      "nav_hidden": true,
+      "bbox": {
+        "x": 0,
+        "y": 60.6875,
+        "width": 390,
+        "height": 723.140625
+      },
+      "out_px": {
+        "width": 780,
+        "height": 1448
+      },
+      "next_section_anchor": "Reach out to us",
+      "next_section_excluded": true,
+      "ar_copy_is_english": false,
+      "notes": ""
+    },
+    {
+      "file": "home-10-footer-en-mobile.png",
+      "section": "footer",
+      "order": 10,
+      "locale": "en",
+      "device": "mobile",
+      "part": null,
+      "url": "http://localhost:3100/en",
+      "html_lang": "en",
+      "html_dir": "ltr",
+      "anchor": "text: Reach out to us",
+      "root_selector": "body > footer",
+      "capture_mode": "element",
+      "nav_hidden": true,
+      "bbox": {
+        "x": 0,
+        "y": -92.171875,
+        "width": 390,
+        "height": 1028.75
+      },
+      "out_px": {
+        "width": 780,
+        "height": 2060
+      },
+      "next_section_anchor": null,
+      "next_section_excluded": true,
+      "ar_copy_is_english": false,
+      "notes": ""
+    },
+    {
+      "file": "home-01-hero-ar-mobile.png",
+      "section": "hero",
+      "order": 1,
+      "locale": "ar",
+      "device": "mobile",
+      "part": null,
+      "url": "http://localhost:3100/ar",
+      "html_lang": "ar",
+      "html_dir": "rtl",
+      "anchor": "h1: الإطلاق سهل.",
+      "root_selector": "main#main-content section:nth-of-type(1)",
+      "capture_mode": "element",
+      "nav_hidden": false,
+      "bbox": {
+        "x": 0,
+        "y": 0,
+        "width": 390,
+        "height": 590.796875
+      },
+      "out_px": {
+        "width": 780,
+        "height": 1182
+      },
+      "next_section_anchor": "الكل عنده استراتيجية. قليل اللي ينفذ.",
+      "next_section_excluded": true,
+      "ar_copy_is_english": false,
+      "notes": ""
+    },
+    {
+      "file": "home-02-problem-ar-mobile.png",
+      "section": "problem",
+      "order": 2,
+      "locale": "ar",
+      "device": "mobile",
+      "part": null,
+      "url": "http://localhost:3100/ar",
+      "html_lang": "ar",
+      "html_dir": "rtl",
+      "anchor": "h2: الكل عنده استراتيجية. قليل اللي ينفذ.",
+      "root_selector": "nearest <section> ancestor of h2:'الكل عنده استراتيجية. قليل اللي ينفذ.'",
+      "capture_mode": "element",
+      "nav_hidden": true,
+      "bbox": {
+        "x": 0,
+        "y": -70.203125,
+        "width": 390,
+        "height": 984
+      },
+      "out_px": {
+        "width": 780,
+        "height": 1970
+      },
+      "next_section_anchor": "Muse هو معيار الجودة. الخيار الثاني.",
+      "next_section_excluded": true,
+      "ar_copy_is_english": false,
+      "notes": ""
+    },
+    {
+      "file": "home-04-doors-ar-mobile.png",
+      "section": "doors",
+      "order": 4,
+      "locale": "ar",
+      "device": "mobile",
+      "part": null,
+      "url": "http://localhost:3100/ar",
+      "html_lang": "ar",
+      "html_dir": "rtl",
+      "anchor": "h2: اختر الباب اللي يناسبك",
+      "root_selector": "nearest <section> ancestor of h2:'اختر الباب اللي يناسبك'",
+      "capture_mode": "element",
+      "nav_hidden": true,
+      "bbox": {
+        "x": 0,
+        "y": -161.53125,
+        "width": 390,
+        "height": 1167.0625
+      },
+      "out_px": {
+        "width": 780,
+        "height": 2336
+      },
+      "next_section_anchor": "عصر المنتجات الرقمية يتحدّد خلال السنتين الجاية.",
+      "next_section_excluded": true,
+      "ar_copy_is_english": false,
+      "notes": ""
+    },
+    {
+      "file": "home-05-manifesto-ar-mobile.png",
+      "section": "manifesto",
+      "order": 5,
+      "locale": "ar",
+      "device": "mobile",
+      "part": null,
+      "url": "http://localhost:3100/ar",
+      "html_lang": "ar",
+      "html_dir": "rtl",
+      "anchor": "h2: عصر المنتجات الرقمية يتحدّد خلال السنتين الجاية.",
+      "root_selector": "nearest <section> ancestor of h2:'عصر المنتجات الرقمية يتحدّد خلال السنتين الجاية.'",
+      "capture_mode": "element",
+      "nav_hidden": true,
+      "bbox": {
+        "x": 0,
+        "y": 8.53125,
+        "width": 390,
+        "height": 827.171875
+      },
+      "out_px": {
+        "width": 780,
+        "height": 1656
+      },
+      "next_section_anchor": "نوصّل نتيجة فعلية، مو مجرد أدوات.",
+      "next_section_excluded": true,
+      "ar_copy_is_english": false,
+      "notes": ""
+    },
+    {
+      "file": "home-08-faq-ar-mobile.png",
+      "section": "faq",
+      "order": 8,
+      "locale": "ar",
+      "device": "mobile",
+      "part": null,
+      "url": "http://localhost:3100/ar",
+      "html_lang": "ar",
+      "html_dir": "rtl",
+      "anchor": "h2: أكيد عندك أسئلة.",
+      "root_selector": "nearest <section> ancestor of h2:'أكيد عندك أسئلة.'",
+      "capture_mode": "element",
+      "nav_hidden": true,
+      "bbox": {
+        "x": 0,
+        "y": 29.09375,
+        "width": 390,
+        "height": 785.640625
+      },
+      "out_px": {
+        "width": 780,
+        "height": 1572
+      },
+      "next_section_anchor": "قل لنا وش تبني.",
+      "next_section_excluded": true,
+      "ar_copy_is_english": false,
+      "notes": ""
+    },
+    {
+      "file": "home-09-cta-ar-mobile.png",
+      "section": "cta",
+      "order": 9,
+      "locale": "ar",
+      "device": "mobile",
+      "part": null,
+      "url": "http://localhost:3100/ar",
+      "html_lang": "ar",
+      "html_dir": "rtl",
+      "anchor": "h2: قل لنا وش تبني.",
+      "root_selector": "nearest <section> ancestor of h2:'قل لنا وش تبني.'",
+      "capture_mode": "element",
+      "nav_hidden": true,
+      "bbox": {
+        "x": 0,
+        "y": 103.734375,
+        "width": 390,
+        "height": 636.296875
+      },
+      "out_px": {
+        "width": 780,
+        "height": 1276
+      },
+      "next_section_anchor": "تواصل معنا",
+      "next_section_excluded": true,
+      "ar_copy_is_english": false,
+      "notes": ""
+    },
+    {
+      "file": "home-10-footer-ar-mobile.png",
+      "section": "footer",
+      "order": 10,
+      "locale": "ar",
+      "device": "mobile",
+      "part": null,
+      "url": "http://localhost:3100/ar",
+      "html_lang": "ar",
+      "html_dir": "rtl",
+      "anchor": "text: تواصل معنا",
+      "root_selector": "body > footer",
+      "capture_mode": "element",
+      "nav_hidden": true,
+      "bbox": {
+        "x": 0,
+        "y": -91.96875,
+        "width": 390,
+        "height": 1028.6875
+      },
+      "out_px": {
+        "width": 780,
+        "height": 2058
+      },
+      "next_section_anchor": null,
+      "next_section_excluded": true,
+      "ar_copy_is_english": false,
+      "notes": ""
+    },
+    {
+      "file": "home-06-outcomes-en-desktop.png",
+      "section": "outcomes",
+      "order": 6,
+      "locale": "en",
+      "device": "desktop",
+      "part": null,
+      "url": "http://localhost:3100/en",
+      "html_lang": "en",
+      "html_dir": "ltr",
+      "anchor": "p: We deliver outcomes, not just tools.",
+      "root_selector": "nearest <section> ancestor of p:'We deliver outcomes, not just tools.'",
+      "capture_mode": "element",
+      "nav_hidden": true,
+      "bbox": {
+        "x": 0,
+        "y": 318.375,
+        "width": 1440,
+        "height": 264
+      },
+      "out_px": {
+        "width": 2880,
+        "height": 530
+      },
+      "next_section_anchor": "Nothing ships that we wouldn't use ourselves",
+      "next_section_excluded": true,
+      "ar_copy_is_english": false,
+      "notes": ""
+    },
+    {
+      "file": "home-07-ticker-en-desktop.png",
+      "section": "ticker",
+      "order": 7,
+      "locale": "en",
+      "device": "desktop",
+      "part": null,
+      "url": "http://localhost:3100/en",
+      "html_lang": "en",
+      "html_dir": "ltr",
+      "anchor": "item: Nothing ships that we wouldn't use ourselves",
+      "root_selector": ".ticker-wrapper",
+      "capture_mode": "bounded",
+      "nav_hidden": true,
+      "bbox": {
+        "x": -15.162923812866211,
+        "y": 390.0859375,
+        "width": 1470.3258876800537,
+        "height": 120.578125
+      },
+      "out_px": {
+        "width": 2880,
+        "height": 240
+      },
+      "next_section_anchor": "Questions? We have answers.",
+      "next_section_excluded": true,
+      "ar_copy_is_english": false,
+      "notes": ""
+    },
+    {
+      "file": "home-06-outcomes-ar-desktop.png",
+      "section": "outcomes",
+      "order": 6,
+      "locale": "ar",
+      "device": "desktop",
+      "part": null,
+      "url": "http://localhost:3100/ar",
+      "html_lang": "ar",
+      "html_dir": "rtl",
+      "anchor": "p: نوصّل نتيجة فعلية، مو مجرد أدوات.",
+      "root_selector": "nearest <section> ancestor of p:'نوصّل نتيجة فعلية، مو مجرد أدوات.'",
+      "capture_mode": "element",
+      "nav_hidden": true,
+      "bbox": {
+        "x": 0,
+        "y": 307.84375,
+        "width": 1440,
+        "height": 285
+      },
+      "out_px": {
+        "width": 2880,
+        "height": 572
+      },
+      "next_section_anchor": "لا نطلق ما لا نستخدمه نحن",
+      "next_section_excluded": true,
+      "ar_copy_is_english": false,
+      "notes": ""
+    },
+    {
+      "file": "home-07-ticker-ar-desktop.png",
+      "section": "ticker",
+      "order": 7,
+      "locale": "ar",
+      "device": "desktop",
+      "part": null,
+      "url": "http://localhost:3100/ar",
+      "html_lang": "ar",
+      "html_dir": "rtl",
+      "anchor": "item: لا نطلق ما لا نستخدمه نحن",
+      "root_selector": ".ticker-wrapper",
+      "capture_mode": "bounded",
+      "nav_hidden": true,
+      "bbox": {
+        "x": -15.162923812866211,
+        "y": 389.5546875,
+        "width": 1470.3258876800537,
+        "height": 120.578125
+      },
+      "out_px": {
+        "width": 2880,
+        "height": 240
+      },
+      "next_section_anchor": "أكيد عندك أسئلة.",
+      "next_section_excluded": true,
+      "ar_copy_is_english": false,
+      "notes": ""
+    },
+    {
+      "file": "home-06-outcomes-en-mobile.png",
+      "section": "outcomes",
+      "order": 6,
+      "locale": "en",
+      "device": "mobile",
+      "part": null,
+      "url": "http://localhost:3100/en",
+      "html_lang": "en",
+      "html_dir": "ltr",
+      "anchor": "p: We deliver outcomes, not just tools.",
+      "root_selector": "nearest <section> ancestor of p:'We deliver outcomes, not just tools.'",
+      "capture_mode": "element",
+      "nav_hidden": true,
+      "bbox": {
+        "x": 0,
+        "y": 322.296875,
+        "width": 390,
+        "height": 200
+      },
+      "out_px": {
+        "width": 780,
+        "height": 402
+      },
+      "next_section_anchor": "Nothing ships that we wouldn't use ourselves",
+      "next_section_excluded": true,
+      "ar_copy_is_english": false,
+      "notes": ""
+    },
+    {
+      "file": "home-07-ticker-en-mobile.png",
+      "section": "ticker",
+      "order": 7,
+      "locale": "en",
+      "device": "mobile",
+      "part": null,
+      "url": "http://localhost:3100/en",
+      "html_lang": "en",
+      "html_dir": "ltr",
+      "anchor": "item: Nothing ships that we wouldn't use ourselves",
+      "root_selector": ".ticker-wrapper",
+      "capture_mode": "bounded",
+      "nav_hidden": true,
+      "bbox": {
+        "x": -4.818111419677734,
+        "y": 385.78961181640625,
+        "width": 399.63622665405273,
+        "height": 73.4051513671875
+      },
+      "out_px": {
+        "width": 780,
+        "height": 146
+      },
+      "next_section_anchor": "Questions? We have answers.",
+      "next_section_excluded": true,
+      "ar_copy_is_english": false,
+      "notes": ""
+    },
+    {
+      "file": "home-06-outcomes-ar-mobile.png",
+      "section": "outcomes",
+      "order": 6,
+      "locale": "ar",
+      "device": "mobile",
+      "part": null,
+      "url": "http://localhost:3100/ar",
+      "html_lang": "ar",
+      "html_dir": "rtl",
+      "anchor": "p: نوصّل نتيجة فعلية، مو مجرد أدوات.",
+      "root_selector": "nearest <section> ancestor of p:'نوصّل نتيجة فعلية، مو مجرد أدوات.'",
+      "capture_mode": "element",
+      "nav_hidden": true,
+      "bbox": {
+        "x": 0,
+        "y": 311.703125,
+        "width": 390,
+        "height": 221
+      },
+      "out_px": {
+        "width": 780,
+        "height": 444
+      },
+      "next_section_anchor": "لا نطلق ما لا نستخدمه نحن",
+      "next_section_excluded": true,
+      "ar_copy_is_english": false,
+      "notes": ""
+    },
+    {
+      "file": "home-07-ticker-ar-mobile.png",
+      "section": "ticker",
+      "order": 7,
+      "locale": "ar",
+      "device": "mobile",
+      "part": null,
+      "url": "http://localhost:3100/ar",
+      "html_lang": "ar",
+      "html_dir": "rtl",
+      "anchor": "item: لا نطلق ما لا نستخدمه نحن",
+      "root_selector": ".ticker-wrapper",
+      "capture_mode": "bounded",
+      "nav_hidden": true,
+      "bbox": {
+        "x": -4.818111419677734,
+        "y": 385.19586181640625,
+        "width": 399.63622665405273,
+        "height": 73.4051513671875
+      },
+      "out_px": {
+        "width": 780,
+        "height": 146
+      },
+      "next_section_anchor": "أكيد عندك أسئلة.",
+      "next_section_excluded": true,
+      "ar_copy_is_english": false,
+      "notes": ""
+    },
+    {
+      "file": "home-03-standard-en-desktop.png",
+      "section": "standard",
+      "order": 3,
+      "locale": "en",
+      "device": "desktop",
+      "part": null,
+      "url": "http://localhost:3100/en",
+      "html_lang": "en",
+      "html_dir": "ltr",
+      "anchor": "h2: Muse is the quality bar. The other choice.",
+      "root_selector": "nearest <section> ancestor of h2:'Muse is the quality bar. The other choice.'",
+      "capture_mode": "element",
+      "nav_hidden": true,
+      "bbox": {
+        "x": 0,
+        "y": -66,
+        "width": 1440,
+        "height": 1032
+      },
+      "out_px": {
+        "width": 2880,
+        "height": 2064
+      },
+      "next_section_anchor": "Pick the door that matches you",
+      "next_section_excluded": true,
+      "ar_copy_is_english": false,
+      "notes": ""
+    },
+    {
+      "file": "home-03-standard-ar-desktop.png",
+      "section": "standard",
+      "order": 3,
+      "locale": "ar",
+      "device": "desktop",
+      "part": null,
+      "url": "http://localhost:3100/ar",
+      "html_lang": "ar",
+      "html_dir": "rtl",
+      "anchor": "h2: Muse هو معيار الجودة. الخيار الثاني.",
+      "root_selector": "nearest <section> ancestor of h2:'Muse هو معيار الجودة. الخيار الثاني.'",
+      "capture_mode": "element",
+      "nav_hidden": true,
+      "bbox": {
+        "x": 0,
+        "y": -67.609375,
+        "width": 1440,
+        "height": 1034.28125
+      },
+      "out_px": {
+        "width": 2880,
+        "height": 2070
+      },
+      "next_section_anchor": "اختر الباب اللي يناسبك",
+      "next_section_excluded": true,
+      "ar_copy_is_english": false,
+      "notes": ""
+    },
+    {
+      "file": "home-03-standard-en-mobile.png",
+      "section": "standard",
+      "order": 3,
+      "locale": "en",
+      "device": "mobile",
+      "part": null,
+      "url": "http://localhost:3100/en",
+      "html_lang": "en",
+      "html_dir": "ltr",
+      "anchor": "h2: Muse is the quality bar. The other choice.",
+      "root_selector": "nearest <section> ancestor of h2:'Muse is the quality bar. The other choice.'",
+      "capture_mode": "element",
+      "nav_hidden": true,
+      "bbox": {
+        "x": 0,
+        "y": -380.203125,
+        "width": 390,
+        "height": 1604
+      },
+      "out_px": {
+        "width": 780,
+        "height": 3210
+      },
+      "next_section_anchor": "Pick the door that matches you",
+      "next_section_excluded": true,
+      "ar_copy_is_english": false,
+      "notes": ""
+    },
+    {
+      "file": "home-03-standard-ar-mobile.png",
+      "section": "standard",
+      "order": 3,
+      "locale": "ar",
+      "device": "mobile",
+      "part": null,
+      "url": "http://localhost:3100/ar",
+      "html_lang": "ar",
+      "html_dir": "rtl",
+      "anchor": "h2: Muse هو معيار الجودة. الخيار الثاني.",
+      "root_selector": "nearest <section> ancestor of h2:'Muse هو معيار الجودة. الخيار الثاني.'",
+      "capture_mode": "element",
+      "nav_hidden": true,
+      "bbox": {
+        "x": 0,
+        "y": -270.203125,
+        "width": 390,
+        "height": 1384.671875
+      },
+      "out_px": {
+        "width": 780,
+        "height": 2772
+      },
+      "next_section_anchor": "اختر الباب اللي يناسبك",
+      "next_section_excluded": true,
+      "ar_copy_is_english": false,
+      "notes": ""
+    }
+  ]
+}
