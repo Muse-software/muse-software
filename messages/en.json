@@ -181,26 +181,22 @@
       ]
     },
     "doors": {
-      "eyebrow": "Three ways we work",
       "heading": "Pick the door that matches you",
       "build": {
-        "eyebrow": "Build",
-        "title": "Production-grade software",
-        "body": "Shippable AI features, real interfaces, stakeholder-friendly communication. Built fast, without dropping the quality bar.",
+        "title": "Your product, built",
+        "body": "A senior squad builds inside your team, proving value in weeks, not quarters.",
         "promise": "Every engagement ends with something running in production, not a slide deck.",
         "cta": "Start a build"
       },
       "ventures": {
-        "eyebrow": "Ventures",
         "title": "Our own products",
-        "body": "We are hunting for the golden egg. Real pipeline, real progress. Open to collaborating with people who have ideas.",
-        "promise": "We ship our own MVPs and share what we learn along the way.",
-        "cta": "See the pipeline"
+        "body": "Arabic first, real data, and the details most products skip.",
+        "promise": "We publish what we build, and keep going with whatever people actually use.",
+        "cta": "See what we ship"
       },
       "think": {
-        "eyebrow": "Think",
-        "title": "Knowledge & community",
-        "body": "Articles, tutorials, showcases, newsletter. Building a name in the Saudi startup and ventures community.",
+        "title": "Knowledge and community",
+        "body": "Articles, field notes, and a newsletter for people building here.",
         "promise": "The same thinking that goes into the work, published.",
         "cta": "Read the latest"
       }
