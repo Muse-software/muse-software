@@ -110,10 +110,34 @@ Key mechanics:
 - Two-fragment payoff lines: "Less tracking. More progress." (Notion), "Manage more.
   Publish faster." (Framer). Reads designed, not transcribed.
 
-### 4d. ui-patterns-global.md + ui-patterns-saudi.md (IN PROGRESS — 2 agents running)
-Will cover: section-marking without eyebrows, equal-lane layouts, card anatomy, distinctive
-details (hover motion, border treatment, typography tricks, asymmetric grids, RTL moves).
-When they land, read and fold into the plan.
+### 4d. ui-patterns-global.md + ui-patterns-saudi.md (COMPLETE — read both)
+Global (11 sites: Stripe, Vercel, Linear, Framer, Shopify, Notion, Basecamp, Ramp, Mercury,
+Retool, 37signals):
+- ZERO eyebrows across all 11 sites. Section openers are big statements, h2/h3 headings,
+  letter-style sentences ("Tell me if this sounds about right."), or two-fragment beats.
+- Numbered chips replace eyebrows: Linear "1.0 Intake →", 37signals "Signal NN.",
+  Notion "FIG 0.2/0.3/0.4".
+- Two-fragment payoff lines: "Less tracking. More progress." / "Manage more. Publish faster."
+- Color-block media per lane with hairline 1px borders and small radius (Notion, Stripe).
+- Whole-card link with circular arrow CTA (Linear, Notion) — no text button.
+- Card skeleton everywhere: title (2-5 words) + one-liner body (5-15 words).
+
+Saudi (11 sites: salla, mozn, thmanyah, zto, lean, alrajhi, hungerstation, athr, almosafer,
+tamkeen):
+- Big statement H1, no eyebrow: Salla "سلة.. تجارة ذكيَّة وسهلة", Lean's stacked 3-line H1,
+  AlRajhi "تجربة مصرفية صُمّمت لك", Almosafer "العالم ينتظرك".
+- Thmanyah "زائد:" standfirst prefix — structural subheading that replaces an eyebrow.
+- Numbered tabs (MOZN "01 / 03") anchor RTL layout.
+- Horizontal scrollable equal-card rows (thmanyah, hungerstation, almosafer).
+- Mega-tile product grid (AlRajhi): whole tile is one clickable area.
+- HungerStation dialect heading "وش حاب تطلب اليوم؟" — colloquial direct question replaces
+  any eyebrow label; consistent "اكتشف الان" CTA.
+- AlRajhi conversational repetition "أهلا بك في عالم الولاء، أهلا بك في برنامج مكافأة".
+
+UI verdict for Muse: hero + section openers = big statement, no eyebrow (or at most ONE
+per section). Doors cards = title-first + one-liner + circular-arrow/whole-card link, zero
+eyebrows, zero emoji, balanced lengths. Numbered chips or letter-style openers as the
+designed device.
 
 ## 5. Scope per branch
 
