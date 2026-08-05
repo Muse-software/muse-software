@@ -66,17 +66,14 @@
       "heading": "Everyone has a strategy. Almost nobody ships.",
       "items": [
         {
-          "icon": "🎯",
           "title": "AI strategies nobody ships",
           "body": "Every company has an AI strategy. Almost nobody has an AI feature in production. The gap between deck and reality is where value dies."
         },
         {
-          "icon": "📝",
           "title": "Content farms, not knowledge",
           "body": "The Saudi AI space is full of reposted threads, 10-tip listicles, and videos claiming Claude built a website that was actually hand-coded. Signal-to-noise is near zero."
         },
         {
-          "icon": "🏗️",
           "title": "Fake case studies, real budgets",
           "body": "Agencies show logos they never worked with. Consultants sell transformations they've never executed. Clients pay for decks, not outcomes."
         }

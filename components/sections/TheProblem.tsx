@@ -34,7 +34,7 @@ export default function TheProblem({ locale }: { locale: string }) {
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.6, delay: 0.1, ease: EASE_OUT }}
         >
-          {t.raw("items").map((item: { icon: string; title: string; body: string }, i: number) => (
+          {t.raw("items").map((item: { title: string; body: string }, i: number) => (
             <motion.div
               key={item.title}
               initial={reduceMotion ? undefined : { opacity: 0, y: 20 }}
@@ -43,9 +43,6 @@ export default function TheProblem({ locale }: { locale: string }) {
               transition={{ duration: 0.5, delay: i * 0.08, ease: EASE_OUT }}
               className="p-6 md:p-8 rounded-2xl border border-white/15 bg-[#0a0a0c]"
             >
-              <p className="text-4xl mb-4" aria-hidden="true">
-                {item.icon}
-              </p>
               <h3 className="font-space-grotesk text-xl font-bold text-white mb-3">
                 {item.title}
               </h3>
