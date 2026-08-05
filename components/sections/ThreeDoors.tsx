@@ -10,7 +10,6 @@ const EASE_OUT = [0.16, 1, 0.3, 1] as const;
 type Door = {
   slug: string;
   title: string;
-  eyebrow: string;
   body: string;
   promise: string;
   cta: string;
@@ -25,7 +24,6 @@ export default function ThreeDoors({ locale }: { locale: string }) {
     {
       slug: "build",
       title: t("build.title"),
-      eyebrow: t("build.eyebrow"),
       body: t("build.body"),
       promise: t("build.promise"),
       cta: t("build.cta"),
@@ -33,7 +31,6 @@ export default function ThreeDoors({ locale }: { locale: string }) {
     {
       slug: "ventures",
       title: t("ventures.title"),
-      eyebrow: t("ventures.eyebrow"),
       body: t("ventures.body"),
       promise: t("ventures.promise"),
       cta: t("ventures.cta"),
@@ -41,7 +38,6 @@ export default function ThreeDoors({ locale }: { locale: string }) {
     {
       slug: "think",
       title: t("think.title"),
-      eyebrow: t("think.eyebrow"),
       body: t("think.body"),
       promise: t("think.promise"),
       cta: t("think.cta"),
@@ -58,10 +54,7 @@ export default function ThreeDoors({ locale }: { locale: string }) {
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.6, ease: EASE_OUT }}
         >
-          <p className="text-xs font-semibold uppercase tracking-[0.3em] text-white/50">
-            {t("eyebrow")}
-          </p>
-          <h2 className="mt-4 font-space-grotesk text-3xl font-bold text-white md:text-5xl">
+          <h2 className="font-space-grotesk text-3xl font-bold text-white md:text-5xl">
             {t("heading")}
           </h2>
         </motion.div>
@@ -83,10 +76,7 @@ export default function ThreeDoors({ locale }: { locale: string }) {
                 onBlur={() => setActive(null)}
                 className="group block rounded-2xl border border-white/15 bg-[#0a0a0c] p-8 transition-all duration-300 hover:border-[#fd4601]/50 hover:shadow-lg hover:shadow-[#fd4601]/5 hover:-translate-y-1 md:p-10"
               >
-                <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#fd4601]">
-                  {door.eyebrow}
-                </p>
-                <h3 className="mt-4 font-space-grotesk text-2xl font-bold text-white md:text-3xl">
+                <h3 className="font-space-grotesk text-2xl font-bold text-white md:text-3xl">
                   {door.title}
                 </h3>
                 <p className="mt-4 text-base leading-7 text-white/60">
