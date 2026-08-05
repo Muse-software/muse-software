@@ -104,11 +104,29 @@
       ]
     },
     "doors": {
-      "heading": "The next decade of software gets decided in the next two years.",
-      "paragraph1": "The cost of building good software is collapsing. That doesn't help you on its own. It means the gap between the companies that move and the ones that plan is about to get permanent.",
-      "paragraph2": "You could drive that from inside. Most won't, and not for lack of ambition. Day to day operations always win the calendar.",
-      "paragraph3": "We're not interested in your roadmap for this quarter. We're interested in the one that matters in five years.",
-      "cta": "Get started"
+      "eyebrow": "Three ways we work",
+      "heading": "Pick the door that matches you",
+      "build": {
+        "eyebrow": "Build",
+        "title": "Production-grade software",
+        "body": "Shippable AI features, real interfaces, stakeholder-friendly communication. Built fast, without dropping the quality bar.",
+        "promise": "Every engagement ends with something running in production, not a slide deck.",
+        "cta": "Start a build"
+      },
+      "ventures": {
+        "eyebrow": "Ventures",
+        "title": "Our own products",
+        "body": "We're hunting for the golden egg. Real pipeline, real progress. Open to collaborating with people who have ideas.",
+        "promise": "We ship our own MVPs and share what we learn along the way.",
+        "cta": "See the pipeline"
+      },
+      "think": {
+        "eyebrow": "Think",
+        "title": "Knowledge & community",
+        "body": "Articles, tutorials, showcases, newsletter. Building a name in the Saudi startup and ventures community. Not just sharing knowledge — building influence.",
+        "promise": "The same thinking that goes into the work, published.",
+        "cta": "Read the latest"
+      }
     },
     "pressure": {
       "lead": "AI isn't optional.",
@@ -146,6 +164,13 @@
           "a": "Teams that want to move fast without dropping the quality bar. That runs from a founder shipping a first product to an enterprise team trying to get an AI initiative out of pilot purgatory."
         }
       ]
+    },
+    "manifesto": {
+      "heading": "The next decade of software gets decided in the next two years.",
+      "paragraph1": "The cost of building good software is collapsing. That doesn't help you on its own. It means the gap between the companies that move and the ones that plan is about to get permanent.",
+      "paragraph2": "You could drive that from inside. Most won't, and not for lack of ambition. Day to day operations always win the calendar.",
+      "paragraph3": "We're not interested in your roadmap for this quarter. We're interested in the one that matters in five years.",
+      "cta": "Get started"
     }
   },
   "About": {
