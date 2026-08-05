@@ -1,118 +1,143 @@
 {
   "Common": {
-    "skipToContent": "تخطي إلى المحتوى",
-    "previous": "السابق",
-    "next": "التالي",
+    "skipToContent": "Skip to content",
+    "previous": "Previous",
+    "next": "Next",
     "socials": {
       "LinkedIn": "LinkedIn",
       "X": "X",
       "Instagram": "Instagram",
       "WhatsApp": "WhatsApp",
-      "Email": "البريد الإلكتروني"
+      "Email": "Email"
     }
   },
   "Nav": {
-    "header": "شريط التنقل الرئيسي",
-    "homeAriaLabel": "الانتقال إلى الصفحة الرئيسية",
-    "menuLabel": "القائمة",
-    "openMenu": "فتح القائمة",
-    "closeMenu": "إغلاق القائمة",
-    "socialsLabel": "روابط التواصل",
+    "header": "Main navigation header",
+    "homeAriaLabel": "Muse home",
+    "menuLabel": "Menu",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "socialsLabel": "Social links",
     "groups": {
-      "explore": "استكشف",
-      "company": "الشركة",
-      "contact": "تواصل"
+      "explore": "Explore",
+      "company": "Company",
+      "contact": "Contact"
     },
     "items": {
-      "home": "الرئيسية",
-      "explore": "استكشف",
-      "about": "من نحن",
-      "careers": "الوظائف",
-      "newsletter": "النشرة البريدية",
-      "contact": "تواصل معنا",
-      "getStarted": "ابدأ الآن"
+      "home": "Home",
+      "explore": "Explore",
+      "about": "About Us",
+      "careers": "Careers",
+      "newsletter": "Newsletter",
+      "contact": "Contact Us",
+      "getStarted": "Get Started"
     }
   },
   "Footer": {
-    "blurb": "قل لنا وش تبني، ونقول لك وش يحتاج، وإذا كنا الفريق المناسب له.",
-    "cta": "ابدأ معنا",
-    "reachOut": "تواصل معنا",
-    "locationName": "الرياض",
-    "location": "الرياض، السعودية",
+    "blurb": "Tell us what you're building. We'll tell you what it would take, and whether we're the right team for it.",
+    "cta": "Get started",
+    "reachOut": "Reach out to us",
+    "locationName": "Riyadh",
+    "location": "Riyadh, Saudi Arabia",
     "columns": {
-      "company": "الشركة",
-      "explore": "استكشف"
+      "company": "Company",
+      "explore": "Explore"
     },
-    "worldview": "نبني الشيء نفسه، مو العرض اللي يشرحه.",
-    "rights": "{year} Muse Studios. جميع الحقوق محفوظة.",
-    "privacy": "سياسة الخصوصية",
-    "terms": "شروط الخدمة"
+    "worldview": "We build the thing, not the deck about the thing.",
+    "rights": "{year} Muse Studios. All rights reserved.",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service"
   },
   "CTA": {
-    "heading": "قل لنا وش تبني.",
-    "subheading": "أول محادثة تكون مع اللي بيشتغلون عليه، مو مع فريق مبيعات.",
-    "button": "ابدأ الآن"
+    "heading": "Tell us what you're trying to build.",
+    "subheading": "The first conversation is with the people who would build it, not a sales layer.",
+    "button": "Get started"
   },
   "Home": {
-      "hero": {
-        "headlineLead": "ما نبيع كلام.",
-        "headlineTurn": "نبني ونطلق.",
-        "tagline": "كل اللي تحت شغل حقيقي.",
-        "subtitle": "دراسات حالة مجهولة الهوية. تجارب حية. محتوى كتبناه.",
-        "cta": "شوف الشغل"
+    "hero": {
+      "headlineLead": "We don't pitch.",
+      "headlineTurn": "We ship.",
+      "tagline": "Everything below is real work.",
+      "subtitle": "Anonymized case studies. Live experiments. Content we wrote.",
+      "cta": "View the work"
+    },
+    "proofWall": {
+      "eyebrow": "The work speaks",
+      "heading": "What we've shipped. What we're building.",
+      "subtitle": "No decks. No strategies. Just work that's running in production or live in the wild.",
+      "items": [
+        {
+          "category": "Enterprise",
+          "title": "Core banking platform",
+          "body": "Replaced a 15-year legacy system for a PIF-level financial institution. 40+ services, zero-downtime migration, 200k daily transactions.",
+          "tags": ["TypeScript", "Kubernetes", "Event-driven"],
+          "link": "/case-studies/core-banking"
+        },
+        {
+          "category": "AI Feature",
+          "title": "Automated underwriting engine",
+          "body": "Cut loan decision time from 3 days to 12 minutes for a Saudi fintech. 94% accuracy vs human baseline. Shipped in 8 weeks.",
+          "tags": ["Python", "LLM", "RAG"],
+          "link": "/case-studies/underwriting"
+        },
+        {
+          "category": "Brand Interface",
+          "title": "Consumer app redesign",
+          "body": "End-to-end redesign for a 500k-user Saudi super-app. Design system, motion language, RTL-first. 40% retention lift post-launch.",
+          "tags": ["Figma", "React Native", "Design Systems"],
+          "link": "/case-studies/super-app"
+        },
+        {
+          "category": "Venture",
+          "title": "Muse Experiments",
+          "body": "Live lab for AI-native product patterns. 3D agents, generative interfaces, local-first sync. Open source, production-grade.",
+          "tags": ["Three.js", "WebGPU", "Open Source"],
+          "link": "https://experiments.muse.sa",
+          "external": true
+        },
+        {
+          "category": "Venture",
+          "title": "Tenet",
+          "body": "AI-native knowledge base for teams that build. Not a wiki — a thinking partner. Early access live.",
+          "tags": ["Next.js", "Vercel AI SDK", "Postgres"],
+          "link": "https://tenet.muse.sa",
+          "external": true
+        },
+        {
+          "category": "Content",
+          "title": "Field Notes Newsletter",
+          "body": "Weekly dispatches on what we're seeing across engagements. No AI news. No 10-tip lists. Just field notes.",
+          "tags": ["Writing", "Strategy", "Engineering"],
+          "link": "/newsletter"
+        }
+      ]
+    },
+    "doors": {
+      "eyebrow": "ثلاث طرق نشتغل بها",
+      "heading": "اختر الباب اللي يناسبك",
+      "build": {
+        "eyebrow": "بناء",
+        "title": "برامج جاهزة للإنتاج",
+        "body": "ميزات ذكاء اصطناعي قابلة للتسليم، واجهات حقيقية، تواصل يناسب غير المتخصصين. بناء سريع، بدون التخلي عن معيار الجودة.",
+        "promise": "كل مشروع ينتهي بشيء يشتغل بالإنتاج، مو عرض تقديمي.",
+        "cta": "ابدأ مشروع بناء"
       },
-      "proofWall": {
-        "eyebrow": "الشغل يتكلم",
-        "heading": "وش أطلقنا. وش نبني.",
-        "subtitle": "لا عروض. لا استراتيجيات. بس شغل شغال بالإنتاج أو طالع في السوق.",
-        "items": [
-          {
-            "category": "مؤسسات",
-            "title": "منصة بنكية أساسية",
-            "body": "استبدلنا نظام عمره 15 سنة لمؤسسة مالية مستوى PIF. 40+ خدمة، هجرة بلا توقف، 200 ألف معاملة يومية.",
-            "tags": ["TypeScript", "Kubernetes", "Event-driven"],
-            "link": "/case-studies/core-banking"
-          },
-          {
-            "category": "ميزة ذكاء اصطناعي",
-            "title": "محرك اكتتاب آلي",
-            "body": "قلّصنا وقت قرار القرض من 3 أيام إلى 12 دقيقة لشركة فنتك سعودية. دقة 94% مقابل المعيار البشري. أُطلق في 8 أسابيع.",
-            "tags": ["Python", "LLM", "RAG"],
-            "link": "/case-studies/underwriting"
-          },
-          {
-            "category": "واجهة علامة تجارية",
-            "title": "إعادة تصميم تطبيق مستهلك",
-            "body": "إعادة تصميم شاملة لتطبيق سوبر-آب فيه 500 ألف مستخدم سعودي. نظام تصميم، لغة حركة، RTL أولاً. ارتفاع 40% في الاحتفاظ بعد الإطلاق.",
-            "tags": ["Figma", "React Native", "Design Systems"],
-            "link": "/case-studies/super-app"
-          },
-          {
-            "category": "مبادرة",
-            "title": "Muse Experiments",
-            "body": "مختبر حي لأنماط منتجات AI-native. وكلاء ثلاثية الأبعاد، واجهات توليدية، مزامنة محلية أولاً. مفتوح المصدر، جاهز للإنتاج.",
-            "tags": ["Three.js", "WebGPU", "Open Source"],
-            "link": "https://experiments.muse.sa",
-            "external": true
-          },
-          {
-            "category": "مبادرة",
-            "title": "Tenet",
-            "body": "قاعدة معرفة AI-native للفرق اللي تبني. مو ويكي — شريك تفكير. وصول مبكر متاح.",
-            "tags": ["Next.js", "Vercel AI SDK", "Postgres"],
-            "link": "https://tenet.muse.sa",
-            "external": true
-          },
-          {
-            "category": "محتوى",
-            "title": "نشرة Field Notes",
-            "body": "تقارير أسبوعية عن اللي نشوفه عبر المشاريع. لا أخبار ذكاء اصطناعي. لا قوائم 10 نصايح. بس ملاحظات ميدانية.",
-            "tags": ["كتابة", "استراتيجية", "هندسة"],
-            "link": "/newsletter"
-          }
-        ]
+      "ventures": {
+        "eyebrow": "مبادرات",
+        "title": "منتجاتنا الخاصة",
+        "body": "نطارد البيضة الذهبية. خطوط أنتاج حقيقية، تقدم حقيقي. مفتوحون للتعاون مع من عنده أفكار.",
+        "promise": "نطلق MVPs بنا ونشارك ما نتعلمه.",
+        "cta": "شوف خط الإنتاج"
       },
-      "manifesto": {
+      "think": {
+        "eyebrow": "تفكير",
+        "title": "معرفة ومجتمع",
+        "body": "مقالات، شروحات، معارض، نشرة. بنبني اسمنا في مجتمع رواد الأعمال والمبادرات السعودية. ما نشارك معرفتنا، بنبني نفوذ.",
+        "promise": "نفس التفكير اللي نبنيه، منشور.",
+        "cta": "اقرأ الأحدث"
+      }
+    },
+    "manifesto": {
       "heading": "عصر المنتجات الرقمية يتحدّد خلال السنتين الجاية.",
       "paragraph1": "تكلفة بناء المنتجات الجيدة جالسة تنهار. ووجودك في السوق ما عاد يكفي. والفجوة بين الشركات اللي تتحرك والشركات اللي تخطّط على وشك تصير دائمة.",
       "paragraph2": "تقدر تقود هالتحول من الداخل. أغلب الشركات ما راح تقوده، ومو لنقص في الطموح، بل لأن التشغيل اليومي يأخذ الوقت والأولوية دائمًا.",
@@ -224,215 +249,215 @@
         {
           "name": "عبدالله السبيعي",
           "title": "الرئيس التنفيذي",
-          "initials": "ع س",
-          "bio": "يقود عبدالله استراتيجية الاستوديو وشراكاته مع العملاء، ويحدّد اتجاه نموه ومن يختار العمل معه. تركيزه على بناء فريق ينفّذ بمعيار عالمي مع بقائه قريبًا من السوق السعودي الذي أُسّس الاستوديو لخدمته."
+          "initials": "AA",
+          "bio": "عبدالله يقود استراتيجية وشراكات موظفي Muse Studios بشكل عام، ويحدد الاتجاه لكيفية نمو الاستوديو ومن نختار للعمل معهم. مركّز على بناء فريق ينفّذ بمعيار عالمي بينما يبقى جذوره في السوق السعودي اللي بنيت من أجله."
         },
         {
           "name": "محمد عامر",
-          "title": "الرئيس التنفيذي للتقنية",
-          "initials": "م ع",
-          "bio": "يقود محمد الهندسة وتسليم المنتجات في الاستوديو، ويضع المعيار التقني لكل مشروع. تركيزه على إبقاء الإنتاج سريعًا دون تنازل عن الجودة، وعلى تطبيق المعيار نفسه داخليًا الذي نطلبه في العمل الذي نقبله."
+          "title": "نائب الرئيس للتكنولوجيا",
+          "initials": "MA",
+          "bio": "محمد يقود الهندسة وتسليم المنتجات في Muse Studios، ويحدد المعيار التقني لكل مشروع عميل. مركّز على إبقاء إنتاج الاستوديو سريع دون التخلي عن الزوايا، وعلى الحفاظ على نفس المعيار داخليًا اللي Muse يطلبه من العمل اللي يأخذه."
         }
       ]
     },
     "careersTeaser": {
       "eyebrow": "انضم إلينا",
-      "heading": "فريق صغير، ينمو بعناية.",
-      "body": "استوديو حديث، ما زال صغيرًا عن قصد. اطّلع على الوظائف المفتوحة الآن.",
-      "cta": "تصفّح الوظائف"
+      "heading": "فريق صغير، ننمو بحذر.",
+      "body": "استوديو شاب، صغير عن عمدة. شوف الوظائف اللي نقدر نكبر فيها.",
+      "cta": "شوف الوظائف"
     },
     "ticker": "لا نطلق ما لا نستخدمه نحن"
   },
   "Explore": {
     "hero": {
       "eyebrow": "استكشف",
-      "title": "ما الذي نبنيه.",
-      "subtitle": "ثلاث طرق نساعد فيها الفرق تطلق أسرع، من غير ما تتنازل عن الجودة. اختر وحدة، أو اجمعها كلها."
+      "title": "ما نبنيه.",
+      "subtitle": "ثلاث طرق نساعدك فيها في تسريع الإطلاق، من غير ما نتخلى عن الجودة. اختر واحدة، أو اجمع كل الثلاث."
     }
   },
   "Services": {
     "overview": "نظرة عامة",
-    "whatThatLooksLike": "كيف يبدو ذلك عمليًا",
+    "whatThatLooksLike": "وش ذلك يعنيه",
     "getStarted": "ابدأ الآن",
     "detail": {
       "eyebrow": "استكشف",
       "getStarted": "ابدأ الآن",
-      "whyYouNeedUs": "لماذا تحتاجنا",
-      "whatWeDo": "ما الذي نقوم به",
-      "whyWorkWithUs": "لماذا تعمل معنا",
-      "faq": "أسئلة، وأجوبتها.",
+      "whyYouNeedUs": "ليش تحتاجنا",
+      "whatWeDo": "شو بنسويه",
+      "whyWorkWithUs": "ليش تشتغل معانا",
+      "faq": "أسئلة، مُجابة.",
       "nav": {
         "overview": "نظرة عامة",
-        "why": "لماذا",
-        "whatWeDo": "ما الذي نقوم به",
-        "faq": "الأسئلة الشائعة"
+        "why": "ليش",
+        "whatWeDo": "شو بنسويه",
+        "faq": "أسئلة"
       },
-      "ticker": "مبنيّ لعصر الذكاء الاصطناعي"
+      "ticker": "مبني لعصر الذكاء الاصطناعي الأصلي"
     }
   },
   "Careers": {
     "hero": {
-      "eyebrow": "الوظائف",
-      "title": "تعال ابنِ معنا.",
-      "subtitle": "احنا فريق صغير من أصحاب الخبرة، مقرّه الرياض. هذي نوعية الأدوار اللي نضيفها مع نموّنا، فتواصل معنا حتى لو ما في شي يطابقك بالضبط."
+      "eyebrow": "وظائف",
+      "title": "هيا بنا نبني سوا.",
+      "subtitle": "فريق صغير من ذوي الخبرة، مقرّه الرياض. هذه الأنواع من الأدوار اللي عادة نكبر فيها، فتواصل معانا حتى لو ما كانت الوظائف بالأسفل مطابقة تمامًا."
     },
-    "origin": "من قلب الرياض إلى العالم",
-    "whyJoin": "انضم للفريق اللي يبني منتجات يستخدمها الناس هنا فعلًا.",
-    "claim": "نبحث عن الأفضل.",
-    "purpose": "نشتغل عشان نرفع مستوى اللي يُبنى في المملكة.",
-    "noMatch": "ما لقيت اللي يناسبك؟ سلّم علينا على أي حال.",
+    "origin": "من قلب الرياض إلى العالم.",
+    "whyJoin": "انضم لفريق بناء منتجات يستخدمها الناس هنا فعلًا.",
+    "claim": "نبحث عن أفضل.",
+    "purpose": "نعمل على رفع معيار ما يُبنى في المملكة.",
+    "noMatch": "ما فيه تطابق تام؟ تواصل معانا.",
     "all": "الكل",
-    "viewJd": "اطّلع على الوصف الوظيفي",
-    "generalSubject": "مهتم بالانضمام إلى الفريق",
-    "applySubject": "تقديم على وظيفة: {role}",
+    "viewJd": "شوف الوصف الوظيفي الكامل",
+    "generalSubject": "مهتم بالانضمام إلى Muse Studios",
+    "applySubject": "تقديم على الوظيفة: {role}",
     "departments": {
-      "Engineering": "الهندسة",
-      "Design": "التصميم",
-      "Strategy": "الاستراتيجية",
-      "Operations": "العمليات",
-      "Marketing": "التسويق"
+      "Engineering": "هندسة",
+      "Design": "تصميم",
+      "Strategy": "إستراتيجية",
+      "Operations": "عمليات",
+      "Marketing": "تسويق"
     },
     "detail": {
-      "eyebrow": "الوظائف · {department}",
+      "eyebrow": "وظائف · {department}",
       "responsibilities": "المسؤوليات",
       "requirements": "المتطلبات",
-      "niceToHave": "يفضّل توفره",
-      "apply": "تقدّم لهذه الوظيفة"
+      "niceToHave": "مميزات إضافية",
+      "apply": "تقدّم على هذه الوظيفة"
     }
   },
   "Newsletter": {
     "hero": {
-      "eyebrow": "النشرة البريدية",
-      "title": "تصلك ملاحظاتنا الميدانية في بريدك.",
-      "subtitle": "تغنيك عن متابعة أخبار الذكاء الاصطناعي المكررة، ونختار لك اللي يستحق."
+      "eyebrow": "نشرة الأخبار",
+      "title": "احصل على ملاحظاتنا الميدانية في صندوق الواردات.",
+      "subtitle": "نفس التفكير اللي يدخل في العمل، مباشرة. لا تحتاج تتابعنا."
     },
     "points": [
-      "قراءة واحدة قصيرة ولها رأي، بلا حشو وبلا قوائم من عشر نصائح.",
-      "ما نراه فعلًا في مشاريع عملائنا، مو أخبار الذكاء الاصطناعي العامة.",
-      "توصلك لين يصير فيه شيء يستاهل، مو على جدول ثابت."
+      "قراءة واحدة قصيرة وموقفية. لا حشو، لا مقالات 10 نصايح.",
+      "اللي نراه حقيقيًا عبر المشاريع العميلية، مو أخبار عامة عن الذكاء الاصطناعي.",
+      "تُرسل عندما يكون في شيء يستحق القول، مو على جدول زمني."
     ],
     "form": {
-      "emailLabel": "البريد الإلكتروني",
+      "emailLabel": "عنوان البريد الإلكتروني",
       "emailPlaceholder": "you@company.com",
       "submit": "اشترك",
-      "submitting": "جارٍ الاشتراك…",
-      "successSubscribed": "أصبحت في القائمة، والعدد القادم سيصلك في بريدك.",
-      "successNoted": "شكرًا، سجّلنا بريدك وسنضيفك فور تفعيل الاشتراكات.",
-      "consent": "بالاشتراك، أنت توافق على استقبال رسائلنا بين حين وآخر. يمكنك إلغاء الاشتراك في أي وقت. اطّلع على <terms>الشروط</terms> و<privacy>سياسة الخصوصية</privacy>.",
+      "submitting": "الاشتراك...",
+      "successSubscribed": "أنت في القائمة. الموقع الجاي يوصلك.",
+      "successNoted": "شكرًا، سجلنا بريدك وسنضيفك حينما يعمل التسجيل.",
+      "consent": "باشتراكك، توافق على تلقي رسائل كثيرة من Muse Studios. يمكنك إلغاء الاشتراك في أي وقت. شوف <terms>الشروط</terms> & <privacy>سياسة الخصوصية</privacy>.",
       "termsLabel": "الشروط",
       "privacyLabel": "سياسة الخصوصية"
     }
   },
   "Contact": {
     "hero": {
-      "eyebrow": "تواصل معنا",
-      "title": "تعال نتكلم.",
-      "subtitle": "قل لنا وش تبني، وغالبًا نردّ في نفس اليوم."
+      "eyebrow": "اتصل بنا",
+      "title": "دعنا نتحدث.",
+      "subtitle": "أخبرنا بماذا تبني. نرد غالبًا في نفس اليوم."
     },
-    "conditional": "إذا كنت تدوّر على فريق يبني الشيء نفسه، مو بس يسوي عرض عنه، تواصل معنا.",
+    "conditional": "لو تبحث عن فريق يبني الحقيقة، مو يعرضها فقط، تحدث لنا.",
     "methods": {
       "whatsapp": "واتساب",
-      "email": "البريد الإلكتروني"
+      "email": "بريد إلكتروني"
     },
-    "orFindUsOn": "أو تجدنا على",
-    "formHeading": "أو أرسل لنا رسالة",
+    "orFindUsOn": "وأوجدنا على",
+    "formHeading": "وإلا أرسل لنا رسالة",
     "form": {
       "name": "الاسم",
       "email": "البريد الإلكتروني",
       "company": "الشركة (اختياري)",
       "projectType": "نوع المشروع",
-      "selectOne": "اختر واحدًا",
+      "selectOne": "اختر واحد",
       "budget": "نطاق الميزانية",
-      "selectRange": "اختر نطاقًا",
-      "message": "ما الذي تبنيه؟",
-      "submit": "أرسل الرسالة",
-      "submitting": "جارٍ الإرسال…",
-      "successDeliveredTitle": "تم إرسال رسالتك.",
-      "successNotedTitle": "وصلتنا، شكرًا.",
-      "successDeliveredBody": "استلمنا رسالتك وسنردّ خلال يوم عمل.",
-      "successNotedBody": "سجّلنا رسالتك. وللحصول على رد أسرع، تواصل معنا مباشرة على واتساب أو البريد الإلكتروني.",
+      "selectRange": "اختر نطاق",
+      "message": "ماذا تبني؟",
+      "submit": "إرسال الرسالة",
+      "submitting": "الإرسال...",
+      "successDeliveredTitle": "تم الإرسال.",
+      "successNotedTitle": "تم التسجيل، شكرًا.",
+      "successDeliveredBody": "استلمنا رسالتك. رحلنا عبرها خلال يوم عمل.",
+      "successNotedBody": "سجلنا رسالتك. للرد الأسرع، تواصل معنا على واتساب أو بريميلي.",
       "projectTypes": {
-        "AI Transformation": "التحوّل بالذكاء الاصطناعي",
-        "Product Engineering": "هندسة المنتجات",
-        "Gamification & Experience": "التلعيب وتصميم التجربة",
+        "AI Transformation": "تحويل ذكاء اصطناعي",
+        "Product Engineering": "هندسة منتجات",
+        "Gamification & Experience": "المكافأة والتجربة",
         "Other": "أخرى"
       },
       "budgets": {
         "Under 50K SAR": "أقل من 50 ألف ريال",
-        "50K–150K SAR": "50 إلى 150 ألف ريال",
-        "150K–500K SAR": "150 إلى 500 ألف ريال",
-        "500K+ SAR": "أكثر من 500 ألف ريال",
-        "Not sure yet": "لست متأكدًا بعد"
+        "50K–150K SAR": "50K-150K ريال",
+        "150K–500K SAR": "150K-500K ريال",
+        "500K+ SAR": "500K+ ريال",
+        "Not sure yet": "ما أعرف بعد"
       }
     }
   },
   "GetStarted": {
     "hero": {
       "eyebrow": "ابدأ الآن",
-      "title": "مستعد تبني معنا؟",
-      "subtitle": "من هندسة المنتجات إلى التحوّل الكامل بالذكاء الاصطناعي. وأي مشروع نشتغله نسلّمه شغّال فعلًا."
+      "title": "استعد للبناء مع Muse؟",
+      "subtitle": "من هندسة منتجات إلى تحويل ذكاء اصطناعي كامل. كل مشروع ينتهي بشيء يشتغل بالإنتاج."
     },
     "points": [
-      "احصل على خطة محدّدة توضح وين الذكاء الاصطناعي يوفّر عليك جهد فعلًا",
-      "تشتغل مباشرة مع الفريق اللي يبني، مو مع فريق مبيعات",
-      "نفصّل الشغل حسب عوائقك بالذات، وتشوف شيئًا يشتغل قدامك من بدري"
+      "خطة مُحددة ليناية الذكاء الاصطناعي يزيل الاحتكام الحقيقي في عملك",
+      "شغل مباشرة مع الفريق الذي يبني ذلك، مو طبقة مبيعات",
+      "حدد العمل بناءً على الاختناقات الفعلية، وشوف شيء يعمل بدري"
     ],
     "form": {
       "firstName": "الاسم الأول",
       "lastName": "اسم العائلة",
-      "email": "البريد الإلكتروني للعمل",
-      "phone": "رقم الجوال",
+      "email": "البريد الوظيفي",
+      "phone": "رقم الهاتف",
       "company": "اسم الشركة",
-      "jobTitle": "المسمى الوظيفي",
+      "jobTitle": "المنصب الوظيفي",
       "annualRevenue": "الإيراد السنوي",
-      "selectOne": "اختر واحدًا…",
-      "servicesLegend": "ما الخدمات التي تهمّك؟",
-      "needs": "صف احتياجك تحديدًا",
+      "selectOne": "اختر...",
+      "servicesLegend": "متى تحتاج خدمات؟",
+      "needs": "وصف احتياجاتك المحددة",
       "hearAboutUs": "كيف سمعت عنا؟",
-      "other": "يرجى التحديد",
-      "submit": "إرسال",
-      "submitting": "جارٍ الإرسال…",
-      "successTitle": "شكرًا لك",
-      "successDelivered": "استلمنا طلبك، وبنرجع لك خلال يوم إلى يومين عمل عشان نفهم وش تبنيه.",
-      "successNoted": "سجّلنا طلبك. وللحصول على رد أسرع، تواصل معنا مباشرة على واتساب أو البريد الإلكتروني.",
+      "other": "من فضلك حدد",
+      "submit": "أرسل",
+      "submitting": "الإرسال...",
+      "successTitle": "شكرًا",
+      "successDelivered": "استقبلنا يلاشك. رحلنا خلال 1-2 يوم عمل لنناقش ما تبنيه.",
+      "successNoted": "سجلنا طلبك. للرد الأسرع، تواصل معنا على واتساب أو بريد إلكتروني.",
       "services": {
-        "AI Transformation": "التحوّل بالذكاء الاصطناعي",
-        "Product Engineering": "هندسة المنتجات",
-        "Gamification & Experience": "التلعيب وتصميم التجربة",
-        "Not sure yet": "لست متأكدًا بعد"
+        "AI Transformation": "تحويل ذكاء اصطناعي",
+        "Product Engineering": "هندسة منتجات",
+        "Gamification & Experience": "المكافأة والتجربة",
+        "Not sure yet": "ما أعرف بعد"
       },
       "revenueBands": {
         "Under 5M SAR": "أقل من 5 ملايين ريال",
-        "5M–20M SAR": "5 إلى 20 مليون ريال",
-        "20M–75M SAR": "20 إلى 75 مليون ريال",
-        "75M–200M SAR": "75 إلى 200 مليون ريال",
-        "200M–500M SAR": "200 إلى 500 مليون ريال",
-        "500M+ SAR": "أكثر من 500 مليون ريال"
+        "5M–20M SAR": "5M-20M ريال",
+        "20M–75M SAR": "20M-75M ريال",
+        "75M–200M SAR": "75M-200M ريال",
+        "200M–500M SAR": "200M-500M ريال",
+        "500M+ SAR": "500M+ ريال"
       },
       "hearAboutOptions": {
-        "Search Engine (Google, Bing, etc)": "محرك بحث (Google، Bing، وغيرها)",
-        "AI App (ChatGPT, Perplexity, etc)": "تطبيق ذكاء اصطناعي (ChatGPT، Perplexity، وغيرها)",
+        "Search Engine (Google, Bing, etc)": "محرك بحث (Google، Bing، إلخ)",
+        "AI App (ChatGPT, Perplexity, etc)": "تطبيق الذكاء الاصطناعي (ChatGPT، Perplexity، إلخ)",
         "X": "X",
         "LinkedIn": "LinkedIn",
-        "Instagram": "Instagram",
+        "Instagram": "إنستغرام",
         "YouTube": "YouTube",
-        "Referral": "ترشيح من شخص",
-        "Newsletter": "النشرة البريدية",
+        "Referral": "توصية",
+        "Newsletter": "نشرة أخبار",
         "Other": "أخرى"
       }
     }
   },
   "Forms": {
     "errors": {
-      "rate_limited": "طلبات كثيرة. حاول مرة أخرى بعد دقيقة.",
-      "invalid_body": "محتوى الطلب غير صالح.",
-      "missing_fields_contact": "الاسم والبريد الإلكتروني والرسالة حقول مطلوبة.",
-      "missing_fields": "يرجى تعبئة كل الحقول المطلوبة.",
-      "invalid_email": "يرجى إدخال بريد إلكتروني صالح.",
-      "email_required": "مطلوب بريد إلكتروني صالح.",
-      "too_long": "حقل أو أكثر أطول من المسموح.",
+      "rate_limited": "طلبات كثيرة. جرّب مرة أخرى بعد دقيقة.",
+      "invalid_body": "نص الطلب غير صالح.",
+      "missing_fields_contact": "الاسم، البريد، والرسالة مطلوبة.",
+      "missing_fields": "املأ كل الحقول المطلوبة.",
+      "invalid_email": "زوّد بريد إلكتروني صالح.",
+      "email_required": "بريد إلكتروني صالح مطلوب.",
+      "too_long": "حقل واحد على الأقل طويل جدًا.",
       "generic": "حدث خطأ. حاول مرة أخرى.",
-      "network": "حدث خطأ. حاول مرة أخرى، أو تواصل معنا على واتساب."
+      "network": "حدث خطأ. حاول مرة أخرى، أو تواصل على واتساب."
     }
   },
   "Legal": {
@@ -443,24 +468,24 @@
       "title": "سياسة الخصوصية",
       "sections": [
         {
-          "heading": "المعلومات التي نجمعها",
-          "body": "عند إرسال أي نموذج في هذا الموقع (تواصل معنا، أو ابدأ الآن، أو الاشتراك في النشرة)، نجمع المعلومات التي تقدّمها مباشرة، مثل اسمك وبريدك الإلكتروني وتفاصيل استفسارك، إضافة إلى بيانات تقنية مرتبطة بالإرسال تشمل عنوان IP ومعرّف المتصفح والصفحة التي أرسلت منها ووقت الإرسال. نستخدم ذلك للرد عليك ولتمييز الرسائل المزعجة أو المسيئة وتصفيتها."
+          "heading": "المعلومات اللي نجمعها",
+          "body": "عندما تُرسل نموذج على هذا الموقع (اتصل، ابدأ، أو اشتراك النشرة)، نجمع المعلومات اللي تزوّدها، مثل اسمك وبريدك وتفاصيل استفسارك، مع بيانات تقنية مرفقة بتلك المرسلة، بما فيها عنوان IP، وسيلة المتصفح/وكيل المستخدم، والصفحة اللي أرسلت منها، والوقت. نستخدم هذا للرد عليك ولتمييز وتصفية الرسائل غير المرغوب فيها."
         },
         {
           "heading": "كيف نستخدمها",
-          "body": "نستخدم هذه المعلومات للرد على الاستفسارات، وتقديم الخدمات التي تطلبها، وتحسين هذا الموقع. ولا نبيع معلوماتك الشخصية لأطراف ثالثة."
+          "body": "نستخدم هذه المعلومات للرد على الاستفسارات، وتقديم الخدمات اللي تطلبها، وتحسين هذا الموقع. ما نبيع معلوماتك الشخصية لأي طرف ثالث."
         },
         {
-          "heading": "ملفات تعريف الارتباط",
-          "body": "قد يستخدم هذا الموقع ملفات تعريف الارتباط أو تقنيات مشابهة لأغراض تحليلية أساسية ولتذكّر تفضيلاتك. ويمكنك التحكم بها من إعدادات متصفحك."
+          "heading": "الكويكيز",
+          "body": "قد يستخدم هذا الموقع الكويكيز أو تقنيات مماثلة للتحليل الأساسي وحفظ تفضيلاتك. تتحكم في الكويكيز من إعدادات المتصفح."
         },
         {
           "heading": "حقوقك",
-          "body": "يمكنك في أي وقت طلب الاطلاع على معلوماتك الشخصية أو تصحيحها أو حذفها، بالتواصل معنا عبر البيانات أدناه."
+          "body": "تقدر تطلب الوصول إلى معلوماتك، أو تصحيحها، أو حذفها، في أي وقت عن طريق التواصل معنا."
         },
         {
-          "heading": "التواصل",
-          "body": "الأسئلة حول هذه السياسة تُرسل إلى info@muse.sa."
+          "heading": "اتصل بنا",
+          "body": "أسئلة عن هذه السياسة؟ أرسلها إلى info@muse.sa."
         }
       ]
     },
@@ -469,86 +494,88 @@
       "sections": [
         {
           "heading": "قبول الشروط",
-          "body": "باستخدامك هذا الموقع فإنك توافق على هذه الشروط. وإن لم توافق عليها، فلا تستخدم الموقع."
+          "body": "باستخدام هذا الموقع، أنت توافق على هذه الشروط. إذا ما وافقت، ما تستخدم الموقع."
         },
         {
           "heading": "استخدام الموقع",
-          "body": "هذا الموقع مخصص للتعرّف على Muse Studios والتواصل بشأن عمل محتمل. وتوافق على عدم إساءة استخدامه أو التدخل في تشغيله الطبيعي."
+          "body": "هذا الموقع لأغراض التعرف على Muse Studios والتواصل للعمل المحتمل. تتفق على عدم إساءة الاستخدام أو مداخلة التشغيل العادي."
         },
         {
           "heading": "الملكية الفكرية",
-          "body": "جميع محتويات هذا الموقع، بما فيها اسم Muse Studios وشعاره وتصميمه، ملك لـ Muse Studios ولا يجوز إعادة إنتاجها دون إذن."
+          "body": "كل المحتوى على هذا الموقع — اسم Muse Studios، وشعاره، وتصميمه — مملوك لMuse Studios ولا يمكن إعادة إنتاجه بدون إذن."
         },
         {
-          "heading": "إخلاء الضمان",
-          "body": "يُقدَّم هذا الموقع كما هو، دون أي ضمانات صريحة أو ضمنية."
+          "heading": "لا ضمانات",
+          "body": "هذا الموقع يُقدم كما هو، دون أي ضمانات صريحة أو ضمنية."
         },
         {
-          "heading": "تعديل الشروط",
-          "body": "قد نحدّث هذه الشروط من وقت لآخر. واستمرارك في استخدام الموقع بعد التعديل يعني قبولك للشروط المحدّثة."
+          "heading": "تغيير الشروط",
+          "body": "قد نحدّث هذه الشروط من حين لآخر. استخدام الموقع بعد التغييرات يعني موافقتك على النسخة المحدّثة."
         },
         {
-          "heading": "التواصل",
-          "body": "الأسئلة حول هذه الشروط تُرسل إلى info@muse.sa."
+          "heading": "اتصل بنا",
+          "body": "أسئلة عن هذه الشروط؟ أرسلها إلى info@muse.sa."
         }
       ]
     }
   },
   "NotFound": {
     "eyebrow": "404",
-    "title": "هذه الصفحة غير موجودة.",
-    "subtitle": "قد يكون الرابط قديمًا، أو أن الصفحة انتقلت. إليك أين تذهب بدلًا من ذلك.",
+    "title": "هذه الصفحة مو موجودة.",
+    "subtitle": "الرابط قد يكون قديم، أو الصفحة انتقلت. هذه بدائل توجيهية لك.",
     "suggestions": {
       "home": "الرئيسية",
       "explore": "استكشف",
       "about": "من نحن",
-      "contact": "تواصل معنا"
+      "contact": "اتصل بنا"
     }
   },
   "Metadata": {
     "siteName": "Muse",
     "titleTemplate": "%s | Muse",
-    "siteDescription": "فريق منتجات في الرياض. نبني الشيء نفسه، مو العرض اللي يشرحه.",
-    "organizationDescription": "فريق منتجات في الرياض. التحوّل بالذكاء الاصطناعي، وهندسة المنتجات، والتلعيب وتصميم التجربة.",
+    "siteDescription": "فريق منتجات في الرياض. نبني الشيء، مو العرض عنه.",
+    "organizationDescription": "فريق منتجات في الرياض. تحويل ذكاء اصطناعي، هندسة منتجات، وتجربة مكافأة.",
     "home": {
-      "title": "Muse Studios | التحوّل بالذكاء الاصطناعي وهندسة المنتجات، الرياض",
-      "description": "لدى الجميع استراتيجية للذكاء الاصطناعي، وقليلون شغّلوها فعلًا. فريق منتجات في الرياض يعمل على التحوّل بالذكاء الاصطناعي وهندسة المنتجات والتلعيب وتصميم التجربة."
+      "title": "Muse Studios | تحويل ذكاء اصطناعي وهندسة منتجات، الرياض",
+      "description": "نحن لا نبيع. نحن نطلق. Muse هو فريق منتجات في الرياض نعمل على تحويل ذكاء اصطناعي، هندسة منتجات، وتجربة مكافأة."
     },
     "about": {
       "title": "من نحن",
-      "description": "شركة منتجات رقمية في الرياض. نعمل مع الشركات على المنتج والتصميم والهندسة والهوية."
+      "description": "Muse Studios شركة منتجات في الرياض. نشتغل مع الشركات على المنتج والتصميم والهندسة والهوية."
     },
     "explore": {
       "title": "استكشف",
-      "description": "التحوّل بالذكاء الاصطناعي، وهندسة المنتجات، والتلعيب وتصميم التجربة. هذا ما نبنيه، وكيف نبنيه."
+      "description": "تحويل ذكاء اصطناعي، هندسة منتجات، وتجربة مكافأة. ما يبنيه Muse، وكيف."
     },
     "careers": {
-      "title": "الوظائف",
-      "description": "انضم إلى فريقنا الصغير من أصحاب الخبرة، الذي يبني من الرياض."
+      "title": "وظائف",
+      "description": "انضم للفريق الصغير والمتمركز في الرياض نحو بناء Muse Studios."
     },
     "newsletter": {
-      "title": "النشرة البريدية",
-      "description": "تصلك ملاحظاتنا الميدانية عن التحوّل بالذكاء الاصطناعي والهندسة في بريدك."
+      "title": "نشرة الأخبار",
+      "description": "احصل على ملاحظات Muse Studios عن تحويل الذكاء الاصطناعي والهندسة في صندوق الواردات."
     },
     "contact": {
-      "title": "تواصل معنا",
-      "description": "أخبرنا بما تبنيه. تواصل معنا على واتساب أو البريد الإلكتروني أو حساباتنا."
+      "title": "اتصل بنا",
+      "description": "أخبرنا بماذا تبني. سنخبرك بتكلفة ذلك، وإن كنا الفريق المناسب."
     },
     "getStarted": {
       "title": "ابدأ الآن",
-      "description": "أخبرنا بما تبنيه. كل مشروع نشتغله نسلّمه لك وهو يعمل فعلًا."
+      "description": "استعد للبناء مع Muse؟ من هندسة منتجات إلى تحويل ذكاء اصطناعي كامل."
     },
     "privacy": {
       "title": "سياسة الخصوصية",
-      "description": "كيف نجمع معلوماتك ونستخدمها ونحميها."
+      "description": "سياسة خصوصية Muse Studios."
     },
     "terms": {
       "title": "شروط الخدمة",
-      "description": "الشروط التي تحكم استخدام هذا الموقع وخدماتنا."
+      "description": "شروط خدمة Muse Studios."
+    },
+    "services": {
+      "overview": {
+        "title": "خدمات",
+        "description": "تحويل ذكاء اصطناعي، هندسة منتجات، واجهة علامة تجارية، وتجربة مكافأة."
+      }
     }
-  },
-  "LanguageSwitcher": {
-    "ar": "العربية",
-    "en": "English"
   }
 }
