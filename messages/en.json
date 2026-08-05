@@ -82,13 +82,13 @@
     "theStandard": {
       "eyebrow": "The standard we hold",
       "heading": "Muse is the quality bar. The other choice.",
-      "paragraph1": "We've seen what bad looks like. We know what good looks like. The difference isn't talent — it's whether you're willing to do the work that nobody sees.",
-      "paragraph2": "Real data in every state. Every edge case designed. Nothing ships that we wouldn't use ourselves. That's not a slogan — it's a written checklist we run on every release.",
-      "paragraph3": "The founder spent years shipping enterprise applications at PIF-level organizations. That experience isn't the story — it's the reason the standard exists. Muse is the line.",
+      "paragraph1": "We've seen what bad looks like. We know what good looks like. The difference isn't talent. It's whether you're willing to do the work that nobody sees.",
+      "paragraph2": "Real data in every state. Every edge case designed. Nothing ships that we wouldn't use ourselves. That's not a slogan. It's a written checklist we run on every release.",
+      "paragraph3": "The founder spent years shipping enterprise applications at PIF-level organizations. That experience isn't the story. It's the reason the standard exists. Muse is the line.",
       "pillars": [
         {
           "title": "Real data, every state",
-          "body": "No lorem ipsum in reviews. No happy-path-only designs. Empty states, error states, loading states — all real, all reviewed."
+          "body": "No lorem ipsum in reviews. No happy-path-only designs. Empty states, error states, loading states, all real, all reviewed."
         },
         {
           "title": "Stakeholder-friendly by default",
