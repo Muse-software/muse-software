@@ -1,7 +1,7 @@
 ---
 type: note
 created: 2026-07-31
-updated: 2026-08-05
+updated: 2026-08-07
 tags: [marketing, product]
 status: active
 ---
@@ -11,6 +11,17 @@ status: active
 What is actually built, read off the code on 2026-07-31, not off the plan. [[Marketing]] and [[Home]] both still say "In progress", which understates it. The site is close to complete as a build and blocked on content honesty, not on engineering.
 
 This note is the state of the thing. It does not replace [[Deck Copy v0.03]], which is the copy source.
+
+## Update 2026-08-07: Effects and 3D pass
+
+Full detail in [[2026-08-07 Effects and 3D Implementation]]. Short version:
+
+- **Shipped to production:** a hover pull wrapper on the Hero contact link and the closing CTA button, and a pointer following SVG reticle mounted globally. Neither changes what the site says, both are pure interaction polish, zero new WebGL contexts between them.
+- **Built, not shipped:** a wave carousel variant of the ProofWall section, using the same case study content the live grid uses. It stays a demo for now. The plan gates the swap on a live WebGL context count and an LCP and CLS comparison against the grid, and the environment this was built in has no GPU to run that check honestly. The grid keeps shipping until that QA runs somewhere that can.
+- **A `/demo` showcase**, noindex, not part of the site a visitor sees: the carousel above, three real Khronos character models (KayKit, the intended stylised direction, needs a manual itch.io download that could not be scripted, so it is not in the repo yet), a curated slice of drei's component library, and a documented but not run Meshy AI 3D pipeline (no paid plan or key exists here, so nothing was generated or faked).
+- **Update 2026-08-07, acceptance fixes:** an independent QA pass on the demo routes found and fixed three real bugs — a mobile overflow on `/demo/ai-3d` from an unbroken code string, the demo layout's noindex banner sitting under the fixed site header, and an overly strict QA-script classifier misreading a harmless three.js deprecation warning as a genuine WebGL failure. Full detail and re-verification in [[2026-08-07 Effects and 3D Implementation]]. Still no GPU in this environment, so the plan's own live-WebGL and LCP/CLS gate for the ProofWall swap is still unmet — this pass fixed real bugs, it did not clear that gate.
+
+None of this touches copy, content honesty, or the open items in [[#Before this gets traffic]] below. It is a separate, purely technical track.
 
 ## Update 2026-08-05: Three homepage directions
 

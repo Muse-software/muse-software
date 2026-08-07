@@ -72,7 +72,7 @@ export default async function Ai3dDemoPage({ params }: Props) {
             </p>
             <ol className="mt-4 list-decimal space-y-2 ps-6 text-white/70">
               <li>
-                <code className="text-white/90">
+                <code className="text-white/90 break-all">
                   POST https://api.meshy.ai/openapi/v1/image-to-3d
                 </code>{" "}
                 with a Muse-owned image (local file or URL) and{" "}

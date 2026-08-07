@@ -28,7 +28,13 @@ export default async function DemoLayout({
   setRequestLocale(locale);
 
   return (
-    <div className="min-h-screen bg-[#060608] text-white">
+    // `SiteHeader` (in the root layout above this one) is `fixed top-0`, not
+    // part of normal flow, so it doesn't push this div down on its own —
+    // measured via its actual rendered `getBoundingClientRect()` at 78px tall
+    // (identical at 390px and 1440px; it only widens, never grows taller).
+    // `pt-24` (96px) clears that with headroom instead of guessing a
+    // negative-margin nudge.
+    <div className="min-h-screen bg-[#060608] pt-24 text-white">
       <div className="border-b border-white/10 bg-[#fd4601]/10 px-5 py-3 text-center text-sm md:px-10">
         <Link href="/demo" className="font-medium underline underline-offset-2">
           Demo index

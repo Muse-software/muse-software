@@ -26,11 +26,14 @@
  * Chromium (confirmed even with `--use-gl=swiftshader`) — every WebGL
  * surface, old (Hero's PixelBlast, DitherCursor) or new (Phases E1/F/G),
  * fails `WebGLRenderer: Error creating WebGL context` here regardless of
- * anything this plan changed. `isKnownEnvironmentLimitation()` below tags
- * results whose *only* console/page errors match that exact signature so the
- * summary can distinguish "known sandbox limitation" from a real regression
- * — it still counts as a failure (`isPass()` doesn't special-case it), it's
- * just labeled. Run this harness on a machine/CI runner with real or
+ * anything this plan changed. Every route mounting an R3F `<Canvas>` also
+ * logs one `THREE.THREE.Clock` deprecation warning from three.js/R3F's own
+ * internals, unrelated to this environment gap. `isKnownEnvironmentLimitation()`
+ * below tags results whose ERROR/PAGEERROR messages all match the WebGL
+ * signature *and* whose only WARNING (if any) is that exact deprecation text
+ * so the summary can distinguish "known sandbox limitation" from a real
+ * regression — it still counts as a failure (`isPass()` doesn't special-case
+ * it), it's just labeled. Run this harness on a machine/CI runner with real or
  * software GPU support for a meaningful console-error signal on WebGL
  * routes; until then, treat every `knownLimitation: true` row as untested
  * rather than passing or failing.
@@ -86,9 +89,27 @@ const KNOWN_ENVIRONMENT_ERROR_PATTERNS = [
   /Could not create a WebGL context/i,
 ];
 
+// three.js/R3F's own deprecation notice, logged once per mounted `<Canvas>`
+// regardless of GPU availability — not a symptom of this sandbox's missing
+// WebGL, so it's checked for an exact match rather than folded into the
+// WebGL patterns above.
+const THREE_CLOCK_DEPRECATION_WARNING =
+  "THREE.THREE.Clock: This module has been deprecated. Please use THREE.Timer instead.";
+
 function isKnownEnvironmentLimitation(result) {
-  const messages = [...result.consoleEntries.map((e) => e.text), ...result.pageErrors];
-  return messages.length > 0 && messages.every((m) => KNOWN_ENVIRONMENT_ERROR_PATTERNS.some((re) => re.test(m)));
+  const errorMessages = [
+    ...result.consoleEntries.filter((e) => e.type === "error").map((e) => e.text),
+    ...result.pageErrors,
+  ];
+  const warningMessages = result.consoleEntries
+    .filter((e) => e.type === "warning")
+    .map((e) => e.text);
+
+  return (
+    errorMessages.length > 0 &&
+    errorMessages.every((m) => KNOWN_ENVIRONMENT_ERROR_PATTERNS.some((re) => re.test(m))) &&
+    warningMessages.every((m) => m === THREE_CLOCK_DEPRECATION_WARNING)
+  );
 }
 
 async function checkRoute(browser, route, viewport, { reducedMotion }) {
