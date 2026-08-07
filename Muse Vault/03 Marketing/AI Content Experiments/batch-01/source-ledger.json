@@ -1,0 +1,173 @@
+{
+  "version": 1,
+  "sources": [
+    {
+      "id": 1,
+      "url": "https://www.anthropic.com/news/claude-opus-5",
+      "title": "",
+      "accessed": "2026-08-05"
+    },
+    {
+      "id": 2,
+      "url": "https://techcrunch.com/2026/07/09/openai-launches-its-new-family-of-models-with-gpt-5-6",
+      "title": "",
+      "accessed": "2026-08-05"
+    },
+    {
+      "id": 3,
+      "url": "https://techcrunch.com/2026/07/21/google-releases-three-new-gemini-models-but-no-3-5-pro",
+      "title": "",
+      "accessed": "2026-08-05"
+    },
+    {
+      "id": 4,
+      "url": "https://github.blog/changelog/2026-07-30-github-copilot-in-visual-studio-code-july-2026-releases",
+      "title": "",
+      "accessed": "2026-08-05"
+    },
+    {
+      "id": 5,
+      "url": "https://www.figma.com/blog/config-2026-recap",
+      "title": "",
+      "accessed": "2026-08-05"
+    },
+    {
+      "id": 6,
+      "url": "https://arxiv.org/abs/2512.07795",
+      "title": "",
+      "accessed": "2026-08-05"
+    },
+    {
+      "id": 7,
+      "url": "https://www.apa.org/news/press/releases/2026/04/overreliance-ai-undermine-confidence",
+      "title": "",
+      "accessed": "2026-08-05"
+    },
+    {
+      "id": 8,
+      "url": "https://leaddev.com/ai/code-maintainability-plummets-in-the-ai-coding-era",
+      "title": "",
+      "accessed": "2026-08-05"
+    },
+    {
+      "id": 9,
+      "url": "https://metr.org/blog/2025-07-10-early-2025-ai-experienced-os-dev-study",
+      "title": "",
+      "accessed": "2026-08-05"
+    },
+    {
+      "id": 10,
+      "url": "https://metr.org/blog/2026-02-24-uplift-update",
+      "title": "",
+      "accessed": "2026-08-05"
+    },
+    {
+      "id": 11,
+      "url": "https://www.thoughtworks.com/en-us/insights/reports/the-2025-dora-report",
+      "title": "",
+      "accessed": "2026-08-05"
+    },
+    {
+      "id": 12,
+      "url": "https://survey.stackoverflow.co/2025/ai",
+      "title": "",
+      "accessed": "2026-08-05"
+    },
+    {
+      "id": 13,
+      "url": "https://huggingface.co/blog/tiiuae/qimma-arabic-leaderboard",
+      "title": "",
+      "accessed": "2026-08-05"
+    },
+    {
+      "id": 14,
+      "url": "https://arxiv.org/abs/2604.03395",
+      "title": "",
+      "accessed": "2026-08-05"
+    },
+    {
+      "id": 15,
+      "url": "https://arxiv.org/abs/2603.16397",
+      "title": "",
+      "accessed": "2026-08-05"
+    },
+    {
+      "id": 16,
+      "url": "https://9to5google.com/2026/07/24/anthropic-claude-opus-5",
+      "title": "",
+      "accessed": "2026-08-05"
+    },
+    {
+      "id": 17,
+      "url": "https://www.nextgov.com/artificial-intelligence/2026/07/openai-gpt-56",
+      "title": "",
+      "accessed": "2026-08-05"
+    },
+    {
+      "id": 18,
+      "url": "https://gcn.com/artificial-intelligence/2026/07/google-gemini-36-flash",
+      "title": "",
+      "accessed": "2026-08-05"
+    },
+    {
+      "id": 19,
+      "url": "https://dev.to/leobaniak/github-copilot-in-vs-code-july-2026-worktree-sessions",
+      "title": "",
+      "accessed": "2026-08-05"
+    },
+    {
+      "id": 20,
+      "url": "https://www.eurekalert.org/news-releases/1080243",
+      "title": "",
+      "accessed": "2026-08-05"
+    },
+    {
+      "id": 21,
+      "url": "https://techxplore.com/news/2026-04-overreliance-ai-confidence.html",
+      "title": "",
+      "accessed": "2026-08-05"
+    },
+    {
+      "id": 22,
+      "url": "https://doi.org/10.1037/xge0000033",
+      "title": "",
+      "accessed": "2026-08-05"
+    },
+    {
+      "id": 23,
+      "url": "https://doi.org/10.1016/j.obhdp.2018.12.005",
+      "title": "",
+      "accessed": "2026-08-05"
+    },
+    {
+      "id": 24,
+      "url": "https://9to5google.com/2026/07/24/anthropic-launches-claude-opus-5",
+      "title": "",
+      "accessed": "2026-08-05"
+    },
+    {
+      "id": 25,
+      "url": "https://www.nextgov.com/artificial-intelligence/2026/07/openais-advanced-gpt-56-models-be-available-public/414651",
+      "title": "",
+      "accessed": "2026-08-05"
+    },
+    {
+      "id": 26,
+      "url": "https://gcn.com/google-launches-gemini-flash-cybersecurity-model/19924",
+      "title": "",
+      "accessed": "2026-08-05"
+    },
+    {
+      "id": 27,
+      "url": "https://dev.to/leobaniak/copilot-in-vs-code-gives-each-agent-session-its-own-git-worktree-3j5n",
+      "title": "",
+      "accessed": "2026-08-05"
+    },
+    {
+      "id": 28,
+      "url": "https://techxplore.com/news/2026-04-overreliance-ai-undermine-confidence.html",
+      "title": "",
+      "accessed": "2026-08-05"
+    }
+  ]
+}

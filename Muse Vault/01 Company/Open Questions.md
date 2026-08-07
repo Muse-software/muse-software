@@ -10,56 +10,38 @@ tags: [company, strategy, decision]
 
 What is genuinely unresolved. Each one blocks real work, so each needs a decision rather than more discussion. When you settle one, record it in [[Decision Log]] and update the relevant note.
 
-Five questions were resolved on 2026-07-30 and are recorded in [[Decision Log]]: the visual identity, the deck copy, the capacity split, whether marketing is a pillar, and whether productised local business software is a line. Do not reopen them by accident.
+Five questions were resolved on 2026-07-30 and are recorded in [[Decision Log]]: the visual identity, the deck copy, the capacity split, whether marketing is a pillar, and whether productised local business software is a line. Four more were resolved or given a written framework on 2026-08-07: the name, the adaptation boundary policy, the traction framework, and the first venture category. Do not reopen any of these by accident.
 
-## 1. The name
+## 1. The name — resolved 2026-08-07
 
-"Muse" is heavily used, including a well known writing app, a band, and various studios. Before spending on signage, domains or trademark filing:
+Muse is final. Abdullah owns muse.sa and the entity holds a registered trademark in Saudi Arabia. See [[Decision Log]].
 
-- [ ] Trademark availability in the relevant classes in Saudi Arabia
-- [ ] The GCC, and any market worth expanding into
-- [ ] Domain situation, and what you are actually willing to pay
-- [ ] Social handles consistent across platforms, which is also part of [[Channels#Activation checklist]]
-- [ ] Sanity check "Muse Studios" against existing Saudi companies on the commercial register
+Still open, tracked under [[Channels#Activation checklist]] rather than here:
 
-Not a reason to change the name. A reason to know what you are walking into. More urgent now than it was, since the accounts are about to be activated and the website is being built.
+- [ ] Social handles consistent across platforms
+- [ ] Sanity check "Muse Studios" against existing Saudi companies on the commercial register, if not already done
 
-## 2. How close is too close
+## 2. How close is too close — policy written 2026-08-07
 
-The philosophy is to adapt proven products, see [[Product Philosophy]]. The named references are real, live products with owners. There is a wide gap between studying why Strong's logging flow works and shipping Strong with Arabic strings.
+Full policy in [[Adaptation Boundary Research]]. Short version: take the idea and functional layer, problem definition, information architecture, interaction patterns, category conventions. Never take brand assets, verbatim copy, proprietary data, or anything patented. Saudi Arabia enforces foreign IP under Berne and TRIPS via SAIP.
 
-This is the most important gap in the vault, because the whole venture model starts from someone else's product. Needs a written policy covering:
+What remains open, and this is the part that stays open forever by design: **every individual venture still needs its own legal review against this policy before launch**, especially anything that closely mirrors one named competitor. The policy does not replace a lawyer, it tells you when to call one.
 
-- What we take: problem definition, information architecture, interaction patterns, category conventions
-- What we never take: brand assets, copy, proprietary data, distinctive visual identity, anything patented
-- What we must add: real local depth, a genuinely better experience, our own identity
-- Who reviews it, and at what point in the process
-- Where the legal line is, checked with someone qualified rather than assumed
+## 3. What counts as traction — framework written 2026-08-07
 
-Write it once, keep it in [[Playbooks]], and hold every venture against it before launch.
+Full research in [[Traction and Metrics Research]]. One metric per venture, chosen by product shape and stage, most credible for MVP validation is retention curve flattening, not signups. Kill and invest lines set in writing before launch, reviewed weekly at a glance, decided for real at 4 to 8 weeks with two comparable cohorts.
 
-## 3. What counts as traction
+For V-004, the exec assistant, the directional starting point is weekly active use at week 4 plus a real pay-to-continue signal. Still open: Abdullah signing off the actual kill and invest numbers before the MVP ships, and setting the review date in the calendar on launch day, see [[Venture Pipeline#Traction gate]].
 
-The venture model says publish, then invest in whatever shows signs of life, see [[Venture Pipeline#Traction gate]]. Nobody has said what a sign of life is.
+## 4. Which category we start in — spread decided, first venture decided, list still narrow
 
-Needs a number per venture, set before launch rather than after:
+Two things were settled here on 2026-08-07 and one is still open.
 
-- The one metric that says it is working, see [[Measurement]]
-- The value of that metric that would justify real investment
-- The value below which we move on
-- The review date, in the calendar, set on launch day
+**Wedge or spread: spread, decided.** One product per domain, never two. See [[Ventures#Wedge or spread, decided]].
 
-Without this the gate becomes a conversation, and a product with no users and no decision keeps drawing attention for a year.
+**First venture: decided.** V-004, an AI executive assistant and employee hub, Saudi hosted, not gated by Microsoft or Azure, built on the Hermes agent framework. See [[Ventures#First real venture, decided]] and the venture card in `02 Ventures/Venture Card - Executive Assistant.docx`.
 
-## 4. Which category we start in
-
-Wide open, and currently under discussed. The three candidates in [[Ventures]] are all health and fitness, but that is an artefact of one conversation in which fitness was used to explain what deep localisation means, not a choice of domain. See [[Product Philosophy#A worked example]].
-
-Two things to settle, in this order:
-
-**Widen the candidate list first.** Choosing from three ideas that all came from the same fifteen minutes is not choosing. The method in [[Product Philosophy]] works on any category where a proven product exists and nobody has built the local version properly, which is a large space. [[Inspiration Library]] is where that list should grow.
-
-**Then decide wedge or spread,** see [[Ventures#Wedge or spread]]. Several products in one domain sharing an audience, or the best candidate wherever it appears. The answer changes what content [[Marketing]] should be building an audience for, so it is worth settling before the audience is built around the wrong thing.
+**Still open: the candidate list for the second venture is still narrow.** The three fitness candidates in [[Ventures]] remain reference examples only, from one conversation about localisation depth, not a real shortlist. [[Inspiration Library Playbook]] is now written and ready for any agent to run, to widen the list across many domains before Abdullah picks the next one.
 
 ## 5. Which audience we build first
 

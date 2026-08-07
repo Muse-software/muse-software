@@ -99,6 +99,7 @@ The production model matters more than the content calendar. A calendar full of 
 
 The single most important section in this note.
 
+- **Batch system.** The `AI Content Experiments` folder (`03 Marketing/AI Content Experiments/`) holds a repeatable batch workflow: research → source-backed experiments → threads → PDF → measurement log. Batch 01 produced six source-backed carousel/thread concepts in Muse voice with interaction plans. Reuse the structure for future batches instead of starting from scratch.
 - **Keep a buffer.** Aim for two to four weeks of finished content scheduled ahead. Build the buffer when the studio is quiet, which is exactly when [[Business Lines#Capacity rule]] says to work on this
 - **Client work is content.** With permission, the work we are being paid for feeds pillars 1, 3 and 4. That is the cheapest possible content, since it is already happening
 - **Drop the cadence deliberately.** If a month has to be lighter, say so and pick a reduced rhythm on purpose. Silence with no explanation is what reads as abandoned

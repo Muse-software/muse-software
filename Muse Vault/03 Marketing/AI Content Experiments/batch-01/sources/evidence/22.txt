@@ -1,0 +1,47 @@
+{
+  "id": 22,
+  "title": "Algorithm aversion: People erroneously avoid algorithms after seeing them err.",
+  "date": "2014-11-17",
+  "doi": "https://doi.org/10.1037/xge0000033",
+  "primary_location": {
+    "id": "doi:10.1037/xge0000033",
+    "is_oa": false,
+    "landing_page_url": "https://doi.org/10.1037/xge0000033",
+    "pdf_url": null,
+    "source": {
+      "id": "https://openalex.org/S62013203",
+      "display_name": "Journal of Experimental Psychology General",
+      "issn_l": "0096-3445",
+      "issn": [
+        "0096-3445",
+        "1939-2222"
+      ],
+      "is_oa": false,
+      "is_in_doaj": false,
+      "is_core": true,
+      "host_organization": "https://openalex.org/P4310320262",
+      "host_organization_name": "American Psychological Association",
+      "host_organization_lineage": [
+        "https://openalex.org/P4310320262"
+      ],
+      "host_organization_lineage_names": [
+        "American Psychological Association"
+      ],
+      "type": "journal"
+    },
+    "license": null,
+    "license_id": null,
+    "version": "publishedVersion",
+    "is_accepted": true,
+    "is_published": true,
+    "raw_source_name": "Journal of Experimental Psychology: General",
+    "raw_type": "journal-article"
+  },
+  "open_access": {
+    "is_oa": false,
+    "oa_status": "closed",
+    "oa_url": null,
+    "any_repository_has_fulltext": false
+  },
+  "abstract": "Research shows that evidence-based algorithms more accurately predict the future than do human forecasters. Yet when forecasters are deciding whether to use a human forecaster or a statistical algorithm, they often choose the human forecaster. This phenomenon, which we call algorithm aversion, is costly, and it is important to understand its causes. We show that people are especially averse to algorithmic forecasters after seeing them perform, even when they see them outperform a human forecaster. This is because people more quickly lose confidence in algorithmic than human forecasters after seeing them make the same mistake. In 5 studies, participants either saw an algorithm make forecasts, a human make forecasts, both, or neither. They then decided whether to tie their incentives to the future predictions of the algorithm or the human. Participants who saw the algorithm perform were less confident in it, and less likely to choose it over an inferior human forecaster. This was true even among those who saw the algorithm outperform the human."
+}

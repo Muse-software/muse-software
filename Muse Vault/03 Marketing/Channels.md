@@ -56,6 +56,19 @@ Followers on any platform are rented. The algorithm changes and the audience is 
 - An email list is ours, and worth starting earlier than feels necessary. The free assets in [[Content Engine]] are the natural reason for someone to give an address
 - A WhatsApp channel or community is worth considering, since WhatsApp is where people here actually are, see [[Localization Playbook#Channels]]
 
+## Batch system reference
+
+The `AI Content Experiments` folder (`03 Marketing/AI Content Experiments/`) contains a complete repeatable workflow for producing source-backed social content batches. Batch 01 produced six carousel/thread concepts with:
+
+- Source register with live re-verification on build day
+- Full carousel copy and ready-to-paste X threads
+- Posting playbooks with founder interaction plans
+- Primary metric per experiment for comparison
+- Muse-branded PDF for stakeholder review
+- Post-log template for tracking real engagement data
+
+Reuse this structure for future social content batches. The `README.md` inside `batch-01/` documents the build and verification commands.
+
 ## Open
 
 - [ ] Fill in the real handles above

@@ -45,6 +45,12 @@ What it is actually for, in order of how soon it pays off:
 
 First job is [[Channels#Activation checklist]]. Accounts that exist with no logo and no posts read as abandoned, which is worse than not existing.
 
+## Repeatable batch system
+
+The `AI Content Experiments` folder (`03 Marketing/AI Content Experiments/`) is a reusable workflow for producing source-backed social content batches. Batch 01 delivered six carousel/thread concepts with verified sources, posting playbooks, primary metrics, and a branded PDF. Future batches reuse the same structure instead of starting from scratch.
+
+**New-session handoff:** Read [[AI Content Batch Production]] for the complete self-contained playbook. It tells a future agent exactly how to research new subjects, build a new batch, verify every claim, generate the Muse-branded PDF, and prepare the measurement log.
+
 ## The voice
 
 Close to people, not corporate. See [[Brand Voice#The public voice]]. This is the single most important instruction in this folder and the easiest one to lose the moment someone writes a caption that sounds like a press release.

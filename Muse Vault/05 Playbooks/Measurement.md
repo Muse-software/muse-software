@@ -67,6 +67,17 @@ Same discipline, different numbers. [[Marketing]] is the pillar most easily meas
 
 **No invented numbers, ever.** Not in a deck, a pitch, or a post, see [[Audience Research#Rules]].
 
+## Content batch measurement
+
+The `AI Content Experiments` batch system (`03 Marketing/AI Content Experiments/`) applies the same discipline to social content. Each experiment declares its own primary metric (saves, substantive replies, quote posts, or real conversations) and a success hypothesis. The `post-log.md` template captures per-post results using primary-action rate (primary metric count per 1,000 reached) so small posts with high engagement rates can beat large posts with low ones.
+
+Key principles from the batch system:
+- One primary metric per post, chosen by the post's job
+- Rate over raw totals for fair comparison across reach gaps
+- Six posts show direction, not proof — re-run winners before scaling
+- Read every substantive reply and DM; recurring questions become the next content calendar
+- Secondary diagnostics (followers, likes, impressions) tracked but never celebrated alone
+
 ## Rhythm
 
 - **Weekly**, glance at the one metric per live product during [[Weekly Review]], plus whether content went out

@@ -61,6 +61,10 @@ The model that works:
 
 The risk to accept knowingly: reach built on a person leaves when the person leaves. That is a fair trade for reach that actually exists, and the mitigation is more than one person doing it plus the owned surfaces in [[Channels#Owned versus rented]].
 
+## Batch content system
+
+The `AI Content Experiments` system (`03 Marketing/AI Content Experiments/`) produces source-backed social batches designed for the personal-account model. Each experiment includes a founder interaction plan for the first 24 hours: useful replies before posting, substantive engagement after posting, and quote-post targets that extend the conversation. This operationalises the personal-account-first approach at batch level.
+
 ## What we will not trade the audience for
 
 Trust is the asset. Everything on this page depends on it, and it is easier to keep than to rebuild.

@@ -1,0 +1,47 @@
+{
+  "id": 23,
+  "title": "Algorithm appreciation: People prefer algorithmic to human judgment",
+  "date": "2019-02-06",
+  "doi": "https://doi.org/10.1016/j.obhdp.2018.12.005",
+  "primary_location": {
+    "id": "doi:10.1016/j.obhdp.2018.12.005",
+    "is_oa": false,
+    "landing_page_url": "https://doi.org/10.1016/j.obhdp.2018.12.005",
+    "pdf_url": null,
+    "source": {
+      "id": "https://openalex.org/S64744539",
+      "display_name": "Organizational Behavior and Human Decision Processes",
+      "issn_l": "0749-5978",
+      "issn": [
+        "0749-5978",
+        "1095-9920"
+      ],
+      "is_oa": false,
+      "is_in_doaj": false,
+      "is_core": true,
+      "host_organization": "https://openalex.org/P4310320990",
+      "host_organization_name": "Elsevier BV",
+      "host_organization_lineage": [
+        "https://openalex.org/P4310320990"
+      ],
+      "host_organization_lineage_names": [
+        "Elsevier BV"
+      ],
+      "type": "journal"
+    },
+    "license": null,
+    "license_id": null,
+    "version": "publishedVersion",
+    "is_accepted": true,
+    "is_published": true,
+    "raw_source_name": "Organizational Behavior and Human Decision Processes",
+    "raw_type": "journal-article"
+  },
+  "open_access": {
+    "is_oa": false,
+    "oa_status": "closed",
+    "oa_url": null,
+    "any_repository_has_fulltext": false
+  },
+  "abstract": ""
+}

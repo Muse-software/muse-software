@@ -11,13 +11,30 @@ Pillar one. Our own products, and where company value accumulates. The approach 
 
 Owned by the design lead, whose main focus stays here so this pillar does not stop every time an engagement lands. Technical support comes in early rather than at handover, see [[Business Lines#Who owns what]].
 
+## First real venture, decided
+
+**V-004, Executive Assistant / Employee Hub.** An AI executive assistant for Saudi professionals and small teams: one person, one AI colleague that delegates to specialist agents behind the scenes, fully personalized, Saudi data hosted, not gated by Microsoft or Azure. Built on the Hermes agent framework. Full venture card in `Venture Card - Executive Assistant.docx`, logo pack in `Muse_Venture_Executive_Assistant_Logo_Pack.zip`.
+
+This is inspired by a similar internal product Lean (Abdullah's day job) is building, the Virtual Employee Hub. Muse's version is not a copy: same shape of idea (one assistant, many specialist agents behind it), different market, different implementation, different visual identity. Read [[Adaptation Boundary Research]] before finalizing any UI, copy, or interaction pattern, since this is the venture where the adaptation boundary question matters most directly.
+
+Traction gate and metric to be set from [[Traction and Metrics Research]] before MVP ships, not after.
+
+## Wedge or spread, decided
+
+**Spread.** One product per domain, not several products in one domain. Confirmed by Abdullah 2026-08-07. The three original fitness candidates below were one conversation's illustration of localisation depth, not a chosen wedge, and stay as reference examples, not a live shortlist.
+
+## Widening the candidate list
+
+The candidate list needs to be wider than three ideas from one domain before the second venture is chosen. See [[Inspiration Library Playbook]] for the repeatable process: how to source proven products across many domains, score them, and log candidates for Abdullah to pick from. Any future agent can run this process from that document alone.
+
 ## Candidates so far
 
 | Venture | Stage | Category | Reference | Owner |
 |---|---|---|---|---|
-| [[V-001 Workout Tracker]] | Idea | Consumer fitness | Strong | unassigned |
-| [[V-002 Nutrition Tracker]] | Idea | Consumer health | Lose It! | unassigned |
-| [[V-003 Walking Game]] | Idea | Fitness gamification | Zombies Run style | unassigned |
+| [[V-001 Workout Tracker]] | Idea, reference example only | Consumer fitness | Strong | unassigned |
+| [[V-002 Nutrition Tracker]] | Idea, reference example only | Consumer health | Lose It! | unassigned |
+| [[V-003 Walking Game]] | Idea, reference example only | Fitness gamification | Zombies Run style | unassigned |
+| V-004 Executive Assistant | Decided, first build | AI productivity, B2B and prosumer | Lean's Virtual Employee Hub, international AI assistant products | Abdullah |
 
 Stage definitions in [[Venture Pipeline]]. Quick filter in [[Idea Scoring]].
 
