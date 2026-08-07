@@ -114,3 +114,23 @@ the root ledger convention:
 - **Not committed:** BrainStem (Poser EULA — redistribution not permitted, plan §6/§7 R-7) and
   KayKit Adventurers (CC0, but itch.io's download needs a manual claim click this environment
   cannot script — plan §11 R-8; see the ATTRIBUTION.md above for the exact drop-in path).
+
+## Meshy AI 3D (`scripts/ai-3d/meshy-generate.mjs`, `app/[locale]/demo/ai-3d`)
+
+- API: https://docs.meshy.ai — no code is vendored, this is a REST client written against
+  their documented Image-to-3D endpoint.
+- **No model committed.** There is no `MESHY_API_KEY` (needs a paid plan, plan §11 R-6) in
+  this environment, so the script has never produced output. `app/[locale]/demo/ai-3d` renders
+  documentation + an honest empty state instead — no placeholder or faked GLB exists anywhere
+  in this repo standing in for a real Meshy result. See `public/models/ai/README.md`.
+- If/when a model is generated: free-tier Meshy output is **CC-BY 4.0** (credit Meshy); a Pro
+  plan grants full ownership. Either way, commercial use also needs rights to the *input*
+  image (Muse-owned only — the script's own usage note repeats this).
+
+## TRELLIS / TripoSR — documented only, not installed (plan L3)
+
+- `microsoft/TRELLIS` (MIT) and `VAST-AI-Research/TripoSR` (MIT) are self-hosted image/text-
+  to-3D alternatives to Meshy's hosted API. **Neither is installed in this repo** — both need a
+  real GPU to run inference, which this environment (and most CI/build environments) doesn't
+  have. Documented in `app/[locale]/demo/ai-3d` for completeness per L3; no code, weights, or
+  dependency from either project is present here.

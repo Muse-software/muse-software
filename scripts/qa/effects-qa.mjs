@@ -72,6 +72,8 @@ export const ROUTES = [
   { path: "/ar/demo/drei", noindex: true },
   { path: "/en/demo/characters", noindex: true },
   { path: "/ar/demo/characters", noindex: true },
+  { path: "/en/demo/ai-3d", noindex: true },
+  { path: "/ar/demo/ai-3d", noindex: true },
 ];
 
 // Every message so far attributable to this sandbox lacking a GPU (and

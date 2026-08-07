@@ -63,6 +63,12 @@ const DEMOS: { href: string; title: string; description: string; status: string 
     description: "Khronos Fox / Cesium Man / Rigged Simple, looping animation, drag-to-orbit.",
     status: "Demo-only — KayKit deferred (itch.io download needs a manual claim click)",
   },
+  {
+    href: "/ai-3d",
+    title: "AI 3D (Meshy)",
+    description: "Documented Meshy image-to-3D pipeline; TRELLIS/TripoSR documented, not installed.",
+    status: "Generation blocked — no MESHY_API_KEY/paid plan here; honest empty state, no faked asset",
+  },
 ];
 
 export default async function DemoIndexPage({ params }: Props) {
