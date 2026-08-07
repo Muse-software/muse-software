@@ -5,6 +5,7 @@ import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import Footer from "@/components/Footer";
 import PageLoader from "@/components/PageLoader";
+import SmoothScrollProvider from "@/components/SmoothScrollProvider";
 import { allSocials } from "@/components/SocialLinks";
 import { routing, localeDirection, type Locale } from "@/i18n/routing";
 import { fontVariables } from "@/lib/fonts";
@@ -104,26 +105,28 @@ export default async function LocaleLayout({
           missing namespace — so the whole catalogue is passed deliberately.
         */}
         <NextIntlClientProvider>
-          <a href="#main-content" className="skip-link">
-            {common("skipToContent")}
-          </a>
-          <PageLoader />
-          {/*
-            The header needs no RTL prop of its own. It is a centred pill whose
-            inner row is a flex `justify-between`, so `dir` swaps the logo and
-            the toggle for free, and the card grid below reflows the same way.
-            Everything directional inside it (the link nudge on hover, the
-            up-and-out arrow) is handled there with logical properties and
-            `.arrow-inline`.
+          <SmoothScrollProvider>
+            <a href="#main-content" className="skip-link">
+              {common("skipToContent")}
+            </a>
+            <PageLoader />
+            {/*
+              The header needs no RTL prop of its own. It is a centred pill whose
+              inner row is a flex `justify-between`, so `dir` swaps the logo and
+              the toggle for free, and the card grid below reflows the same way.
+              Everything directional inside it (the link nudge on hover, the
+              up-and-out arrow) is handled there with logical properties and
+              `.arrow-inline`.
 
-            Socials are passed in rather than imported inside the component so
-            the canonical list in SocialLinks stays the single source of URLs.
-          */}
-          <SiteHeader socials={allSocials} />
-          <main id="main-content" tabIndex={-1}>
-            {children}
-          </main>
-          <Footer />
+              Socials are passed in rather than imported inside the component so
+              the canonical list in SocialLinks stays the single source of URLs.
+            */}
+            <SiteHeader socials={allSocials} />
+            <main id="main-content" tabIndex={-1}>
+              {children}
+            </main>
+            <Footer />
+          </SmoothScrollProvider>
         </NextIntlClientProvider>
       </body>
     </html>
