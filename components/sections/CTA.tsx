@@ -34,7 +34,10 @@ export default async function CTA() {
 
   return (
     <section className="px-5 py-24 md:px-10 md:py-32">
-      <div className="relative mx-auto w-full max-w-[1400px] overflow-hidden rounded-3xl border border-[#fd4601]/25 bg-black px-6 py-16 text-center text-[#fd4601] md:rounded-[2rem] md:px-12 md:py-24">
+      <div
+        data-no-crosshair
+        className="relative mx-auto w-full max-w-[1400px] overflow-hidden rounded-3xl border border-[#fd4601]/25 bg-black px-6 py-16 text-center text-[#fd4601] md:rounded-[2rem] md:px-12 md:py-24"
+      >
         {/* Decorative, desktop-only, and unmounted until the section is near
             the viewport — see DitherCursor. `absolute` keeps it inside the
             panel's rounded clip instead of covering the page. Orange now, and

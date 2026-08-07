@@ -11,10 +11,20 @@
  *   - a full-page screenshot
  *
  * `ROUTES` grows as each phase lands a new production surface or demo route —
- * it is not meant to be complete after Phase A. WebGL live-context counting
- * (the `GlContextMeter` lift called for in §10) is added once a phase
- * introduces a new WebGL surface (D, E1) via a `window.__museGl` debug
- * counter; until then `contextCount` stays null.
+ * it is not meant to be complete after Phase A. CrosshairCursor (D) is pure
+ * SVG/DOM and adds no WebGL context, so live-context counting (the
+ * `GlContextMeter` lift called for in §10) is deferred until E1's R3F
+ * carousel actually introduces one, via a `window.__museGl` debug counter;
+ * until then `contextCount` stays null.
+ *
+ * Known environment caveat: in a sandboxed/headless container with no GPU and
+ * no software-rendering fallback available to Chromium (confirmed here even
+ * with `--use-gl=swiftshader`), every existing WebGL surface (Hero's
+ * PixelBlast, DitherCursor) fails `WebGLRenderer: Error creating WebGL
+ * context` on `/en` and `/ar` regardless of anything this plan changes — this
+ * is a property of the box running the harness, not a regression. Run this
+ * harness on a machine/CI runner with real or software GPU support for a
+ * meaningful console-error signal on WebGL routes.
  *
  * Run: node scripts/qa/effects-qa.mjs
  */
@@ -33,11 +43,16 @@ const VIEWPORTS = [
 
 export const ROUTES = [
   { path: "/en", noindex: false },
-  { path: "/ar", noindex: false },
+  // /ar is legitimately noindex today — it's an unpublished locale serving
+  // English copy under Arabic chrome (see PUBLISHED_LOCALES in
+  // i18n/routing.ts), not a regression this QA harness should flag.
+  { path: "/ar", noindex: true },
   { path: "/en/demo", noindex: true },
   { path: "/ar/demo", noindex: true },
   { path: "/en/demo/magnetic", noindex: true },
   { path: "/ar/demo/magnetic", noindex: true },
+  { path: "/en/demo/crosshair", noindex: true },
+  { path: "/ar/demo/crosshair", noindex: true },
 ];
 
 async function checkRoute(browser, route, viewport, { reducedMotion }) {

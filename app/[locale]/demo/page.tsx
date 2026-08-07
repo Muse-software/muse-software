@@ -27,6 +27,12 @@ const DEMOS: { href: string; title: string; description: string; status: string 
     description: "Hover-pull wrapper around real CTA components (PillButton, Link).",
     status: "Also production: Hero contact CTA, closing CTA",
   },
+  {
+    href: "/crosshair",
+    title: "Crosshair cursor",
+    description: "SVG reticle that frames hovered interactive elements. Zero WebGL contexts.",
+    status: "Also production: mounted globally in layout.tsx",
+  },
 ];
 
 export default async function DemoIndexPage({ params }: Props) {

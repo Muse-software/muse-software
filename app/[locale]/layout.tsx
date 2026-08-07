@@ -3,6 +3,7 @@ import dynamic from "next/dynamic";
 import { notFound } from "next/navigation";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
+import CrosshairCursor from "@/components/effects/CrosshairCursor";
 import Footer from "@/components/Footer";
 import PageLoader from "@/components/PageLoader";
 import SmoothScrollProvider from "@/components/SmoothScrollProvider";
@@ -109,6 +110,7 @@ export default async function LocaleLayout({
             <a href="#main-content" className="skip-link">
               {common("skipToContent")}
             </a>
+            <CrosshairCursor />
             <PageLoader />
             {/*
               The header needs no RTL prop of its own. It is a centred pill whose

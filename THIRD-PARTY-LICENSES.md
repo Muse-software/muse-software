@@ -38,3 +38,12 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   `usePrefersReducedMotion`/`(pointer:fine)`). No upstream source is
   reproduced, so no MIT notice reproduction is required — recorded here for
   provenance only, per plan §6/§8.
+
+## CrosshairCursor (`components/effects/CrosshairCursor.tsx`)
+
+- Technique source: https://tympanus.net/codrops/ ("CrosshairDistortion" demo), MIT.
+- License: MIT (original demo).
+- **Not a code port**, for the same reason as Magnetic above: original SVG/DOM
+  code (corner-bracket reticle, imperative rAF loop) written for this repo,
+  not a copy of upstream source. No upstream code is reproduced. Recorded here
+  for provenance only, per plan §6/§8.
