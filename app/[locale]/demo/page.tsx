@@ -33,6 +33,12 @@ const DEMOS: { href: string; title: string; description: string; status: string 
     description: "SVG reticle that frames hovered interactive elements. Zero WebGL contexts.",
     status: "Also production: mounted globally in layout.tsx",
   },
+  {
+    href: "/carousel",
+    title: "R3F Carousel",
+    description: "Wavy infinite drag/wheel carousel, GLSL wave-distortion shader, Muse's own photos.",
+    status: "Demo-only for now — production ProofWall swap is gated on QA (see plan §3.E)",
+  },
 ];
 
 export default async function DemoIndexPage({ params }: Props) {
