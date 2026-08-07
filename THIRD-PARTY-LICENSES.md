@@ -99,3 +99,18 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 ```
+
+## Khronos glTF-Sample-Assets (`public/models/khronos/*`, `app/[locale]/demo/characters`)
+
+Full per-model attribution lives in `public/models/khronos/ATTRIBUTION.md` (which each model's
+own upstream `LICENSE.md`/`README.md` also travels alongside, verbatim) — summarized here per
+the root ledger convention:
+
+- Fox: CC0 (model) + CC-BY 4.0 (rig/animation, glTF conversion). ✅ unrestricted for this use.
+- Cesium Man: CC-BY 4.0 **with trademark limitations** — the Cesium logo baked into its texture
+  is not covered by the CC-BY grant and must never be presented as Muse's own mark. Demo/testing
+  only, per plan L4.
+- Rigged Simple: CC-BY 4.0 (Cesium). Demo/testing only.
+- **Not committed:** BrainStem (Poser EULA — redistribution not permitted, plan §6/§7 R-7) and
+  KayKit Adventurers (CC0, but itch.io's download needs a manual claim click this environment
+  cannot script — plan §11 R-8; see the ATTRIBUTION.md above for the exact drop-in path).

@@ -57,6 +57,12 @@ const DEMOS: { href: string; title: string; description: string; status: string 
     description: "Glass (MeshTransmissionMaterial), Sparkles, Float, PresentationControls, Environment.",
     status: "Demo-only",
   },
+  {
+    href: "/characters",
+    title: "3D characters",
+    description: "Khronos Fox / Cesium Man / Rigged Simple, looping animation, drag-to-orbit.",
+    status: "Demo-only — KayKit deferred (itch.io download needs a manual claim click)",
+  },
 ];
 
 export default async function DemoIndexPage({ params }: Props) {
