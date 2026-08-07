@@ -55,6 +55,8 @@ export const ROUTES = [
   { path: "/ar/demo/crosshair", noindex: true },
   { path: "/en/demo/carousel", noindex: true },
   { path: "/ar/demo/carousel", noindex: true },
+  { path: "/en/demo/proof-wall-carousel", noindex: true },
+  { path: "/ar/demo/proof-wall-carousel", noindex: true },
 ];
 
 async function checkRoute(browser, route, viewport, { reducedMotion }) {

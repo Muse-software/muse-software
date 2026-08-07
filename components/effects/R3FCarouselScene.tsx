@@ -18,10 +18,15 @@
  * free. Texture `colorSpace` and the renderer's `outputColorSpace` are also
  * new — upstream's `.webp` assets rendered fine without it; our own sRGB
  * JPEGs (`public/photos/*`) look washed out without an explicit decode.
+ *
+ * The optional `content` prop (used only by `ProofWallCarousel`, the
+ * production variant) anchors real DOM text to each plane via drei's
+ * `<Html transform>` — see `CarouselPlane` below for why it lives in a
+ * sibling, unscaled `<group>` rather than inside the image `<mesh>` itself.
  */
 import { Canvas, useFrame } from "@react-three/fiber";
-import { useTexture } from "@react-three/drei";
-import { Suspense, useEffect, useMemo, useRef } from "react";
+import { Html, useTexture } from "@react-three/drei";
+import { Suspense, useEffect, useMemo, useRef, type ReactNode } from "react";
 import * as THREE from "three";
 import { carouselFragmentShader, carouselVertexShader } from "./r3fCarouselShaders";
 
@@ -38,10 +43,31 @@ interface CarouselPlaneProps {
   gap: number;
   curveStrength: number;
   curveFrequency: number;
-  onRefs: (mesh: THREE.Mesh | null, material: THREE.ShaderMaterial | null) => void;
+  onGroupRef: (group: THREE.Group | null) => void;
+  onMaterialRef: (material: THREE.ShaderMaterial | null) => void;
+  /**
+   * Real DOM content (`ProofWallCarousel`'s case-study text), projected to
+   * this object's screen position every frame by drei's `<Html transform>` —
+   * direction-agnostic, so Arabic bidi is correct for free (real text, not
+   * canvas glyphs — plan §11 R-4). Undefined for the plain photo demo (E1).
+   * Deliberately a sibling of the scaled `<mesh>`, not its child: nesting it
+   * there would inherit the plane's own (usually anisotropic) `imageSize`
+   * scale and stretch the DOM text along with the image.
+   */
+  content?: ReactNode;
 }
 
-function CarouselPlane({ url, index, imageSize, gap, curveStrength, curveFrequency, onRefs }: CarouselPlaneProps) {
+function CarouselPlane({
+  url,
+  index,
+  imageSize,
+  gap,
+  curveStrength,
+  curveFrequency,
+  onGroupRef,
+  onMaterialRef,
+  content,
+}: CarouselPlaneProps) {
   const texture = useTexture(url);
   // `react-hooks/immutability` treats every hook return value as frozen, but
   // three.js's `Texture` is a genuinely mutable external object — setting
@@ -70,14 +96,22 @@ function CarouselPlane({ url, index, imageSize, gap, curveStrength, curveFrequen
   );
 
   return (
-    <mesh
-      position={[index * (imageSize[0] + gap), 0, 0]}
-      scale={[imageSize[0], imageSize[1], 1]}
-      ref={(mesh) => onRefs(mesh, mesh ? (mesh.material as THREE.ShaderMaterial) : null)}
-    >
-      <planeGeometry args={[1, 1, 16, 16]} />
-      <shaderMaterial vertexShader={carouselVertexShader} fragmentShader={carouselFragmentShader} uniforms={uniforms} />
-    </mesh>
+    <group position={[index * (imageSize[0] + gap), 0, 0]} ref={onGroupRef}>
+      <mesh scale={[imageSize[0], imageSize[1], 1]}>
+        <planeGeometry args={[1, 1, 16, 16]} />
+        <shaderMaterial
+          ref={onMaterialRef}
+          vertexShader={carouselVertexShader}
+          fragmentShader={carouselFragmentShader}
+          uniforms={uniforms}
+        />
+      </mesh>
+      {content && (
+        <Html transform occlude={false} position={[0, -imageSize[1] / 2 - 0.3, 0]} style={{ pointerEvents: "auto" }}>
+          {content}
+        </Html>
+      )}
+    </group>
   );
 }
 
@@ -88,6 +122,7 @@ interface CarouselGroupProps {
   curveStrength: number;
   curveFrequency: number;
   velocityRef: React.RefObject<CarouselVelocity>;
+  content?: ReactNode[];
 }
 
 /** How fast the drag/wheel impulse itself decays once input stops — the same job Lenis's own scroll inertia did upstream. */
@@ -97,10 +132,10 @@ const VELOCITY_SMOOTHING = 0.25;
 /** Scales smoothed velocity into the shader's per-plane skew — matches upstream's `-velocity * ...` sign on the horizontal path. */
 const SKEW_SCALE = 8;
 
-function CarouselGroup({ images, imageSize, gap, curveStrength, curveFrequency, velocityRef }: CarouselGroupProps) {
+function CarouselGroup({ images, imageSize, gap, curveStrength, curveFrequency, velocityRef, content }: CarouselGroupProps) {
   const count = images.length;
   const totalWidth = count * gap + count * imageSize[0];
-  const meshRefs = useRef<(THREE.Mesh | null)[]>([]);
+  const groupRefs = useRef<(THREE.Group | null)[]>([]);
   const materialRefs = useRef<(THREE.ShaderMaterial | null)[]>([]);
   const smoothedVelocity = useRef(0);
 
@@ -109,9 +144,9 @@ function CarouselGroup({ images, imageSize, gap, curveStrength, curveFrequency, 
     smoothedVelocity.current += (velocity.impulse - smoothedVelocity.current) * VELOCITY_SMOOTHING;
     velocity.impulse *= IMPULSE_FRICTION;
 
-    meshRefs.current.forEach((mesh, i) => {
-      if (!mesh) return;
-      mesh.position.x = mod(mesh.position.x + smoothedVelocity.current + totalWidth / 2, totalWidth) - totalWidth / 2;
+    groupRefs.current.forEach((group, i) => {
+      if (!group) return;
+      group.position.x = mod(group.position.x + smoothedVelocity.current + totalWidth / 2, totalWidth) - totalWidth / 2;
       const material = materialRefs.current[i];
       if (material) material.uniforms.uScrollSpeed.value = -smoothedVelocity.current * SKEW_SCALE;
     });
@@ -121,15 +156,18 @@ function CarouselGroup({ images, imageSize, gap, curveStrength, curveFrequency, 
     <>
       {images.map((url, i) => (
         <CarouselPlane
-          key={url}
+          key={`${i}-${url}`}
           url={url}
           index={i}
           imageSize={imageSize}
           gap={gap}
           curveStrength={curveStrength}
           curveFrequency={curveFrequency}
-          onRefs={(mesh, material) => {
-            meshRefs.current[i] = mesh;
+          content={content?.[i]}
+          onGroupRef={(group) => {
+            groupRefs.current[i] = group;
+          }}
+          onMaterialRef={(material) => {
             materialRefs.current[i] = material;
           }}
         />
@@ -145,10 +183,20 @@ export interface R3FCarouselSceneProps {
   curveStrength: number;
   curveFrequency: number;
   velocityRef: React.RefObject<CarouselVelocity>;
+  /** Parallel to `images` — see `CarouselPlane`'s `content` prop. Only `ProofWallCarousel` passes this. */
+  content?: ReactNode[];
 }
 
 /** Default export so `next/dynamic` can pull R3F/drei/three into their own async chunk — see `R3FCarousel.tsx`. */
-export default function R3FCarouselScene({ images, imageSize, gap, curveStrength, curveFrequency, velocityRef }: R3FCarouselSceneProps) {
+export default function R3FCarouselScene({
+  images,
+  imageSize,
+  gap,
+  curveStrength,
+  curveFrequency,
+  velocityRef,
+  content,
+}: R3FCarouselSceneProps) {
   return (
     <Canvas
       camera={{ position: [0, 0, 4], fov: 50 }}
@@ -163,6 +211,7 @@ export default function R3FCarouselScene({ images, imageSize, gap, curveStrength
           curveStrength={curveStrength}
           curveFrequency={curveFrequency}
           velocityRef={velocityRef}
+          content={content}
         />
       </Suspense>
     </Canvas>

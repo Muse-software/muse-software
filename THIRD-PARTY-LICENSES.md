@@ -70,6 +70,11 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     (`lib/useHorizontalScroll.ts`'s `inlineSign` idea) is also new — upstream
     has no RTL concept.
   - Images: `public/photos/*` (Muse-owned), not upstream's Midjourney-generated demo images — see plan §6.
+- `components/sections/ProofWallCarousel.tsx` (Phase E2, the production-shaped
+  ProofWall variant) reuses this same `R3FCarouselScene`/shader engine — no
+  second port — adding only a `content` prop that anchors real DOM text to
+  each plane via drei's `<Html transform>` (drei is an existing dependency,
+  not new; this addition is original code, not part of the colindmg port).
 
 ```
 MIT License

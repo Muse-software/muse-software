@@ -39,6 +39,12 @@ const DEMOS: { href: string; title: string; description: string; status: string 
     description: "Wavy infinite drag/wheel carousel, GLSL wave-distortion shader, Muse's own photos.",
     status: "Demo-only for now — production ProofWall swap is gated on QA (see plan §3.E)",
   },
+  {
+    href: "/proof-wall-carousel",
+    title: "ProofWallCarousel",
+    description: "The real production candidate for the homepage ProofWall — same content, carousel visual.",
+    status: "Demo-only — homepage swap deferred, no GPU available to QA it here (see report)",
+  },
 ];
 
 export default async function DemoIndexPage({ params }: Props) {
