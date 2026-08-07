@@ -55,11 +55,29 @@
   },
   "Home": {
     "hero": {
-      "headlineLead": "Everyone has an AI strategy.",
-      "headlineTurn": "Almost nobody has shipped one.",
-      "tagline": "We're a product team in Riyadh.",
-      "subtitle": "We actually build the thing, not just the deck about the thing.",
-      "cta": "Get in touch"
+      "headlineLead": "Great products begin",
+      "headlineTurn": "with understanding.",
+      "tagline": "<brand>Muse</brand> is a product studio in Riyadh.",
+      "subtitle": "We bring together strategy, design, engineering and AI to turn ideas and challenges into digital products made for real people.",
+      "cta": "Start a conversation"
+    },
+    "intents": {
+      "heading": "How can we help?",
+      "lede": "Every project starts somewhere different. Where are you today?",
+      "cards": {
+        "build": {
+          "title": "Start something new",
+          "body": "You have an idea, a plan, or a problem worth solving. We help you shape it, design it, and build it into a product people can actually use."
+        },
+        "improve": {
+          "title": "Improve a product",
+          "body": "You already have a product, and you sense it could be more. We help you understand what's holding it back, then improve it, or rebuild the parts that need it."
+        },
+        "ai": {
+          "title": "Explore AI Transformation",
+          "body": "AI is full of promise, and full of noise. We help you find where it genuinely helps your business and your customers, then build it into how you work."
+        }
+      }
     },
     "approach": {
       "eyebrow": "Our approach",
@@ -389,6 +407,22 @@
       }
     }
   },
+  "Start": {
+    "hero": {
+      "eyebrow": "Start a conversation",
+      "title": "Tell us what you're working on.",
+      "subtitle": "Your first conversation is with the people who would design and build it. Reach us directly and we'll get back to you."
+    },
+    "methods": {
+      "whatsapp": "WhatsApp",
+      "email": "Email"
+    },
+    "intentNote": {
+      "build": "You told us you want to start something new.",
+      "improve": "You told us you want to improve a product.",
+      "ai": "You told us you want to explore AI Transformation."
+    }
+  },
   "Forms": {
     "errors": {
       "rate_limited": "Too many requests. Please try again in a minute.",
@@ -504,6 +538,10 @@
     "getStarted": {
       "title": "Get Started",
       "description": "Tell Muse Studios what you're building. Every engagement ends with something running in production."
+    },
+    "start": {
+      "title": "Start a Conversation",
+      "description": "Tell Muse what you're working on. Your first conversation is with the people who would design and build it."
     },
     "privacy": {
       "title": "Privacy Policy",
