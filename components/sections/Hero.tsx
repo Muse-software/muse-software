@@ -78,7 +78,7 @@ export default function Hero() {
               IntentRouter's heading below it. */}
           <h1
             className="mx-auto flex flex-col items-center gap-2 text-white font-bold font-space-grotesk text-center leading-[1.1] tracking-tight md:gap-3"
-            style={{ fontSize: "clamp(2rem, 7.6vw, 5.25rem)" }}
+            style={{ fontSize: "clamp(1.5rem, 7.6vw, 5.25rem)" }}
           >
             <span className="block whitespace-nowrap">{t("headlineLead")}</span>
             {/* Highlighter, not a card: a plain white fill hugging the glyphs,

@@ -26,7 +26,7 @@ export default async function IntentRouter() {
   const t = await getTranslations("Home.intents");
 
   return (
-    <section id="intents" className="py-20 md:py-32">
+    <section id="intents" className="py-16 md:py-24">
       <div className="mx-auto w-full max-w-[1400px] px-5 md:px-10">
         <div className="max-w-2xl">
           {/* `text-2xl` on mobile, not the `text-4xl` this used to share with
@@ -46,7 +46,7 @@ export default async function IntentRouter() {
           </p>
         </div>
 
-        <div className="mt-14 border-t border-white/15 md:mt-20">
+        <div className="mt-10 border-t border-white/15 md:mt-16">
           {INTENTS.map((intent, i) => (
             <Link
               key={intent.key}
@@ -82,12 +82,15 @@ export default async function IntentRouter() {
             </Link>
           ))}
         </div>
-        {/* The brief's quiet "looking for a specific capability?" link is
-            omitted for this gate, not stubbed: it points at `#capabilities`,
-            a section that does not exist until Phase 2 (§7.3 of the plan).
-            A same-page anchor with nothing to scroll to is a dead link
-            wearing a live one's clothes — it belongs here once Capabilities
-            ships, not before. */}
+        {/* Restored now that Capabilities (§7.3) exists below and `#capabilities`
+            is a real target — see the removal note this replaced in the
+            Phase 1 gate for why it was withheld until now. */}
+        <a
+          href="#capabilities"
+          className="mt-10 inline-block text-sm text-white/60 underline decoration-white/30 underline-offset-4 transition-colors duration-300 hover:text-[#fd4601] hover:decoration-[#fd4601] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#fd4601] md:mt-14 md:text-base"
+        >
+          {t("capabilityLink")}
+        </a>
       </div>
     </section>
   );

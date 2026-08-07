@@ -1,16 +1,14 @@
 import { getTranslations } from "next-intl/server";
-import Approach from "@/components/sections/Approach";
+import Capabilities from "@/components/sections/Capabilities";
 import CTA from "@/components/sections/CTA";
 import FAQ from "@/components/sections/FAQ";
 import Hero from "@/components/sections/Hero";
 import IntentRouter from "@/components/sections/IntentRouter";
-import Manifesto from "@/components/sections/Manifesto";
-import OutcomesBand from "@/components/sections/OutcomesBand";
-import WhoWeBuildFor from "@/components/sections/WhoWeBuildFor";
+import OurApproach from "@/components/sections/OurApproach";
+import WhyMuse from "@/components/sections/WhyMuse";
+import FromTheStudio from "@/components/sections/FromTheStudio";
 import CardDither from "@/components/CardDither";
 import PageDither from "@/components/PageDither";
-import Ticker from "@/components/Ticker";
-import type { Locale } from "@/i18n/routing";
 
 const SAME_AS = [
   "https://www.linkedin.com/company/musesoftware/",
@@ -20,17 +18,16 @@ const SAME_AS = [
 
 /**
  * The home page body: everything between the nav and the footer, in order.
- * Direction 4 (docs/three-doors/direction-4-understanding-first.md) replaces
- * Hero → Approach with Hero → IntentRouter → Approach; everything from
- * Approach down is the pre-D4 baseline, kept only so the page stays complete
- * through the Phase 1 visual gate — it is not yet D4 copy or structure.
- * Hero → IntentRouter → Approach → Manifesto → WhoWeBuildFor → OutcomesBand
- * → Ticker → FAQ → CTA. The hero is the always-on orange pixel field
+ * Direction 4 homepage gate, Phases 2 and 3. The eight structural positions
+ * are Hero → IntentRouter → Capabilities → OurApproach → WhyMuse →
+ * FromTheStudio → FAQ → CTA. FromTheStudio deliberately returns null while
+ * its verified-items array is empty. `Manifesto`, `WhoWeBuildFor`,
+ * `OutcomesBand`, and `Ticker` are retired from this page, not deleted, in
+ * case another page wants them. The hero is the always-on orange pixel field
  * (`components/PixelBlast.tsx`, via `Hero.tsx`).
  */
-export default async function HomeSections({ locale }: { locale: Locale }) {
+export default async function HomeSections() {
   const t = await getTranslations("Metadata");
-  const home = await getTranslations("Home");
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -57,13 +54,10 @@ export default async function HomeSections({ locale }: { locale: Locale }) {
       />
       <Hero />
       <IntentRouter />
-      <Approach locale={locale} />
-      {/* The pressure line that used to sit here as its own section now closes
-          the Manifesto's argument — see PressureStatement. */}
-      <Manifesto />
-      <WhoWeBuildFor />
-      <OutcomesBand />
-      <Ticker text={home("ticker")} />
+      <Capabilities />
+      <OurApproach />
+      <WhyMuse />
+      <FromTheStudio />
       <FAQ />
       <CTA />
     </div>

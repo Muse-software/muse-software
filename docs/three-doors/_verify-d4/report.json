@@ -521,7 +521,7 @@
       "device": "mobile",
       "path": "docs/three-doors/_verify-d4/en-mobile-home.png",
       "width": 390,
-      "height": 1543,
+      "height": 1571,
       "viewportHeight": 844,
       "exceedsViewport": true
     },
@@ -539,7 +539,7 @@
       "device": "mobile",
       "path": "docs/three-doors/_verify-d4/ar-mobile-home.png",
       "width": 390,
-      "height": 1491,
+      "height": 1497,
       "viewportHeight": 844,
       "exceedsViewport": true
     }

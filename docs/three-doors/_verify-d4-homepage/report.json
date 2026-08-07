@@ -1,0 +1,1068 @@
+{
+  "locales": [
+    "en",
+    "ar"
+  ],
+  "devices": [
+    {
+      "name": "desktop",
+      "width": 1440,
+      "height": 900
+    },
+    {
+      "name": "mobile",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "name": "mobile-compact",
+      "width": 320,
+      "height": 700
+    }
+  ],
+  "expectedSectionOrder": [
+    "hero",
+    "intents",
+    "capabilities",
+    "approach",
+    "why-muse",
+    "faq",
+    "cta"
+  ],
+  "results": [
+    {
+      "locale": "en",
+      "device": "desktop",
+      "reducedMotion": false,
+      "url": "http://localhost:3948/en/",
+      "pass": true,
+      "status": 200,
+      "lang": "en",
+      "dir": "ltr",
+      "overflow": false,
+      "scrollXAfterProbe": 0,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "knownWebglWarnings": 4,
+      "sectionOrder": {
+        "pass": true,
+        "present": [
+          "hero",
+          "intents",
+          "capabilities",
+          "approach",
+          "why-muse",
+          "faq",
+          "cta"
+        ],
+        "orderOk": true,
+        "fromStudioAbsent": true
+      },
+      "capabilities": {
+        "pass": true,
+        "total": 5,
+        "linkHrefs": [
+          "/en/services/product-engineering",
+          "/en/services/ai-transformation",
+          "/en/services/gamification-experience"
+        ],
+        "expected": [
+          "/en/services/product-engineering",
+          "/en/services/ai-transformation",
+          "/en/services/gamification-experience"
+        ],
+        "missing": [],
+        "extra": []
+      },
+      "faq": {
+        "pass": true,
+        "count": 5
+      },
+      "cta": {
+        "pass": true,
+        "href": "/en/start"
+      },
+      "keyboard": {
+        "pass": true,
+        "capabilityLink": {
+          "pass": true,
+          "tag": "A",
+          "href": "#capabilities"
+        },
+        "firstCapabilityLink": {
+          "pass": true,
+          "tag": "A",
+          "inCapabilities": true,
+          "href": "/en/services/product-engineering"
+        },
+        "faqAccordion": {
+          "pass": true,
+          "beforeExpanded": "true",
+          "afterExpanded": "false"
+        },
+        "ctaFocusable": {
+          "pass": true
+        }
+      },
+      "interactionGeometry": {
+        "pass": true,
+        "fullRowTargets": true,
+        "faqTargets": true,
+        "stickyHeader": true,
+        "anchorClearsHeader": true,
+        "intentRows": [
+          {
+            "width": 1320,
+            "height": 173
+          },
+          {
+            "width": 1320,
+            "height": 197
+          },
+          {
+            "width": 1320,
+            "height": 173
+          }
+        ],
+        "faqRows": [
+          76,
+          76,
+          76,
+          76,
+          76
+        ]
+      },
+      "navError": null
+    },
+    {
+      "locale": "en",
+      "device": "mobile",
+      "reducedMotion": false,
+      "url": "http://localhost:3948/en/",
+      "pass": true,
+      "status": 200,
+      "lang": "en",
+      "dir": "ltr",
+      "overflow": false,
+      "scrollXAfterProbe": 0,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "knownWebglWarnings": 4,
+      "sectionOrder": {
+        "pass": true,
+        "present": [
+          "hero",
+          "intents",
+          "capabilities",
+          "approach",
+          "why-muse",
+          "faq",
+          "cta"
+        ],
+        "orderOk": true,
+        "fromStudioAbsent": true
+      },
+      "capabilities": {
+        "pass": true,
+        "total": 5,
+        "linkHrefs": [
+          "/en/services/product-engineering",
+          "/en/services/ai-transformation",
+          "/en/services/gamification-experience"
+        ],
+        "expected": [
+          "/en/services/product-engineering",
+          "/en/services/ai-transformation",
+          "/en/services/gamification-experience"
+        ],
+        "missing": [],
+        "extra": []
+      },
+      "faq": {
+        "pass": true,
+        "count": 5
+      },
+      "cta": {
+        "pass": true,
+        "href": "/en/start"
+      },
+      "keyboard": {
+        "pass": true,
+        "capabilityLink": {
+          "pass": true,
+          "tag": "A",
+          "href": "#capabilities"
+        },
+        "firstCapabilityLink": {
+          "pass": true,
+          "tag": "A",
+          "inCapabilities": true,
+          "href": "/en/services/product-engineering"
+        },
+        "faqAccordion": {
+          "pass": true,
+          "beforeExpanded": "true",
+          "afterExpanded": "false"
+        },
+        "ctaFocusable": {
+          "pass": true
+        }
+      },
+      "interactionGeometry": {
+        "pass": true,
+        "fullRowTargets": true,
+        "faqTargets": true,
+        "stickyHeader": true,
+        "anchorClearsHeader": true,
+        "intentRows": [
+          {
+            "width": 350,
+            "height": 265
+          },
+          {
+            "width": 350,
+            "height": 265
+          },
+          {
+            "width": 350,
+            "height": 265
+          }
+        ],
+        "faqRows": [
+          104,
+          104,
+          76,
+          104,
+          76
+        ]
+      },
+      "navError": null
+    },
+    {
+      "locale": "en",
+      "device": "mobile-compact",
+      "reducedMotion": false,
+      "url": "http://localhost:3948/en/",
+      "pass": true,
+      "status": 200,
+      "lang": "en",
+      "dir": "ltr",
+      "overflow": false,
+      "scrollXAfterProbe": 0,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "knownWebglWarnings": 4,
+      "sectionOrder": {
+        "pass": true,
+        "present": [
+          "hero",
+          "intents",
+          "capabilities",
+          "approach",
+          "why-muse",
+          "faq",
+          "cta"
+        ],
+        "orderOk": true,
+        "fromStudioAbsent": true
+      },
+      "capabilities": {
+        "pass": true,
+        "total": 5,
+        "linkHrefs": [
+          "/en/services/product-engineering",
+          "/en/services/ai-transformation",
+          "/en/services/gamification-experience"
+        ],
+        "expected": [
+          "/en/services/product-engineering",
+          "/en/services/ai-transformation",
+          "/en/services/gamification-experience"
+        ],
+        "missing": [],
+        "extra": []
+      },
+      "faq": {
+        "pass": true,
+        "count": 5
+      },
+      "cta": {
+        "pass": true,
+        "href": "/en/start"
+      },
+      "keyboard": {
+        "pass": true,
+        "capabilityLink": {
+          "pass": true,
+          "tag": "A",
+          "href": "#capabilities"
+        },
+        "firstCapabilityLink": {
+          "pass": true,
+          "tag": "A",
+          "inCapabilities": true,
+          "href": "/en/services/product-engineering"
+        },
+        "faqAccordion": {
+          "pass": true,
+          "beforeExpanded": "true",
+          "afterExpanded": "false"
+        },
+        "ctaFocusable": {
+          "pass": true
+        }
+      },
+      "interactionGeometry": {
+        "pass": true,
+        "fullRowTargets": true,
+        "faqTargets": true,
+        "stickyHeader": true,
+        "anchorClearsHeader": true,
+        "intentRows": [
+          {
+            "width": 280,
+            "height": 289
+          },
+          {
+            "width": 280,
+            "height": 289
+          },
+          {
+            "width": 280,
+            "height": 321
+          }
+        ],
+        "faqRows": [
+          104,
+          104,
+          104,
+          132,
+          104
+        ]
+      },
+      "navError": null
+    },
+    {
+      "locale": "ar",
+      "device": "desktop",
+      "reducedMotion": false,
+      "url": "http://localhost:3948/ar/",
+      "pass": true,
+      "status": 200,
+      "lang": "ar",
+      "dir": "rtl",
+      "overflow": false,
+      "scrollXAfterProbe": 0,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "knownWebglWarnings": 4,
+      "sectionOrder": {
+        "pass": true,
+        "present": [
+          "hero",
+          "intents",
+          "capabilities",
+          "approach",
+          "why-muse",
+          "faq",
+          "cta"
+        ],
+        "orderOk": true,
+        "fromStudioAbsent": true
+      },
+      "capabilities": {
+        "pass": true,
+        "total": 5,
+        "linkHrefs": [
+          "/ar/services/product-engineering",
+          "/ar/services/ai-transformation",
+          "/ar/services/gamification-experience"
+        ],
+        "expected": [
+          "/ar/services/product-engineering",
+          "/ar/services/ai-transformation",
+          "/ar/services/gamification-experience"
+        ],
+        "missing": [],
+        "extra": []
+      },
+      "faq": {
+        "pass": true,
+        "count": 5
+      },
+      "cta": {
+        "pass": true,
+        "href": "/ar/start"
+      },
+      "keyboard": {
+        "pass": true,
+        "capabilityLink": {
+          "pass": true,
+          "tag": "A",
+          "href": "#capabilities"
+        },
+        "firstCapabilityLink": {
+          "pass": true,
+          "tag": "A",
+          "inCapabilities": true,
+          "href": "/ar/services/product-engineering"
+        },
+        "faqAccordion": {
+          "pass": true,
+          "beforeExpanded": "true",
+          "afterExpanded": "false"
+        },
+        "ctaFocusable": {
+          "pass": true
+        }
+      },
+      "interactionGeometry": {
+        "pass": true,
+        "fullRowTargets": true,
+        "faqTargets": true,
+        "stickyHeader": true,
+        "anchorClearsHeader": true,
+        "intentRows": [
+          {
+            "width": 1320,
+            "height": 183.5
+          },
+          {
+            "width": 1320,
+            "height": 183.5
+          },
+          {
+            "width": 1320,
+            "height": 183.5
+          }
+        ],
+        "faqRows": [
+          79,
+          79,
+          79,
+          79,
+          79
+        ]
+      },
+      "navError": null
+    },
+    {
+      "locale": "ar",
+      "device": "mobile",
+      "reducedMotion": false,
+      "url": "http://localhost:3948/ar/",
+      "pass": true,
+      "status": 200,
+      "lang": "ar",
+      "dir": "rtl",
+      "overflow": false,
+      "scrollXAfterProbe": 0,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "knownWebglWarnings": 4,
+      "sectionOrder": {
+        "pass": true,
+        "present": [
+          "hero",
+          "intents",
+          "capabilities",
+          "approach",
+          "why-muse",
+          "faq",
+          "cta"
+        ],
+        "orderOk": true,
+        "fromStudioAbsent": true
+      },
+      "capabilities": {
+        "pass": true,
+        "total": 5,
+        "linkHrefs": [
+          "/ar/services/product-engineering",
+          "/ar/services/ai-transformation",
+          "/ar/services/gamification-experience"
+        ],
+        "expected": [
+          "/ar/services/product-engineering",
+          "/ar/services/ai-transformation",
+          "/ar/services/gamification-experience"
+        ],
+        "missing": [],
+        "extra": []
+      },
+      "faq": {
+        "pass": true,
+        "count": 5
+      },
+      "cta": {
+        "pass": true,
+        "href": "/ar/start"
+      },
+      "keyboard": {
+        "pass": true,
+        "capabilityLink": {
+          "pass": true,
+          "tag": "A",
+          "href": "#capabilities"
+        },
+        "firstCapabilityLink": {
+          "pass": true,
+          "tag": "A",
+          "inCapabilities": true,
+          "href": "/ar/services/product-engineering"
+        },
+        "faqAccordion": {
+          "pass": true,
+          "beforeExpanded": "true",
+          "afterExpanded": "false"
+        },
+        "ctaFocusable": {
+          "pass": true
+        }
+      },
+      "interactionGeometry": {
+        "pass": true,
+        "fullRowTargets": true,
+        "faqTargets": true,
+        "stickyHeader": true,
+        "anchorClearsHeader": true,
+        "intentRows": [
+          {
+            "width": 350,
+            "height": 247.875
+          },
+          {
+            "width": 350,
+            "height": 247.875
+          },
+          {
+            "width": 350,
+            "height": 247.875
+          }
+        ],
+        "faqRows": [
+          75.890625,
+          75.890625,
+          75.890625,
+          103.78125,
+          75.890625
+        ]
+      },
+      "navError": null
+    },
+    {
+      "locale": "ar",
+      "device": "mobile-compact",
+      "reducedMotion": false,
+      "url": "http://localhost:3948/ar/",
+      "pass": true,
+      "status": 200,
+      "lang": "ar",
+      "dir": "rtl",
+      "overflow": false,
+      "scrollXAfterProbe": 0,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "knownWebglWarnings": 4,
+      "sectionOrder": {
+        "pass": true,
+        "present": [
+          "hero",
+          "intents",
+          "capabilities",
+          "approach",
+          "why-muse",
+          "faq",
+          "cta"
+        ],
+        "orderOk": true,
+        "fromStudioAbsent": true
+      },
+      "capabilities": {
+        "pass": true,
+        "total": 5,
+        "linkHrefs": [
+          "/ar/services/product-engineering",
+          "/ar/services/ai-transformation",
+          "/ar/services/gamification-experience"
+        ],
+        "expected": [
+          "/ar/services/product-engineering",
+          "/ar/services/ai-transformation",
+          "/ar/services/gamification-experience"
+        ],
+        "missing": [],
+        "extra": []
+      },
+      "faq": {
+        "pass": true,
+        "count": 5
+      },
+      "cta": {
+        "pass": true,
+        "href": "/ar/start"
+      },
+      "keyboard": {
+        "pass": true,
+        "capabilityLink": {
+          "pass": true,
+          "tag": "A",
+          "href": "#capabilities"
+        },
+        "firstCapabilityLink": {
+          "pass": true,
+          "tag": "A",
+          "inCapabilities": true,
+          "href": "/ar/services/product-engineering"
+        },
+        "faqAccordion": {
+          "pass": true,
+          "beforeExpanded": "true",
+          "afterExpanded": "false"
+        },
+        "ctaFocusable": {
+          "pass": true
+        }
+      },
+      "interactionGeometry": {
+        "pass": true,
+        "fullRowTargets": true,
+        "faqTargets": true,
+        "stickyHeader": true,
+        "anchorClearsHeader": true,
+        "intentRows": [
+          {
+            "width": 280,
+            "height": 247.875
+          },
+          {
+            "width": 280,
+            "height": 271.875
+          },
+          {
+            "width": 280,
+            "height": 309.0625
+          }
+        ],
+        "faqRows": [
+          103.78125,
+          75.890625,
+          75.890625,
+          103.78125,
+          75.890625
+        ]
+      },
+      "navError": null
+    }
+  ],
+  "reducedMotionResults": [
+    {
+      "locale": "en",
+      "device": "desktop",
+      "reducedMotion": true,
+      "url": "http://localhost:3948/en/",
+      "pass": true,
+      "status": 200,
+      "lang": "en",
+      "dir": "ltr",
+      "overflow": false,
+      "scrollXAfterProbe": 0,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "knownWebglWarnings": 4,
+      "sectionOrder": {
+        "pass": true,
+        "present": [
+          "hero",
+          "intents",
+          "capabilities",
+          "approach",
+          "why-muse",
+          "faq",
+          "cta"
+        ],
+        "orderOk": true,
+        "fromStudioAbsent": true
+      },
+      "capabilities": {
+        "pass": true,
+        "total": 5,
+        "linkHrefs": [
+          "/en/services/product-engineering",
+          "/en/services/ai-transformation",
+          "/en/services/gamification-experience"
+        ],
+        "expected": [
+          "/en/services/product-engineering",
+          "/en/services/ai-transformation",
+          "/en/services/gamification-experience"
+        ],
+        "missing": [],
+        "extra": []
+      },
+      "faq": {
+        "pass": true,
+        "count": 5
+      },
+      "cta": {
+        "pass": true,
+        "href": "/en/start"
+      },
+      "keyboard": null,
+      "interactionGeometry": {
+        "pass": true,
+        "fullRowTargets": true,
+        "faqTargets": true,
+        "stickyHeader": true,
+        "anchorClearsHeader": true,
+        "intentRows": [
+          {
+            "width": 1320,
+            "height": 173
+          },
+          {
+            "width": 1320,
+            "height": 197
+          },
+          {
+            "width": 1320,
+            "height": 173
+          }
+        ],
+        "faqRows": [
+          76,
+          76,
+          76,
+          76,
+          76
+        ]
+      },
+      "navError": null
+    },
+    {
+      "locale": "ar",
+      "device": "desktop",
+      "reducedMotion": true,
+      "url": "http://localhost:3948/ar/",
+      "pass": true,
+      "status": 200,
+      "lang": "ar",
+      "dir": "rtl",
+      "overflow": false,
+      "scrollXAfterProbe": 0,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "knownWebglWarnings": 4,
+      "sectionOrder": {
+        "pass": true,
+        "present": [
+          "hero",
+          "intents",
+          "capabilities",
+          "approach",
+          "why-muse",
+          "faq",
+          "cta"
+        ],
+        "orderOk": true,
+        "fromStudioAbsent": true
+      },
+      "capabilities": {
+        "pass": true,
+        "total": 5,
+        "linkHrefs": [
+          "/ar/services/product-engineering",
+          "/ar/services/ai-transformation",
+          "/ar/services/gamification-experience"
+        ],
+        "expected": [
+          "/ar/services/product-engineering",
+          "/ar/services/ai-transformation",
+          "/ar/services/gamification-experience"
+        ],
+        "missing": [],
+        "extra": []
+      },
+      "faq": {
+        "pass": true,
+        "count": 5
+      },
+      "cta": {
+        "pass": true,
+        "href": "/ar/start"
+      },
+      "keyboard": null,
+      "interactionGeometry": {
+        "pass": true,
+        "fullRowTargets": true,
+        "faqTargets": true,
+        "stickyHeader": true,
+        "anchorClearsHeader": true,
+        "intentRows": [
+          {
+            "width": 1320,
+            "height": 183.5
+          },
+          {
+            "width": 1320,
+            "height": 183.5
+          },
+          {
+            "width": 1320,
+            "height": 183.5
+          }
+        ],
+        "faqRows": [
+          79,
+          79,
+          79,
+          79,
+          79
+        ]
+      },
+      "navError": null
+    }
+  ],
+  "screenshots": [
+    {
+      "locale": "en",
+      "device": "desktop",
+      "path": "docs/three-doors/_verify-d4-homepage/en-desktop-home.png",
+      "width": 1440,
+      "height": 6526,
+      "headingsPass": true,
+      "headingVisibility": [
+        {
+          "id": "capabilities",
+          "present": true,
+          "visibleWords": 4,
+          "totalWords": 4
+        },
+        {
+          "id": "approach",
+          "present": true,
+          "visibleWords": 2,
+          "totalWords": 2
+        },
+        {
+          "id": "why-muse",
+          "present": true,
+          "visibleWords": 2,
+          "totalWords": 2
+        },
+        {
+          "id": "faq",
+          "present": true,
+          "visibleWords": 4,
+          "totalWords": 4
+        },
+        {
+          "id": "cta",
+          "present": true,
+          "visibleWords": 6,
+          "totalWords": 6
+        }
+      ]
+    },
+    {
+      "locale": "en",
+      "device": "mobile",
+      "path": "docs/three-doors/_verify-d4-homepage/en-mobile-home.png",
+      "width": 390,
+      "height": 7218,
+      "headingsPass": true,
+      "headingVisibility": [
+        {
+          "id": "capabilities",
+          "present": true,
+          "visibleWords": 4,
+          "totalWords": 4
+        },
+        {
+          "id": "approach",
+          "present": true,
+          "visibleWords": 2,
+          "totalWords": 2
+        },
+        {
+          "id": "why-muse",
+          "present": true,
+          "visibleWords": 2,
+          "totalWords": 2
+        },
+        {
+          "id": "faq",
+          "present": true,
+          "visibleWords": 4,
+          "totalWords": 4
+        },
+        {
+          "id": "cta",
+          "present": true,
+          "visibleWords": 6,
+          "totalWords": 6
+        }
+      ]
+    },
+    {
+      "locale": "en",
+      "device": "mobile-compact",
+      "path": "docs/three-doors/_verify-d4-homepage/en-mobile-compact-home.png",
+      "width": 320,
+      "height": 8105,
+      "headingsPass": true,
+      "headingVisibility": [
+        {
+          "id": "capabilities",
+          "present": true,
+          "visibleWords": 4,
+          "totalWords": 4
+        },
+        {
+          "id": "approach",
+          "present": true,
+          "visibleWords": 2,
+          "totalWords": 2
+        },
+        {
+          "id": "why-muse",
+          "present": true,
+          "visibleWords": 2,
+          "totalWords": 2
+        },
+        {
+          "id": "faq",
+          "present": true,
+          "visibleWords": 4,
+          "totalWords": 4
+        },
+        {
+          "id": "cta",
+          "present": true,
+          "visibleWords": 6,
+          "totalWords": 6
+        }
+      ]
+    },
+    {
+      "locale": "ar",
+      "device": "desktop",
+      "path": "docs/three-doors/_verify-d4-homepage/ar-desktop-home.png",
+      "width": 1440,
+      "height": 6403,
+      "headingsPass": true,
+      "headingVisibility": [
+        {
+          "id": "capabilities",
+          "present": true,
+          "visibleWords": 3,
+          "totalWords": 3
+        },
+        {
+          "id": "approach",
+          "present": true,
+          "visibleWords": 1,
+          "totalWords": 1
+        },
+        {
+          "id": "why-muse",
+          "present": true,
+          "visibleWords": 2,
+          "totalWords": 2
+        },
+        {
+          "id": "faq",
+          "present": true,
+          "visibleWords": 3,
+          "totalWords": 3
+        },
+        {
+          "id": "cta",
+          "present": true,
+          "visibleWords": 5,
+          "totalWords": 5
+        }
+      ]
+    },
+    {
+      "locale": "ar",
+      "device": "mobile",
+      "path": "docs/three-doors/_verify-d4-homepage/ar-mobile-home.png",
+      "width": 390,
+      "height": 6836,
+      "headingsPass": true,
+      "headingVisibility": [
+        {
+          "id": "capabilities",
+          "present": true,
+          "visibleWords": 3,
+          "totalWords": 3
+        },
+        {
+          "id": "approach",
+          "present": true,
+          "visibleWords": 1,
+          "totalWords": 1
+        },
+        {
+          "id": "why-muse",
+          "present": true,
+          "visibleWords": 2,
+          "totalWords": 2
+        },
+        {
+          "id": "faq",
+          "present": true,
+          "visibleWords": 3,
+          "totalWords": 3
+        },
+        {
+          "id": "cta",
+          "present": true,
+          "visibleWords": 5,
+          "totalWords": 5
+        }
+      ]
+    },
+    {
+      "locale": "ar",
+      "device": "mobile-compact",
+      "path": "docs/three-doors/_verify-d4-homepage/ar-mobile-compact-home.png",
+      "width": 320,
+      "height": 7287,
+      "headingsPass": true,
+      "headingVisibility": [
+        {
+          "id": "capabilities",
+          "present": true,
+          "visibleWords": 3,
+          "totalWords": 3
+        },
+        {
+          "id": "approach",
+          "present": true,
+          "visibleWords": 1,
+          "totalWords": 1
+        },
+        {
+          "id": "why-muse",
+          "present": true,
+          "visibleWords": 2,
+          "totalWords": 2
+        },
+        {
+          "id": "faq",
+          "present": true,
+          "visibleWords": 3,
+          "totalWords": 3
+        },
+        {
+          "id": "cta",
+          "present": true,
+          "visibleWords": 5,
+          "totalWords": 5
+        }
+      ]
+    }
+  ]
+}

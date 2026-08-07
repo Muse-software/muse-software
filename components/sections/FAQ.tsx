@@ -27,7 +27,7 @@ export default function FAQ({
 
   return (
     // No background: the page wash runs underneath — see PageDither.
-    <section className="py-20 md:py-32">
+    <section id="faq" className="py-16 md:py-24">
       <div className="mx-auto w-full max-w-[900px] px-5 md:px-10">
         <WordReveal
           as="h2"
@@ -36,7 +36,7 @@ export default function FAQ({
           {resolvedHeading}
         </WordReveal>
 
-        <div className="mt-10 md:mt-14">
+        <div className="mt-8 md:mt-12">
           {faqs.map((item, i) => {
             const isOpen = openIndex === i;
             return (

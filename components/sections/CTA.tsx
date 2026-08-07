@@ -32,7 +32,7 @@ export default async function CTA() {
   const t = await getTranslations("CTA");
 
   return (
-    <section className="px-5 py-24 md:px-10 md:py-32">
+    <section id="cta" className="px-5 py-16 md:px-10 md:py-24">
       <div className="relative mx-auto w-full max-w-[1400px] overflow-hidden rounded-3xl border border-[#fd4601]/25 bg-black px-6 py-16 text-center text-[#fd4601] md:rounded-[2rem] md:px-12 md:py-24">
         {/* Decorative, desktop-only, and unmounted until the section is near
             the viewport — see DitherCursor. `absolute` keeps it inside the
@@ -65,7 +65,7 @@ export default async function CTA() {
               move the orange panel could afford and this one cannot. */}
           <p className="max-w-[46ch] text-lg leading-relaxed">{t("subheading")}</p>
 
-          <PillButton href="/get-started" variant="onDark">
+          <PillButton href="/start" variant="onDark">
             {t("button")}
           </PillButton>
         </div>

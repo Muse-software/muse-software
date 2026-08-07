@@ -49,9 +49,9 @@
     "terms": "Terms of Service"
   },
   "CTA": {
-    "heading": "Tell us what you're trying to build.",
-    "subheading": "The first conversation is with the people who would build it, not a sales layer.",
-    "button": "Get started"
+    "heading": "Tell us what you're working on.",
+    "subheading": "We'd love to hear about it. Your first conversation is with the people who would design and build it.",
+    "button": "Start a conversation"
   },
   "Home": {
     "hero": {
@@ -77,25 +77,68 @@
           "title": "Explore AI Transformation",
           "body": "AI is full of promise, and full of noise. We help you find where it genuinely helps your business and your customers, then build it into how you work."
         }
+      },
+      "capabilityLink": "Looking for a specific capability? See what we bring together below."
+    },
+    "capabilities": {
+      "heading": "What we bring together",
+      "lede": "One team, five disciplines. Most projects draw on several at once.",
+      "signature": "Signature",
+      "linkLabel": "Learn more",
+      "items": {
+        "strategyDiscovery": {
+          "title": "Product Strategy & Discovery",
+          "body": "Understanding your users, your business, and the problem itself, so we build the right thing before we build anything."
+        },
+        "design": {
+          "title": "Product & Experience Design",
+          "body": "Interfaces and experiences that feel clear, considered, and natural to use, in Arabic and English alike."
+        },
+        "productEngineering": {
+          "title": "Product Engineering",
+          "body": "Reliable, well-crafted software, built by senior engineers who stay close to the product and to you."
+        },
+        "ai": {
+          "title": "AI",
+          "body": "Practical intelligence inside products and workflows: features and systems that quietly make things easier for the people using them."
+        },
+        "gamification": {
+          "title": "Gamification & Experience",
+          "body": "The craft of motivation. We design the moments, feedback, and rewards that help people form real habits with a product, instead of trying it once and drifting away."
+        }
       }
     },
     "approach": {
-      "eyebrow": "Our approach",
-      "heading": "Muse helps you shift from AI-absent to AI-native.",
-      "cards": {
-        "ai-transformation": {
-          "body": "Staying AI-absent isn't a neutral choice. We find where AI actually earns its place in how your business runs, build the systems that do it, and put the guardrails in ourselves.",
-          "promise": "Every engagement ends with something running in production, not a slide deck."
+      "heading": "Our approach",
+      "lede": "A few beliefs shape everything we make.",
+      "beliefs": [
+        {
+          "title": "Start with people",
+          "body": "We spend time understanding your users and your business before we design anything. Good decisions come from context, not templates."
         },
-        "product-engineering": {
-          "body": "Good ideas stall when engineering can't move at the pace the business needs. We design and ship production-grade software, and the same senior team stays with you from first prototype to production scale.",
-          "promise": "You see it running early and often, not in one reveal at the end."
+        {
+          "title": "Design and engineering, one conversation",
+          "body": "The people who design your product and the people who build it work side by side, so ideas survive the journey from sketch to software."
         },
-        "gamification-experience": {
-          "body": "New tools compete with old habits, and habits win by default. We design the reward systems, onboarding and prototypes that make a change stick instead of quietly dying.",
-          "promise": "You're clicking through something real in the first week."
+        {
+          "title": "Show, early and often",
+          "body": "You'll see real progress from the first weeks, and you'll always be talking directly with the people doing the work."
+        },
+        {
+          "title": "Care for the quiet details",
+          "body": "An empty screen, an error message, a first-time experience: the small moments are where products earn trust, so we design them with the same care as the big ones."
         }
-      }
+      ]
+    },
+    "whyMuse": {
+      "heading": "Why Muse",
+      "paragraph1": "We're a small, multidisciplinary team based in Riyadh: product thinkers, designers, and engineers working under one roof. We're Saudi, we hire Saudi, and we understand how products need to feel for people here, because it's home.",
+      "paragraph2": "Being small is a choice. It keeps design and engineering in the same room instead of passing work between departments, keeps specialist depth in AI and in gamification and experience design close to every project, and means the people you talk to are the people building your product."
+    },
+    "fromStudio": {
+      "heading": "From the studio",
+      "lede": "Products, experiments, and writing from our own work.",
+      "items": []
     },
     "manifesto": {
       "heading": "The next decade of software gets decided in the next two years.",
@@ -120,24 +163,24 @@
       "heading": "Questions? We have answers.",
       "items": [
         {
-          "q": "How is Muse different from a typical dev shop?",
-          "a": "We're a small, senior team, not a rotating cast of contractors. No 100-slide strategy decks with nothing behind them. We scope fast, build with you, and measure ourselves on what actually shipped."
+          "q": "What kinds of projects do you take on?",
+          "a": "New products from the first idea, existing products that need care or a rethink, and focused work in design, engineering, AI, or engagement. We work with founders and established organizations."
         },
         {
-          "q": "What does AI transformation actually mean?",
-          "a": "Finding where AI removes real friction in how your business runs, building the systems that do it reliably, and getting your team actually using them. Then repeating that cycle as the tools improve."
+          "q": "Who will we actually be working with?",
+          "a": "A small senior team. The people you meet in the first conversation are the people who will design and build your product."
         },
         {
-          "q": "Who's on the team?",
-          "a": "A small senior team based in Riyadh. The people who scope your work are the people who build it, so you're talking to engineers in the first conversation rather than a sales layer. Names and backgrounds are on the about page."
+          "q": "How do projects usually start?",
+          "a": "With a conversation. We listen, ask questions, and take time to understand what you're trying to achieve. If we believe we can genuinely help, we come back with a clear picture of how we'd approach it."
         },
         {
-          "q": "How does pricing work?",
-          "a": "Every engagement is scoped and priced on its own, once we understand what you're actually trying to do. Tell us the problem and we'll come back with a number and exactly what sits inside it."
+          "q": "What does AI Transformation mean at Muse?",
+          "a": "Finding where AI genuinely helps your business, operations, customers, or product, and building it in thoughtfully. We care most about what your team will actually use day to day."
         },
         {
-          "q": "Who do you typically work with?",
-          "a": "Teams that want to move fast without dropping the quality bar. That runs from a founder shipping a first product to an enterprise team trying to get an AI initiative out of pilot purgatory."
+          "q": "What is Gamification & Experience?",
+          "a": "The psychology of engagement, applied with care. New tools compete with old habits, so we design the onboarding, feedback, and reward systems that help a change stick in products, learning, and workplaces."
         }
       ]
     }

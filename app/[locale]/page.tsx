@@ -20,5 +20,5 @@ export default async function Home({ params }: Props) {
   const { locale } = await params;
   setRequestLocale(locale);
 
-  return <HomeSections locale={locale} />;
+  return <HomeSections />;
 }
