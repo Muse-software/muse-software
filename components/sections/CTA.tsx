@@ -1,4 +1,5 @@
 import { getTranslations } from "next-intl/server";
+import Magnetic from "@/components/effects/Magnetic";
 import DitherCursor from "../DitherCursor";
 import DitherField from "../DitherField";
 import MuseLogo from "../MuseLogo";
@@ -65,9 +66,11 @@ export default async function CTA() {
               move the orange panel could afford and this one cannot. */}
           <p className="max-w-[46ch] text-lg leading-relaxed">{t("subheading")}</p>
 
-          <PillButton href="/get-started" variant="onDark">
-            {t("button")}
-          </PillButton>
+          <Magnetic strength={0.3} radius={100}>
+            <PillButton href="/get-started" variant="onDark">
+              {t("button")}
+            </PillButton>
+          </Magnetic>
         </div>
       </div>
     </section>

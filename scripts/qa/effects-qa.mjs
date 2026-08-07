@@ -36,6 +36,8 @@ export const ROUTES = [
   { path: "/ar", noindex: false },
   { path: "/en/demo", noindex: true },
   { path: "/ar/demo", noindex: true },
+  { path: "/en/demo/magnetic", noindex: true },
+  { path: "/ar/demo/magnetic", noindex: true },
 ];
 
 async function checkRoute(browser, route, viewport, { reducedMotion }) {

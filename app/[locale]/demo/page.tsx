@@ -20,7 +20,14 @@ export const metadata = {
  * shipped to production (L1) or stays demo-only (L2), so this index doubles
  * as a live map of what's gated where.
  */
-const DEMOS: { href: string; title: string; description: string; status: string }[] = [];
+const DEMOS: { href: string; title: string; description: string; status: string }[] = [
+  {
+    href: "/magnetic",
+    title: "Magnetic",
+    description: "Hover-pull wrapper around real CTA components (PillButton, Link).",
+    status: "Also production: Hero contact CTA, closing CTA",
+  },
+];
 
 export default async function DemoIndexPage({ params }: Props) {
   const { locale } = await params;

@@ -3,6 +3,7 @@
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import dynamic from "next/dynamic";
+import Magnetic from "@/components/effects/Magnetic";
 import { useResponsivePixelSize } from "@/lib/use-responsive-pixel-size";
 
 /**
@@ -105,16 +106,20 @@ export default function Hero() {
                 <div className="arrow-inline absolute end-0 top-1/2 -translate-y-1/2 w-0 h-0 border-t-[4px] border-t-transparent border-b-[4px] border-b-transparent border-l-[8px] border-l-white" />
               </div>
             </div>
-            <Link
-              href="/contact"
-              className="self-start inline-flex items-center gap-5 whitespace-nowrap border border-black bg-white text-black py-2 ps-5 pe-3 md:py-3 md:ps-6 md:pe-4 text-base md:text-lg font-medium font-space-grotesk hover:bg-[#fd4601] transition-colors duration-200 shrink-0"
-            >
-              {t("cta")}
-              <svg width="16" height="16" viewBox="0 0 30 30" fill="none" className="arrow-inline" aria-hidden="true">
-                <rect width="30" height="30" fill="black" />
-                <path d="M10.0066 22V21.0033H11.0053V20.0066H12.004V19.0099H13.0026V18.0132H14.0013V17.0165H15V16.0198H15.9987V15.0231H16.9974V14.0264H17.996V13.0297H18.9947V12.033H19.9934V17.0316H22V8H13.004V10.0026H18.0145V10.9993H17.0159V11.996H16.0172V12.9927H15.0185V13.9895H14.0198V14.9862H13.0211V15.9829H12.0225V16.9796H11.0238V17.9763H10.0251V18.973H9.02642V19.9697H8V21.9723H10.0066V22Z" fill="white" />
-              </svg>
-            </Link>
+            {/* self-start/shrink-0 move to the wrapper: it's now the flex
+                item, and the Link inside it is a plain inline-flex box. */}
+            <Magnetic strength={0.35} radius={90} className="self-start shrink-0">
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-5 whitespace-nowrap border border-black bg-white text-black py-2 ps-5 pe-3 md:py-3 md:ps-6 md:pe-4 text-base md:text-lg font-medium font-space-grotesk hover:bg-[#fd4601] transition-colors duration-200"
+              >
+                {t("cta")}
+                <svg width="16" height="16" viewBox="0 0 30 30" fill="none" className="arrow-inline" aria-hidden="true">
+                  <rect width="30" height="30" fill="black" />
+                  <path d="M10.0066 22V21.0033H11.0053V20.0066H12.004V19.0099H13.0026V18.0132H14.0013V17.0165H15V16.0198H15.9987V15.0231H16.9974V14.0264H17.996V13.0297H18.9947V12.033H19.9934V17.0316H22V8H13.004V10.0026H18.0145V10.9993H17.0159V11.996H16.0172V12.9927H15.0185V13.9895H14.0198V14.9862H13.0211V15.9829H12.0225V16.9796H11.0238V17.9763H10.0251V18.973H9.02642V19.9697H8V21.9723H10.0066V22Z" fill="white" />
+                </svg>
+              </Link>
+            </Magnetic>
           </div>
         </div>
       </div>
