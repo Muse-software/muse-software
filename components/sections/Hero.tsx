@@ -25,9 +25,19 @@ export default function Hero() {
   );
 
   return (
-    <section className="relative flex min-h-[34rem] h-[70vh] md:h-screen flex-col overflow-hidden bg-black">
-      {/* Decorative background field */}
+    <section
+      id="hero"
+      className="relative flex flex-col overflow-hidden bg-black pb-10 pt-28 md:h-screen md:pb-12 md:pt-0"
+    >
+      {/* Decorative background field. `.copper-bloom` is a CSS-only radial
+          wash in the locked brand orange (globals.css) that sits behind
+          PixelBlast at all times — the hero's base surface, not a fallback
+          bolted on for one failure case. If PixelBlast cannot mount at all
+          (no WebGL context available — see the probe in PixelBlast.tsx), the
+          hero still reads as an intentional, on-brand surface rather than
+          flat, empty black. */}
       <div aria-hidden="true" className="absolute inset-0">
+        <div className="copper-bloom absolute inset-0" />
         <PixelBlast
           variant="square"
           pixelSize={pixelSize}
@@ -51,18 +61,24 @@ export default function Hero() {
           bottom only — nothing tints the pixel field above it. */}
       <div className="pointer-events-none absolute inset-x-0 bottom-0 h-2/5 bg-linear-to-t from-[#060608] to-transparent" />
 
-      {/* Overlay headline. The top padding is load-bearing on narrow screens:
-          the headline runs to four lines under ~400px and would otherwise
-          ride up under the fixed logo. Verified at 360px. */}
-      <div className="relative z-10 flex flex-1 items-center justify-center pointer-events-none pt-16 pb-32 md:pt-0 md:pb-24">
+      {/* Headline. Mobile stacks headline -> tagline -> CTA in one natural
+          flow: the section no longer forces a `70vh` box that this block
+          centred inside, which is what stranded the tagline/CTA far below
+          it with a dead gap on short copy. Desktop keeps the original
+          spacious, vertically centred composition via `md:h-screen` on the
+          section plus `md:flex-1`/`md:justify-center` here. */}
+      <div className="relative z-10 pointer-events-none md:flex md:flex-1 md:items-center md:justify-center">
         <div className="max-w-[1400px] mx-auto w-full px-5 md:px-10">
           {/* Both lines are nowrap and sized in vw so the second never breaks
-              "one." onto its own line. The vw coefficient is set by the longer
-              line (30 characters) and was tuned by measuring the rendered width
-              against the padded container down to 360px. */}
+              "one." onto its own line. The vw coefficient is set by the
+              longer of these two lines (21 characters) and tuned against the
+              padded container at 390px — recalibrated 2026-08-08 for
+              Territory A's shorter copy; the previous coefficient was tuned
+              for a 30-character line and rendered this one far smaller than
+              IntentRouter's heading below it. */}
           <h1
             className="mx-auto flex flex-col items-center gap-2 text-white font-bold font-space-grotesk text-center leading-[1.1] tracking-tight md:gap-3"
-            style={{ fontSize: "clamp(1.1rem, 5.2vw, 4.75rem)" }}
+            style={{ fontSize: "clamp(2rem, 7.6vw, 5.25rem)" }}
           >
             <span className="block whitespace-nowrap">{t("headlineLead")}</span>
             {/* Highlighter, not a card: a plain white fill hugging the glyphs,
@@ -77,42 +93,50 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Bottom tagline bar */}
-      <div className="relative z-10 mt-auto pb-8 md:pb-12">
+      {/* Tagline + subtitle + CTA, one coherent block. `mt-10` gives mobile a
+          fixed, deliberate gap under the headline; `md:mt-auto` switches to
+          pinning the whole block to the section's bottom edge once
+          `md:h-screen` gives the flex column real leftover space to push
+          into. The old decorative rule-and-arrowhead between the copy and
+          the button carried no information — it only filled the gap on wide
+          screens — so it is gone; `md:justify-between` does that job. */}
+      <div className="relative z-10 mt-10 md:mt-auto">
         <div className="max-w-[1400px] mx-auto w-full px-5 md:px-10">
-          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-5 lg:gap-6">
-            {/* Left: tagline + subtitle */}
-            <div className="flex flex-col gap-2 lg:gap-3 lg:flex-1">
+          <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between md:gap-10">
+            <div className="flex flex-col gap-2 md:max-w-xl md:gap-3">
               {/* Sized under the headline on purpose. The h1 is nowrap, so it
                   lands around 20px on a phone; at the old text-2xl this line
                   outweighed it and the hierarchy read backwards. */}
-              <p className="font-semibold font-space-grotesk text-white leading-[1.1] tracking-tight text-lg md:text-3xl lg:text-4xl">
-                {t("tagline")}
+              <p className="font-semibold font-space-grotesk text-white leading-[1.15] tracking-tight text-lg md:text-3xl lg:text-4xl">
+                {/* "Muse" is a Latin run opening an Arabic sentence in `ar`.
+                    `<bdi>` isolates it from the surrounding RTL paragraph so
+                    the bidi algorithm can't reorder it against the Arabic
+                    that follows — the same class of bug the phone/email
+                    `dir="ltr"` spans on /contact and /start exist to prevent. */}
+                {t.rich("tagline", { brand: (chunks) => <bdi>{chunks}</bdi> })}
               </p>
-              <p className="text-white text-sm md:text-xl leading-[1.3] max-w-lg">
+              <p className="max-w-lg text-sm leading-[1.5] text-white md:text-xl">
                 {t("subtitle")}
               </p>
             </div>
 
-            {/* Arrow line + Learn more button */}
-            <div className="hidden lg:flex items-center flex-1 max-w-xs lg:mx-6">
-              <div className="w-full h-px bg-white relative">
-                {/* CSS-triangle arrowhead on the end of the rule. The border
-                    trick has no logical equivalent, so the shape itself is
-                    mirrored under RTL rather than the properties: `end-0`
-                    moves it to the left edge and `arrow-inline` flips the
-                    triangle to point the same way the rule travels. */}
-                <div className="arrow-inline absolute end-0 top-1/2 -translate-y-1/2 w-0 h-0 border-t-[4px] border-t-transparent border-b-[4px] border-b-transparent border-l-[8px] border-l-white" />
-              </div>
-            </div>
             <Link
-              href="/contact"
-              className="self-start inline-flex items-center gap-5 whitespace-nowrap border border-black bg-white text-black py-2 ps-5 pe-3 md:py-3 md:ps-6 md:pe-4 text-base md:text-lg font-medium font-space-grotesk hover:bg-[#fd4601] transition-colors duration-200 shrink-0"
+              href="/start"
+              className="min-h-11 self-start inline-flex items-center gap-3 whitespace-nowrap border border-black bg-white px-5 py-3 text-base font-medium font-space-grotesk text-black transition-colors duration-200 hover:bg-[#fd4601] md:px-6 md:text-lg shrink-0"
             >
               {t("cta")}
-              <svg width="16" height="16" viewBox="0 0 30 30" fill="none" className="arrow-inline" aria-hidden="true">
-                <rect width="30" height="30" fill="black" />
-                <path d="M10.0066 22V21.0033H11.0053V20.0066H12.004V19.0099H13.0026V18.0132H14.0013V17.0165H15V16.0198H15.9987V15.0231H16.9974V14.0264H17.996V13.0297H18.9947V12.033H19.9934V17.0316H22V8H13.004V10.0026H18.0145V10.9993H17.0159V11.996H16.0172V12.9927H15.0185V13.9895H14.0198V14.9862H13.0211V15.9829H12.0225V16.9796H11.0238V17.9763H10.0251V18.973H9.02642V19.9697H8V21.9723H10.0066V22Z" fill="white" />
+              {/* A plain forward chevron, not the up-right "external link"
+                  glyph this replaced — `/start` is an internal route, and
+                  the old glyph read as if it opened somewhere else. Matches
+                  the arrow IntentRouter's rows use just below. */}
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" className="arrow-inline" aria-hidden="true">
+                <path
+                  d="M5 12H19M19 12L13 6M19 12L13 18"
+                  stroke="currentColor"
+                  strokeWidth="1.75"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
               </svg>
             </Link>
           </div>

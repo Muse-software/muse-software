@@ -3,6 +3,7 @@ import Approach from "@/components/sections/Approach";
 import CTA from "@/components/sections/CTA";
 import FAQ from "@/components/sections/FAQ";
 import Hero from "@/components/sections/Hero";
+import IntentRouter from "@/components/sections/IntentRouter";
 import Manifesto from "@/components/sections/Manifesto";
 import OutcomesBand from "@/components/sections/OutcomesBand";
 import WhoWeBuildFor from "@/components/sections/WhoWeBuildFor";
@@ -19,8 +20,12 @@ const SAME_AS = [
 
 /**
  * The home page body: everything between the nav and the footer, in order.
- * Hero → Approach → Manifesto → WhoWeBuildFor → OutcomesBand → Ticker → FAQ
- * → CTA. The hero is the always-on orange pixel field
+ * Direction 4 (docs/three-doors/direction-4-understanding-first.md) replaces
+ * Hero → Approach with Hero → IntentRouter → Approach; everything from
+ * Approach down is the pre-D4 baseline, kept only so the page stays complete
+ * through the Phase 1 visual gate — it is not yet D4 copy or structure.
+ * Hero → IntentRouter → Approach → Manifesto → WhoWeBuildFor → OutcomesBand
+ * → Ticker → FAQ → CTA. The hero is the always-on orange pixel field
  * (`components/PixelBlast.tsx`, via `Hero.tsx`).
  */
 export default async function HomeSections({ locale }: { locale: Locale }) {
@@ -51,6 +56,7 @@ export default async function HomeSections({ locale }: { locale: Locale }) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <Hero />
+      <IntentRouter />
       <Approach locale={locale} />
       {/* The pressure line that used to sit here as its own section now closes
           the Manifesto's argument — see PressureStatement. */}

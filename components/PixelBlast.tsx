@@ -298,6 +298,25 @@ const PixelBlast = ({
 
     if (mustReinit) {
       disposeThree();
+
+      // LOCAL: `new THREE.WebGLRenderer` throws synchronously when no WebGL
+      // context can be created (WebGL disabled, some corporate lockdowns,
+      // sandboxed/headless browsers with no software rasterizer). Uncaught,
+      // that throw happens inside this effect and crashes the whole page to
+      // Next's global error boundary — not just this decorative field. A
+      // throwaway probe context, which returns null instead of throwing,
+      // lets the field degrade to "nothing renders here" instead, the same
+      // fails-safe contract Glossy3D already uses for the same failure mode.
+      const probeCanvas = document.createElement("canvas");
+      const webglAvailable = !!(
+        probeCanvas.getContext("webgl2") || probeCanvas.getContext("webgl")
+      );
+      if (!webglAvailable) {
+        console.warn("[PixelBlast] WebGL unavailable; skipping decorative field.");
+        prevConfigRef.current = cfg;
+        return () => {};
+      }
+
       const canvas = document.createElement("canvas");
       const renderer = new THREE.WebGLRenderer({
         canvas,
