@@ -45,6 +45,12 @@ const DEMOS: { href: string; title: string; description: string; status: string 
     description: "The real production candidate for the homepage ProofWall — same content, carousel visual.",
     status: "Demo-only — homepage swap deferred, no GPU available to QA it here (see report)",
   },
+  {
+    href: "/animation-core",
+    title: "Animation core",
+    description: "Lenis + gsap ticker, SplitText reveal, Flip layout swap, ScrollTrigger pin.",
+    status: "Runtime proof, not a shippable effect on its own",
+  },
 ];
 
 export default async function DemoIndexPage({ params }: Props) {
