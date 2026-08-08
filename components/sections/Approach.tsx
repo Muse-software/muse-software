@@ -144,18 +144,20 @@ export default function Approach({ locale }: { locale: Locale }) {
 
                   {/* Outline icon crossfades into a real photo on hover */}
                   <div className="relative h-20 w-20 shrink-0 overflow-hidden md:h-28 md:w-28">
-                    <Image
-                      src={service.image}
-                      alt=""
-                      fill
-                      sizes="(min-width: 768px) 112px, 80px"
-                      className={`object-cover transition-opacity duration-500 ${
-                        active === i ? "opacity-100" : "opacity-0"
-                      }`}
-                    />
+                    {service.image ? (
+                      <Image
+                        src={service.image}
+                        alt=""
+                        fill
+                        sizes="(min-width: 768px) 112px, 80px"
+                        className={`object-cover transition-opacity duration-500 ${
+                          active === i ? "opacity-100" : "opacity-0"
+                        }`}
+                      />
+                    ) : null}
                     <div
                       className={`absolute inset-0 flex items-center justify-center text-white/50 transition-opacity duration-500 ${
-                        active === i ? "opacity-0" : "opacity-100"
+                        service.image && active === i ? "opacity-0" : "opacity-100"
                       }`}
                     >
                       <Icon name={service.icon} className="h-10 w-10" />

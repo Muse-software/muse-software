@@ -2,6 +2,154 @@ import type { Service } from "../shared";
 
 export const services: Service[] = [
   {
+    slug: "product-strategy-discovery",
+    icon: "gear",
+    title: "Product Strategy & Discovery",
+    summary: "Find the product decision worth making before the feature list takes over.",
+    cta: "Shape the product",
+    intro: [
+      "A product can be well built and still solve the wrong problem. We start by getting clear on the market, the user, and the decision the product has to earn.",
+      "Where a proven model already exists, we study why it works and what must change for this market. Where the question is new, we turn it into something concrete enough to test."
+    ],
+    approachHeading: "How we approach discovery",
+    approachIntro: [
+      "Discovery should reduce the cost of a wrong decision. It should not become a research project with no product at the end.",
+      "We research, map, challenge, prototype, and narrow the work until the next product decision is clear."
+    ],
+    pillars: [
+      {
+        title: "Start with evidence",
+        body: "We examine the market, comparable products, existing behavior, and the constraints already shaping the opportunity."
+      },
+      {
+        title: "Find the decision",
+        body: "A product usually turns on a few important choices. We identify those before a backlog makes every feature look equally urgent."
+      },
+      {
+        title: "Design for this market",
+        body: "Local institutions, habits, language, and operating realities change the product itself, not only its copy."
+      }
+    ],
+    whyHeadline: "A long backlog can hide an unresolved product decision",
+    whyReasons: [
+      "Teams collect requests before agreeing on the problem they are solving.",
+      "Competitor features get copied without understanding the behavior that made them work.",
+      "Local constraints appear late, after the product shape is already expensive to change.",
+      "Research keeps expanding because nobody has defined what evidence would change the decision."
+    ],
+    whatWeDoHeadline: "We turn an open question into a product direction you can act on.",
+    whatWeDo: [
+      {
+        title: "Market and Product Teardowns",
+        body: "A structured look at proven products, their key decisions, and where their model does or does not transfer."
+      },
+      {
+        title: "User and Workflow Research",
+        body: "Interviews and workflow mapping focused on what people do today, where the friction sits, and what must change."
+      },
+      {
+        title: "Opportunity Framing",
+        body: "A clear statement of the audience, problem, constraints, and product bet, so the team is solving the same thing."
+      },
+      {
+        title: "Scope and Roadmap",
+        body: "The smallest coherent release, the decisions it must test, and what waits until the evidence supports it."
+      },
+      {
+        title: "Concept Prototypes",
+        body: "Clickable product concepts that make the direction discussable before production work begins."
+      }
+    ],
+    faq: [
+      {
+        q: "Do you validate ideas before building?",
+        a: "We test the decisions that can be tested before build, then define the smallest real release needed to answer what research alone cannot."
+      },
+      {
+        q: "Can you work from an existing product idea?",
+        a: "Yes. We can sharpen an existing idea, examine the model behind a proven product, or untangle a backlog that has lost its product direction."
+      },
+      {
+        q: "What comes out of discovery?",
+        a: "A product direction, a defined first scope, the reasoning behind the important choices, and a prototype when the experience needs to be tested visibly."
+      }
+    ]
+  },
+  {
+    slug: "product-experience-design",
+    icon: "share",
+    title: "Product & Experience Design",
+    summary: "Turn a product idea into an experience people can understand, use, and trust.",
+    cta: "Design the experience",
+    intro: [
+      "A polished screen cannot rescue a broken flow. We design the decisions, states, and interactions that make the product make sense from the first action to the last.",
+      "The work stays connected to engineering from the start, so the experience is designed for the product that will actually ship."
+    ],
+    approachHeading: "How we design",
+    approachIntro: [
+      "We make the product tangible early. A working flow exposes weak assumptions faster than a long specification.",
+      "We map, sketch, prototype, test, and refine until the product has a coherent system behind every screen."
+    ],
+    pillars: [
+      {
+        title: "Flow before finish",
+        body: "We resolve the journey, hierarchy, and key decisions before visual polish makes a weak structure expensive to change."
+      },
+      {
+        title: "Every state counts",
+        body: "Empty, loading, error, offline, and edge cases are part of the product, so they are designed with the main path."
+      },
+      {
+        title: "Design with engineering",
+        body: "Design and engineering work against the same constraints, which keeps the intended experience intact through build."
+      }
+    ],
+    whyHeadline: "Most product friction lives between the screens",
+    whyReasons: [
+      "The happy path looks finished while errors and empty states are left to chance.",
+      "Navigation reflects the company structure instead of the task a person came to complete.",
+      "Visual decisions drift because the product has components but no coherent system.",
+      "Design is handed over as static screens, leaving the important interaction decisions unresolved."
+    ],
+    whatWeDoHeadline: "We design the product as a system, then make it real enough to test.",
+    whatWeDo: [
+      {
+        title: "Experience Architecture",
+        body: "The journeys, information structure, and interaction model that hold the product together."
+      },
+      {
+        title: "Interface Design",
+        body: "Clear, purposeful screens built around the task, content, and decisions in front of the user."
+      },
+      {
+        title: "Interactive Prototypes",
+        body: "Clickable flows for testing behavior and alignment before production code carries the cost of change."
+      },
+      {
+        title: "Design Systems",
+        body: "Reusable tokens, components, states, and rules that keep the product coherent as it grows."
+      },
+      {
+        title: "Product Testing",
+        body: "Structured sessions around real tasks, followed by concrete changes to the flow and interface."
+      }
+    ],
+    faq: [
+      {
+        q: "Do you only design new products?",
+        a: "No. We can shape a new product, repair a specific journey, or bring an inconsistent existing interface into one coherent system."
+      },
+      {
+        q: "Do you deliver static screens or working prototypes?",
+        a: "The format follows the decision. Key journeys are made interactive when behavior needs to be tested, while production details are documented in the design system."
+      },
+      {
+        q: "How does design work with engineering?",
+        a: "They work against the same product constraints from the start. That reduces handoff loss and keeps implementation decisions visible while the experience is still being shaped."
+      }
+    ]
+  },
+  {
     "slug": "ai-transformation",
     "icon": "gear",
     "title": "AI Transformation",

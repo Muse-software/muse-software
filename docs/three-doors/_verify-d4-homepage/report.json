@@ -62,11 +62,15 @@
         "pass": true,
         "total": 5,
         "linkHrefs": [
+          "/en/services/product-strategy-discovery",
+          "/en/services/product-experience-design",
           "/en/services/product-engineering",
           "/en/services/ai-transformation",
           "/en/services/gamification-experience"
         ],
         "expected": [
+          "/en/services/product-strategy-discovery",
+          "/en/services/product-experience-design",
           "/en/services/product-engineering",
           "/en/services/ai-transformation",
           "/en/services/gamification-experience"
@@ -93,7 +97,7 @@
           "pass": true,
           "tag": "A",
           "inCapabilities": true,
-          "href": "/en/services/product-engineering"
+          "href": "/en/services/product-strategy-discovery"
         },
         "faqAccordion": {
           "pass": true,
@@ -166,11 +170,15 @@
         "pass": true,
         "total": 5,
         "linkHrefs": [
+          "/en/services/product-strategy-discovery",
+          "/en/services/product-experience-design",
           "/en/services/product-engineering",
           "/en/services/ai-transformation",
           "/en/services/gamification-experience"
         ],
         "expected": [
+          "/en/services/product-strategy-discovery",
+          "/en/services/product-experience-design",
           "/en/services/product-engineering",
           "/en/services/ai-transformation",
           "/en/services/gamification-experience"
@@ -197,7 +205,7 @@
           "pass": true,
           "tag": "A",
           "inCapabilities": true,
-          "href": "/en/services/product-engineering"
+          "href": "/en/services/product-strategy-discovery"
         },
         "faqAccordion": {
           "pass": true,
@@ -270,11 +278,15 @@
         "pass": true,
         "total": 5,
         "linkHrefs": [
+          "/en/services/product-strategy-discovery",
+          "/en/services/product-experience-design",
           "/en/services/product-engineering",
           "/en/services/ai-transformation",
           "/en/services/gamification-experience"
         ],
         "expected": [
+          "/en/services/product-strategy-discovery",
+          "/en/services/product-experience-design",
           "/en/services/product-engineering",
           "/en/services/ai-transformation",
           "/en/services/gamification-experience"
@@ -301,7 +313,7 @@
           "pass": true,
           "tag": "A",
           "inCapabilities": true,
-          "href": "/en/services/product-engineering"
+          "href": "/en/services/product-strategy-discovery"
         },
         "faqAccordion": {
           "pass": true,
@@ -374,11 +386,15 @@
         "pass": true,
         "total": 5,
         "linkHrefs": [
+          "/ar/services/product-strategy-discovery",
+          "/ar/services/product-experience-design",
           "/ar/services/product-engineering",
           "/ar/services/ai-transformation",
           "/ar/services/gamification-experience"
         ],
         "expected": [
+          "/ar/services/product-strategy-discovery",
+          "/ar/services/product-experience-design",
           "/ar/services/product-engineering",
           "/ar/services/ai-transformation",
           "/ar/services/gamification-experience"
@@ -405,7 +421,7 @@
           "pass": true,
           "tag": "A",
           "inCapabilities": true,
-          "href": "/ar/services/product-engineering"
+          "href": "/ar/services/product-strategy-discovery"
         },
         "faqAccordion": {
           "pass": true,
@@ -478,11 +494,15 @@
         "pass": true,
         "total": 5,
         "linkHrefs": [
+          "/ar/services/product-strategy-discovery",
+          "/ar/services/product-experience-design",
           "/ar/services/product-engineering",
           "/ar/services/ai-transformation",
           "/ar/services/gamification-experience"
         ],
         "expected": [
+          "/ar/services/product-strategy-discovery",
+          "/ar/services/product-experience-design",
           "/ar/services/product-engineering",
           "/ar/services/ai-transformation",
           "/ar/services/gamification-experience"
@@ -509,7 +529,7 @@
           "pass": true,
           "tag": "A",
           "inCapabilities": true,
-          "href": "/ar/services/product-engineering"
+          "href": "/ar/services/product-strategy-discovery"
         },
         "faqAccordion": {
           "pass": true,
@@ -582,11 +602,15 @@
         "pass": true,
         "total": 5,
         "linkHrefs": [
+          "/ar/services/product-strategy-discovery",
+          "/ar/services/product-experience-design",
           "/ar/services/product-engineering",
           "/ar/services/ai-transformation",
           "/ar/services/gamification-experience"
         ],
         "expected": [
+          "/ar/services/product-strategy-discovery",
+          "/ar/services/product-experience-design",
           "/ar/services/product-engineering",
           "/ar/services/ai-transformation",
           "/ar/services/gamification-experience"
@@ -613,7 +637,7 @@
           "pass": true,
           "tag": "A",
           "inCapabilities": true,
-          "href": "/ar/services/product-engineering"
+          "href": "/ar/services/product-strategy-discovery"
         },
         "faqAccordion": {
           "pass": true,
@@ -688,11 +712,15 @@
         "pass": true,
         "total": 5,
         "linkHrefs": [
+          "/en/services/product-strategy-discovery",
+          "/en/services/product-experience-design",
           "/en/services/product-engineering",
           "/en/services/ai-transformation",
           "/en/services/gamification-experience"
         ],
         "expected": [
+          "/en/services/product-strategy-discovery",
+          "/en/services/product-experience-design",
           "/en/services/product-engineering",
           "/en/services/ai-transformation",
           "/en/services/gamification-experience"
@@ -771,11 +799,15 @@
         "pass": true,
         "total": 5,
         "linkHrefs": [
+          "/ar/services/product-strategy-discovery",
+          "/ar/services/product-experience-design",
           "/ar/services/product-engineering",
           "/ar/services/ai-transformation",
           "/ar/services/gamification-experience"
         ],
         "expected": [
+          "/ar/services/product-strategy-discovery",
+          "/ar/services/product-experience-design",
           "/ar/services/product-engineering",
           "/ar/services/ai-transformation",
           "/ar/services/gamification-experience"
@@ -829,7 +861,7 @@
       "device": "desktop",
       "path": "docs/three-doors/_verify-d4-homepage/en-desktop-home.png",
       "width": 1440,
-      "height": 6526,
+      "height": 6560,
       "headingsPass": true,
       "headingVisibility": [
         {
@@ -869,7 +901,7 @@
       "device": "mobile",
       "path": "docs/three-doors/_verify-d4-homepage/en-mobile-home.png",
       "width": 390,
-      "height": 7218,
+      "height": 7286,
       "headingsPass": true,
       "headingVisibility": [
         {
@@ -909,7 +941,7 @@
       "device": "mobile-compact",
       "path": "docs/three-doors/_verify-d4-homepage/en-mobile-compact-home.png",
       "width": 320,
-      "height": 8105,
+      "height": 8173,
       "headingsPass": true,
       "headingVisibility": [
         {
@@ -949,7 +981,7 @@
       "device": "desktop",
       "path": "docs/three-doors/_verify-d4-homepage/ar-desktop-home.png",
       "width": 1440,
-      "height": 6403,
+      "height": 6438,
       "headingsPass": true,
       "headingVisibility": [
         {
@@ -989,7 +1021,7 @@
       "device": "mobile",
       "path": "docs/three-doors/_verify-d4-homepage/ar-mobile-home.png",
       "width": 390,
-      "height": 6836,
+      "height": 6906,
       "headingsPass": true,
       "headingVisibility": [
         {
@@ -1029,7 +1061,7 @@
       "device": "mobile-compact",
       "path": "docs/three-doors/_verify-d4-homepage/ar-mobile-compact-home.png",
       "width": 320,
-      "height": 7287,
+      "height": 7357,
       "headingsPass": true,
       "headingVisibility": [
         {

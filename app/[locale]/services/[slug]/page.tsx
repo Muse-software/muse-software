@@ -59,6 +59,7 @@ export default async function ServiceDetailPage({
         title={service.title}
         subtitle={service.summary}
         image={service.image}
+        staticDitherSurface
       />
 
       <ServiceSubnav
@@ -83,7 +84,7 @@ export default async function ServiceDetailPage({
             ))}
           </div>
           <Link
-            href="/get-started"
+            href="/start?intent=capability"
             className="mt-8 inline-flex items-center gap-3 border border-black bg-white px-6 py-3 text-base font-medium font-space-grotesk text-black transition-colors duration-200 hover:bg-[#fd4601]"
           >
             {t("getStarted")}
@@ -151,7 +152,7 @@ export default async function ServiceDetailPage({
       </section>
 
       {/* What we do */}
-      <section id="what-we-do" className="pb-16 md:pb-24">
+      <section id="what-we-do">
         <div className="mx-auto w-full max-w-[1100px] px-5 md:px-10">
           <p className="text-xs font-semibold uppercase tracking-[0.3em] text-white/50">
             {t("whatWeDo")}
@@ -191,13 +192,13 @@ export default async function ServiceDetailPage({
 
       {/* Per-service FAQ (optional) */}
       {service.faq && service.faq.length > 0 && (
-        <div id="faq">
+        <div>
           <FAQ heading={t("faq")} items={service.faq} />
         </div>
       )}
 
       <Ticker text={t("ticker")} />
-      <CTA />
+      <CTA staticDitherSurface />
     </div>
   );
 }

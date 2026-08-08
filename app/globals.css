@@ -520,6 +520,7 @@
     mask-image: var(--bands);
   }
 
+
   /* ------------------------------------------------------------------
      The Bayer lattice — PLAYGROUND ONLY, nothing shipped uses this.
 
@@ -694,6 +695,17 @@
       rgba(253, 70, 1, 0.09) 42%,
       transparent 72%
     );
+  }
+
+  @media (max-width: 767px) {
+    .dither-field-base {
+      background: radial-gradient(
+        88% 78% at 50% 42%,
+        rgba(253, 70, 1, 0.28) 0%,
+        rgba(253, 70, 1, 0.1) 44%,
+        transparent 76%
+      );
+    }
   }
 
   /* Social icon pattern shared by the nav panel, Footer, and Contact page —

@@ -3,14 +3,11 @@ import { Link } from "@/i18n/navigation";
 import WordReveal from "../WordReveal";
 
 /**
- * Five disciplines, three of them with a real page today. Strategy &
- * Discovery and Design have no route yet (plan §8), so those two render as
- * plain, non-interactive items rather than a link with nowhere honest to
- * go — a dead link wearing a live one's clothes is worse than no link.
+ * Five disciplines, each linked to its truthful capability page.
  */
 const CAPABILITIES = [
-  { key: "strategyDiscovery", href: null, signature: false, span: "lg:col-span-6" },
-  { key: "design", href: null, signature: false, span: "lg:col-span-6" },
+  { key: "strategyDiscovery", href: "/services/product-strategy-discovery", signature: false, span: "lg:col-span-6" },
+  { key: "design", href: "/services/product-experience-design", signature: false, span: "lg:col-span-6" },
   { key: "productEngineering", href: "/services/product-engineering", signature: false, span: "lg:col-span-4" },
   { key: "ai", href: "/services/ai-transformation", signature: true, span: "lg:col-span-4" },
   { key: "gamification", href: "/services/gamification-experience", signature: true, span: "lg:col-span-4" },
@@ -53,17 +50,6 @@ export default async function Capabilities() {
                 </p>
               </>
             );
-
-            if (!capability.href) {
-              return (
-                <div
-                  key={capability.key}
-                  className={`border border-white/15 p-6 md:p-8 ${capability.span}`}
-                >
-                  {body}
-                </div>
-              );
-            }
 
             return (
               <Link

@@ -7,9 +7,18 @@ type SubpageHeroProps = {
   title: string;
   subtitle?: string;
   image?: string;
+  /** Use the approved static brand surface when the page already owns its
+   *  single decorative WebGL context, such as service pages with PageDither. */
+  staticDitherSurface?: boolean;
 };
 
-export default function SubpageHero({ eyebrow, title, subtitle, image }: SubpageHeroProps) {
+export default function SubpageHero({
+  eyebrow,
+  title,
+  subtitle,
+  image,
+  staticDitherSurface = false,
+}: SubpageHeroProps) {
   return (
     <section className="relative overflow-hidden bg-[#060608] pb-16 pt-40 md:pb-20 md:pt-48">
       {image ? (
@@ -26,7 +35,15 @@ export default function SubpageHero({ eyebrow, title, subtitle, image }: Subpage
         </>
       ) : (
         <>
-          <DitherField className="opacity-90" />
+          {staticDitherSurface ? (
+            <div
+              aria-hidden="true"
+              data-dither-fallback
+              className="copper-bloom dither-field-base absolute inset-0"
+            />
+          ) : (
+            <DitherField className="opacity-90" />
+          )}
           {/* One vertical scrim, doing two jobs: it keeps the orange eyebrow off
               the orange dot field, and it resolves the section into the page
               black at the bottom edge so the header meets the next section with

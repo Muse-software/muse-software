@@ -66,6 +66,8 @@ const EXPECTED_SECTION_ORDER = [
   "cta",
 ];
 const EXPECTED_CAPABILITY_HREF_SUFFIXES = [
+  "/services/product-strategy-discovery",
+  "/services/product-experience-design",
   "/services/product-engineering",
   "/services/ai-transformation",
   "/services/gamification-experience",
@@ -111,7 +113,7 @@ async function checkCapabilities(page, locale) {
   const expected = EXPECTED_CAPABILITY_HREF_SUFFIXES.map((suffix) => `/${locale}${suffix}`);
   const missing = expected.filter((href) => !linkHrefs.includes(href));
   const extra = linkHrefs.filter((href) => !expected.includes(href));
-  const pass = total === 5 && linkHrefs.length === 3 && missing.length === 0 && extra.length === 0;
+  const pass = total === expected.length && linkHrefs.length === expected.length && missing.length === 0 && extra.length === 0;
   return { pass, total, linkHrefs, expected, missing, extra };
 }
 
@@ -179,7 +181,7 @@ async function checkKeyboard(page, locale) {
     inCapabilities: !!document.activeElement?.closest("#capabilities"),
     href: document.activeElement?.getAttribute("href"),
   }));
-  const expectedFirstLink = `/${locale}/services/product-engineering`;
+  const expectedFirstLink = `/${locale}/services/product-strategy-discovery`;
   results.firstCapabilityLink = {
     pass: afterCapabilityLink.tag === "A" && afterCapabilityLink.inCapabilities && afterCapabilityLink.href === expectedFirstLink,
     ...afterCapabilityLink,

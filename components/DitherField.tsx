@@ -38,6 +38,10 @@ export default function DitherField({ className }: { className?: string }) {
       aria-hidden="true"
       className={`pointer-events-none select-none absolute inset-0 overflow-hidden ${className ?? ""}`}
     >
+      {/* Brand-colour surface beneath optional WebGL. PixelBlast deliberately
+          skips itself when no context is available; this is the same approved
+          base material as the homepage hero, not a fake static dither. */}
+      <div data-dither-fallback className="copper-bloom dither-field-base absolute inset-0" />
       <PixelBlast
         variant="circle"
         pixelSize={pixelSize}

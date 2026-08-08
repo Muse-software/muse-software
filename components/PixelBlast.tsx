@@ -302,24 +302,28 @@ const PixelBlast = ({
       // LOCAL: `new THREE.WebGLRenderer` throws synchronously when no WebGL
       // context can be created (WebGL disabled, some corporate lockdowns,
       // sandboxed/headless browsers with no software rasterizer). Uncaught,
-      // that throw happens inside this effect and crashes the whole page to
-      // Next's global error boundary — not just this decorative field. A
-      // throwaway probe context, which returns null instead of throwing,
-      // lets the field degrade to "nothing renders here" instead, the same
-      // fails-safe contract Glossy3D already uses for the same failure mode.
-      const probeCanvas = document.createElement("canvas");
-      const webglAvailable = !!(
-        probeCanvas.getContext("webgl2") || probeCanvas.getContext("webgl")
-      );
-      if (!webglAvailable) {
+      // that throw crashes the whole page. Request the context first so null
+      // can degrade to the CSS brand surface, then pass that exact context to
+      // THREE instead of consuming a second context with a throwaway probe.
+      // Probe on the actual renderer canvas and pass that same context into
+      // THREE. A separate probe canvas consumes a second WebGL context on every
+      // mount; repeated client navigations can exhaust Chromium's context pool
+      // even though each probe reported success.
+      const canvas = document.createElement("canvas");
+      const context = canvas.getContext("webgl2", {
+        antialias,
+        alpha: true,
+        powerPreference: "high-performance",
+      });
+      if (!context) {
         console.warn("[PixelBlast] WebGL unavailable; skipping decorative field.");
         prevConfigRef.current = cfg;
         return () => {};
       }
 
-      const canvas = document.createElement("canvas");
       const renderer = new THREE.WebGLRenderer({
         canvas,
+        context,
         antialias,
         alpha: true,
         powerPreference: "high-performance",

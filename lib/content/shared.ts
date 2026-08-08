@@ -35,7 +35,8 @@ export type Service = {
    * Voice note in the vault. Read by both Approach and Services.
    */
   cta: string;
-  image: string;
+  /** Optional: omit when there is no truthful capability-specific photograph. */
+  image?: string;
   icon: "gear" | "shield" | "share";
   intro: string[];
   approachHeading: string;

@@ -45,15 +45,15 @@ export default function ServiceSubnav({ items }: { items: SubnavItem[] }) {
   return (
     <nav
       aria-label="Section"
-      className="sticky top-20 z-20 -mx-5 overflow-x-auto border-b border-white/10 bg-[#060608]/90 px-5 backdrop-blur md:mx-0 md:px-10"
+      className="sticky top-20 z-20 overflow-x-auto border-b border-white/10 bg-[#060608]/90 px-3 backdrop-blur md:px-10"
     >
-      <div className="mx-auto flex w-max max-w-[1100px] gap-3 py-3 md:w-full md:gap-6 md:py-4">
+      <div className="mx-auto grid w-full max-w-[1100px] grid-cols-4 gap-1 py-3 md:flex md:gap-6 md:py-4">
         {items.map((item) => (
           <a
             key={item.id}
             href={`#${item.id}`}
             onClick={(e) => handleClick(e, item.id)}
-            className={`whitespace-nowrap rounded-full border px-4 py-1.5 text-sm font-semibold uppercase tracking-[0.15em] transition-colors md:rounded-none md:border-0 md:border-b-2 md:px-0 md:py-0 md:pb-1 ${
+            className={`min-w-0 whitespace-nowrap rounded-full border px-1 py-1.5 text-center text-[9px] font-semibold uppercase tracking-normal transition-colors md:rounded-none md:border-0 md:border-b-2 md:px-0 md:py-0 md:pb-1 md:text-start md:text-sm md:tracking-[0.15em] ${
               active === item.id
                 ? "border-[#fd4601] text-white md:border-[#fd4601]"
                 : "border-white/20 text-white/50 hover:text-white md:border-transparent"

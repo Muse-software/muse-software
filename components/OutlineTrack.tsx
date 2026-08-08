@@ -20,7 +20,7 @@ export default function OutlineTrack({ items }: OutlineTrackProps) {
           <div
             data-card
             key={item.title}
-            className="flex w-[80vw] max-w-[300px] shrink-0 snap-start flex-col gap-3 border border-white/15 p-6 transition-colors duration-300 hover:border-[#fd4601]"
+            className="flex w-full shrink-0 snap-start flex-col gap-3 border border-white/15 p-6 transition-colors duration-300 hover:border-[#fd4601] md:w-[calc((100%_-_2.5rem)/3)]"
           >
             <h3 className="font-space-grotesk text-lg font-bold text-[#fd4601]">{item.title}</h3>
             <p className="text-sm leading-6 text-white/70">{item.body}</p>

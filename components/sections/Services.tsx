@@ -44,14 +44,18 @@ export default async function Services({ locale }: { locale: Locale }) {
         <div className="flex flex-col gap-14">
           {getServices(locale).map((service) => (
             <div key={service.slug} className="border border-white/10">
-              <div className="relative h-48 w-full md:h-64">
-                <Image
-                  src={service.image}
-                  alt=""
-                  fill
-                  sizes="(min-width: 1100px) 1100px, 100vw"
-                  className="object-cover"
-                />
+              <div className="relative flex h-48 w-full items-center justify-center overflow-hidden bg-[radial-gradient(circle_at_30%_40%,rgba(253,70,1,0.22),transparent_42%),linear-gradient(135deg,#16080a,#060608)] md:h-64">
+                {service.image ? (
+                  <Image
+                    src={service.image}
+                    alt=""
+                    fill
+                    sizes="(min-width: 1100px) 1100px, 100vw"
+                    className="object-cover"
+                  />
+                ) : (
+                  <Icon name={service.icon} className="h-20 w-20 text-[#fd4601]/70" />
+                )}
                 <div className="absolute inset-0 bg-linear-to-t from-[#060608] via-[#060608]/20 to-transparent" />
               </div>
               <div className="p-8 md:p-12">

@@ -28,7 +28,12 @@ import WordReveal from "../WordReveal";
  * and stopped, and flat forever on a phone. They dissolve toward the middle
  * from both ends, so the copy and the button sit on clean black.
  */
-export default async function CTA() {
+export default async function CTA({
+  staticDitherSurface = false,
+}: {
+  /** Avoid extra WebGL contexts on pages that already own a page-wide field. */
+  staticDitherSurface?: boolean;
+} = {}) {
   const t = await getTranslations("CTA");
 
   return (
@@ -40,13 +45,22 @@ export default async function CTA() {
             at full opacity: the old 10% was tuned for black ink bleeding into
             a saturated orange field, and orange on black has the opposite
             problem — too little of it and the stroke never resolves. */}
-        <DitherCursor color="#fd4601" radius={0.1} opacity={0.55} position="absolute" />
+        {!staticDitherSurface && (
+          <DitherCursor color="#fd4601" radius={0.1} opacity={0.55} position="absolute" />
+        )}
 
         {/* The panel's two edges, as one masked field. Same noise-driven
             shader as the subpage heroes; the CSS lattice that was here first
             read as a halftone screen laid over the panel rather than as the
             panel's own surface. The mask is in `.cta-bands`. */}
-        <DitherField className="cta-bands opacity-70" />
+        {staticDitherSurface ? (
+          <div
+            aria-hidden="true"
+            className="copper-bloom cta-bands pointer-events-none absolute inset-0 opacity-70"
+          />
+        ) : (
+          <DitherField className="cta-bands opacity-70" />
+        )}
 
         <div className="relative z-10 flex flex-col items-center gap-8">
           <MuseLogo showWordmark={false} iconClassName="h-10 w-auto text-[#fd4601]" />
