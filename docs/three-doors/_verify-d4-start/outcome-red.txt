@@ -1,0 +1,16 @@
+[PASS] preferred contact has a persistent card-level selected state
+[FAIL] contact actions form one compact group
+{
+  "actions": [],
+  "gap": null
+}
+[FAIL] undelivered state explicitly says delivery was not confirmed
+{
+  "noted": "we've noted your request. for a faster reply in the meantime, reach us directly:"
+}
+[FAIL] delivered state gives a truthful closure instruction
+{
+  "delivered": "thanks, we've got it. we'll be in touch soon."
+}
+
+1/4 outcome checks passed

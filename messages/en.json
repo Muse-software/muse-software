@@ -460,10 +460,88 @@
       "whatsapp": "WhatsApp",
       "email": "Email"
     },
-    "intentNote": {
-      "build": "You told us you want to start something new.",
-      "improve": "You told us you want to improve a product.",
-      "ai": "You told us you want to explore AI Transformation."
+    "progress": {
+      "stepOf": "Step {step} of {total}"
+    },
+    "skipToContact": "Just get me to a person",
+    "nav": {
+      "submit": "Send",
+      "submitting": "Sending…"
+    },
+    "screen0": {
+      "heading": "What are you looking to do?",
+      "options": {
+        "build": "Start something new",
+        "improve": "Improve a product",
+        "ai": "Explore AI Transformation",
+        "capability": "I need a specific capability",
+        "unsure": "I'm not sure yet"
+      }
+    },
+    "screen1": {
+      "heading": "Tell us a bit more.",
+      "requiredError": "Add a short answer and choose one option, or skip to contact.",
+      "build": {
+        "q1Label": "Tell us a little about the idea.",
+        "q2Legend": "Where is it today?",
+        "q2Options": {
+          "Just an idea": "Just an idea",
+          "A written plan": "A written plan",
+          "Early designs": "Early designs",
+          "A working prototype": "A working prototype"
+        }
+      },
+      "improve": {
+        "q1Label": "Tell us a little about the product.",
+        "q2Legend": "What feels most important right now?",
+        "q2Options": {
+          "The experience": "The experience",
+          "Performance": "Performance",
+          "Growth": "Growth",
+          "A rethink": "A rethink"
+        }
+      },
+      "ai": {
+        "q2Legend": "What would you most like AI to help with?",
+        "q2Options": {
+          "Operations": "Operations",
+          "Customers": "Customers",
+          "Your product": "Your product",
+          "Not sure yet": "Not sure yet"
+        }
+      },
+      "capability": {
+        "q1Label": "A line or two about the work.",
+        "q2Legend": "Which one?",
+        "q2Options": {
+          "Product Strategy & Discovery": "Product Strategy & Discovery",
+          "Product & Experience Design": "Product & Experience Design",
+          "Product Engineering": "Product Engineering",
+          "AI": "AI",
+          "Gamification & Experience": "Gamification & Experience"
+        }
+      }
+    },
+    "screen2": {
+      "heading": "How can we reach you?",
+      "openPromptLabel": "Tell us what's on your mind.",
+      "firstName": "First name",
+      "email": "Email",
+      "phone": "Phone number",
+      "company": "Company",
+      "optional": "Optional",
+      "preferredContactLegend": "How should we reach you?",
+      "preferredContact": {
+        "call": "Request a call",
+        "write": "Write to us"
+      }
+    },
+    "success": {
+      "deliveredTitle": "Your message was sent",
+      "deliveredBodyWrite": "We've received your message and will reply using the email you provided. You can safely close this page.",
+      "deliveredBodyCall": "We've received your request and will contact you to arrange the call. You can safely close this page.",
+      "notedTitle": "We couldn't send your request",
+      "notedBody": "Your request was not sent. Please reach us directly through WhatsApp or email:"
     }
   },
   "Forms": {
@@ -475,6 +553,7 @@
       "invalid_email": "Please provide a valid email address.",
       "email_required": "A valid email is required.",
       "too_long": "One or more fields are too long.",
+      "phone_required_for_call": "Please add a phone number so we can call you.",
       "generic": "Something went wrong. Please try again.",
       "network": "Something went wrong. Please try again, or reach us on WhatsApp."
     }
