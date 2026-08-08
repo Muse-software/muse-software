@@ -2,8 +2,9 @@
 
 /**
  * Phase B (plan §4): proves the runtime this branch adds actually resolves
- * and runs in a real build — Lenis feeding gsap's ticker (already wired
- * globally in `SmoothScrollProvider.tsx`, Phase A), plus three of the gsap
+ * and runs in a real build — Lenis feeding gsap's ticker (wired in
+ * `SmoothScrollProvider.tsx`, mounted for this demo tree only via
+ * `app/[locale]/demo/layout.tsx`), plus three of the gsap
  * bonus plugins verified present in `node_modules/gsap/dist/` but not
  * previously exercised anywhere in the app: SplitText, Flip, ScrollTrigger
  * (already used by `WordReveal.tsx`, re-proven here in a harder pin/scrub
@@ -75,6 +76,7 @@ function FlipSection() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [layout, setLayout] = useState<"grid" | "list">("grid");
   const flipStateRef = useRef<ReturnType<typeof Flip.getState> | null>(null);
+  const flipTweenRef = useRef<gsap.core.Timeline | null>(null);
   const reducedMotion = usePrefersReducedMotion();
 
   const toggle = () => {
@@ -88,10 +90,22 @@ function FlipSection() {
 
   // Flip.from needs the *new* layout already committed to the DOM — this
   // runs after that commit, before paint, keyed on the state that changed it.
+  // A repeat toggle before the previous flip settles must kill that tween
+  // first, or the two fight over the same elements' transforms.
   useLayoutEffect(() => {
     if (!flipStateRef.current) return;
-    Flip.from(flipStateRef.current, { duration: 0.5, ease: "power2.inOut", absolute: true });
+    flipTweenRef.current?.kill();
+    flipTweenRef.current = Flip.from(flipStateRef.current, {
+      duration: 0.5,
+      ease: "power2.inOut",
+      absolute: true,
+    });
     flipStateRef.current = null;
+
+    return () => {
+      flipTweenRef.current?.kill();
+      flipTweenRef.current = null;
+    };
   }, [layout]);
 
   return (

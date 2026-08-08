@@ -18,16 +18,20 @@ const TARGET_HEIGHT = 2.2;
 function GeneratedModel({ url }: { url: string }) {
   const { scene, animations } = useGLTF(url);
   const groupRef = useRef<THREE.Group>(null);
-  const { actions, names } = useAnimations(animations, groupRef);
+  const { actions, names, mixer } = useAnimations(animations, groupRef);
 
   useEffect(() => {
     if (!names.length) return;
     const action = actions[names[0]];
     action?.reset().fadeIn(0.3).play();
+    // A fade-only cleanup leaves the mixer still ticking the action toward
+    // zero weight after the model swaps or the scene unmounts. Stop it
+    // outright so nothing keeps animating a detached/replaced skeleton.
     return () => {
-      action?.fadeOut(0.3);
+      action?.stop();
+      mixer.stopAllAction();
     };
-  }, [actions, names]);
+  }, [actions, names, mixer]);
 
   const { scale, positionY } = useMemo(() => {
     const box = new THREE.Box3().setFromObject(scene);

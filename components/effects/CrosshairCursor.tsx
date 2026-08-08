@@ -63,6 +63,36 @@ export default function CrosshairCursor() {
     let box = idleBox(pointerX, pointerY);
     let targetBox = box;
     let visible = false;
+    let rafId: number | null = null;
+
+    // The loop only needs to run while the crosshair is actually shown
+    // (`visible`) and the tab is in the foreground (`!document.hidden`) —
+    // `tick` re-arms itself only under those conditions, and the pointer/
+    // visibility handlers restart it on the transition back into either.
+    // Without this it burns a rAF every frame forever, including while the
+    // pointer sits over a `[data-no-crosshair]` panel or the tab is
+    // backgrounded.
+    const tick = () => {
+      box = {
+        left: box.left + (targetBox.left - box.left) * EASE,
+        top: box.top + (targetBox.top - box.top) * EASE,
+        right: box.right + (targetBox.right - box.right) * EASE,
+        bottom: box.bottom + (targetBox.bottom - box.bottom) * EASE,
+      };
+
+      if (svgRef.current) svgRef.current.style.opacity = visible ? "1" : "0";
+      pathRefs.current.forEach((path, i) => {
+        path?.setAttribute("d", cornerPath(box, i as 0 | 1 | 2 | 3));
+      });
+
+      rafId = visible && !document.hidden ? requestAnimationFrame(tick) : null;
+    };
+
+    const startLoop = () => {
+      if (rafId === null && visible && !document.hidden) {
+        rafId = requestAnimationFrame(tick);
+      }
+    };
 
     const onPointerMove = (event: PointerEvent) => {
       pointerX = event.clientX;
@@ -87,37 +117,28 @@ export default function CrosshairCursor() {
       } else {
         targetBox = idleBox(pointerX, pointerY);
       }
+
+      startLoop();
     };
 
     const onPointerLeaveDocument = () => {
       visible = false;
     };
 
+    const onVisibilityChange = () => {
+      if (document.hidden) return;
+      startLoop();
+    };
+
     window.addEventListener("pointermove", onPointerMove, { passive: true });
     document.addEventListener("pointerleave", onPointerLeaveDocument);
-
-    let rafId: number;
-    const tick = () => {
-      box = {
-        left: box.left + (targetBox.left - box.left) * EASE,
-        top: box.top + (targetBox.top - box.top) * EASE,
-        right: box.right + (targetBox.right - box.right) * EASE,
-        bottom: box.bottom + (targetBox.bottom - box.bottom) * EASE,
-      };
-
-      if (svgRef.current) svgRef.current.style.opacity = visible ? "1" : "0";
-      pathRefs.current.forEach((path, i) => {
-        path?.setAttribute("d", cornerPath(box, i as 0 | 1 | 2 | 3));
-      });
-
-      rafId = requestAnimationFrame(tick);
-    };
-    rafId = requestAnimationFrame(tick);
+    document.addEventListener("visibilitychange", onVisibilityChange);
 
     return () => {
       window.removeEventListener("pointermove", onPointerMove);
       document.removeEventListener("pointerleave", onPointerLeaveDocument);
-      cancelAnimationFrame(rafId);
+      document.removeEventListener("visibilitychange", onVisibilityChange);
+      if (rafId !== null) cancelAnimationFrame(rafId);
     };
   }, [mounted]);
 
