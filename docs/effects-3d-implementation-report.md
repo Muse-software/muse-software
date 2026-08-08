@@ -130,6 +130,152 @@ An independent QA pass on this branch (still in this GPU-less sandbox — see Ve
 
 ---
 
+## Phase J: independent review acceptance fixes (2026-08-08)
+
+A second independent review, separate from Phase I's bug list, found six categories
+of real defects in Phases A through H's code: an over-scoped production integration,
+a hardening gap in an unrun script, a masked TypeScript check, and four lab/runtime
+correctness issues. This phase fixed all six, added the tests the review asked for,
+and re-ran full verification. Five build-gated commits on `direction/3-the-proof`,
+starting from `c712cf2` (Phase I's HEAD):
+
+```
+ca65ed0 fix(layout): scope Lenis smooth-scroll to the demo tree only
+50f7f4a fix(demo): stop leaking rAF loops, GSAP tweens, and mixers on cleanup
+bd1151a fix(demo): fix model discovery, carousel scroll trap, and carousel a11y
+1bf1b6c fix(types): restore forceConsistentCasingInFileNames, shim gsap/Flip
+2f7c71d fix(scripts): harden meshy-generate.mjs, add deterministic tests
+```
+
+**1. Lenis was mounted globally, past its approved production scope (`ca65ed0`).**
+`app/[locale]/layout.tsx` wrapped every production route in `SmoothScrollProvider`,
+but the plan's locked decisions (L1/L2) only approve MagneticButton, the ProofWall
+grid, and CrosshairCursor as production effects; Lenis was scoped to demo routes
+(L5/L6). Moved the `SmoothScrollProvider` mount from the root layout into
+`app/[locale]/demo/layout.tsx`, so it now wraps only the noindex demo tree.
+Confirmed no production code depends on Lenis: the skip link's `#main-content`
+anchor is a plain same-page hash link, and `ServiceSubnav.tsx`'s `scrollIntoView`
+call is native, not routed through Lenis's ticker. Production pages now scroll
+natively; only `demo/*` routes run Lenis, matching `animation-core`'s own demo
+(updated copy to say so, not "mounted globally").
+
+**2. `scripts/ai-3d/meshy-generate.mjs` had no input hardening (`2f7c71d`).** The
+script has still never executed against the real Meshy API (no `MESHY_API_KEY` in
+this environment, unchanged from Phase H), but its argument and download handling
+had no validation: unknown CLI flags were silently ignored, `--image` accepted any
+local file extension or any URL scheme including `file:`/`javascript:`, `--out` had
+no path containment check, and a downloaded `.glb` was written straight to its final
+path with no `response.ok` check, no size limit, and no content validation before
+`writeFile()`. Hardened all of it: `parseArgs()` now rejects unknown flags and flags
+missing a value; `--image` only accepts `.jpg`/`.jpeg`/`.png`/`.webp` local files or
+an http(s) URL with a non-loopback host; `--out` is resolved and must stay inside the
+project directory; `downloadGlb()` requires `response.ok`, enforces a 200MB cap
+against both the declared `content-length` and the actual body size, verifies the
+`glTF` magic bytes, writes to a temp file, and atomically renames into place, with
+the temp file removed on any failure. `MESHY_API_KEY` is read once into a local and
+never appears in a logged or thrown message.
+
+Added `scripts/ai-3d/meshy-generate.test.mjs` (Node's built-in `node --test`, no
+network access, no paid API call): mocked `fetch` covers a bad (non-ok) response, an
+invalid GLB (bad magic bytes, and confirms no leftover file), an oversized declared
+`content-length`, and a successful atomic write with no leftover temp file, plus CLI
+argument and path/URL validation cases. Run: `node --test scripts/ai-3d/meshy-generate.test.mjs`.
+15 of 15 pass.
+
+**3. `forceConsistentCasingInFileNames` was disabled repo-wide (`1bf1b6c`).** Phase
+B's `tsconfig.json` change silenced the flag for the whole project to work around one
+upstream gsap packaging inconsistency (`types/index.d.ts` only triple-slash-
+references the lowercase `types/flip.d.ts`, but the runtime import that actually
+resolves on a case-sensitive filesystem is the capitalized `gsap/Flip`, matching
+`Flip.js` on disk). That workaround also silenced the check for every other file in
+the project, not just this one import. Restored the flag to its default `true` and
+added a narrow `tsconfig.json` `paths` redirect scoped to the single `"gsap/Flip"`
+specifier, pointing at a new `types/gsap-flip.d.ts` shim that mirrors gsap's own
+internal `declare module "gsap/Flip"` block. The redirect keeps that one specifier
+out of gsap's package `exports` map resolution instead of going through it;
+`types/flip.d.ts`, and the global `Flip` class/namespace it declares, is still loaded
+normally via `index.d.ts`'s own reference whenever anything imports from `gsap`.
+Verified with a full `npx tsc --noEmit --incremental false`: clean, and confirmed the
+flag is genuinely enforced again by first restoring it alone and reproducing the
+original TS1149 error before adding the shim.
+
+**4. Four lab/runtime correctness issues in Phases D, B, G, H (`50f7f4a`,
+`bd1151a`).**
+
+- `CrosshairCursor.tsx` ran a permanent `requestAnimationFrame` loop even while the
+  reticle was invisible (pointer over a `[data-no-crosshair]` panel) or the tab was
+  backgrounded. It now only reschedules `tick()` while both the reticle is visible
+  and `!document.hidden`, restarting on `pointermove` or `visibilitychange`; cleanup
+  and reduced-motion gating are unchanged.
+- `AnimationCoreDemo.tsx`'s `Flip.from()` tween was never retained or killed on
+  cleanup: a repeat "Toggle layout" click before the previous flip finished left two
+  tweens animating the same elements, and unmounting mid-flip left it running against
+  a detached tree. The tween is now stored in a ref and killed before starting the
+  next one and on unmount.
+- `CharactersScene.tsx` and `GeneratedModelScene.tsx` only called `action.fadeOut()`
+  in their animation cleanup, which schedules an async weight fade but never actually
+  stops the action or the mixer. Both now call `action.stop()` and
+  `mixer.stopAllAction()` on cleanup, so nothing keeps ticking an animation against a
+  swapped or unmounted model.
+- `app/[locale]/demo/ai-3d/page.tsx`'s `listGeneratedModels()` caught every
+  `readdir()` error identically and returned `[]`, so a real filesystem error
+  (permissions, a file sitting where the directory should be) rendered the same
+  "nothing generated yet" empty state as the expected missing-directory case, with no
+  way to tell them apart. Now only `ENOENT` returns `[]`; any other error rethrows.
+  Entries are also sorted (`localeCompare`) so which `.glb` renders first no longer
+  depends on `readdir()`'s unspecified filesystem order.
+
+**5. Carousel wheel handling trapped normal page scroll (`bd1151a`).**
+`R3FCarousel.tsx` and `ProofWallCarousel.tsx`'s wheel listeners called
+`preventDefault()` on every vertical-dominant wheel event scoped to the host
+element. Since a plain mouse wheel tick is vertical-dominant by definition, this
+hijacked ordinary page scrolling anywhere the pointer crossed the carousel, across
+its full height, not only while the user was genuinely trying to drive it. Both
+listeners now also require the host to be fully inside the viewport before consuming
+the gesture: the moment the host's top or bottom edge crosses the viewport boundary
+during a scroll, the trap releases and the page scrolls normally past it. The
+documented "scroll with a vertical wheel gesture over the canvas" behavior is
+unchanged while the carousel is fully in view.
+
+**6. Carousel accessibility gap (`bd1151a`).** `R3FCarousel.tsx`'s
+`R3FCarouselImage.alt` field implied alt text reaches assistive tech, but under
+normal motion (the default case) the whole WebGL host carried `aria-hidden="true"`
+with no accessible alternative; alt text only reached a screen reader in the
+reduced-motion fallback. Added a persistent `sr-only` list of `images[].alt`,
+rendered as a sibling of the (still `aria-hidden`) canvas wrapper, present under
+normal motion as well as reduced motion. `ProofWallCarousel.tsx`'s background photos
+were already correctly undocumented as accessible content (its own type never took
+an `alt` field; the case-study text is real, always-present DOM via drei's
+`<Html transform>`), so no change was needed there beyond the wheel-trap fix.
+
+**Re-verification, all in this same sandbox (2026-08-08):**
+
+- `npm install` in this worktree (`node_modules` did not exist here; not symlinked
+  from another worktree, since Turbopack rejects that).
+- `npm run build`: green. Route table unchanged (56 static pages, 8 demo routes plus
+  `demo` itself, both locales).
+- `npx tsc --noEmit --incremental false`: clean, with `forceConsistentCasingInFileNames`
+  restored to `true`.
+- `npx eslint` scoped to every file this phase touched (12 changed files plus the 2
+  new files): clean.
+- `node --test scripts/ai-3d/meshy-generate.test.mjs`: 15 of 15 pass.
+- `npm run build && npm start` (port 3200, avoiding an unrelated process already
+  listening on 3100) then `QA_BASE_URL=http://localhost:3200 node scripts/qa/effects-qa.mjs`:
+  80 checks across all 20 routes times 2 viewports times reduced-motion on/off. 24
+  failing, all 24 tagged `knownLimitation` (the same sandbox WebGL context-creation
+  gap documented since Phase D), 0 genuine failures. Cross-checked the raw
+  `effects-qa-results.json`: every failing result's console entries are the
+  `THREE.WebGLRenderer` context-creation error and nothing else; no overflow flagged
+  anywhere; no console entry anywhere mentions Lenis or SmoothScrollProvider, so
+  removing the global mount introduced no console regression.
+
+None of Phase I's fixes were touched or reverted. This phase changed no production
+visual behavior: the only production-facing change is Lenis no longer smoothing
+scroll on production routes, which the plan never approved it for in the first
+place.
+
+---
+
 ## Deferred / not built, explicit
 
 - **ProofWall production swap** (Phase E2) — built, demoed, gated on a GPU-capable QA run this environment cannot perform. See Phase E2 above.
@@ -137,6 +283,13 @@ An independent QA pass on this branch (still in this GPU-less sandbox — see Ve
 - **Live WebGL context counting** — the plan's `window.__museGl` counter (lifted from `archive/components/playground/GlContextMeter.tsx`) was never wired up, despite three phases (E1/F/G) adding real R3F canvases. `contextCount` stays `null` on every `effects-qa.mjs` result. A real gap in this plan's own §10-4 acceptance criterion, not quietly dropped from the plan.
 - **Optional Meshy proxy API route** (Phase H) — documented, not built; no key exists to test it against.
 - **GPU-backed QA** — Phase I (above) ran the full 20-route `effects-qa.mjs` matrix against a real production server and got a console/overflow/noindex/screenshot pass, with every WebGL-route failure correctly classified as the sandbox's known GPU gap rather than a genuine regression. That is still not a *live* WebGL context count or a visual GPU render check — every `knownLimitation: true` row remains untested, not passing, exactly as `isPass()` still marks it.
+
+All five items above are unchanged by Phase J. Phase J re-ran the same 20-route
+matrix (see Phase J's re-verification) and got the same 24-known-limitation,
+0-genuine-failure result as Phase I, confirming this environment's GPU gap is
+still the only thing standing between amber and a real pass on those rows.
+ProofWall stays the production grid, KayKit acquisition is still manual, and
+Meshy still has not run against a real key.
 
 ## Next gate
 
