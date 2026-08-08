@@ -7,16 +7,7 @@
     "strict": true,
     "noEmit": true,
     "esModuleInterop": true,
-    // gsap's own `types/index.d.ts` references `flip.d.ts` (lowercase) via a
-    // triple-slash directive, but the only subpath that resolves `Flip` at
-    // runtime is the capitalized `gsap/Flip` (matching `Flip.js` on disk) —
-    // TS's default case-consistency check treats those as two different
-    // files with the same on-disk identity and fails the build. This is an
-    // upstream gsap packaging inconsistency (confirmed: no lowercase
-    // `Flip.js` exists, so importing `gsap/flip` to "fix" the casing would
-    // 404 on any case-sensitive production filesystem), not a real casing bug
-    // in this repo's own source.
-    "forceConsistentCasingInFileNames": false,
+    "forceConsistentCasingInFileNames": true,
     "module": "esnext",
     "moduleResolution": "bundler",
     "resolveJsonModule": true,
@@ -29,7 +20,10 @@
       }
     ],
     "paths": {
-      "@/*": ["./*"]
+      "@/*": ["./*"],
+      // See types/gsap-flip.d.ts for why this one subpath is redirected
+      // instead of resolved through gsap's own package `exports` map.
+      "gsap/Flip": ["./types/gsap-flip.d.ts"]
     }
   },
   "include": [
