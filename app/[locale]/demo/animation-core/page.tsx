@@ -21,8 +21,9 @@ export default async function AnimationCoreDemoPage({ params }: Props) {
       <div className="mx-auto max-w-4xl px-5 md:px-10">
         <h1 className="font-space-grotesk text-3xl font-bold">Animation core</h1>
         <p className="mt-3 max-w-[60ch] text-white/70">
-          Runtime proof for Phase A/B: Lenis feeding gsap&apos;s ticker (mounted globally, see{" "}
-          <code className="text-white/90">SmoothScrollProvider.tsx</code>), plus SplitText, Flip
+          Runtime proof for Phase A/B: Lenis feeding gsap&apos;s ticker (mounted for this demo
+          tree, see <code className="text-white/90">SmoothScrollProvider.tsx</code>), plus
+          SplitText, Flip
           and a ScrollTrigger pin — three gsap bonus plugins verified present in{" "}
           <code className="text-white/90">node_modules</code> but not previously exercised in this
           app outside <code className="text-white/90">WordReveal.tsx</code>&apos;s plain

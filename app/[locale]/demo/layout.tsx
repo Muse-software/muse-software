@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
+import SmoothScrollProvider from "@/components/SmoothScrollProvider";
 
 /**
  * Every route under `demo/*` is an internal effects/3D showcase (L2 in
@@ -34,17 +35,19 @@ export default async function DemoLayout({
     // (identical at 390px and 1440px; it only widens, never grows taller).
     // `pt-24` (96px) clears that with headroom instead of guessing a
     // negative-margin nudge.
-    <div className="min-h-screen bg-[#060608] pt-24 text-white">
-      <div className="border-b border-white/10 bg-[#fd4601]/10 px-5 py-3 text-center text-sm md:px-10">
-        <Link href="/demo" className="font-medium underline underline-offset-2">
-          Demo index
-        </Link>
-        <span className="mx-2 text-white/40">·</span>
-        <span className="text-white/60">
-          Internal effects/3D showcase — noindex, not part of the production site.
-        </span>
+    <SmoothScrollProvider>
+      <div className="min-h-screen bg-[#060608] pt-24 text-white">
+        <div className="border-b border-white/10 bg-[#fd4601]/10 px-5 py-3 text-center text-sm md:px-10">
+          <Link href="/demo" className="font-medium underline underline-offset-2">
+            Demo index
+          </Link>
+          <span className="mx-2 text-white/40">·</span>
+          <span className="text-white/60">
+            Internal effects/3D showcase — noindex, not part of the production site.
+          </span>
+        </div>
+        {children}
       </div>
-      {children}
-    </div>
+    </SmoothScrollProvider>
   );
 }
