@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Muse 3D Component Lab</title>
+<link rel="stylesheet" href="house.css">
+<style>
+.status-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:4mm;margin:0 0 5mm}.status{border:1px solid var(--rule-2);padding:4mm}.status .k{font-size:6.8pt;font-weight:700;letter-spacing:.13em;text-transform:uppercase;margin-bottom:1.5mm}.status .v{font-size:19pt;font-weight:600;line-height:1}.status.good{border-top:3px solid #16794b}.status.good .k,.status.good .v{color:#16794b}.status.warn{border-top:3px solid #b55b00}.status.warn .k,.status.warn .v{color:#8d4700}.status.bad{border-top:3px solid #b3261e}.status.bad .k,.status.bad .v{color:#b3261e}.shot{border:1px solid var(--rule);background:#060608;padding:1.5mm;margin:3mm 0 4mm;break-inside:avoid}.shot img{display:block;width:100%;height:auto;max-height:104mm;object-fit:contain}.shot.tall img{max-height:132mm}.caption{font-size:7.5pt;color:var(--muted);margin-top:1.5mm}.result-list{display:grid;grid-template-columns:1fr 1fr;gap:3mm;margin-bottom:4mm}.result{padding:3mm 3.5mm;border-inline-start:3px solid var(--rule-2);background:var(--fill)}.result.good{border-color:#16794b}.result.warn{border-color:#b55b00}.result.bad{border-color:#b3261e}.result .k{font-weight:700;font-size:7.2pt;letter-spacing:.09em;text-transform:uppercase}.result p{font-size:8.1pt;margin-top:1mm}.mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:7.4pt;overflow-wrap:anywhere}.compact td{padding:1.5mm 2.5mm;font-size:8pt}.compact th{padding:1.6mm 2.5mm}.cover .handback{max-width:135mm}.decision{font-size:10.5pt;line-height:1.45;border-inline-start:3px solid var(--maroon);padding:3mm 0 3mm 5mm;margin-bottom:4mm}.legend{display:flex;gap:5mm;font-size:7.5pt;margin-bottom:4mm}.dot{display:inline-block;width:2.4mm;height:2.4mm;margin-inline-end:1.4mm}.green{background:#16794b}.amber{background:#b55b00}.red{background:#b3261e}.badge{display:inline-block;padding:.7mm 1.6mm;margin-bottom:1.3mm;color:#fff;font-size:6.4pt;font-weight:700;letter-spacing:.1em;text-transform:uppercase}.badge.pass{background:#16794b}.badge.warn{background:#b55b00}.evidence-crop{border:1px solid var(--rule);background:#060608;padding:1.5mm;margin:3mm 0 4mm}.evidence-crop img{display:block;width:100%;height:132mm;object-fit:contain}.fallback-page .evidence-crop img{height:72mm}.index-insets{display:grid;grid-template-columns:1fr 2.2fr;gap:4mm;align-items:start;margin:4mm 0}.index-insets img{width:100%;height:152mm;object-fit:contain;background:#060608;border:1px solid var(--rule)}.ai-inset img{display:block;width:100%;height:150mm;object-fit:contain;background:#060608;border:1px solid var(--rule)}.transcript{margin:-1mm 0 4mm;padding:2.4mm 3mm;border-inline-start:3px solid var(--orange);background:var(--fill);font-size:8pt;line-height:1.45}.spaced td{padding-block:3.8mm}.open-list li{margin-bottom:4mm}.verification-page .callout{margin-top:5mm}.verification-page .decision{margin-top:6mm;padding-block:5mm}
+</style>
+</head>
+<body>
+<section class="page cover">
+  <div class="top"><img class="mark" src="assets/muse-vertical-orange-crop.svg" alt="Muse Studios"></div>
+  <div class="mid">
+    <h1>3D Component Lab</h1>
+    <p class="lede">Working interaction, WebGL and AI 3D components for Muse. Built as an isolated noindex lab, with production changes held behind verification.</p>
+    <p class="handback">The lab is pushed on <span class="mono">direction/3-the-proof</span>. Static and browser gates are green. Real GPU rendering remains unverified on this machine.</p>
+  </div>
+  <div class="meta">
+    <div><div class="k">Branch</div><div class="v">direction/3-the-proof</div></div>
+    <div><div class="k">Implementation tip</div><div class="v">68cf2a8</div></div>
+    <div><div class="k">QA matrix</div><div class="v">80 checks</div></div>
+    <div><div class="k">Status</div><div class="v">Lab accepted</div></div>
+  </div>
+</section>
+
+<section class="page">
+  <header class="band"><span class="num">01</span><h2>TLDR</h2></header>
+  <div class="wrap body">
+    <p class="lead">The lab is working and pushed. No component was promoted into the live ProofWall. The remaining uncertainty is GPU rendering, not build correctness or responsive layout.</p>
+    <div class="legend"><span><i class="dot green"></i>Passed</span><span><i class="dot amber"></i>Unverified or deferred</span><span><i class="dot red"></i>Blocked</span></div>
+    <div class="status-grid">
+      <div class="status good"><div class="k">Build gates</div><div class="v">4 / 4</div></div>
+      <div class="status good"><div class="k">Observed failures in completed checks</div><div class="v">0</div></div>
+      <div class="status warn"><div class="k">WebGL scenarios not executable</div><div class="v">24 / 80</div></div>
+    </div>
+    <div class="result-list">
+      <div class="result good"><span class="badge pass">Passed</span><div class="k">Four static gates</div><p>Production build, TypeScript, scoped ESLint and 15 Meshy tests.</p></div>
+      <div class="result good"><span class="badge pass">Passed</span><div class="k">Completed browser checks</div><p>EN and AR routes at desktop, mobile and reduced motion. No overflow or noindex failure.</p></div>
+      <div class="result good"><span class="badge pass">Passed</span><div class="k">Production isolation</div><p>Lenis now runs only inside the noindex demo tree. Production routes use native scrolling.</p></div>
+      <div class="result good"><span class="badge pass">Passed</span><div class="k">Meshy output safety</div><p>A download needs a valid response, size limit and GLB magic bytes before atomic write.</p></div>
+      <div class="result warn"><span class="badge warn">Deferred</span><div class="k">KayKit</div><p>Needs a legitimate manual itch.io download. Khronos characters remain the test set.</p></div>
+      <div class="result warn"><span class="badge warn">Unverified</span><div class="k">GPU rendering</div><p>Twenty-four WebGL route and viewport scenarios need a machine with a working context.</p></div>
+    </div>
+    <p class="decision"><strong>Recommendation:</strong> keep the lab separate. Promote individual components into Direction 4 only after a real GPU visual pass and a per-component product decision.</p>
+    <table class="compact"><thead><tr><th>Component</th><th>Current state</th><th>Production position</th></tr></thead><tbody>
+      <tr><td class="kw">Magnetic</td><td>Technically tested</td><td>Not approved for Direction 4</td></tr>
+      <tr><td class="kw">Crosshair</td><td>Technically tested</td><td>Not approved for Direction 4</td></tr>
+      <tr><td class="kw">R3F carousel</td><td>Working lab demo</td><td>Do not replace ProofWall yet</td></tr>
+      <tr><td class="kw">Drei scene</td><td>Working lab demo</td><td>GPU review required</td></tr>
+      <tr><td class="kw">Characters</td><td>Three real Khronos models</td><td>Test assets, not final art direction</td></tr>
+      <tr><td class="kw">Meshy</td><td>Pipeline tested, API not run</td><td>Needs paid key and input rights</td></tr>
+    </tbody></table>
+  </div>
+  <div class="foot"><img src="assets/muse-08-maroon-crop.svg" alt=""><span class="pn">2 / 6</span></div>
+</section>
+
+<section class="page">
+  <header class="band"><span class="num">02</span><h2>Lab index</h2></header>
+  <div class="wrap body">
+    <p class="lead">Eight noindex routes hold the working components. The internal banner clears the fixed site header at desktop and mobile sizes.</p>
+    <div class="index-insets"><img src="assets/index-header-inset.png" alt="Magnified header and noindex banner"><img src="assets/index-list-inset.png" alt="Magnified demo route list"></div>
+    <p class="caption">Magnified source-resolution evidence. The route list is readable.</p>
+    <div class="result good"><span class="badge pass">Measured pass</span><p><strong>Viewport:</strong> 1440 x 900 &nbsp; <strong>HTTP:</strong> 200 &nbsp; <strong>Horizontal overflow:</strong> false &nbsp; <strong>Console errors:</strong> 0 &nbsp; <strong>Robots:</strong> noindex, nofollow.</p></div>
+    <div class="subhead">What is in the lab</div>
+    <ul class="dash">
+      <li>Magnetic CTA behavior and SVG crosshair interaction</li>
+      <li>R3F wave carousel and ProofWall carousel variant</li>
+      <li>GSAP animation core and selected drei materials and controls</li>
+      <li>Three animated Khronos characters and a reduced-motion fallback</li>
+      <li>Meshy AI 3D pipeline with an honest blocked state</li>
+    </ul>
+  </div>
+  <div class="foot"><img src="assets/muse-08-maroon-crop.svg" alt=""><span class="pn">3 / 6</span></div>
+</section>
+
+<section class="page fallback-page">
+  <header class="band"><span class="num">03</span><h2>Accessible fallbacks</h2></header>
+  <div class="wrap body">
+    <p class="lead">Reduced motion does not leave an empty canvas. The carousel becomes real images and the character viewer explains why animation is disabled.</p>
+    <div class="evidence-crop"><img src="assets/carousel-crop.png" alt="Cropped reduced-motion carousel showing two real images"></div>
+    <p class="transcript"><strong>Verified UI text:</strong> Reduced motion replaces the animated canvas with a plain scrollable strip of real image elements. There is no canvas or animation-frame loop.</p>
+    <div class="evidence-crop"><img src="assets/characters-crop.png" alt="Cropped reduced-motion character viewer fallback"></div>
+    <p class="transcript"><strong>Verified UI text:</strong> This character viewer runs a looping animation and drag-to-orbit, disabled under reduced motion.</p>
+  </div>
+  <div class="foot"><img src="assets/muse-08-maroon-crop.svg" alt=""><span class="pn">4 / 6</span></div>
+</section>
+
+<section class="page">
+  <header class="band"><span class="num">04</span><h2>AI 3D pipeline</h2></header>
+  <div class="wrap body">
+    <p class="lead">The Meshy integration is executable and tested, but it has not called the paid API. The page says that directly and shows no fabricated model.</p>
+    <div class="cols2">
+      <div>
+        <div class="result good"><div class="k">15 tests passed</div><p>Unknown flags, missing values, path traversal, local URLs, invalid responses, invalid GLB data, size limits and atomic writes.</p></div>
+        <div class="result good"><div class="k">Credential handling</div><p>The key remains server-side in the CLI environment and is never printed.</p></div>
+        <div class="result warn"><div class="k">Paid API not run</div><p>No key or paid plan was available. No model generation is claimed.</p></div>
+        <div class="result warn"><div class="k">Rights gate</div><p>Any production input image needs confirmed commercial rights before generation.</p></div>
+      </div>
+      <div class="ai-inset"><img src="assets/ai-top-crop.png" alt="Magnified mobile crop of the complete Meshy blocked state"></div>
+    </div>
+    <p class="caption">Magnified 390 px source crop. The complete blocked-state card names the missing key, paid-plan dependency and absence of any placeholder model.</p>
+  </div>
+  <div class="foot"><img src="assets/muse-08-maroon-crop.svg" alt=""><span class="pn">5 / 6</span></div>
+</section>
+
+<section class="page verification-page">
+  <header class="band"><span class="num">05</span><h2>Verification and open gates</h2></header>
+  <div class="wrap body">
+    <p class="lead">The code-level gates are green. WebGL checks stay amber because Chromium could not create a context in this environment, including on the pre-existing homepage.</p>
+    <table class="compact spaced"><thead><tr><th>Gate</th><th>Result</th><th>Evidence</th></tr></thead><tbody>
+      <tr><td class="kw">Next production build</td><td>Passed</td><td>56 static pages generated</td></tr>
+      <tr><td class="kw">TypeScript</td><td>Passed</td><td><span class="mono">tsc --noEmit --incremental false</span></td></tr>
+      <tr><td class="kw">Scoped ESLint</td><td>Passed</td><td>All acceptance-phase implementation files</td></tr>
+      <tr><td class="kw">Meshy tests</td><td>15 passed</td><td>0 failed, 0 skipped</td></tr>
+      <tr><td class="kw">Browser matrix</td><td>56 passed</td><td>80 total checks, 24 GPU-limited</td></tr>
+      <tr><td class="kw">Genuine browser failures</td><td>0</td><td>No overflow, console, robots or layout failures outside WebGL context creation</td></tr>
+    </tbody></table>
+    <div class="subhead">Still open</div>
+    <ul class="dash open-list">
+      <li><strong>GPU visual pass.</strong> Check carousel distortion, lighting, model animation, context recovery and simultaneous context count.</li>
+      <li><strong>ProofWall decision.</strong> Compare the grid and carousel with LCP, CLS, keyboard and wheel behavior before any swap.</li>
+      <li><strong>KayKit acquisition.</strong> Download through the legitimate itch.io flow, preserve its license and convert only after review.</li>
+      <li><strong>Meshy production run.</strong> Buy a plan only when a Muse-owned input and a concrete use case exist.</li>
+      <li><strong>Direction 4 integration.</strong> Cherry-pick components individually. Do not merge the whole lab branch into the selected site direction.</li>
+    </ul>
+    <div class="callout"><span class="lbl">Implementation baseline</span><p>The verified implementation ends at <span class="mono">68cf2a8</span>. The PDF and its reproducible source are committed afterward as reporting artifacts.</p></div>
+    <p class="decision"><strong>Final status:</strong> accepted as a component lab. Not accepted as proof that every WebGL scene renders correctly on production hardware.</p>
+  </div>
+  <div class="foot"><img src="assets/muse-08-maroon-crop.svg" alt=""><span class="pn">6 / 6</span></div>
+</section>
+</body>
+</html>
