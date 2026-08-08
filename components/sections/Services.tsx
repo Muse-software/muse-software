@@ -104,7 +104,7 @@ export default async function Services({ locale }: { locale: Locale }) {
                   <span aria-hidden="true" className="arrow-inline">→</span>
                 </Link>
                 <Link
-                  href="/get-started"
+                  href="/start"
                   className="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.2em] text-white/50 transition-colors hover:text-white"
                 >
                   {t("getStarted")}

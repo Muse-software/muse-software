@@ -20,6 +20,7 @@
     "socialsLabel": "Social links",
     "groups": {
       "explore": "Explore",
+      "capabilities": "Capabilities",
       "company": "Company",
       "contact": "Contact"
     },
@@ -29,6 +30,11 @@
       "about": "About Us",
       "careers": "Careers",
       "newsletter": "Newsletter",
+      "productStrategyDiscovery": "Product Strategy & Discovery",
+      "productExperienceDesign": "Product & Experience Design",
+      "productEngineering": "Product Engineering",
+      "aiTransformation": "AI Transformation",
+      "gamificationExperience": "Gamification & Experience",
       "contact": "Contact Us",
       "getStarted": "Get Started"
     }

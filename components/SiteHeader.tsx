@@ -48,6 +48,16 @@ const SPRING = { type: "spring", stiffness: 100, damping: 20, mass: 1 } as const
  *  layout used for StaggeredMenu, so a URL change is still a one-file edit. */
 const MENU_GROUPS = [
   { id: "explore", items: ["explore", "newsletter"] },
+  {
+    id: "capabilities",
+    items: [
+      "productStrategyDiscovery",
+      "productExperienceDesign",
+      "productEngineering",
+      "aiTransformation",
+      "gamificationExperience",
+    ],
+  },
   { id: "company", items: ["about", "careers"] },
   { id: "contact", items: [] },
 ] as const;
@@ -59,7 +69,12 @@ const ROUTES: Record<string, string> = {
   careers: "/careers",
   newsletter: "/newsletter",
   contact: "/contact",
-  getStarted: "/get-started",
+  getStarted: "/start",
+  productStrategyDiscovery: "/services/product-strategy-discovery",
+  productExperienceDesign: "/services/product-experience-design",
+  productEngineering: "/services/product-engineering",
+  aiTransformation: "/services/ai-transformation",
+  gamificationExperience: "/services/gamification-experience",
 };
 
 function HamburgerIcon({ isOpen }: { isOpen: boolean }) {
@@ -213,7 +228,7 @@ export default function SiteHeader({ socials }: { socials: Social[] }) {
               >
                 <div className="no-scrollbar max-h-[calc(100vh-6rem)] overflow-y-auto">
                   <motion.div
-                    className="grid grid-cols-1 gap-6 p-6 min-[1080px]:grid-cols-3"
+                    className="grid grid-cols-1 gap-6 p-6 min-[1080px]:grid-cols-4"
                     initial="hidden"
                     animate="visible"
                     exit="hidden"
@@ -230,6 +245,7 @@ export default function SiteHeader({ socials }: { socials: Social[] }) {
                     {MENU_GROUPS.map((group) => (
                       <motion.div
                         key={group.id}
+                        data-nav-group={group.id}
                         className="min-h-50 rounded-2xl bg-[#1a1a1c] p-6 min-[1080px]:min-h-80"
                         variants={{
                           hidden: { opacity: 0, y: 30 },

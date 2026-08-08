@@ -1,0 +1,49 @@
+Independent review: BLOCKED
+Delegation: deleg_eb72b207
+Date: 2026-08-08
+
+Implementation behavior independently confirmed
+- Three legacy URLs returned one 308 followed by a 200 destination.
+- Build omitted /[locale]/get-started while /start and /api/get-started remained.
+- Navigation, sitemap, indexing, hreflang, canonical, Open Graph, visual layout, and regressions behaved correctly.
+
+Verifier blockers
+- Redirect assertions did not fetch the destination.
+- Capability assertions did not enforce exact order or localized labels.
+- Escape was pressed but closure, aria-expanded, and focus restoration were not asserted.
+- RTL direction and mirrored desktop order were not asserted.
+- Desktop card selector was wrong and reported cards: 1; the value was not part of the pass predicate.
+- Desktop containment covered only links and headings.
+- report.json had no screenshot inventory, dimensions, or hashes; all six PNGs are globally ignored and require force-add.
+
+Strengthened-gate RED
+- Result: 30/32.
+- The only failures were EN and AR desktop card contracts because the application did not expose stable group identifiers.
+- All newly strict redirect, exact-link/label/order, Escape/focus, and existing SEO checks passed.
+
+Correction
+- Added data-nav-group to each real navigation card.
+- Redirect gate now requires initial 308 plus destination 200 with no second Location.
+- EN/AR capability href and localized label arrays must match exactly and in order.
+- Escape must remove the panel, set aria-expanded=false, and restore focus to the toggle.
+- Desktop gate requires four named cards, exact DOM order, correct ltr/rtl visual order, full containment of cards, actions, social controls, headings, links and scroller, zero document overflow, action heights >=44px, and WCAG contrast >=4.5.
+- Every screenshot is recorded with path, PNG dimensions, and SHA-256.
+
+Second re-review blockers
+- `documentOverflow <= 1` did not enforce the documented zero-overflow contract.
+- Panel containment allowed one pixel beyond every edge.
+- Monotonic card left coordinates did not rule out overlap or multiple rows.
+
+Final correction
+- Document overflow must equal zero.
+- Every card, action, social control, heading, link, and scroller edge must remain strictly inside the panel, with no blanket pixel tolerance.
+- The four cards must share one row within an explicit 0.5px subpixel alignment tolerance and every adjacent pair must be non-overlapping in the locale's visual direction.
+- Desktop waits for the stagger animation to settle before measuring stable geometry.
+
+GREEN
+- Final strict Nav/SEO gate: 32/32.
+- EN/AR cards: 4; exact order; one row; no overlap; visualOrderCorrect=true; escaped=0; documentOverflow=0.
+- Action heights: 52px EN and 51.890625px AR.
+- Contrast: Start 6.053:1; Contact 14.910:1.
+- Six screenshot dimensions and hashes match report.json.
+- Build, TypeScript, scoped ESLint, and git diff check: PASS.

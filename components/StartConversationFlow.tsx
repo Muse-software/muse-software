@@ -39,7 +39,7 @@ const SCREEN1_CONFIG: Record<DeepLinkIntent, { hasQ1: boolean; q2Options: string
 };
 
 // The team's inbox reads one language regardless of the visitor's locale —
-// same rule `GetStartedForm`'s `services` values follow. Free text the
+// same rule the retired qualification form's service values followed. Free text the
 // visitor actually types (Q1, the open prompt) is preserved verbatim.
 const INTENT_LABELS_EN: Record<Intent, string> = {
   build: "Start something new",
@@ -408,7 +408,7 @@ export default function StartConversationFlow({ initialIntent }: { initialIntent
           <form onSubmit={handleSubmit} className="space-y-6">
             <input type="hidden" name="source" value="start" readOnly />
             <input type="hidden" name="needs" value={composedNeeds} readOnly />
-            {/* Honeypot — see the identical note in GetStartedForm.tsx. */}
+            {/* Honeypot stays off the logical start edge to avoid RTL overflow. */}
             <input
               type="text"
               name="website"

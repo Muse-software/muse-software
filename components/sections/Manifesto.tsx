@@ -51,7 +51,7 @@ export default async function Manifesto() {
         <PressureStatement className="mt-12 md:mt-16" />
 
         <Link
-          href="/get-started"
+          href="/start"
           className="mt-10 inline-flex items-center gap-5 border border-black bg-white py-2 ps-5 pe-3 text-base font-medium font-space-grotesk text-black transition-colors duration-200 hover:bg-[#fd4601] md:mt-12 md:py-3 md:ps-6 md:pe-4 md:text-lg"
         >
           {t("cta")}

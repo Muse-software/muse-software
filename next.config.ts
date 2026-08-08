@@ -57,7 +57,6 @@ const LOCALE_INDEX_PATHS = [
   "careers",
   "newsletter",
   "contact",
-  "get-started",
   "privacy",
   "terms",
 ];
@@ -105,6 +104,12 @@ const nextConfig: NextConfig = {
    */
   async redirects() {
     return [
+      { source: "/get-started", destination: "/en/start", permanent: true },
+      {
+        source: "/:locale(ar|en)/get-started",
+        destination: "/:locale/start",
+        permanent: true,
+      },
       ...RETIRED_SECTIONS.flatMap((section) => [
         { source: `/${section}`, destination: "/en/explore", permanent: true },
         { source: `/${section}/:slug`, destination: "/en/explore", permanent: true },

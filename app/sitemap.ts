@@ -39,7 +39,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/careers", lastModified: now, changeFrequency: "weekly", priority: 0.7 },
     { path: "/newsletter", lastModified: now, changeFrequency: "weekly", priority: 0.7 },
     { path: "/contact", lastModified: now, changeFrequency: "yearly", priority: 0.6 },
-    { path: "/get-started", lastModified: now, changeFrequency: "yearly", priority: 0.9 },
+    { path: "/start", lastModified: now, changeFrequency: "yearly", priority: 0.9 },
     { path: "/privacy", lastModified: now, changeFrequency: "yearly", priority: 0.2 },
     { path: "/terms", lastModified: now, changeFrequency: "yearly", priority: 0.2 },
   ];

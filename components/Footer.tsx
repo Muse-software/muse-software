@@ -31,7 +31,7 @@ const companyLinks = [
 const exploreLinks = [
   { key: "explore", href: "/explore" },
   { key: "newsletter", href: "/newsletter" },
-  { key: "getStarted", href: "/get-started" },
+  { key: "getStarted", href: "/start" },
 ] as const;
 
 const legalLinks = [
@@ -58,7 +58,7 @@ export default async function Footer() {
           <div className="max-w-md">
             <MuseLogo iconClassName="h-7 w-auto text-black" />
             <p className="mt-6 text-lg leading-relaxed text-black/80">{t("blurb")}</p>
-            <PillButton href="/get-started" variant="onAccent" className="mt-8">
+            <PillButton href="/start" variant="onAccent" className="mt-8">
               {t("cta")}
             </PillButton>
           </div>

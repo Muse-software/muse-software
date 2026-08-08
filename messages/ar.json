@@ -20,6 +20,7 @@
     "socialsLabel": "روابط التواصل",
     "groups": {
       "explore": "استكشف",
+      "capabilities": "القدرات",
       "company": "الشركة",
       "contact": "تواصل"
     },
@@ -29,6 +30,11 @@
       "about": "من نحن",
       "careers": "الوظائف",
       "newsletter": "النشرة البريدية",
+      "productStrategyDiscovery": "استراتيجية المنتج والاكتشاف",
+      "productExperienceDesign": "تصميم المنتج والتجربة",
+      "productEngineering": "هندسة المنتجات الرقمية",
+      "aiTransformation": "التحول بالذكاء الاصطناعي",
+      "gamificationExperience": "التلعيب والتجارب التفاعلية",
       "contact": "تواصل معنا",
       "getStarted": "ابدأ الآن"
     }
