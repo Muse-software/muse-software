@@ -14,6 +14,9 @@ One per day, `YYYY-MM-DD`, created with the Daily Note command. Configured to us
 
 Do not force it. A daily note is worth writing on a day when something happened: a decision, a conversation, a realisation, a thing that broke. Skipping quiet days is fine and better than filling them with nothing.
 
+- [[2026-08-08 Website Direction 4]] Understanding First candidate completed and verified
+- [[2026-08-04 Website Copy Revision]] English and Arabic register pass
+- [[2026-08-04 Site Structure Implementation]] site structure implementation
 - [[2026-07-30]] vault set up
 
 ## Weekly review

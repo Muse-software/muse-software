@@ -32,6 +32,18 @@ Full template in [[Decision]].
 
 ---
 
+## 2026-08-08 The website understands before it proposes
+
+**Decision.** The website's primary path is **Understanding First**. It starts from the visitor's situation, routes them across five capabilities, and moves the main conversion target from the retired `/get-started` form to a guided `/start` conversation. English remains the only published locale until the drafted Arabic service content receives native approval.
+
+**Why.** The previous structure asked a visitor to choose a service before Muse had helped them name the problem. That was especially weak for Strategy & Discovery and Experience Design, which did not have complete routes. Rejected: adding more capability cards to the same brochure structure, because more options do not resolve uncertainty. Also rejected: publishing Arabic because the routes and RTL work, since functional completeness does not make draft copy approved public language.
+
+**Consequences.** The public capability model now has five routes: Product Strategy & Discovery, Product Experience Design, AI Transformation, Product Engineering, and Gamification & Experience. The bare, English and Arabic `/get-started` URLs permanently redirect in one hop to `/start`; `/api/get-started` remains the submission endpoint. Navigation exposes all five capabilities and has an executable keyboard, scrolling, geometry, RTL and contrast contract. Sitemap and hreflang publish English only; Arabic stays functional but `noindex` until `PUBLISHED_LOCALES` changes after native review. The verified candidate is branch `direction/4-understanding-first`; implementation and evidence are recorded in [[2026-08-08 Website Direction 4]].
+
+**Revisit.** After the native Arabic review, and after the first real `/start` submissions reveal whether the guided questions produce better briefs than the retired form.
+
+---
+
 ## 2026-08-02 The dither is the house texture, and its marks are square
 
 **Decision.** The dither is the only texture the website uses, and it carries meaning rather than decorating: density is a variable and should encode something, not sit at one setting. Its marks are squares, not circles, as of today. Its colour is restricted to three values already in the palette, page black, Muse Orange and white, in four fixed arrangements. The applied rules are in [[Brand Texture]]. This confirms and extends the crosshair removal of 2026-08-01, which took the deck's grid pattern off the website, see [[Brand Identity#Graphic system]].

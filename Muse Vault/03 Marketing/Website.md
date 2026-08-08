@@ -1,14 +1,14 @@
 ---
 type: note
 created: 2026-07-31
-updated: 2026-08-01
+updated: 2026-08-08
 tags: [marketing, product]
 status: active
 ---
 
 # Website
 
-What is actually built, read off the code on 2026-07-31, not off the plan. [[Marketing]] and [[Home]] both still say "In progress", which understates it. The site is close to complete as a build and blocked on content honesty, not on engineering.
+What is actually built, read off the code on 2026-08-08, not off the plan. Direction 4, **Understanding First**, is complete on branch `direction/4-understanding-first`. It is verified but not yet merged into the deployment branch.
 
 This note is the state of the thing. It does not replace [[Deck Copy v0.03]], which is the copy source.
 
@@ -17,46 +17,44 @@ This note is the state of the thing. It does not replace [[Deck Copy v0.03]], wh
 | Thing | Value |
 |---|---|
 | Repo | `Muse-software/muse-software` on GitHub, private |
-| Local | `musewebsite/`, this vault now sits inside it |
+| Local | `/Users/a/Downloads/personal/muse-software/`, this vault sits inside it |
 | Host | Vercel. A push to `main` deploys itself |
 | Domain | `muse.sa`, set as canonical in code |
 | Contact route | `info@muse.sa`, plus WhatsApp and socials, see [[Channels]] |
-| Public state | Built and deployable. Not launch ready, see [[#Before this gets traffic]] |
+| Current candidate | `direction/4-understanding-first`, verified through separate homepage, `/start`, capability and Nav/SEO gates |
+| Public state | The current deployed state may trail the candidate until its branch is reviewed and merged. Not launch ready, see [[#Before this gets traffic]] |
 
 ## Product
 
 ### What is built
 
-Eleven page types. Everything is one brand, dark, near black with the orange accent and the maroon block from [[Brand Colour & Type]].
+The current candidate is one dark Muse system, near black with Muse Orange and the dither texture from [[Brand Texture]]. Direction 4 changes the site from a capability-first brochure into an understanding-first path: help the visitor recognise their situation, choose what they need, then begin a guided conversation.
 
 | Route | What a visitor gets |
 |---|---|
-| `/` | The full pitch in nine scrolling blocks |
-| `/explore` | Services overview and case studies |
-| `/services/[slug]` | Three deep pages. AI Transformation, Product Engineering, Gamification & Experience |
+| `/` | Understanding-first homepage with an intent router and five capabilities |
+| `/explore` | Overview of all five capabilities |
+| `/services/[slug]` | Five deep pages: Strategy & Discovery, Experience Design, AI Transformation, Product Engineering, Gamification & Experience |
 | `/about` | Tabs, leadership, beliefs slider, careers teaser |
 | `/insights` | 43 articles, six categories, each category its own real URL |
 | `/playbooks` | 28 industry write ups, 22 categories, filtered in the browser |
 | `/newsletter` | Signup plus 12 back issues |
 | `/careers` | Three open roles, each with a full detail page |
 | `/contact` | Form, WhatsApp, email, socials |
-| `/get-started` | The qualification form. The main conversion target |
+| `/start` | Guided conversation that adapts to the visitor's intent. The main conversion target |
 | `/privacy`, `/terms` | Legal |
 
-### The homepage argument
+### The current homepage argument
 
-The order is deliberate and it is an argument, not a brochure.
+The order is deliberate and it is an argument, not a brochure. Direction 4 starts with the visitor's situation rather than a claim about Muse.
 
-Seven blocks since the 2026-08-01 rewrite, down from nine. Full approved copy, including the three card promises and all five FAQ answers, is in `docs/i18n-plan.md` section 13, which doubles as the Arabic source.
+The implementation and its research trail live in `docs/three-doors/direction-4-understanding-first.md` and the verification reports beside it.
 
-1. **Hero.** "Everyone has an AI strategy. Almost nobody has shipped one." Then "We're a product team in Riyadh. We actually build the thing, not just the deck about the thing"
-2. **Our approach.** Three service cards. "Muse helps you shift from AI-absent to AI-native". Each card now ends in one checkable promise, set apart from the body
-3. **Manifesto.** The maroon block. "The next decade of software gets decided in the next two years"
-4. **Playbooks.** Latest three. "Practical guides, not theory"
-5. **Pressure.** "AI isn't optional. Waiting is the risk". Photo dropped, crosshair pattern kept. Still filed as `TrustedBy.tsx`, which is now a misleading filename
-6. **Ticker.** "Built for the AI-native era"
-7. **FAQ.** Five questions. Two duplicates were merged and "Who's on the team?" took the free slot
-8. **Close.** "Tell us what you're trying to build"
+1. **Hero.** Names the uncertainty before asking for a brief.
+2. **Intent router.** Lets the visitor choose the situation closest to theirs.
+3. **Capabilities.** Five routes, including Strategy & Discovery and Experience Design, so the site no longer jumps from an unclear problem straight to engineering.
+4. **Proof of approach.** Explains how Muse moves from understanding to making without invented metrics, clients or case studies.
+5. **FAQ and close.** Resolve practical uncertainty, then lead into `/start`.
 
 Testimonials was removed with the invented quotes. The rotating service words went with the hero rewrite: seven overlapping labels, including AI Transformation, Agentic AI and Generative AI as separate items, read as keyword stuffing and made the value proposition mushy. `RotatingText.tsx` is still in the tree, unused.
 
@@ -66,7 +64,7 @@ What is still unwritten to the register: `/about`, which runs the dead v0.02 dec
 
 ### The three ways out
 
-Every page funnels to one of three things: the get started form, the contact form, or the newsletter. Nothing else is asked of a visitor. That is the right number.
+Every page funnels to one of three things: the guided `/start` conversation, the contact form, or the newsletter. The old `/get-started` page is retired; its bare, English and Arabic URLs permanently redirect in one hop to the corresponding `/start` route. `/api/get-started` remains the delivery endpoint.
 
 ### Craft that is already there
 
@@ -74,18 +72,18 @@ Worth knowing about, because it is easy to break later without noticing.
 
 - Word by word scroll reveals on most headings
 - A looping copper object behind the hero, the subpage heroes and the closing block
-- Rotating service words in the hero
+- An intent router in the homepage hero
 - Horizontal card tracks that respond to a normal vertical mouse wheel, not just trackpad swipes
 - A page loader on first load and on route change
 - Every animation respects reduced motion
 
-The sliding nav panel is the pre PR version, deliberately, see the 2026-08-01 entry in [[Decision Log]]. It is the one piece of the site running older code on purpose, so check that note before changing it or resolving a merge on it.
+The sliding nav panel now carries four groups, including all five capabilities. It preserves keyboard Escape and focus restoration, internal mobile scrolling, reachable actions, and mirrored RTL geometry. Its acceptance contract is executable in `scripts/d4-verify-nav-seo.mjs`.
 
 This clears [[Quality Bar]] on interaction. It does not clear it on content.
 
-### No Arabic
+### Arabic exists, but is not published
 
-The site is English only. No RTL, no Arabic route, no language switch. For a Riyadh studio whose strongest content territory is Arabic and RTL, see [[Content Engine#1. Useful craft content]] and [[Localization Playbook]], that is a real gap and it is a deliberate open question below, not an oversight to fix quietly.
+Arabic routes and RTL behavior are implemented and included in functional and visual QA. They are deliberately excluded from sitemap, hreflang and public locale switching because `lib/content/ar/services.ts` remains marked `DRAFT, NOT REVIEWED`. `PUBLISHED_LOCALES` stays English only until the native review in [[Brand Voice#Arabic voice]] passes. This is a publication gate, not a missing implementation.
 
 ## Business
 
@@ -156,7 +154,7 @@ The risk is behind it.
 2. Email goes out through Resend, and only if `RESEND_API_KEY` is set. Without it the lead exists only in a Vercel runtime log
 3. The sender is still `onboarding@resend.dev`, Resend's sandbox address. Assumption, needs checking in the Resend dashboard: with an unverified domain that will not deliver to `info@muse.sa`
 
-So a real lead can submit the get started form, be told something reassuring, and reach nobody. Verify this end to end against a real inbox before any traffic arrives. Belongs in [[Launch Checklist]].
+So a real lead can complete `/start`, be told something reassuring, and reach nobody. Verify this end to end against a real inbox before any traffic arrives. Belongs in [[Launch Checklist]].
 
 ### Playbooks means two different things
 
@@ -191,7 +189,7 @@ No CMS. No database. No client state library. See [[Tooling Stack]].
 - Article and job posting structured data on every detail page
 - Security headers on every route, including a content security policy and HSTS
 - No secrets reach the browser
-- Forms are rate limited, validated, and the get started form has a bot honeypot
+- Forms are rate limited and validated, and the `/start` conversation has a bot honeypot
 - The nav is genuinely keyboard accessible. Focus is trapped while open, returned on escape, and the closed panel cannot be tabbed into
 - Heavy libraries load only on the pages that use them
 
@@ -212,12 +210,12 @@ In order.
 - [x] Decide what the 28 playbooks are. Answered 2026-08-01, they are real anonymised work
 - [ ] Say so on `/playbooks`, in one line, so real experience stops reading as generated
 - [ ] Reconcile "no client work delivered" in [[Marketing#Where things stand today]] with 28 write ups of delivered work
-- [ ] Test the get started form end to end into a real inbox. Verify the Resend domain
+- [ ] Test the `/start` conversation end to end into a real inbox. Verify the Resend domain
 - [ ] Give leads a stored home that survives, since the current file does not on Vercel
 - [ ] Real headshots for [[Roles]], or drop the leadership block
 - [ ] Reconcile [[Marketing#Where things stand today]] with what is actually live
-- [ ] Put the two nav accessibility fixes back, `inert` on the closed panel and a Tab trap while open. Dropped with the nav revert, neither caused the break
-- [ ] Finish the Arabic spoken pass. The homepage was already spoken and `/about` and careers are done; what is left is the `/explore`, `/newsletter`, `/contact` and `/get-started` subtitles plus the intros in `lib/content/ar/services.ts`. See [[Habbar Voice Study#What this leaves outstanding]]. Has to happen before the native review, not after
+- [x] Restore closed-panel isolation, keyboard dismissal and focus return in the live navigation. Verified in Direction 4 on 2026-08-08
+- [ ] Complete the native Arabic review, especially `lib/content/ar/services.ts`, before adding Arabic to `PUBLISHED_LOCALES`, sitemap or hreflang. Functional RTL QA is complete; publication approval is not
 - [ ] Decide whether the English approach heading follows the Arabic from AI-absent to uses against builds, or the two stay deliberately different. See [[Arabic Termbase#The coined pair]]
 - [ ] Point the socials at it, see [[Channels#Activation checklist]]
 
