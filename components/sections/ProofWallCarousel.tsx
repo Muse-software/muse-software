@@ -119,13 +119,22 @@ export default function ProofWallCarousel({ locale }: { locale: string }) {
     return () => observer.disconnect();
   }, []);
 
+  // See R3FCarousel.tsx's matching listener: a vertical wheel gesture only
+  // drives the carousel while the host is fully inside the viewport, or a
+  // normal scroll wheel tick anywhere over this (560px-tall) section would
+  // get hijacked into carousel motion instead of scrolling the page past it.
   useEffect(() => {
     const host = hostRef.current;
     if (!host || reducedMotionQuery) return;
 
+    const isFullyInViewport = () => {
+      const rect = host.getBoundingClientRect();
+      return rect.top >= 0 && rect.bottom <= window.innerHeight;
+    };
+
     const handleWheel = (event: WheelEvent) => {
       const isVerticalGesture = Math.abs(event.deltaY) > Math.abs(event.deltaX);
-      if (!isVerticalGesture) return;
+      if (!isVerticalGesture || !isFullyInViewport()) return;
       event.preventDefault();
       velocityRef.current.impulse += inlineSign(host) * event.deltaY * 0.0025;
     };

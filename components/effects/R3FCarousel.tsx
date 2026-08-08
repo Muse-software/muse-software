@@ -66,13 +66,24 @@ export default function R3FCarousel({
 
   // Scoped, non-passive wheel listener — same shape as useHorizontalScroll's,
   // so this carousel and the site's DOM card tracks feel identical to drive.
+  // A vertical wheel gesture only drives the carousel while the host is
+  // fully inside the viewport — the moment its top or bottom edge crosses
+  // the viewport boundary, the user is scrolling *past* the section, not
+  // driving it, so the gesture passes through untouched. Without that check
+  // every normal scroll wheel tick over any part of a tall host gets
+  // hijacked into carousel motion, trapping the page underneath it.
   useEffect(() => {
     const host = hostRef.current;
     if (!host || reducedMotion) return;
 
+    const isFullyInViewport = () => {
+      const rect = host.getBoundingClientRect();
+      return rect.top >= 0 && rect.bottom <= window.innerHeight;
+    };
+
     const handleWheel = (event: WheelEvent) => {
       const isVerticalGesture = Math.abs(event.deltaY) > Math.abs(event.deltaX);
-      if (!isVerticalGesture) return;
+      if (!isVerticalGesture || !isFullyInViewport()) return;
       event.preventDefault();
       velocityRef.current.impulse += inlineSign(host) * event.deltaY * WHEEL_SCALE;
     };
@@ -116,9 +127,6 @@ export default function R3FCarousel({
   return (
     <div
       ref={hostRef}
-      // The photos are decorative here — real alt text lives in the reduced-
-      // motion fallback above, which is what a screen reader actually gets.
-      aria-hidden="true"
       className={cn("touch-none select-none", className)}
       onPointerDown={handlePointerDown}
       onPointerMove={handlePointerMove}
@@ -126,16 +134,28 @@ export default function R3FCarousel({
       onPointerLeave={stopDragging}
       onPointerCancel={stopDragging}
     >
-      {isNearViewport && (
-        <R3FCarouselScene
-          images={images.map((image) => image.src)}
-          imageSize={imageSize}
-          gap={gap}
-          curveStrength={curveStrength}
-          curveFrequency={curveFrequency}
-          velocityRef={velocityRef}
-        />
-      )}
+      {/* The WebGL canvas carries no DOM alt text of its own, so only this
+          wrapper (not the whole host) is hidden from assistive tech.
+          `images[].alt` still reaches a screen reader via the sr-only list
+          below — present under normal motion too, not only in the
+          reduced-motion fallback above. */}
+      <div aria-hidden="true" className="h-full w-full">
+        {isNearViewport && (
+          <R3FCarouselScene
+            images={images.map((image) => image.src)}
+            imageSize={imageSize}
+            gap={gap}
+            curveStrength={curveStrength}
+            curveFrequency={curveFrequency}
+            velocityRef={velocityRef}
+          />
+        )}
+      </div>
+      <ul className="sr-only">
+        {images.map((image) => (
+          <li key={image.src}>{image.alt}</li>
+        ))}
+      </ul>
     </div>
   );
 }

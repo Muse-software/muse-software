@@ -23,12 +23,20 @@ type Props = { params: Promise<{ locale: string }> };
  */
 async function listGeneratedModels(): Promise<string[]> {
   const dir = path.join(process.cwd(), "public", "models", "ai");
+  let entries: string[];
   try {
-    const entries = await readdir(dir);
-    return entries.filter((entry) => entry.endsWith(".glb"));
-  } catch {
-    return [];
+    entries = await readdir(dir);
+  } catch (error) {
+    // No `public/models/ai/` directory yet is the expected, documented state
+    // in this environment (no MESHY_API_KEY has ever run the script) — that's
+    // an empty list, not a failure. Anything else (permissions, a file
+    // sitting where the directory should be, disk errors) is a real problem
+    // and should surface as a build/render error instead of silently
+    // rendering the same empty state.
+    if ((error as NodeJS.ErrnoException).code === "ENOENT") return [];
+    throw error;
   }
+  return entries.filter((entry) => entry.endsWith(".glb")).sort((a, b) => a.localeCompare(b));
 }
 
 export default async function Ai3dDemoPage({ params }: Props) {
