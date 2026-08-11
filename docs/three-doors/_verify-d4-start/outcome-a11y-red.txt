@@ -1,0 +1,11 @@
+[PASS] preferred contact has a persistent card-level selected state
+[PASS] contact actions form one compact group
+[PASS] undelivered state explicitly says delivery was not confirmed
+[FAIL] undelivered outcome is announced and focused
+{
+  "notedRole": null,
+  "notedHeadingFocused": true
+}
+[PASS] delivered state gives a truthful closure instruction
+
+4/5 outcome checks passed

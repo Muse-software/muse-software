@@ -1,34 +1,30 @@
+import { getTranslations } from "next-intl/server";
+
 /**
  * Placeholder monogram avatars (not photos) until real headshots are
  * available — deliberately generic, not a stand-in photo of an unrelated
  * real person.
  */
-const team = [
-  {
-    name: "Abdullah Al Subaie",
-    title: "Chief Executive Officer",
-    initials: "AA",
-    bio: "Abdullah leads Muse Studios' overall strategy and client partnerships, setting the direction for how the studio grows and who it chooses to work with. He's focused on building a team that can execute at a global standard while staying rooted in the Saudi market Muse was built to serve.",
-  },
-  {
-    name: "Mohammad Aamir",
-    title: "Chief Technology Officer",
-    initials: "MA",
-    bio: "Mohammad leads engineering and product delivery at Muse Studios, setting the technical bar for every client engagement. He's focused on keeping the studio's output fast without cutting corners — the same outcomes-first standard Muse holds its clients to.",
-  },
-];
+type TeamMember = { name: string; title: string; initials: string; bio: string };
 
-export default function Leadership() {
+export default async function Leadership() {
+  const t = await getTranslations("About.leadership");
+  const team = t.raw("team") as TeamMember[];
+
   return (
     <section className="bg-[#060608] py-16 md:py-24">
       <div className="mx-auto w-full max-w-[1000px] px-5 md:px-10">
         <p className="text-xs font-semibold uppercase tracking-[0.3em] text-white/50">
-          Leadership
+          {t("eyebrow")}
         </p>
         <div className="mt-8 grid gap-8 md:grid-cols-2">
           {team.map((person) => (
             <div key={person.name} className="border border-white/10 p-8">
-              <div className="flex h-16 w-16 items-center justify-center bg-[#4C0014] font-space-grotesk text-xl font-bold text-[#fd4601]">
+              {/* Was a maroon tile; the maroon came off the site on
+                  2026-08-02 (see Manifesto). An orange wash of the initials'
+                  own colour keeps the tile reading as a tile without
+                  reintroducing a second hue for one 64px square. */}
+              <div className="flex h-16 w-16 items-center justify-center bg-[#fd4601]/12 font-space-grotesk text-xl font-bold text-[#fd4601]">
                 {person.initials}
               </div>
               <h3 className="mt-5 font-space-grotesk text-xl font-bold text-white">

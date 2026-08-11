@@ -1,0 +1,43 @@
+/* Muse Studios vault flavour.
+   Enable in Settings > Appearance > CSS snippets.
+   Palette source: 01 Company/Brand Colour & Type.md */
+
+.theme-dark {
+  --muse-orange: #fe4701;
+  --muse-maroon: #4c0014;
+  --muse-yellow: #ffbe0b;
+  --muse-purple: #6300ff;
+  --muse-green: #00dd88;
+
+  --background-primary: #1a0008;
+  --background-primary-alt: #240009;
+  --background-secondary: #21000a;
+  --background-secondary-alt: #2c0010;
+  --background-modifier-border: #4c0014;
+  --text-accent: var(--muse-orange);
+  --text-accent-hover: #ff6a33;
+  --text-selection: rgba(254, 71, 1, 0.25);
+  --h1-color: #ffffff;
+  --h2-color: var(--muse-orange);
+  --h3-color: #e8c9cf;
+  --checkbox-color: var(--muse-orange);
+  --checkbox-color-hover: #ff6a33;
+  --interactive-accent: var(--muse-orange);
+}
+
+/* Tag colours follow the three business lines. */
+.theme-dark a.tag[href="#venture"] { color: var(--muse-orange); }
+.theme-dark a.tag[href="#studio"]  { color: var(--muse-yellow); }
+.theme-dark a.tag[href="#solution"]{ color: var(--muse-green); }
+.theme-dark a.tag[href="#decision"]{ color: var(--muse-purple); }
+
+/* Map-of-content notes read better with a little more air. */
+.markdown-rendered h2 {
+  border-bottom: 1px solid var(--background-modifier-border);
+  padding-bottom: 0.25em;
+  letter-spacing: 0.01em;
+}
+
+.markdown-rendered blockquote {
+  border-left: 3px solid var(--muse-orange);
+}

@@ -1,0 +1,430 @@
+{
+  "generatedAt": "2026-08-08T04:47:26.579Z",
+  "results": [
+    {
+      "name": "/get-started redirects one hop to /en/start",
+      "pass": true,
+      "detail": {
+        "status": 308,
+        "location": "/en/start",
+        "destinationStatus": 200,
+        "destinationLocation": null
+      }
+    },
+    {
+      "name": "/en/get-started redirects one hop to /en/start",
+      "pass": true,
+      "detail": {
+        "status": 308,
+        "location": "/en/start",
+        "destinationStatus": 200,
+        "destinationLocation": null
+      }
+    },
+    {
+      "name": "/ar/get-started redirects one hop to /ar/start",
+      "pass": true,
+      "detail": {
+        "status": 308,
+        "location": "/ar/start",
+        "destinationStatus": 200,
+        "destinationLocation": null
+      }
+    },
+    {
+      "name": "sitemap includes published /en/start",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "sitemap omits retired /get-started",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "sitemap keeps unreviewed Arabic unpublished",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "en nav panel lists exact capability order and labels",
+      "pass": true,
+      "detail": {
+        "hrefs": [
+          "/en/services/product-strategy-discovery",
+          "/en/services/product-experience-design",
+          "/en/services/product-engineering",
+          "/en/services/ai-transformation",
+          "/en/services/gamification-experience"
+        ],
+        "labels": [
+          "Product Strategy & Discovery",
+          "Product & Experience Design",
+          "Product Engineering",
+          "AI Transformation",
+          "Gamification & Experience"
+        ]
+      }
+    },
+    {
+      "name": "en mobile nav scroll reaches both action links",
+      "pass": true,
+      "detail": {
+        "scrollState": {
+          "present": true,
+          "clientHeight": 748,
+          "scrollHeight": 1306,
+          "scrollTop": 558
+        },
+        "actionVisibility": [
+          {
+            "href": "/en/contact",
+            "visible": true,
+            "height": 52
+          },
+          {
+            "href": "/en/start",
+            "visible": true,
+            "height": 52
+          }
+        ]
+      }
+    },
+    {
+      "name": "en Escape closes menu and restores toggle focus",
+      "pass": true,
+      "detail": {
+        "expanded": "false",
+        "focused": true
+      }
+    },
+    {
+      "name": "en rendered homepage has no legacy get-started links",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "en publication indexing gate is correct",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "en nav/home have no console or page errors",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "ar nav panel lists exact capability order and labels",
+      "pass": true,
+      "detail": {
+        "hrefs": [
+          "/ar/services/product-strategy-discovery",
+          "/ar/services/product-experience-design",
+          "/ar/services/product-engineering",
+          "/ar/services/ai-transformation",
+          "/ar/services/gamification-experience"
+        ],
+        "labels": [
+          "استراتيجية المنتج والاكتشاف",
+          "تصميم المنتج والتجربة",
+          "هندسة المنتجات الرقمية",
+          "التحول بالذكاء الاصطناعي",
+          "التلعيب والتجارب التفاعلية"
+        ]
+      }
+    },
+    {
+      "name": "ar mobile nav scroll reaches both action links",
+      "pass": true,
+      "detail": {
+        "scrollState": {
+          "present": true,
+          "clientHeight": 748,
+          "scrollHeight": 1262,
+          "scrollTop": 514
+        },
+        "actionVisibility": [
+          {
+            "href": "/ar/contact",
+            "visible": true,
+            "height": 51.890625
+          },
+          {
+            "href": "/ar/start",
+            "visible": true,
+            "height": 51.890625
+          }
+        ]
+      }
+    },
+    {
+      "name": "ar Escape closes menu and restores toggle focus",
+      "pass": true,
+      "detail": {
+        "expanded": "false",
+        "focused": true
+      }
+    },
+    {
+      "name": "ar rendered homepage has no legacy get-started links",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "ar publication indexing gate is correct",
+      "pass": true,
+      "detail": "noindex, nofollow"
+    },
+    {
+      "name": "ar nav/home have no console or page errors",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "en desktop nav keeps five capabilities inside panel",
+      "pass": true,
+      "detail": {
+        "serviceLinks": 5,
+        "escaped": 0,
+        "documentOverflow": 0,
+        "panelWidth": 1398,
+        "cards": 4,
+        "cardOrder": [
+          "explore",
+          "capabilities",
+          "company",
+          "contact"
+        ],
+        "cardRects": [
+          {
+            "left": 45,
+            "right": 364.5,
+            "top": 101,
+            "bottom": 609
+          },
+          {
+            "left": 388.5,
+            "right": 708,
+            "top": 101,
+            "bottom": 609
+          },
+          {
+            "left": 732,
+            "right": 1051.5,
+            "top": 101,
+            "bottom": 609
+          },
+          {
+            "left": 1075.5,
+            "right": 1395,
+            "top": 101,
+            "bottom": 609
+          }
+        ],
+        "direction": "ltr",
+        "visualOrderCorrect": true,
+        "actionHeights": [
+          52,
+          52
+        ],
+        "startContrast": 6.0530311927097165,
+        "contactContrast": 14.909545219184075
+      }
+    },
+    {
+      "name": "ar desktop nav keeps five capabilities inside panel",
+      "pass": true,
+      "detail": {
+        "serviceLinks": 5,
+        "escaped": 0,
+        "documentOverflow": 0,
+        "panelWidth": 1398,
+        "cards": 4,
+        "cardOrder": [
+          "explore",
+          "capabilities",
+          "company",
+          "contact"
+        ],
+        "cardRects": [
+          {
+            "left": 1075.5,
+            "right": 1395,
+            "top": 101,
+            "bottom": 578.71875
+          },
+          {
+            "left": 732,
+            "right": 1051.5,
+            "top": 101,
+            "bottom": 578.71875
+          },
+          {
+            "left": 388.5,
+            "right": 708,
+            "top": 101,
+            "bottom": 578.71875
+          },
+          {
+            "left": 45,
+            "right": 364.5,
+            "top": 101,
+            "bottom": 578.71875
+          }
+        ],
+        "direction": "rtl",
+        "visualOrderCorrect": true,
+        "actionHeights": [
+          51.890625,
+          51.890625
+        ],
+        "startContrast": 6.0530311927097165,
+        "contactContrast": 14.909545219184075
+      }
+    },
+    {
+      "name": "en/start exposes absolute Muse canonical and Open Graph URLs",
+      "pass": true,
+      "detail": {
+        "canonical": "https://muse.sa/en/start",
+        "ogUrl": "https://muse.sa/en/start",
+        "ogImage": "https://muse.sa/opengraph-image",
+        "alternates": [
+          {
+            "locale": "en",
+            "href": "https://muse.sa/en/start"
+          },
+          {
+            "locale": "x-default",
+            "href": "https://muse.sa/en/start"
+          }
+        ]
+      }
+    },
+    {
+      "name": "en/start advertises only published hreflang variants",
+      "pass": true,
+      "detail": [
+        {
+          "locale": "en",
+          "href": "https://muse.sa/en/start"
+        },
+        {
+          "locale": "x-default",
+          "href": "https://muse.sa/en/start"
+        }
+      ]
+    },
+    {
+      "name": "en/services/product-strategy-discovery exposes absolute Muse canonical and Open Graph URLs",
+      "pass": true,
+      "detail": {
+        "canonical": "https://muse.sa/en/services/product-strategy-discovery",
+        "ogUrl": "https://muse.sa/en/services/product-strategy-discovery",
+        "ogImage": "https://muse.sa/opengraph-image",
+        "alternates": [
+          {
+            "locale": "en",
+            "href": "https://muse.sa/en/services/product-strategy-discovery"
+          },
+          {
+            "locale": "x-default",
+            "href": "https://muse.sa/en/services/product-strategy-discovery"
+          }
+        ]
+      }
+    },
+    {
+      "name": "en/services/product-strategy-discovery advertises only published hreflang variants",
+      "pass": true,
+      "detail": [
+        {
+          "locale": "en",
+          "href": "https://muse.sa/en/services/product-strategy-discovery"
+        },
+        {
+          "locale": "x-default",
+          "href": "https://muse.sa/en/services/product-strategy-discovery"
+        }
+      ]
+    },
+    {
+      "name": "en/explore has no legacy get-started links",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "en/about has no legacy get-started links",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "en/contact has no legacy get-started links",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "en/services/product-engineering has no legacy get-started links",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "ar/explore has no legacy get-started links",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "ar/about has no legacy get-started links",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "ar/contact has no legacy get-started links",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "ar/services/product-engineering has no legacy get-started links",
+      "pass": true,
+      "detail": []
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/three-doors/_verify-d4-nav-seo/en-mobile-nav-top.png",
+      "width": 390,
+      "height": 844,
+      "sha256": "33abc30922ac4634e0c72181fdbc32911378810d37eae3d2d9048826238f3335"
+    },
+    {
+      "path": "docs/three-doors/_verify-d4-nav-seo/en-mobile-nav-bottom.png",
+      "width": 390,
+      "height": 844,
+      "sha256": "965159e184e133139701891585194e93e2be1ee7960178dcaaa4e723bbf4bd5c"
+    },
+    {
+      "path": "docs/three-doors/_verify-d4-nav-seo/ar-mobile-nav-top.png",
+      "width": 390,
+      "height": 844,
+      "sha256": "8cae52ff72e6aeda0456e35e13225471bd49c3fb6a056ef166a142af02b2347e"
+    },
+    {
+      "path": "docs/three-doors/_verify-d4-nav-seo/ar-mobile-nav-bottom.png",
+      "width": 390,
+      "height": 844,
+      "sha256": "14ccd29c2347109fbecca2f86dd6c77317c899ba50055dce9a7f32213ef63f56"
+    },
+    {
+      "path": "docs/three-doors/_verify-d4-nav-seo/en-desktop-nav.png",
+      "width": 1440,
+      "height": 900,
+      "sha256": "3cb4ad81a75b606a70b467e60ec3c2d7de08e3c87477010ff86e32e71a9f87c8"
+    },
+    {
+      "path": "docs/three-doors/_verify-d4-nav-seo/ar-desktop-nav.png",
+      "width": 1440,
+      "height": 900,
+      "sha256": "63a2425b2f815ae795dc6f989b658b08b208d7e48e6ab46dce97d25eca2d9943"
+    }
+  ]
+}

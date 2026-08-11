@@ -1,0 +1,43 @@
+[FAIL] progress is visibly rendered
+{
+  "count": 0
+}
+[FAIL] intent choices are full-width mobile cards at least 48px tall
+[
+  {
+    "width": 188.578125,
+    "height": 38
+  },
+  {
+    "width": 172.734375,
+    "height": 38
+  },
+  {
+    "width": 221.25,
+    "height": 38
+  },
+  {
+    "width": 225.875,
+    "height": 38
+  },
+  {
+    "width": 155.0625,
+    "height": 38
+  }
+]
+[FAIL] empty required context cannot advance
+{
+  "stayedOnContext": false,
+  "contextAlert": false
+}
+[FAIL] start API rejects missing preferredContact
+{
+  "status": 200,
+  "body": {
+    "ok": true,
+    "delivered": false
+  }
+}
+
+0/4 correction checks passed
+RED CONFIRMED: correction checks fail for the expected missing behavior

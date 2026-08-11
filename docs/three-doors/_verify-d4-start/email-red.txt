@@ -1,0 +1,6 @@
+[FAIL] invalid email is blocked locally and linked to its alert
+{
+  "posted": true,
+  "visible": false,
+  "linked": null
+}

@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Muse Site Structure</title>
+<link rel="stylesheet" href="house.css">
+<style>
+/* small additions for this document */
+.page .wrap.body { padding-bottom: 16mm; }
+.subhead { margin-top: 5.5mm; }
+.small-line { font-size: 8.6pt; color: var(--muted); margin-top: -1.5mm; margin-bottom: 3.2mm; }
+table td.src { color: var(--muted); font-size: 7.8pt; }
+.moves .m h3 { font-size: 9.6pt; }
+ul.dash { margin-bottom: 2.2mm; }
+</style>
+</head>
+<body>
+
+<!-- ============================ COVER ============================ -->
+<section class="page cover">
+  <div class="top">
+    <img class="mark" src="assets/muse-vertical-orange-crop.svg" alt="Muse Studios">
+  </div>
+  <div class="mid">
+    <h1>Muse Site Structure</h1>
+    <p class="lede">A walkthrough of muse.sa — every page, the sections in order, the copy on each, and how the site moves. Written for the team: read it top to bottom, argue with the last page.</p>
+    <p class="handback">Working overview. Nothing here is final; the open calls are on the last page.</p>
+  </div>
+  <div class="meta">
+    <div><div class="k">Date</div><div class="v">2026-08-04</div></div>
+    <div><div class="k">Prepared by</div><div class="v">Abdullah Alsubaie</div></div>
+    <div><div class="k">Reference</div><div class="v">MUSE-SITE-01</div></div>
+    <div><div class="k">Status</div><div class="v">Draft</div></div>
+  </div>
+</section>
+
+<!-- ============================ 01 SITE MAP ============================ -->
+<section class="page">
+  <header class="band"><span class="num">01</span><h2>Site map</h2></header>
+  <div class="wrap body">
+    <p class="lead">The site is nine routes, ordered the way a stranger meets us. Each page has one job. This is also the build order: the landing first, everything else hangs off it.</p>
+
+    <table>
+      <thead><tr><th style="width:34mm">Route</th><th>What it is for</th></tr></thead>
+      <tbody>
+        <tr><td class="k">/</td><td>One scroll that turns a stranger into a lead: thesis, what we do, why now, who for, objections, act</td></tr>
+        <tr><td class="k">/explore</td><td>The full version of the three approach cards, so a buyer can pick one door or combine</td></tr>
+        <tr><td class="k">/services/*</td><td>Three deep pages, one per service. Same arc each time: hero, why, what we do, approach, FAQ</td></tr>
+        <tr><td class="k">/about</td><td>Who we are and why now, without inflation or fake proof</td></tr>
+        <tr><td class="k">/careers</td><td>Turn a candidate into an applicant. Roles plus a human fallback</td></tr>
+        <tr><td class="k">/contact</td><td>The fastest path to a human. No sales layer</td></tr>
+        <tr><td class="k">/get-started</td><td>Structured intake for a scoped project</td></tr>
+        <tr><td class="k">/newsletter</td><td>Subscribe to the field notes</td></tr>
+        <tr><td class="k">/privacy, /terms</td><td>Legal. Leave as-is</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout">
+      <span class="lbl">No Work page yet</span>
+      <p>The site deliberately does not have a case-studies page. We will not claim client work we cannot show. It goes live the day the first shipped product can be put on display — until then, the proof is the product itself.</p>
+    </div>
+  </div>
+  <div class="foot"><img src="assets/muse-08-maroon-crop.svg" alt=""><span class="pn">2 / 8</span></div>
+</section>
+
+<!-- ============================ 02 LANDING ============================ -->
+<section class="page">
+  <header class="band"><span class="num">02</span><h2>The landing</h2></header>
+  <div class="wrap body">
+    <p class="lead">One page, one job: turn a stranger into a lead. It opens on the hero and walks down through what we do, who it's for, and why now — ending in a single ask. Eight sections, in order.</p>
+
+    <div class="subhead">S1 Hero</div>
+    <ul class="dash">
+      <li>Full-bleed textured background. Two lines: "Everyone has an AI strategy." / "Almost nobody has shipped one." The second line carries a marker highlight on load.</li>
+      <li>Below: "We're a product team in Riyadh." and the kicker "We actually build the thing, not the deck about the thing."</li>
+      <li>CTA "Get in touch" — on desktop an arrow points at it. Click anywhere: the texture blasts into pixels.</li>
+    </ul>
+
+    <div class="subhead">S2 Approach</div>
+    <p>Eyebrow "our approach", title "Muse helps you shift from AI-absent to AI-native." Three cards: AI Transformation, Product Engineering, Gamification &amp; Experience. Each card carries its own verb CTA.</p>
+
+    <div class="subhead">S3 Thesis</div>
+    <p>"The next decade of software gets decided in the next two years." The site's thesis, stated once, plainly.</p>
+
+    <div class="subhead">S4 Who we build for <span style="font-weight:400;color:var(--muted);font-size:8.6pt">— from zto.sa</span></div>
+    <p>"aren't a general audience." Two audiences: founders shipping a first product; operators pulling an AI initiative out of pilot purgatory. The role nouns get the highlight sweep on scroll-in.</p>
+
+    <div class="subhead">S5 Outcomes band <span style="font-weight:400;color:var(--muted);font-size:8.6pt">— from mozn.ai</span></div>
+    <p>One line, verbatim: "We deliver outcomes, not just tools." Large, centered, no hover.</p>
+
+    <div class="subhead">S6 Marquee</div>
+    <p>A ticker strip. Content decision: drop the claim-y "trusted by leaders" — the honest option is "Nothing ships that we wouldn't use ourselves."</p>
+
+    <div class="subhead">S7 FAQ</div>
+    <p>"Questions? We have answers." Five items. Accordion, one open at a time.</p>
+
+    <div class="subhead">S8 Final CTA</div>
+    <p>"Tell us what you're trying to build." / "The first conversation is with the people who would build it, not a sales layer." / "Get started".</p>
+
+    <div class="callout">
+      <span class="lbl">Borrowed, flagged</span>
+      <p>Two-audience line from salla: "Built for dreamers. Trusted by sellers." becomes "Built for founders. Trusted by operators." The "trusted" half is a claim. Ship "Built for founders. Built for operators." until we have a client to stand behind it.</p>
+    </div>
+  </div>
+  <div class="foot"><img src="assets/muse-08-maroon-crop.svg" alt=""><span class="pn">3 / 8</span></div>
+</section>
+
+<!-- ============================ 03 SERVICES ============================ -->
+<section class="page">
+  <header class="band"><span class="num">03</span><h2>Services and explore</h2></header>
+  <div class="wrap body">
+    <p class="lead">The landing says what we do in three cards. Explore and the service pages say it fully. All four share one arc, borrowed from mozn's solution pages: hero, why you need us, what we do, approach, why work with us, FAQ, CTA.</p>
+
+    <div class="subhead">Explore — the services overview</div>
+    <p>Three cards, full. Each carries a summary and a two-tier CTA, a pattern from tenex: "Learn more" to the service page, "Get started" to intake. The verbs vary per service — that is the discipline salla and tenex both follow.</p>
+    <ul class="dash">
+      <li><strong>AI Transformation.</strong> "Your AI strategy, executed all the way to production, not just decked." CTA "Plan the transformation".</li>
+      <li><strong>Product Engineering.</strong> "Production-grade software, shipped fast, without dropping the quality bar." CTA "Build the product".</li>
+      <li><strong>Gamification &amp; Experience.</strong> "Turn adoption into something people actually want to do." CTA "Design the experience".</li>
+    </ul>
+
+    <div class="subhead">What the service pages borrow</div>
+    <table>
+      <thead><tr><th style="width:40mm">Service</th><th>Borrowed line</th></tr></thead>
+      <tbody>
+        <tr><td class="k">AI Transformation</td><td>"We run it with you, from the first audit to systems in production." (our honest version of mozn's forward-deployed line)</td></tr>
+        <tr><td class="k">Product Engineering</td><td>"We work inside your team, not from a distance." (adapted from mozn.ai)</td></tr>
+        <tr><td class="k">Gamification</td><td>No borrow needed. Muse-specific and strong, keep it</td></tr>
+      </tbody>
+    </table>
+
+    <div class="subhead">On every service page</div>
+    <ul class="dash">
+      <li><strong>FAQ, per service.</strong> 3-4 questions scoped to that service. Question-as-heading shape borrowed from lean ("What sets Muse apart?").</li>
+      <li><strong>Sticky sub-nav</strong> on desktop: Overview / Why / What we do / FAQ. Collapses to a pill row on mobile.</li>
+    </ul>
+  </div>
+  <div class="foot"><img src="assets/muse-08-maroon-crop.svg" alt=""><span class="pn">4 / 8</span></div>
+</section>
+
+<!-- ============================ 04 ABOUT ============================ -->
+<section class="page">
+  <header class="band"><span class="num">04</span><h2>About</h2></header>
+  <div class="wrap body">
+    <p class="lead">About answers the three questions a stranger has: who are you, why should I believe you, why now. The structure follows zto's about page: hero, the moment, who we build for, how we work, team, careers teaser.</p>
+
+    <div class="subhead">S1 Hero</div>
+    <p>"Riyadh-built. Globally standard." / "A product company working with businesses that want it built properly." Arabic: "صُنع في الرياض. بمعيار عالمي."</p>
+    <div class="small-line">We do not mint a category-owning line. Lean owns "The digital enabler of healthcare in Saudi Arabia" because it earned it. We have not earned a category yet.</div>
+
+    <div class="subhead">S2 Why Muse — the moment <span style="font-weight:400;color:var(--muted);font-size:8.6pt">— borrowed from zto</span></div>
+    <p class="pull small">Saudi Arabia's economy is going through a moment that doesn't repeat itself. Companies are being built from scratch, and a generation of founders and operators is building something genuinely new.</p>
+    <p>The first two sentences are zto.sa verbatim. The last two are ours: "Most of what gets shipped still isn't built to a standard that lasts. That's the gap Muse was built for."</p>
+
+    <div class="subhead">S3-S7 — the rest, in order</div>
+    <ul class="dash">
+      <li><strong>Who we build for.</strong> The same zto-borrowed line as the landing, written once in the codebase and rendered on both pages.</li>
+      <li><strong>How we work.</strong> Tabs: About / Mission / Vision / Values, plus a beliefs carousel. Tabs switch instantly; the carousel has prev/next; on mobile it becomes a horizontal scroll or accordion.</li>
+      <li><strong>Team.</strong> Two named founders. We do not claim a team size or roles we cannot field.</li>
+      <li><strong>Careers teaser.</strong> "We're a small team, growing carefully." + "View careers".</li>
+      <li><strong>Ticker.</strong> "Nothing ships that we wouldn't use ourselves."</li>
+    </ul>
+
+    <div class="callout">
+      <span class="lbl">Arabic, flagged for the reviewer</span>
+      <p>"يمرّ الاقتصاد السعودي بمرحلة نوعية لم تتكرر مسبقًا" is zto verbatim and strong. The Muse continuation carries "لسه" and "مو" as spoken markers; confirm it lands as talking, not performing.</p>
+    </div>
+  </div>
+  <div class="foot"><img src="assets/muse-08-maroon-crop.svg" alt=""><span class="pn">5 / 8</span></div>
+</section>
+
+<!-- ============================ 05 CAREERS / CONTACT ============================ -->
+<section class="page">
+  <header class="band"><span class="num">05</span><h2>Careers and contact</h2></header>
+  <div class="wrap body">
+
+    <div class="subhead">Careers</div>
+    <p>The page borrows tenex's human fallback, salla's origin line, mozn's "join the team building X". Careers copy runs in the spoken register.</p>
+    <ul class="dash">
+      <li><strong>Hero.</strong> "Come build with us." / "We're a small, senior team based in Riyadh. Reach out even if nothing below is an exact match."</li>
+      <li><strong>Origin line — from salla.</strong> "من قلب الرياض إلى العالم" adapted from salla's "من قلب مكة إلى العالم". A hero kicker, with the stretched letter-spacing on العالم like salla does.</li>
+      <li><strong>Why join — from mozn.</strong> "Join the team building products people here actually use." Not mozn's "AI rocketship" or headcount lines.</li>
+      <li><strong>Claim line — from salla.</strong> "نبحث عن الأفضل" verbatim. MSA spine, works as a heading.</li>
+      <li><strong>Human fallback — from tenex.</strong> "No exact match? Say hi anyway." / "ما لقيت اللي يناسبك؟ سلّم علينا على أي حال."</li>
+    </ul>
+
+    <div class="subhead">Contact</div>
+    <p>The page borrows zto's second-person conditional CTA. Deliberately not mozn's two-tier "Get in touch / Contact sales" — the whole pitch is no sales layer.</p>
+    <ul class="dash">
+      <li><strong>Hero.</strong> "Let's talk." / "Tell us what you're building. We usually reply the same day."</li>
+      <li><strong>Conditional line — from zto.</strong> "If you're looking for a team to actually build the thing, not just deck it, talk to us." Adapted from zto's "إذا كنت تبحث عن شريك لتعزيز سردية شركتك وتمييزها في السوق، تواصل معنا".</li>
+      <li><strong>Methods.</strong> WhatsApp primary (per the localization playbook), email, socials. Consider hello@muse.sa over info@.</li>
+      <li><strong>Form.</strong> Budget ranges are collected privately — different from publishing pricing, and allowed.</li>
+    </ul>
+  </div>
+  <div class="foot"><img src="assets/muse-08-maroon-crop.svg" alt=""><span class="pn">6 / 8</span></div>
+</section>
+
+<!-- ============================ 06 NEWSLETTER / FOOTER ============================ -->
+<section class="page">
+  <header class="band"><span class="num">06</span><h2>Newsletter and footer</h2></header>
+  <div class="wrap body">
+
+    <div class="subhead">Newsletter</div>
+    <p>The richest borrow here is thmanyah's "تغنيك عن" value-prop. The daily-coffee framing does not fit — we send when there is something worth saying, not daily. Borrow the construction, not the ritual.</p>
+    <ul class="dash">
+      <li><strong>Hero.</strong> "Get the field notes in your inbox." / "The same thinking that goes into the work, sent directly. No need to check back."</li>
+      <li><strong>AR refinement — from thmanyah.</strong> "تغنيك عن متابعة أخبار الذكاء الاصطناعي العامة، ونختار لك اللي يستحق." Adapted from thmanyah's "تغنيك عن التصفّح العشوائي لشبكات التواصل".</li>
+      <li><strong>The "زائد:" device — from thmanyah.</strong> Every thmanyah title carries a secondary hook: "زائد:". Use it in future issue titles as the kicker before a second angle. EN equivalent: "Plus:".</li>
+      <li><strong>Name it.</strong> The newsletter has no name. thmanyah names its products evocatively: "بين الخطوط", "مصدر مطّلع". Candidates: "بين الأنظمة" (AR) + "Field Notes" (EN). Or stay unnamed.</li>
+      <li><strong>Do not claim "best".</strong> thmanyah owns "أفضل محتوى عربي على الإنترنت". We cannot claim a superlative yet.</li>
+    </ul>
+
+    <div class="subhead">Footer — global</div>
+    <ul class="dash">
+      <li><strong>Keep.</strong> Blurb + "Get started" + "Reach out to us" + Riyadh location + Company/Explore columns + rights line + Privacy / Terms.</li>
+      <li><strong>Worldview line — tenex mechanic, our line.</strong> tenex closes with "Stay on the right side of history." Ours, reused from the hero: "We build the thing, not the deck about the thing."</li>
+      <li><strong>Phone / Complaints — salla GCC norm.</strong> Only if a real number and intake exist. A dead Complaints link reads worse than none.</li>
+    </ul>
+
+    <div class="callout">
+      <span class="lbl">The one rule that keeps us honest</span>
+      <p>Every borrowed line in this document is either verbatim, a marked adaptation with the original shown, or Muse's own. Nothing is invented. Lines that make a claim we have not earned are marked EMPTY until real: proof stats, superlatives, "trusted by", category-owning "the".</p>
+    </div>
+  </div>
+  <div class="foot"><img src="assets/muse-08-maroon-crop.svg" alt=""><span class="pn">7 / 8</span></div>
+</section>
+
+<!-- ============================ 07 INTERACTIONS ============================ -->
+<section class="page">
+  <header class="band"><span class="num">07</span><h2>Interactions and mobile</h2></header>
+  <div class="wrap body">
+    <p class="lead">The interactions are where the site becomes Muse. A few rules, applied everywhere, so it does not feel like a collection of pages.</p>
+
+    <div class="subhead">Dither hero</div>
+    <ul class="dash">
+      <li>Click (desktop) / tap (mobile) triggers the pixel-blast. Mobile uses a single blast with a reduced particle budget for frame rate.</li>
+      <li><strong>Reduced-motion:</strong> dither renders as a static textured still, blast disabled, no auto-animation. Hard requirement, not optional.</li>
+    </ul>
+
+    <div class="subhead">Highlight effect</div>
+    <p>White background / black text marker sweep on the two hero lines. Fires on load, and on scroll-into-view for the role-noun reveals, once. Never re-triggers on re-scroll, to avoid a flickering page on mobile.</p>
+
+    <div class="subhead">Hover states</div>
+    <ul class="dash">
+      <li><strong>Cards:</strong> raise + shadow + the per-service verb CTA underline draws in. Image cards get a subtle parallax on desktop only.</li>
+      <li><strong>Links:</strong> underline draws from the leading edge. In RTL that edge flips to the right.</li>
+      <li><strong>CTAs:</strong> primary button fills/darkens. The arrow at the hero CTA is desktop only.</li>
+    </ul>
+
+    <div class="subhead">RTL mirroring — the easy place to break</div>
+    <ul class="dash">
+      <li>Full layout mirror: nav, chevrons, carousels, progress, back gestures, sliders.</li>
+      <li>The arrow points at the CTA on desktop; in RTL it mirrors so it still aims at the button, not away. A naive mirror that points it off-screen is the bug to avoid.</li>
+      <li>Marquee direction flips in Arabic.</li>
+      <li>Mixed-direction strings (Latin "Muse" inside Arabic sentences) are where RTL bugs concentrate. Test every one.</li>
+      <li>Arabic runs shorter but taller. Line-height needs its own pass, not just a width mirror.</li>
+      <li>Numerals stay Western (0-9) in Arabic.</li>
+    </ul>
+
+    <div class="subhead">Touch / mobile</div>
+    <ul class="dash">
+      <li>No hover-reveal anywhere. Anything gated behind hover must be visible by default on touch: verb CTAs, values copy, role details.</li>
+      <li>Filter pill rows and sub-navs become horizontal scrollers or collapse.</li>
+      <li>Accordions for FAQ and About tabs.</li>
+      <li>Arrow on the hero CTA: hidden on mobile, both directions.</li>
+    </ul>
+
+    <div class="callout">
+      <span class="lbl">Reduced motion, everywhere</span>
+      <p>Dither static, marquee static, highlight instant (no sweep), card parallax off, arrow hidden. Honor prefers-reduced-motion on every page, not just the hero.</p>
+    </div>
+  </div>
+  <div class="foot"><img src="assets/muse-08-maroon-crop.svg" alt=""><span class="pn">8 / 8</span></div>
+</section>
+
+<!-- ============================ 08 DECISIONS ============================ -->
+<section class="page">
+  <header class="band"><span class="num">08</span><h2>Open decisions</h2></header>
+  <div class="wrap body">
+    <p class="lead">Ten calls to make. Each with a recommendation. Most are reversible, none are urgent, all shape the voice. A different answer from the team changes the plan.</p>
+
+    <table>
+      <thead><tr><th style="width:46mm">Question</th><th>Recommendation</th></tr></thead>
+      <tbody>
+        <tr><td class="kw">"AI-absent to AI-native" is tenex's coined pair</td><td>Keep the Arabic (تستخدم/تبني, already de-tenexed and sharper). Decide the English separately. Lowest risk: keep both as they are.</td></tr>
+        <tr><td class="kw">"Built for founders. Trusted by operators."</td><td>Ship "Built for founders. Built for operators." Upgrade to "trusted" when a real operator client exists.</td></tr>
+        <tr><td class="kw">"من قلب الرياض إلى العالم"</td><td>Yes. Clean adapt of salla's Mecca line, honest for a Riyadh studio, culturally strong.</td></tr>
+        <tr><td class="kw">Marquee content</td><td>"Nothing ships that we wouldn't use ourselves". A commitment, not a claim, and the most Muse line on the site.</td></tr>
+        <tr><td class="kw">Proof with no client claims</td><td>Say less and use our own constraints (every state designed, real data only). Add a Work page the day a shipped product exists.</td></tr>
+        <tr><td class="kw">hello@ vs info@</td><td>hello@muse.sa unless a "human@" address genuinely routes to a founder. Otherwise it is theatre.</td></tr>
+        <tr><td class="kw">Newsletter name</td><td>Name it. "بين الأنظمة" (AR) + "Field Notes" (EN). Evocative, honest, thmanyah register without copying a name.</td></tr>
+        <tr><td class="kw">Superlatives and stats</td><td>Hold. No "best", no invented penetration stat. Revisit when a real verifiable number exists.</td></tr>
+        <tr><td class="kw">Footer phone / Complaints</td><td>Only when a real number and intake exist. A dead link reads worse than none.</td></tr>
+        <tr><td class="kw">Careers dare</td><td>Keep "Come build with us." The tenex dare reads borrowed and grand for a small studio.</td></tr>
+      </tbody>
+    </table>
+
+    <div class="subhead">Build order</div>
+    <ul class="dash">
+      <li>1. Landing: hero + interactions first, then the eight sections in order.</li>
+      <li>2. Explore: three cards, two-tier CTAs.</li>
+      <li>3. Service pages: shared arc, per-service FAQ.</li>
+      <li>4. About: moment framing, tabs, team.</li>
+      <li>5. Careers: origin line, why-join, claim line, fallback.</li>
+      <li>6. Contact / Get started: conditional CTA, email decision.</li>
+      <li>7. Newsletter: "تغنيك عن" sub, name decision.</li>
+      <li>8. Footer + legal pages.</li>
+      <li>9. Hover, RTL, and mobile pass end to end.</li>
+      <li>10. Native Arabic review before anything ships on /ar.</li>
+    </ul>
+
+    <p class="note">Sources: tenex.co (US, mechanics only), salla.com (Mecca), mozn.ai (Riyadh), zto.sa (Riyadh), lean.sa (Riyadh), thmanyah.com (Riyadh), tamkeentech.sa (Riyadh), jobs.salla.com, habbar.com. Full line-by-line attribution in docs/muse-site-structure-plan.md and docs/copy-reference-bank.md.</p>
+  </div>
+  <div class="foot"><img src="assets/muse-08-maroon-crop.svg" alt=""><span class="pn">9 / 9</span></div>
+</section>
+
+</body>
+</html>

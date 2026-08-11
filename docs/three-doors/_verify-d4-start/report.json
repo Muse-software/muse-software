@@ -1,0 +1,736 @@
+{
+  "results": [
+    {
+      "name": "A shell en/desktop /start",
+      "pass": true,
+      "detail": {
+        "status": 200,
+        "lang": "en",
+        "dir": "ltr",
+        "overflow": {
+          "overflow": false,
+          "scrolledX": 0
+        },
+        "consoleErrors": [],
+        "pageErrors": [],
+        "screen0Count": 1,
+        "radioCount": 5,
+        "progressVisible": true,
+        "intentGeometry": [
+          {
+            "width": 504,
+            "height": 50
+          },
+          {
+            "width": 504,
+            "height": 50
+          },
+          {
+            "width": 504,
+            "height": 50
+          },
+          {
+            "width": 504,
+            "height": 50
+          },
+          {
+            "width": 504,
+            "height": 50
+          }
+        ]
+      }
+    },
+    {
+      "name": "A shell en/mobile /start",
+      "pass": true,
+      "detail": {
+        "status": 200,
+        "lang": "en",
+        "dir": "ltr",
+        "overflow": {
+          "overflow": false,
+          "scrolledX": 0
+        },
+        "consoleErrors": [],
+        "pageErrors": [],
+        "screen0Count": 1,
+        "radioCount": 5,
+        "progressVisible": true,
+        "intentGeometry": [
+          {
+            "width": 350,
+            "height": 50
+          },
+          {
+            "width": 350,
+            "height": 50
+          },
+          {
+            "width": 350,
+            "height": 50
+          },
+          {
+            "width": 350,
+            "height": 50
+          },
+          {
+            "width": 350,
+            "height": 50
+          }
+        ]
+      }
+    },
+    {
+      "name": "A shell ar/desktop /start",
+      "pass": true,
+      "detail": {
+        "status": 200,
+        "lang": "ar",
+        "dir": "rtl",
+        "overflow": {
+          "overflow": false,
+          "scrolledX": 0
+        },
+        "consoleErrors": [],
+        "pageErrors": [],
+        "screen0Count": 1,
+        "radioCount": 5,
+        "progressVisible": true,
+        "intentGeometry": [
+          {
+            "width": 504,
+            "height": 50
+          },
+          {
+            "width": 504,
+            "height": 50
+          },
+          {
+            "width": 504,
+            "height": 50
+          },
+          {
+            "width": 504,
+            "height": 50
+          },
+          {
+            "width": 504,
+            "height": 50
+          }
+        ]
+      }
+    },
+    {
+      "name": "A shell ar/mobile /start",
+      "pass": true,
+      "detail": {
+        "status": 200,
+        "lang": "ar",
+        "dir": "rtl",
+        "overflow": {
+          "overflow": false,
+          "scrolledX": 0
+        },
+        "consoleErrors": [],
+        "pageErrors": [],
+        "screen0Count": 1,
+        "radioCount": 5,
+        "progressVisible": true,
+        "intentGeometry": [
+          {
+            "width": 350,
+            "height": 50
+          },
+          {
+            "width": 350,
+            "height": 50
+          },
+          {
+            "width": 350,
+            "height": 50
+          },
+          {
+            "width": 350,
+            "height": 50
+          },
+          {
+            "width": 350,
+            "height": 50
+          }
+        ]
+      }
+    },
+    {
+      "name": "A deep-link en intent=build",
+      "pass": true,
+      "detail": {
+        "status": 200,
+        "screen0Count": 0,
+        "screen1Count": 1,
+        "hasQ2": 4,
+        "consoleErrors": [],
+        "pageErrors": []
+      }
+    },
+    {
+      "name": "A deep-link en intent=improve",
+      "pass": true,
+      "detail": {
+        "status": 200,
+        "screen0Count": 0,
+        "screen1Count": 1,
+        "hasQ2": 4,
+        "consoleErrors": [],
+        "pageErrors": []
+      }
+    },
+    {
+      "name": "A deep-link en intent=ai",
+      "pass": true,
+      "detail": {
+        "status": 200,
+        "screen0Count": 0,
+        "screen1Count": 1,
+        "hasQ2": 4,
+        "consoleErrors": [],
+        "pageErrors": []
+      }
+    },
+    {
+      "name": "A deep-link en intent=capability",
+      "pass": true,
+      "detail": {
+        "status": 200,
+        "screen0Count": 0,
+        "screen1Count": 1,
+        "hasQ2": 5,
+        "consoleErrors": [],
+        "pageErrors": []
+      }
+    },
+    {
+      "name": "A unknown-intent en intent=unsure shows Screen 0",
+      "pass": true,
+      "detail": {
+        "screen0Count": 1
+      }
+    },
+    {
+      "name": "A unknown-intent en intent=nonsense shows Screen 0",
+      "pass": true,
+      "detail": {
+        "screen0Count": 1
+      }
+    },
+    {
+      "name": "A deep-link ar intent=build",
+      "pass": true,
+      "detail": {
+        "status": 200,
+        "screen0Count": 0,
+        "screen1Count": 1,
+        "hasQ2": 4,
+        "consoleErrors": [],
+        "pageErrors": []
+      }
+    },
+    {
+      "name": "A deep-link ar intent=improve",
+      "pass": true,
+      "detail": {
+        "status": 200,
+        "screen0Count": 0,
+        "screen1Count": 1,
+        "hasQ2": 4,
+        "consoleErrors": [],
+        "pageErrors": []
+      }
+    },
+    {
+      "name": "A deep-link ar intent=ai",
+      "pass": true,
+      "detail": {
+        "status": 200,
+        "screen0Count": 0,
+        "screen1Count": 1,
+        "hasQ2": 4,
+        "consoleErrors": [],
+        "pageErrors": []
+      }
+    },
+    {
+      "name": "A deep-link ar intent=capability",
+      "pass": true,
+      "detail": {
+        "status": 200,
+        "screen0Count": 0,
+        "screen1Count": 1,
+        "hasQ2": 5,
+        "consoleErrors": [],
+        "pageErrors": []
+      }
+    },
+    {
+      "name": "A unknown-intent ar intent=unsure shows Screen 0",
+      "pass": true,
+      "detail": {
+        "screen0Count": 1
+      }
+    },
+    {
+      "name": "A unknown-intent ar intent=nonsense shows Screen 0",
+      "pass": true,
+      "detail": {
+        "screen0Count": 1
+      }
+    },
+    {
+      "name": "B branch build posts source:start with human-readable needs",
+      "pass": true,
+      "detail": {
+        "source": "start",
+        "needs": "Intent: Start something new\nAbout the idea: Playwright-authored test detail.\nWhere it is today: A working prototype\nPreferred contact: Write to us",
+        "website": "",
+        "firstName": "Playwright",
+        "email": "playwright@example.com",
+        "phone": "",
+        "company": "",
+        "preferredContact": "write"
+      }
+    },
+    {
+      "name": "B branch improve posts source:start with human-readable needs",
+      "pass": true,
+      "detail": {
+        "source": "start",
+        "needs": "Intent: Improve a product\nAbout the product: Playwright-authored test detail.\nWhat matters most right now: A rethink\nPreferred contact: Write to us",
+        "website": "",
+        "firstName": "Playwright",
+        "email": "playwright@example.com",
+        "phone": "",
+        "company": "",
+        "preferredContact": "write"
+      }
+    },
+    {
+      "name": "B branch ai posts source:start with human-readable needs",
+      "pass": true,
+      "detail": {
+        "source": "start",
+        "needs": "Intent: Explore AI Transformation\nWhere AI should help: Customers\nPreferred contact: Request a call",
+        "website": "",
+        "firstName": "Playwright",
+        "email": "playwright@example.com",
+        "phone": "+966500000000",
+        "company": "",
+        "preferredContact": "call"
+      }
+    },
+    {
+      "name": "B branch capability posts source:start with human-readable needs",
+      "pass": true,
+      "detail": {
+        "source": "start",
+        "needs": "Intent: Needs a specific capability\nAbout the work: Playwright-authored test detail.\nCapability needed: AI\nPreferred contact: Write to us",
+        "website": "",
+        "firstName": "Playwright",
+        "email": "playwright@example.com",
+        "phone": "",
+        "company": "",
+        "preferredContact": "write"
+      }
+    },
+    {
+      "name": "B branch unsure posts source:start with human-readable needs",
+      "pass": true,
+      "detail": {
+        "source": "start",
+        "needs": "Intent: Not sure yet\nPreferred contact: Write to us",
+        "website": "",
+        "firstName": "Playwright",
+        "email": "playwright@example.com",
+        "phone": "",
+        "company": "",
+        "preferredContact": "write"
+      }
+    },
+    {
+      "name": "C outcome delivered=true",
+      "pass": true,
+      "detail": {
+        "deliveredAttr": "true",
+        "text": "We've received your message and will reply using the email you provided. You can safely close this page.",
+        "outcomeRole": "status",
+        "headingFocused": true,
+        "contactStyles": [
+          {
+            "checked": false,
+            "selectedAttr": "false",
+            "inlineBackground": "",
+            "backgroundColor": "rgba(0, 0, 0, 0)",
+            "borderColor": "oklab(0.999994 0.0000455678 0.0000200868 / 0.35)",
+            "color": "oklab(0.999994 0.0000455677 0.0000200868 / 0.8)"
+          },
+          {
+            "checked": true,
+            "selectedAttr": "true",
+            "inlineBackground": "rgba(253, 70, 1, 0.1)",
+            "backgroundColor": "rgba(253, 70, 1, 0.082)",
+            "borderColor": "oklab(0.681353 0.171593 0.123079 / 0.886462)",
+            "color": "oklab(0.999994 0.0000455678 0.0000200868 / 0.965065)"
+          }
+        ],
+        "selectedOk": true,
+        "actionGap": 16
+      }
+    },
+    {
+      "name": "C outcome delivered=false",
+      "pass": true,
+      "detail": {
+        "deliveredAttr": "false",
+        "text": "Your request was not sent. Please reach us directly through WhatsApp or email:",
+        "outcomeRole": "alert",
+        "headingFocused": true,
+        "contactStyles": [
+          {
+            "checked": false,
+            "selectedAttr": "false",
+            "inlineBackground": "",
+            "backgroundColor": "rgba(0, 0, 0, 0)",
+            "borderColor": "oklab(0.999994 0.0000455678 0.0000200868 / 0.35)",
+            "color": "oklab(0.999994 0.0000455677 0.0000200868 / 0.8)"
+          },
+          {
+            "checked": true,
+            "selectedAttr": "true",
+            "inlineBackground": "rgba(253, 70, 1, 0.1)",
+            "backgroundColor": "rgba(253, 70, 1, 0.086)",
+            "borderColor": "oklab(0.67956 0.172558 0.123771 / 0.894172)",
+            "color": "oklab(0.999994 0.0000455678 0.0000200868 / 0.967438)"
+          }
+        ],
+        "selectedOk": true,
+        "actionGap": 16
+      }
+    },
+    {
+      "name": "C undelivered fallbacks are full links with LTR-isolated details",
+      "pass": true,
+      "detail": [
+        {
+          "href": "https://wa.me/966592731040",
+          "detailDir": "ltr"
+        },
+        {
+          "href": "mailto:info@muse.sa",
+          "detailDir": "ltr"
+        }
+      ]
+    },
+    {
+      "name": "D server failure shows role=alert and retains fields",
+      "pass": true,
+      "detail": {
+        "alertVisible": true,
+        "firstNameStillThere": "Retry Me"
+      }
+    },
+    {
+      "name": "E missing required fields blocks submit (native)",
+      "pass": true,
+      "detail": {
+        "posted": false,
+        "firstNameValid": false
+      }
+    },
+    {
+      "name": "E empty required context cannot advance",
+      "pass": true,
+      "detail": {
+        "stayedOnContext": true,
+        "contextAlertVisible": true
+      }
+    },
+    {
+      "name": "E invalid email is blocked locally and linked to alert",
+      "pass": true,
+      "detail": {
+        "postedEmail": false,
+        "emailAlertText": "Please provide a valid email address.",
+        "emailDescribedBy": "email-error"
+      }
+    },
+    {
+      "name": "E call without phone blocks with localized error, no POST",
+      "pass": true,
+      "detail": {
+        "postedCall": false,
+        "phoneAlertVisible": true
+      }
+    },
+    {
+      "name": "F keyboard-only path (radio select, back, skip, heading focus)",
+      "pass": true,
+      "detail": {
+        "headingFocusedAfterSelect": true,
+        "backWorked": true,
+        "skipFocusVisible": true,
+        "headingFocusedAfterSkip": true
+      }
+    },
+    {
+      "name": "G browser Back restores Screen 0 and clears query",
+      "pass": true,
+      "detail": {
+        "urlAfterSelect": "http://localhost:3949/en/start?intent=improve",
+        "urlAfterBack": "http://localhost:3949/en/start",
+        "screen0Visible": true
+      }
+    },
+    {
+      "name": "H reduced-motion en flow completes",
+      "pass": true,
+      "detail": {
+        "ok": true
+      }
+    },
+    {
+      "name": "H reduced-motion ar flow completes",
+      "pass": true,
+      "detail": {
+        "ok": true
+      }
+    },
+    {
+      "name": "I null JSON body rejects as invalid_body",
+      "pass": true,
+      "detail": {
+        "status": 400,
+        "body": {
+          "ok": false,
+          "code": "invalid_body",
+          "error": "Invalid request body."
+        }
+      }
+    },
+    {
+      "name": "I array JSON body rejects as invalid_body",
+      "pass": true,
+      "detail": {
+        "status": 400,
+        "body": {
+          "ok": false,
+          "code": "invalid_body",
+          "error": "Invalid request body."
+        }
+      }
+    },
+    {
+      "name": "I non-string accepted fields reject as invalid_body",
+      "pass": true,
+      "detail": {
+        "status": 400,
+        "body": {
+          "ok": false,
+          "code": "invalid_body",
+          "error": "Invalid request body."
+        }
+      }
+    },
+    {
+      "name": "I legacy submission missing fields still rejects",
+      "pass": true,
+      "detail": {
+        "status": 400,
+        "body": {
+          "ok": false,
+          "code": "missing_fields",
+          "error": "Please fill in all required fields."
+        }
+      }
+    },
+    {
+      "name": "I source:start missing preferredContact rejects",
+      "pass": true,
+      "detail": {
+        "status": 400,
+        "body": {
+          "ok": false,
+          "code": "missing_fields",
+          "error": "Please fill in all required fields."
+        }
+      }
+    },
+    {
+      "name": "I source:start call without phone rejects with phone_required_for_call",
+      "pass": true,
+      "detail": {
+        "status": 400,
+        "body": {
+          "ok": false,
+          "code": "phone_required_for_call",
+          "error": "Please add a phone number so we can call you."
+        }
+      }
+    },
+    {
+      "name": "I source:start call with phone accepts without legacy fields",
+      "pass": true,
+      "detail": {
+        "status": 200,
+        "body": {
+          "ok": true,
+          "delivered": false
+        }
+      }
+    },
+    {
+      "name": "I source:start write accepts without phone or legacy fields",
+      "pass": true,
+      "detail": {
+        "status": 200,
+        "body": {
+          "ok": true,
+          "delivered": false
+        }
+      }
+    },
+    {
+      "name": "I rate limit allows five requests and rejects the sixth",
+      "pass": true,
+      "detail": {
+        "rateStatuses": [
+          400,
+          400,
+          400,
+          400,
+          400,
+          429
+        ]
+      }
+    }
+  ],
+  "screenshots": [
+    {
+      "name": "en-desktop-1-initial",
+      "path": "docs/three-doors/_verify-d4-start/en-desktop-1-initial.png",
+      "width": 1440,
+      "height": 1702
+    },
+    {
+      "name": "en-desktop-2-context",
+      "path": "docs/three-doors/_verify-d4-start/en-desktop-2-context.png",
+      "width": 1440,
+      "height": 1819
+    },
+    {
+      "name": "en-desktop-3-contact",
+      "path": "docs/three-doors/_verify-d4-start/en-desktop-3-contact.png",
+      "width": 1440,
+      "height": 1809
+    },
+    {
+      "name": "en-desktop-4-success-delivered",
+      "path": "docs/three-doors/_verify-d4-start/en-desktop-4-success-delivered.png",
+      "width": 1440,
+      "height": 1702
+    },
+    {
+      "name": "en-desktop-5-success-noted",
+      "path": "docs/three-doors/_verify-d4-start/en-desktop-5-success-noted.png",
+      "width": 1440,
+      "height": 1702
+    },
+    {
+      "name": "en-mobile-1-initial",
+      "path": "docs/three-doors/_verify-d4-start/en-mobile-1-initial.png",
+      "width": 390,
+      "height": 2006
+    },
+    {
+      "name": "en-mobile-2-context",
+      "path": "docs/three-doors/_verify-d4-start/en-mobile-2-context.png",
+      "width": 390,
+      "height": 2130
+    },
+    {
+      "name": "en-mobile-3-contact",
+      "path": "docs/three-doors/_verify-d4-start/en-mobile-3-contact.png",
+      "width": 390,
+      "height": 2200
+    },
+    {
+      "name": "en-mobile-4-success-delivered",
+      "path": "docs/three-doors/_verify-d4-start/en-mobile-4-success-delivered.png",
+      "width": 390,
+      "height": 1873
+    },
+    {
+      "name": "en-mobile-5-success-noted",
+      "path": "docs/three-doors/_verify-d4-start/en-mobile-5-success-noted.png",
+      "width": 390,
+      "height": 1966
+    },
+    {
+      "name": "ar-desktop-1-initial",
+      "path": "docs/three-doors/_verify-d4-start/ar-desktop-1-initial.png",
+      "width": 1440,
+      "height": 1632
+    },
+    {
+      "name": "ar-desktop-2-context",
+      "path": "docs/three-doors/_verify-d4-start/ar-desktop-2-context.png",
+      "width": 1440,
+      "height": 1756
+    },
+    {
+      "name": "ar-desktop-3-contact",
+      "path": "docs/three-doors/_verify-d4-start/ar-desktop-3-contact.png",
+      "width": 1440,
+      "height": 1746
+    },
+    {
+      "name": "ar-desktop-4-success-delivered",
+      "path": "docs/three-doors/_verify-d4-start/ar-desktop-4-success-delivered.png",
+      "width": 1440,
+      "height": 1630
+    },
+    {
+      "name": "ar-desktop-5-success-noted",
+      "path": "docs/three-doors/_verify-d4-start/ar-desktop-5-success-noted.png",
+      "width": 1440,
+      "height": 1630
+    },
+    {
+      "name": "ar-mobile-1-initial",
+      "path": "docs/three-doors/_verify-d4-start/ar-mobile-1-initial.png",
+      "width": 390,
+      "height": 1960
+    },
+    {
+      "name": "ar-mobile-2-context",
+      "path": "docs/three-doors/_verify-d4-start/ar-mobile-2-context.png",
+      "width": 390,
+      "height": 2022
+    },
+    {
+      "name": "ar-mobile-3-contact",
+      "path": "docs/three-doors/_verify-d4-start/ar-mobile-3-contact.png",
+      "width": 390,
+      "height": 2154
+    },
+    {
+      "name": "ar-mobile-4-success-delivered",
+      "path": "docs/three-doors/_verify-d4-start/ar-mobile-4-success-delivered.png",
+      "width": 390,
+      "height": 1873
+    },
+    {
+      "name": "ar-mobile-5-success-noted",
+      "path": "docs/three-doors/_verify-d4-start/ar-mobile-5-success-noted.png",
+      "width": 390,
+      "height": 1873
+    }
+  ]
+}

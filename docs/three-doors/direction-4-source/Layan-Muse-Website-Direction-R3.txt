@@ -1,0 +1,436 @@
+M U S E  ·  W E B S I T E  D I R E C T I O N
+One clear direction
+for muse.sa.
+The recommended direction, why it is right, what the homepage says,
+how a visitor moves through it, and what the team still needs to decide.
+Standalone: no earlier revision or research file is required to read it.
+DATE
+2026-08-07
+PREPARED FOR
+Muse team
+PREPARED BY
+Abdullah Alsubaie
+REFERENCE
+MUSE-DIR-04 · Rev 3
+Scope of this deck. English-first; Arabic is written separately once this direction is locked. No pricing,
+packaged offers, or delivery promises appear on the site. Nothing in the copy claims proof Muse does
+not have, and the absence of client work is never mentioned. Ready to share with the team and begin
+design from.
+Muse  Website direction deck
+Review · Revision 3
+Muse Website Direction · MUSE-DIR-04
+1
+
+
+01
+The recommended direction
+Lead with understanding. Route by intent. Support with
+capabilities. Prove with real things.
+The website opens with a clear, warm statement of what Muse is and what it believes: that good technology
+begins with understanding people, their needs, and their businesses. It then asks the only question that
+matters to a visitor, «how can we help?», and routes them by what they are trying to achieve. Everything
+after that is support: the capabilities Muse brings together, how the team thinks and works, and the real
+things it has made. The site converts by starting the right conversation, not by selling a package.
+The tone throughout is human, intelligent, and quietly confident. Nothing argues with the industry,
+announces confidence, or asks to be judged. A potential client should feel «they understand what I’m
+trying to achieve» before anything else.
+Intents route
+→
+Visitors enter through their goal: bring a new
+idea to life, improve an existing product,
+explore AI Transformation. Intents own the
+homepage and the start flow.
+Capabilities combine
+→
+Strategy & discovery, design, engineering, AI,
+gamification & experience. They live in one
+homepage band, the navigation, and their
+own pages. They never route; they appear
+inside the intents they serve.
+Approach, not framework
+→
+No invented «Muse Standard» branding. The
+beliefs behind it become a plain, warm «Our
+approach» section. If a working checklist
+ever emerges from real client work,
+publishing it then will be earned.
+Real things only
+→
+Credibility comes from what anyone can
+open: experiments, products, writing, and
+this site itself. The section is built as slots
+that client work naturally fills later.
+Muse Website Direction · MUSE-DIR-04
+2
+
+
+02
+Why this direction
+The five insights that actually shaped the site, each tied to the decision it produced.
+Visitors arrive with a goal, not a service taxonomy.
+→
+Intent-led routing («how can we help?»)
+replaces service menus and the earlier Build /
+Ventures / Think doors, which mirrored
+Muse’s structure instead of the buyer’s.
+A new visitor gives the hero about five seconds.
+→
+The hero must say what Muse is and hint
+who it’s for at a glance. Clever riddle
+headlines and proof-style claims both fail
+that test; clarity with a warm point of view
+passes it.
+Muse is new, with limited public proof.
+→
+Credibility through real artifacts and clarity,
+not claims: live experiments and products,
+published thinking, and a site that
+demonstrates the craft it sells. No borrowed
+metrics, no logo walls.
+The brand needs warmth and intelligence, not
+confrontation.
+→
+A human voice throughout, and «Our
+approach» instead of an invented authority
+framework. Nothing anti-agency, nothing
+defensive, no announcing how different
+Muse is.
+Two different readers shop two different ways.
+→
+Problem-holders route by situation;
+evaluators and referrals look for named skills.
+So the architecture has two layers: intents
+on the homepage, capabilities in the
+navigation and on their own pages.
+Muse Website Direction · MUSE-DIR-04
+3
+
+
+03
+Benchmark: what we learned
+Six references from the completed research, each reduced to the one pattern that influenced Muse. Tiles are pattern
+sketches; live captures sit in the benchmark file and the final walkthrough.
+thoughtbot
+thoughtbot.com
+Two layers that never compete: the menu organizes
+skills by discipline, the homepage routes by the
+client’s situation. Authority built by publishing how
+they work.
+Influence: the intent / capability split, and «Our
+approach» as substance rather than slogan.
+MetaLab
+metalab.com
+«We make interfaces.» One compressed identity line
+carries the whole brand; the confidence is in the
+restraint, not in adjectives.
+Influence: hero discipline: identity and warmth in very
+few words, personality through clarity.
+Netguru
+netguru.com
+Every page funnels into one guided «tell us about your
+project» flow instead of a bare contact form.
+Influence: the /start journey: a short, intent-led
+conversation starter as the site’s single conversion
+path.
+Musemind
+musemind.agency
+Nearly every surface opens with the buyer’s pain in the
+buyer’s words, then shows the way out. Services are
+packaged as situations.
+Influence: problem-first copy on intent cards and
+capability pages: the client’s goal is always the
+subject.
+Intellias Saudi
+intellias.com/intellias-saudi
+Local operational legitimacy stated concretely: a Saudi
+entity, teams on the ground, national-agenda
+alignment. Trust for institutional buyers.
+Influence: «Why Muse»: being genuinely Saudi and in
+Riyadh said plainly, as fact rather than flavor.
+TAM
+tam.sa
+Routes government and enterprise buyers by the
+outcomes they’re mandated to achieve, and earns
+trust through documented methods and its own
+products.
+Influence: outcome-shaped intent labels, and own
+products in «From the studio» as honest authority.
+Also from the research: The Octalysis Group shaped how Gamification & Experience is presented (outcomes and habit-
+building, not game mechanics), and AZM X served as the local anti-pattern: nine abstract service doors and no way for a
+visitor to find their problem.
+SITUATIONS ON THE PAGE
+MENU: SKILLS
+THREE WORDS, HELD FOR YEARS
+ONE GUIDED START
+STRUGGLING WITH DROP-OFFS?
+RIYADH ENTITY · LOCAL TEAMS
+OUTCOME LANES + OWN PRODUCTS
+Muse Website Direction · MUSE-DIR-04
+4
+
+
+04
+The Muse website model
+Clients enter through what they’re trying to achieve. Muse
+combines the right capabilities around that goal.
+C USTOMER  I NTENT · HOW  V I SI TOR S ENTER
+Build something new
+An idea, a plan, or a problem worth
+solving.
+Improve an existing product
+A live product that could be more.
+AI Transformation
+Finding where AI genuinely helps,
+and building it in.
+↓
+MUSE C A PA BI L I TI ES · W HAT GETS C OMBI NED
+Product Strategy
+& Discovery
+Product &
+Experience Design
+Product
+Engineering
+AI
+Gamification
+& Experience
+↓
+Every project draws on several capabilities at once. The visitor never has to know which; they
+choose a goal, and Muse assembles the team around it.
+Site map: Home · /start (guided conversation) · /build, /improve, /ai (intent pages) · /capabilities (five pages) · /approach ·
+/notes · /about · legal. Capability pages always end by routing back into an intent. Orange chips mark the two specialist
+capabilities that get signature treatment.
+Muse Website Direction · MUSE-DIR-04
+5
+
+
+05
+Homepage architecture
+Eight sections, one job each. Full copy for every section follows in 07 to 09.
+1
+Hero
+Immediate understanding of Muse, plus a
+warm point of view.
+One CTA into /start.
+2
+How can we help?
+Three intent cards route by what the
+visitor is trying to achieve.
+Cards link to intent pages;
+quiet link to capabilities.
+3
+What we bring together
+The five capabilities, one human sentence
+each.
+Links to capability pages.
+4
+Our approach
+How Muse thinks and works: people first,
+design and engineering together, close
+collaboration.
+Reading section.
+5
+Why Muse
+A small Saudi multidisciplinary team; local
+understanding; specialist depth; direct
+collaboration.
+Reading section.
+6
+From the studio
+Only real things: experiments, products,
+writing. Built as slots client work fills later.
+Outbound links to live things.
+7
+FAQ
+Useful buying questions only.
+Accordion.
+8
+Start a conversation
+One warm ask into the intent-led flow.
+Into /start; footer follows.
+Muse Website Direction · MUSE-DIR-04
+6
+
+
+06
+Hero: three territories
+TERRITORY A · UNDERSTANDING FIRST · RECOMMENDED
+Great products begin with understanding.
+Muse is a product studio in Riyadh. We bring together strategy, design, engineering and AI to turn ideas
+and challenges into digital products made for real people.
+[ Start a conversation ]
+The thoughtful partner: the belief leads, the support line answers what and where Muse is. Headline and support must
+always appear together, and the rest of the page has to make «understanding» true rather than decorative.
+TERRITORY B · THE CLEAR INTRODUCTION
+Thoughtful digital products, designed and built in Riyadh.
+From new ideas to products already out in the world, Muse combines product thinking, design,
+engineering and AI to make technology feel considered and human.
+[ Start a conversation ]
+The calm specialist: the headline alone passes the five-second test. The safe fallback if A reads too abstract in testing.
+TERRITORY C · MADE TOGETHER
+Let’s make something people will love using.
+Muse is a small multidisciplinary studio in Riyadh: product thinkers, designers and engineers who work
+directly with you, from first idea to living product.
+[ Start a conversation ]
+The invitation: collaboration and smallness as strengths. Whichever hero wins, this support line deserves a home on the
+site.
+Recommendation: Territory A. It expresses the emotional center of the direction, and «how can we help?»
+follows it naturally. Sanity-check all three with a few cold readers on real mockups; design does not wait for
+the result.
+Muse Website Direction · MUSE-DIR-04
+7
+
+
+07
+Homepage copy: intents + capabilities
+SECTION 2 · HOW CAN WE HELP?
+How can we help?
+Every project starts somewhere different. Where are you today?
+Bring a new idea to life. You have an idea, a plan, or a problem worth solving. We help you shape it, design
+it, and build it into a product people can actually use. → Start something new
+Make an existing product better. You already have a product, and you sense it could be more. We help you
+understand what’s holding it back, then improve it thoughtfully, or rebuild the parts that need it. →
+Improve a product
+Explore AI for your business. AI is full of promise, and full of noise. We help you find where it genuinely
+helps your business and your customers, then build it into how you work. → Explore AI Transformation
+Looking for a specific capability? See what we bring together below.
+SECTION 3 · WHAT WE BRING TOGETHER
+What we bring together
+One team, five disciplines. Most projects draw on several at once.
+Product Strategy & Discovery. Understanding your users, your business, and the problem itself, so we
+build the right thing before we build anything.
+Product & Experience Design. Interfaces and experiences that feel clear, considered, and natural to use, in
+Arabic and English alike.
+Product Engineering. Reliable, well-crafted software, built by senior engineers who stay close to the
+product and to you.
+AI. Practical intelligence inside products and workflows: features and systems that quietly make things
+easier for the people using them.
+Gamification & Experience. The craft of motivation. We design the moments, feedback, and rewards that
+help people form real habits with a product, instead of trying it once and drifting away.
+Muse Website Direction · MUSE-DIR-04
+8
+
+
+08
+Homepage copy: approach, why Muse, from the studio
+SECTION 4 · OUR APPROACH
+Our approach
+A few beliefs shape everything we make.
+Start with people. We spend time understanding your users and your business before we design
+anything. Good decisions come from context, not templates.
+Design and engineering, one conversation. The people who design your product and the people who build
+it work side by side, so ideas survive the journey from sketch to software.
+Show, early and often. You’ll see real progress from the first weeks, and you’ll always be talking directly
+with the people doing the work.
+Care for the quiet details. An empty screen, an error message, a first-time experience: the small moments
+are where products earn trust, so we design them with the same care as the big ones.
+SECTION 5 · WHY MUSE
+Why Muse
+We’re a small, multidisciplinary Saudi team: product thinkers, designers, and engineers who genuinely
+enjoy building together. We understand this market, its people, and the way products need to feel here,
+because it’s home.
+Being small is deliberate. It means design and technology live under one roof, specialist depth in AI and
+engagement design sits in the same room as the engineers, and the people you talk to are the people
+shaping and building your product.
+SECTION 6 · FROM THE STUDIO
+From the studio
+We like making things, for our clients and for ourselves. Our own products and experiments are where we
+test ideas, sharpen our craft, and explore what’s next. You’re welcome to look around.
+Cards, each linking to something live: Muse Experiments (open source) · Tenet (early access) · Notes (our
+writing) · How we built this site. A grid of slots, so client work takes its place here naturally as it becomes
+real and shareable.
+Muse Website Direction · MUSE-DIR-04
+9
+
+
+09
+Homepage copy: FAQ + final ask
+SECTION 7 · QUESTIONS PEOPLE ASK US
+What kinds of projects do you take on? New products from the first idea, existing products that need
+care or a rethink, and focused work in design, engineering, AI, or engagement. Our clients range from
+founders to established organizations.
+Who will we actually be working with? A small senior team. The people you meet in the first conversation
+are the people who will design and build your product.
+How do projects usually start? With a conversation. We listen, ask a lot of questions, and take time to
+understand what you’re trying to achieve. If we believe we can genuinely help, we come back with a clear
+picture of how we’d approach it.
+What does AI Transformation mean at Muse? Finding where AI genuinely helps your business, your
+operations, your customers, or your product, and building it in thoughtfully. We care most about what
+your team will actually use day to day.
+What is Gamification & Experience? The psychology of engagement, applied with care. New tools compete
+with old habits, so we design the onboarding, feedback, and reward systems that help a change stick, in
+products, learning, and workplaces.
+SECTION 8 · START A CONVERSATION
+Tell us what you’re working on.
+We’d love to hear about it. Your first conversation is with the people who would design and build it.
+[ Start a conversation ]
+Muse Website Direction · MUSE-DIR-04
+10
+
+
+10
+The lead journey
+It should feel like the beginning of a good meeting, not a form.
+Homepage
+Hero orients; «How
+can we help?»
+presents three goals
+plus a capability link.
+→
+/start
+«What are you
+looking to do?» Five
+options; card clicks
+arrive pre-selected.
+→
+One or two light
+questions
+Just enough to
+understand the
+opportunity, in the
+visitor’s own words.
+→
+The conversation
+Book a call, or write
+to us. Either way it
+reaches the team
+directly.
+«What are you looking to do?»
+Build something new
+«Tell us a little about the idea.» + «Where is it today?» (a thought · a plan ·
+designs · a prototype)
+Improve an existing product
+«Tell us a little about the product.» + «What feels most important right now?»
+(experience · performance · growth · a rethink)
+Explore AI Transformation
+«What would you most like AI to help with?» (operations · customers · your
+product · not sure yet)
+I need a specific capability
+«Which one?» (the five capabilities) + «A line or two about the work.»
+I’m not sure yet
+Straight to: «Tell us what’s on your mind.» (open text)
+Every path ends the same way: name, how to reach you, and a choice between «book a call» and «write to us». Two
+screens maximum after the first question, and a visible way to skip straight to a call on every screen. No pricing, no
+packages, no timelines anywhere in the flow.
+Muse Website Direction · MUSE-DIR-04
+11
+
+
+11
+Open decisions + next step
+None of these block design.
+Hero territory. A is recommended; sanity-check A, B, and C with a few cold readers on real mockups.
+Intent card labels. «Bring a new idea to life» / «Make an existing product better» / «Explore AI for your
+business» are working labels; confirm final wording alongside the hero check.
+Team identity. Named, anonymous, or no names on the site with full identity in the first call. Only /about
+and one FAQ answer are affected; the copy already works for all three.
+«From the studio» at launch. Confirm which experiments and products are genuinely ready to be looked
+at; the section only works if everything in it is real and live.
+Capability naming. «AI» vs. «AI Engineering» as the capability label; the intent page stays «AI
+Transformation» either way.
+Arabic. Written separately, from scratch, as Arabic, once this English direction is locked. Not a translation
+pass.
+Next step. Align on this deck in the working session, then design begins from it directly. The full
+MUSE-DIR walkthrough (section-exact captures, verbatim copy, evidence) is produced once the
+hero and label checks are done.
+Muse Website Direction · MUSE-DIR-04
+12

@@ -1,0 +1,18 @@
+D4 Nav, redirects, and SEO RED
+Date: 2026-08-08
+Baseline: 5/22
+
+FAIL
+- /get-started redirected to /en/get-started instead of /en/start.
+- /en/get-started and /ar/get-started returned 200 instead of one-hop 308 redirects.
+- Sitemap omitted published /en/start and retained /get-started.
+- EN and AR nav panels contained no capability group or service links.
+- Homepage, Explore, About, Contact, and service detail pages still rendered legacy /get-started links in both locales.
+
+PASS
+- Unreviewed Arabic remained absent from the sitemap.
+- English remained indexable.
+- Arabic remained noindex.
+- Existing nav/home routes produced no console or page errors.
+
+The permanent gate was corrected before production edits to select the actual aria-controls panel, tolerate an absent EN robots meta tag, and close its browser/server on exceptions.

@@ -1,45 +1,42 @@
 "use client";
 
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 import WordReveal from "../WordReveal";
 
-const faqs = [
-  {
-    q: "How is Muse different from a typical dev shop?",
-    a: "We're a small, senior team — not a rotating cast of offshore contractors. Every engagement is staffed by people who've shipped production AI systems before, not people learning on your dime.",
-  },
-  {
-    q: "What does AI transformation actually mean?",
-    a: "Finding where AI removes real friction in how your business runs, building the systems that do it reliably, and getting your team using them — then repeating that cycle as the tools improve.",
-  },
-  {
-    q: "How does pricing work?",
-    a: "Depends on the engagement. Fixed-scope builds are quoted up front; ongoing transformation work is a monthly partnership scaled to what you need. Happy to walk through it on a call.",
-  },
-  {
-    q: "What's different about Muse compared to other agencies?",
-    a: "No 100-slide strategy decks with no execution behind them. We scope fast, build in public with you, and measure ourselves on what actually shipped.",
-  },
-  {
-    q: "Who do you typically work with?",
-    a: "Teams that want to move at startup speed — whether that's a founder shipping a first product or an enterprise team trying to get an AI initiative out of pilot purgatory.",
-  },
-];
+type FaqItem = { q: string; a: string };
 
-export default function FAQ() {
+/**
+ * Home renders this with no props and reads its own `Home.faq` namespace.
+ * Service detail pages pass `heading` + `items` explicitly (`Services.detail.faq`
+ * + the service's own FAQ records) so the same accordion doesn't fork.
+ */
+export default function FAQ({
+  heading,
+  items,
+}: {
+  heading?: string;
+  items?: FaqItem[];
+}) {
+  const t = useTranslations("Home.faq");
+  // `t.raw` because the questions are a list, not a single message — ICU has
+  // no array form, so the shape is read straight out of the catalogue.
+  const faqs = items ?? (t.raw("items") as FaqItem[]);
+  const resolvedHeading = heading ?? t("heading");
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section className="bg-[#060608] py-20 md:py-32">
+    // No background: the page wash runs underneath — see PageDither.
+    <section id="faq" className="py-16 md:py-24">
       <div className="mx-auto w-full max-w-[900px] px-5 md:px-10">
         <WordReveal
           as="h2"
           className="font-space-grotesk text-2xl font-bold text-white md:text-4xl"
         >
-          Questions? We have answers.
+          {resolvedHeading}
         </WordReveal>
 
-        <div className="mt-10 md:mt-14">
+        <div className="mt-8 md:mt-12">
           {faqs.map((item, i) => {
             const isOpen = openIndex === i;
             return (
@@ -51,7 +48,7 @@ export default function FAQ() {
                   type="button"
                   onClick={() => setOpenIndex(isOpen ? null : i)}
                   aria-expanded={isOpen}
-                  className="flex w-full items-center justify-between gap-6 py-6 text-left"
+                  className="flex w-full items-center justify-between gap-6 py-6 text-start"
                 >
                   <span className="font-space-grotesk text-lg text-white md:text-xl">
                     {item.q}

@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1920 1080">
+  <defs>
+    <style>
+      .cls-1, .cls-2 {
+        fill: none;
+      }
+
+      .cls-2 {
+        stroke: #4c0014;
+        stroke-miterlimit: 10;
+        stroke-width: .71px;
+      }
+
+      .cls-3 {
+        fill: #4c0014;
+      }
+
+      .cls-4 {
+        isolation: isolate;
+      }
+
+      .cls-5 {
+        mix-blend-mode: multiply;
+      }
+
+      .cls-6 {
+        fill: #fff;
+        font-family: IBMPlexSansArabic-Light, 'IBM Plex Sans Arabic';
+        font-size: 54.79px;
+        font-weight: 300;
+      }
+
+      .cls-7 {
+        mix-blend-mode: overlay;
+        opacity: .6;
+      }
+
+      .cls-8 {
+        fill: #fe4701;
+      }
+
+      .cls-9 {
+        clip-path: url(#clippath);
+      }
+    </style>
+    <clipPath id="clippath">
+      <rect class="cls-1" x="2048.15" y="1158.68" width="1925.43" height="1089.22"/>
+    </clipPath>
+  </defs>
+  <g class="cls-4">
+    <g id="Layer_1" data-name="Layer 1">
+      <rect class="cls-3" x="-8.89" y="-5" width="1937.78" height="1090"/>
+      <g class="cls-7">
+        <g class="cls-9">
+          <g class="cls-5">
+            <g id="_Grid_Repeat_" data-name="&amp;lt;Grid Repeat&amp;gt;">
+              <line class="cls-2" x1="1580.6" y1="846.29" x2="1580.6" y2="925.7"/>
+              <line class="cls-2" x1="1591.11" y1="846.29" x2="1591.11" y2="925.7"/>
+              <line class="cls-2" x1="1625.56" y1="891.25" x2="1546.15" y2="891.25"/>
+              <line class="cls-2" x1="1625.56" y1="880.74" x2="1546.15" y2="880.74"/>
+            </g>
+            <g id="_Grid_Repeat_-2" data-name="&amp;lt;Grid Repeat&amp;gt;">
+              <line class="cls-2" x1="1716.34" y1="846.29" x2="1716.34" y2="925.7"/>
+              <line class="cls-2" x1="1726.85" y1="846.29" x2="1726.85" y2="925.7"/>
+              <line class="cls-2" x1="1761.3" y1="891.25" x2="1681.89" y2="891.25"/>
+              <line class="cls-2" x1="1761.3" y1="880.74" x2="1681.89" y2="880.74"/>
+            </g>
+            <g id="_Grid_Repeat_-3" data-name="&amp;lt;Grid Repeat&amp;gt;">
+              <line class="cls-2" x1="1852.08" y1="846.29" x2="1852.08" y2="925.7"/>
+              <line class="cls-2" x1="1862.59" y1="846.29" x2="1862.59" y2="925.7"/>
+              <line class="cls-2" x1="1897.04" y1="891.25" x2="1817.63" y2="891.25"/>
+              <line class="cls-2" x1="1897.04" y1="880.74" x2="1817.63" y2="880.74"/>
+            </g>
+            <g id="_Grid_Repeat_-4" data-name="&amp;lt;Grid Repeat&amp;gt;">
+              <line class="cls-2" x1="1580.6" y1="962.82" x2="1580.6" y2="1042.23"/>
+              <line class="cls-2" x1="1591.11" y1="962.82" x2="1591.11" y2="1042.23"/>
+              <line class="cls-2" x1="1625.56" y1="1007.78" x2="1546.15" y2="1007.78"/>
+              <line class="cls-2" x1="1625.56" y1="997.27" x2="1546.15" y2="997.27"/>
+            </g>
+            <g id="_Grid_Repeat_-5" data-name="&amp;lt;Grid Repeat&amp;gt;">
+              <line class="cls-2" x1="1716.34" y1="962.82" x2="1716.34" y2="1042.23"/>
+              <line class="cls-2" x1="1726.85" y1="962.82" x2="1726.85" y2="1042.23"/>
+              <line class="cls-2" x1="1761.3" y1="1007.78" x2="1681.89" y2="1007.78"/>
+              <line class="cls-2" x1="1761.3" y1="997.27" x2="1681.89" y2="997.27"/>
+            </g>
+            <g id="_Grid_Repeat_-6" data-name="&amp;lt;Grid Repeat&amp;gt;">
+              <line class="cls-2" x1="1852.08" y1="962.82" x2="1852.08" y2="1042.23"/>
+              <line class="cls-2" x1="1862.59" y1="962.82" x2="1862.59" y2="1042.23"/>
+              <line class="cls-2" x1="1897.04" y1="1007.78" x2="1817.63" y2="1007.78"/>
+              <line class="cls-2" x1="1897.04" y1="997.27" x2="1817.63" y2="997.27"/>
+            </g>
+            <g id="_Grid_Repeat_-7" data-name="&amp;lt;Grid Repeat&amp;gt;">
+              <line class="cls-2" x1="1580.6" y1="1079.35" x2="1580.6" y2="1158.76"/>
+              <line class="cls-2" x1="1591.11" y1="1079.35" x2="1591.11" y2="1158.76"/>
+            </g>
+            <g id="_Grid_Repeat_-8" data-name="&amp;lt;Grid Repeat&amp;gt;">
+              <line class="cls-2" x1="1716.34" y1="1079.35" x2="1716.34" y2="1158.76"/>
+              <line class="cls-2" x1="1726.85" y1="1079.35" x2="1726.85" y2="1158.76"/>
+            </g>
+            <g id="_Grid_Repeat_-9" data-name="&amp;lt;Grid Repeat&amp;gt;">
+              <line class="cls-2" x1="1852.08" y1="1079.35" x2="1852.08" y2="1158.76"/>
+              <line class="cls-2" x1="1862.59" y1="1079.35" x2="1862.59" y2="1158.76"/>
+            </g>
+          </g>
+        </g>
+      </g>
+      <text class="cls-6" transform="translate(798.03 142.71)"><tspan x="0" y="0">MASK SHAPE</tspan></text>
+      <g>
+        <path class="cls-8" d="M264.57,481.35c13.54,0,24.51,10.97,24.51,24.51v79.53c0,13.54,10.97,24.51,24.51,24.51h205.09c18.4,0,33.32-14.92,33.32-33.32v-281.46H166.72v152.91c0,18.4,14.92,33.32,33.32,33.32h64.53Z"/>
+        <path class="cls-8" d="M286.63,636.85c0-13.54-10.97-24.51-24.51-24.51h-89.32c-3.36,0-6.08,2.72-6.08,6.08v61.97h113.83c3.36,0,6.08-2.72,6.08-6.08v-37.47Z"/>
+      </g>
+      <g>
+        <path class="cls-8" d="M770.4,788.79c13.54,0,24.51,10.97,24.51,24.51v79.53c0,13.54,10.97,24.51,24.51,24.51h205.09c18.4,0,33.32-14.92,33.32-33.32V295.11h-385.29v460.35c0,18.4,14.92,33.32,33.32,33.32h64.53Z"/>
+        <path class="cls-8" d="M792.45,944.3c0-13.54-10.97-24.51-24.51-24.51h-89.32c-3.36,0-6.08,2.72-6.08,6.08v61.97h113.83c3.36,0,6.08-2.72,6.08-6.08v-37.47Z"/>
+      </g>
+      <g>
+        <path class="cls-8" d="M1238.57,631.53c9.22,0,16.7,7.48,16.7,16.7v54.2c0,9.22,7.48,16.7,16.7,16.7h584.89c12.54,0,22.71-10.17,22.71-22.71v-401.31h-707.69v313.71c0,12.54,10.17,22.71,22.71,22.71h43.98Z"/>
+        <path class="cls-8" d="M1253.6,737.51c0-9.22-7.48-16.7-16.7-16.7h-60.87c-2.29,0-4.14,1.85-4.14,4.14v42.23h77.57c2.29,0,4.14-1.85,4.14-4.14v-25.53Z"/>
+      </g>
+    </g>
+  </g>
+</svg>

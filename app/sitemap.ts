@@ -1,67 +1,92 @@
 import type { MetadataRoute } from "next";
-import {
-  services,
-  insights,
-  playbooks,
-  newsletters,
-  careerRoles,
-  insightCategories,
-  insightCategorySlug,
-} from "../lib/content";
+import { getServices, getCareerRoles } from "@/lib/content";
+import { PUBLISHED_LOCALES, type Locale } from "@/i18n/routing";
+import { localizedPath } from "@/lib/seo";
 
+const BASE_URL = "https://muse.sa";
+
+type Entry = {
+  path: string;
+  lastModified: Date;
+  changeFrequency: NonNullable<MetadataRoute.Sitemap[number]["changeFrequency"]>;
+  priority: number;
+};
+
+/**
+ * The sitemap emits one URL per published locale, each carrying the full
+ * `alternates.languages` set so the hreflang graph in the sitemap matches the
+ * one in each page's `<head>`. Unpublished locales are absent entirely — see
+ * PUBLISHED_LOCALES in i18n/routing.ts.
+ */
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://muse.sa";
   const now = new Date();
 
-  return [
-    { url: baseUrl, lastModified: now, changeFrequency: "weekly", priority: 1 },
-    { url: `${baseUrl}/explore`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
-    { url: `${baseUrl}/about`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
-    { url: `${baseUrl}/careers`, lastModified: now, changeFrequency: "weekly", priority: 0.7 },
-    { url: `${baseUrl}/insights`, lastModified: now, changeFrequency: "weekly", priority: 0.8 },
-    { url: `${baseUrl}/playbooks`, lastModified: now, changeFrequency: "weekly", priority: 0.8 },
-    { url: `${baseUrl}/newsletter`, lastModified: now, changeFrequency: "weekly", priority: 0.7 },
-    { url: `${baseUrl}/contact`, lastModified: now, changeFrequency: "yearly", priority: 0.6 },
-    { url: `${baseUrl}/get-started`, lastModified: now, changeFrequency: "yearly", priority: 0.9 },
-    { url: `${baseUrl}/privacy`, lastModified: now, changeFrequency: "yearly", priority: 0.2 },
-    { url: `${baseUrl}/terms`, lastModified: now, changeFrequency: "yearly", priority: 0.2 },
-    ...services.map((service) => ({
-      url: `${baseUrl}/services/${service.slug}`,
+  /**
+   * Built per locale rather than once, because the content-derived paths are
+   * not guaranteed to be the same in both. A locale whose records have not been
+   * written yet has fewer URLs, and emitting the English slug set under /ar
+   * would advertise pages that legitimately 404 there.
+   *
+   * Static routes are shared, so their hreflang set still spans every
+   * published locale. Content routes declare an alternate only for the locales
+   * that actually have that item, which is what keeps the hreflang graph
+   * reciprocal — a one-way alternate pointing at a 404 is worse than none.
+   */
+  const staticEntries = (): Entry[] => [
+    { path: "/", lastModified: now, changeFrequency: "weekly", priority: 1 },
+    { path: "/explore", lastModified: now, changeFrequency: "monthly", priority: 0.9 },
+    { path: "/about", lastModified: now, changeFrequency: "monthly", priority: 0.7 },
+    { path: "/careers", lastModified: now, changeFrequency: "weekly", priority: 0.7 },
+    { path: "/newsletter", lastModified: now, changeFrequency: "weekly", priority: 0.7 },
+    { path: "/contact", lastModified: now, changeFrequency: "yearly", priority: 0.6 },
+    { path: "/start", lastModified: now, changeFrequency: "yearly", priority: 0.9 },
+    { path: "/privacy", lastModified: now, changeFrequency: "yearly", priority: 0.2 },
+    { path: "/terms", lastModified: now, changeFrequency: "yearly", priority: 0.2 },
+  ];
+
+  const contentEntries = (locale: Locale): Entry[] => [
+    ...getServices(locale).map((service) => ({
+      path: `/services/${service.slug}`,
       lastModified: now,
       changeFrequency: "monthly" as const,
       priority: 0.8,
     })),
-    ...insights.map((insight) => ({
-      url: `${baseUrl}/insights/${insight.slug}`,
-      lastModified: new Date(insight.date),
-      changeFrequency: "monthly" as const,
-      priority: 0.6,
-    })),
-    ...insightCategories.map((category) => ({
-      url: `${baseUrl}/insights/${insightCategorySlug(category)}`,
-      lastModified: now,
-      changeFrequency: "weekly" as const,
-      priority: 0.5,
-    })),
-    ...playbooks.map((playbook) => ({
-      url: `${baseUrl}/playbooks/${playbook.slug}`,
-      lastModified: new Date(playbook.date),
-      changeFrequency: "monthly" as const,
-      priority: 0.6,
-    })),
-    ...newsletters.map((issue) => ({
-      url: `${baseUrl}/newsletter/${issue.slug}`,
-      lastModified: new Date(issue.date),
-      changeFrequency: "monthly" as const,
-      priority: 0.5,
-    })),
-    ...careerRoles
+    ...getCareerRoles(locale)
       .filter((role) => role.slug)
       .map((role) => ({
-        url: `${baseUrl}/careers/${role.slug}`,
+        path: `/careers/${role.slug}`,
         lastModified: now,
         changeFrequency: "weekly" as const,
         priority: 0.6,
       })),
   ];
+
+  const localesWithPath = new Map<string, Locale[]>();
+  const byLocale = PUBLISHED_LOCALES.map((locale) => {
+    const entries = [...staticEntries(), ...contentEntries(locale)];
+    for (const entry of entries) {
+      localesWithPath.set(entry.path, [
+        ...(localesWithPath.get(entry.path) ?? []),
+        locale,
+      ]);
+    }
+    return { locale, entries };
+  });
+
+  return byLocale.flatMap(({ locale, entries }) =>
+    entries.map((entry) => ({
+      url: `${BASE_URL}${localizedPath(locale, entry.path)}`,
+      lastModified: entry.lastModified,
+      changeFrequency: entry.changeFrequency,
+      priority: entry.priority,
+      alternates: {
+        languages: Object.fromEntries(
+          (localesWithPath.get(entry.path) ?? [locale]).map((alt) => [
+            alt,
+            `${BASE_URL}${localizedPath(alt, entry.path)}`,
+          ])
+        ),
+      },
+    }))
+  );
 }

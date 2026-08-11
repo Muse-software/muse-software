@@ -1,0 +1,37 @@
+Independent review: BLOCKED
+Delegation: deleg_30e9a9ec
+Date: 2026-08-08
+
+Confirmed defect
+- At 320px EN, the "What we do" tab had scrollWidth 80px inside a 65px client box. Its text range ended at 243.3125px while the tab ended at 229px.
+- The original gate only checked the anchor border box against the nav bounds, so it falsely reported 21/21.
+
+Weak assertions rejected
+- Track logic ignored partial visibility below 10% and did not require exactly one full mobile card or exactly three full desktop cards.
+- Controls-to-FAQ spacing used upper bounds rather than exact 64px mobile/compact and 96px desktop.
+- No direct decorative-context budget assertion existed.
+- The 12 PNG files are globally ignored and must be force-added when the phase is committed.
+
+RED reproduction after strengthening the permanent gate
+- 19/21
+- Failed: both EN compact capability pages.
+- Measured: one full track card, zero partial cards, exact 64px FAQ spacing, and one intrinsic/text-range overflow in the "What we do" tab.
+
+First correction and second rejection
+- Compact tab typography changed to 9px with normal tracking and 4px inline padding.
+- A second independent review rejected the nominal green because the EN tab still measured scrollWidth 66px inside clientWidth 65px and the text ended 0.09375px outside. The verifier's +1px tolerance hid both defects.
+- Removing that tolerance reproduced 19/21 RED on both EN compact routes.
+
+Final correction
+- The verifier now requires strict scrollWidth <= clientWidth and strict text Range containment, with no overflow tolerance. Mobile and compact pills additionally require at least 2px of rendered-text inset.
+- The subnav mobile gutter was reduced from 20px to 12px per side, increasing every compact tab from 65px to 69px without shrinking the label again.
+- Final EN `What we do`: clientWidth 69px, scrollWidth 69px, minimum rendered-text inset 3.90625px.
+- Gate also checks exact full-card counts, any partial card above 1px, exact FAQ spacing within 1px, no more than one canvas, static CTA surface, and truthful hero image-or-surface coverage across all five EN/AR service pages.
+
+GREEN
+- Strict capability gate: 21/21.
+- EN/AR compact intrinsic overflow and text escape: 0; narrowest required inset exceeds 2px.
+- Mobile/compact full cards: 1; partial cards: 0; spacing: 64px.
+- Desktop full cards: 3; partial cards: 0; spacing: 96px.
+- Visual review of final EN and AR 320px tab rows: PASS.
+- /start: 42/42; homepage: 8/8; Phase 1: 22/22; TypeScript, scoped ESLint, and git diff check: PASS.
