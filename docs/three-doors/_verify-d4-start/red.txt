@@ -1,0 +1,155 @@
+Starting production server on :3949 ...
+Server ready. Running checks...
+[FAIL] A shell en/desktop /start
+  detail: {
+  "status": 200,
+  "lang": "en",
+  "dir": "ltr",
+  "overflow": {
+    "overflow": false,
+    "scrolledX": 0
+  },
+  "consoleErrors": [],
+  "pageErrors": [],
+  "screen0Count": 0,
+  "radioCount": 0
+}
+[FAIL] A shell en/mobile /start
+  detail: {
+  "status": 200,
+  "lang": "en",
+  "dir": "ltr",
+  "overflow": {
+    "overflow": false,
+    "scrolledX": 0
+  },
+  "consoleErrors": [],
+  "pageErrors": [],
+  "screen0Count": 0,
+  "radioCount": 0
+}
+[FAIL] A shell ar/desktop /start
+  detail: {
+  "status": 200,
+  "lang": "ar",
+  "dir": "rtl",
+  "overflow": {
+    "overflow": false,
+    "scrolledX": 0
+  },
+  "consoleErrors": [],
+  "pageErrors": [],
+  "screen0Count": 0,
+  "radioCount": 0
+}
+[FAIL] A shell ar/mobile /start
+  detail: {
+  "status": 200,
+  "lang": "ar",
+  "dir": "rtl",
+  "overflow": {
+    "overflow": false,
+    "scrolledX": 0
+  },
+  "consoleErrors": [],
+  "pageErrors": [],
+  "screen0Count": 0,
+  "radioCount": 0
+}
+[FAIL] A deep-link en intent=build
+  detail: {
+  "status": 200,
+  "screen0Count": 0,
+  "screen1Count": 0,
+  "hasQ2": 0,
+  "consoleErrors": [],
+  "pageErrors": []
+}
+[FAIL] A deep-link en intent=improve
+  detail: {
+  "status": 200,
+  "screen0Count": 0,
+  "screen1Count": 0,
+  "hasQ2": 0,
+  "consoleErrors": [],
+  "pageErrors": []
+}
+[FAIL] A deep-link en intent=ai
+  detail: {
+  "status": 200,
+  "screen0Count": 0,
+  "screen1Count": 0,
+  "hasQ2": 0,
+  "consoleErrors": [],
+  "pageErrors": []
+}
+[FAIL] A deep-link en intent=capability
+  detail: {
+  "status": 200,
+  "screen0Count": 0,
+  "screen1Count": 0,
+  "hasQ2": 0,
+  "consoleErrors": [],
+  "pageErrors": []
+}
+[FAIL] A unknown-intent en intent=unsure shows Screen 0
+  detail: {
+  "screen0Count": 0
+}
+[FAIL] A unknown-intent en intent=nonsense shows Screen 0
+  detail: {
+  "screen0Count": 0
+}
+[FAIL] A deep-link ar intent=build
+  detail: {
+  "status": 200,
+  "screen0Count": 0,
+  "screen1Count": 0,
+  "hasQ2": 0,
+  "consoleErrors": [],
+  "pageErrors": []
+}
+[FAIL] A deep-link ar intent=improve
+  detail: {
+  "status": 200,
+  "screen0Count": 0,
+  "screen1Count": 0,
+  "hasQ2": 0,
+  "consoleErrors": [],
+  "pageErrors": []
+}
+[FAIL] A deep-link ar intent=ai
+  detail: {
+  "status": 200,
+  "screen0Count": 0,
+  "screen1Count": 0,
+  "hasQ2": 0,
+  "consoleErrors": [],
+  "pageErrors": []
+}
+[FAIL] A deep-link ar intent=capability
+  detail: {
+  "status": 200,
+  "screen0Count": 0,
+  "screen1Count": 0,
+  "hasQ2": 0,
+  "consoleErrors": [],
+  "pageErrors": []
+}
+[FAIL] A unknown-intent ar intent=unsure shows Screen 0
+  detail: {
+  "screen0Count": 0
+}
+[FAIL] A unknown-intent ar intent=nonsense shows Screen 0
+  detail: {
+  "screen0Count": 0
+}
+locator.click: Timeout 30000ms exceeded.
+Call log:
+[2m  - waiting for locator('input[name="intent"][value="build"]')[22m
+
+    at driveToContact (/Users/a/Downloads/personal/muse-software/scripts/d4-verify-start.mjs:187:65)
+    at async phaseB (/Users/a/Downloads/personal/muse-software/scripts/d4-verify-start.mjs:217:5)
+    at async main (/Users/a/Downloads/personal/muse-software/scripts/d4-verify-start.mjs:553:5) {
+  name: 'TimeoutError'
+}

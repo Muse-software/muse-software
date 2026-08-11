@@ -1,16 +1,20 @@
-type Section = { heading: string; body: string };
+import { getTranslations } from "next-intl/server";
 
-export default function LegalContent({
+export type LegalSection = { heading: string; body: string };
+
+export default async function LegalContent({
   sections,
   updated,
 }: {
-  sections: Section[];
+  sections: LegalSection[];
   updated: string;
 }) {
+  const t = await getTranslations("Legal");
+
   return (
     <section className="bg-[#060608] py-16 md:py-24">
       <div className="mx-auto w-full max-w-[800px] px-5 md:px-10">
-        <p className="text-sm text-white/50">Last updated {updated}</p>
+        <p className="text-sm text-white/50">{t("lastUpdated", { updated })}</p>
         <div className="mt-8 space-y-10">
           {sections.map((section) => (
             <div key={section.heading}>

@@ -1,6 +1,6 @@
 # Muse Studios
 
-Marketing site for Muse Studios — an AI transformation, product engineering, and gamification studio based in Riyadh. Built as a fully static-first Next.js site: every content page (insights, playbooks, services, newsletters, career listings) is pre-rendered at build time from a typed content model in `lib/content/`, not fetched from a CMS or database.
+Marketing site for Muse Studios — an AI transformation, product engineering, and gamification studio based in Riyadh. Built as a fully static-first Next.js site: every content page (playbooks, services, career listings) is pre-rendered at build time from a typed content model in `lib/content/`, not fetched from a CMS or database.
 
 ## Tech stack
 
@@ -37,7 +37,7 @@ app/
   sitemap.ts / robots.ts     # Generated from the live content model, not hand-maintained
   opengraph-image.tsx        # Default branded OG image (next/og), used as a fallback
   about/, careers/, contact/, explore/, get-started/,
-  insights/, newsletter/, playbooks/, privacy/, terms/, services/
+  newsletter/, playbooks/, privacy/, terms/, services/
                               # One folder per route; [slug] folders are dynamic content routes
   api/
     contact/, get-started/, subscribe/   # POST-only route handlers, rate-limited + validated
@@ -49,10 +49,13 @@ components/
 
 lib/
   content/
-    shared.ts                # Shared types (Insight, Playbook, Service, ...) + category helpers
-    insights.ts / playbooks.ts / services.ts / newsletters.ts / careers.ts
+    shared.ts                # Shared types (Playbook, Service, CareerRole, ...) + summary helpers
+    playbooks.ts / services.ts / careers.ts
                               # The actual content, plus each file's own derived category list
     index.ts                 # Barrel export — always import from "lib/content", not a subfile
+
+archive/                     # Retired content, excluded from tsconfig and never built
+  content/                   # Insights + newsletter back catalogue (see archive/README.md)
   seo.ts                      # buildMetadata() / buildArticleJsonLd() / buildJobPostingJsonLd()
   email.ts                    # Shared Resend dispatch used by both form-backed API routes
   rateLimit.ts                # In-memory sliding-window limiter for the API routes
@@ -68,39 +71,36 @@ public/
 
 ## Content model
 
-Everything under `lib/content/` is a plain typed array — no CMS, no fetch, no database. Each file exports its array plus (for insights and playbooks) a **derived category list**:
+Everything under `lib/content/` is a plain typed array — no CMS, no fetch, no database. `playbooks.ts` exports its array plus a **derived category list**:
 
 ```ts
-// lib/content/insights.ts
-export const insights: Insight[] = [ /* 43 items */ ];
-export const insightCategories: InsightCategory[] =
-  Array.from(new Set(insights.map((item) => item.category))).sort();
+// lib/content/playbooks.ts
+export const playbooks: Playbook[] = [ /* 28 items */ ];
+export const playbookCategories: ContentCategory[] =
+  Array.from(new Set(playbooks.map((item) => item.category))).sort();
 ```
 
-**Categories are not a hardcoded enum.** `InsightCategory` is just `string` — the set of categories that actually exist is computed from whatever's in the data. Add a new insight or playbook with a new `category` value and it automatically appears in the filter chips and (for insights) gets its own indexable URL on the next build. No type or list to update by hand.
+**Categories are not a hardcoded enum.** `ContentCategory` is just `string` — the set of categories that actually exist is computed from whatever's in the data. Add a playbook with a new `category` value and it appears in the filter chips on the next build. No type or list to update by hand.
 
-This is deliberate: Insights and Playbooks currently use **two unrelated taxonomies**, computed independently:
-
-- **Insights** (43 items): a skill/discipline taxonomy — AI, Machine Learning, Data Engineering, Product Engineering, Gamification, GTM Engineering.
-- **Playbooks** (28 items): an industry-vertical taxonomy — FinTech, Healthcare, E-Commerce, Manufacturing, Government, Cybersecurity, and 16 others — since these are project case studies, not how-to guides.
+Playbooks use an industry-vertical taxonomy — FinTech, Healthcare, E-Commerce, Manufacturing, Government, Cybersecurity, and 16 others — since these are project case studies, not how-to guides.
 
 | Content type | Count | Has categories | Dedicated category URLs |
 |---|---|---|---|
 | `services` | 3 | — | — |
-| `insights` | 43 | ✅ dynamic | ✅ `/insights/[category]` |
 | `playbooks` | 28 | ✅ dynamic | client-side filter only |
-| `newsletters` | 12 | — | — |
 | `careerRoles` | 3 | — | — |
 
-Every content item is passed through a `Pick<>`-based **summary type** (`InsightSummary`, `PlaybookSummary`, `NewsletterSummary`) before being handed to a client list component — list/grid views never receive an article's full body or FAQs, only what the card actually renders. Since props into a `"use client"` component serialize fully into the React Flight payload, this keeps full article bodies out of the JS shipped for list pages.
+Playbooks are passed through a `Pick<>`-based **summary type** (`PlaybookSummary`) before being handed to the client list component — list/grid views never receive an article's full body or FAQs, only what the card actually renders. Since props into a `"use client"` component serialize fully into the React Flight payload, this keeps full article bodies out of the JS shipped for the list page.
+
+**Retired content.** The site previously also published Insights (43 articles, with indexable `/insights/[category]` pages) and a newsletter back catalogue (12 issues). Both were retired; the data is preserved under [`archive/`](archive/README.md), which is excluded from `tsconfig.json` and never compiled. `/insights`, `/insights/*` and `/newsletter/*` are 301-redirected in `next.config.ts`. The newsletter **signup** is still live at `/newsletter`.
 
 ## Routing architecture
 
 Almost the entire site is statically generated (`generateStaticParams` + `dynamicParams = false`) — content routes are pre-rendered HTML, not server-rendered per request. The one deliberately dynamic-per-request piece is `app/opengraph-image.tsx` (default social-share image, edge runtime).
 
-**`/insights/[slug]` does double duty.** It serves both individual articles (`/insights/where-ai-creates-roi`) and SEO-friendly category pages (`/insights/ai`, `/insights/gtm-engineering`). Next can't have `[slug]` and `[category]` as sibling dynamic routes at the same path — they'd collide — so both sets of static params are generated from the same file, and the page branches at request time on whether the incoming slug matches a known category slug first, falling through to an article lookup otherwise. The two slug spaces are verified not to collide (no article is slugged `ai`, `machine-learning`, etc.). Category chips are real `<Link>`s to these URLs, not client-side query-param state — each category is bookmarkable, shareable, and crawlable with real content in its initial HTML.
+Playbooks intentionally do **not** get per-category URLs — with 28 items across 22 categories, most categories have only 1–2 entries; the filter is client-side state in `PlaybooksList`. Revisit if the catalog grows enough to justify indexable category pages. (Insights previously did have them, via a `[slug]` route that served both articles and category pages; see `archive/README.md` and commit `b8c0b3f` if that pattern is ever needed again.)
 
-Playbooks intentionally do **not** get the same per-category URL treatment yet — with 28 items and 22 categories, most categories have only 1–2 entries; the filter is client-side state in `PlaybooksList`. Revisit if the catalog grows enough to justify indexable category pages.
+Retired routes are 301-redirected via `redirects()` in `next.config.ts` rather than left to 404.
 
 ## Forms & submissions
 
@@ -117,7 +117,7 @@ Three forms (`ContactForm`, `GetStartedForm`, `NewsletterForm`) share one state-
 - **`lib/seo.ts`** is the single source of truth for page metadata — every page builds its `<title>`/description/canonical/OG/Twitter tags through `buildMetadata()` rather than a bare object literal. Without it, `alternates.canonical` and `openGraph`/`twitter` silently inherit the root layout's values (this was a real bug: every subpage briefly shared the homepage's canonical URL and share preview).
 - **`app/opengraph-image.tsx`** generates a branded default OG image; pages with their own featured image (articles, jobs) pass it explicitly, everything else falls back to this.
 - **Article/JobPosting JSON-LD** (`buildArticleJsonLd`, `buildJobPostingJsonLd`) on every article-type detail page and career listing.
-- **`app/sitemap.ts`** is generated from the live content arrays — every insight, playbook, newsletter, career role, service, and insight category page is included automatically, with real per-item `lastModified` dates (not a uniform "everything changed today").
+- **`app/sitemap.ts`** is generated from the live content arrays — every playbook, career role, and service page is included automatically, with real per-item `lastModified` dates (not a uniform "everything changed today").
 - **`app/robots.ts`** disallows `/api/*` (POST-only endpoints, nothing to index).
 - Every content detail page is a real `async` Server Component — full text is in the initial server-rendered HTML for every crawler, not hydration-only.
 

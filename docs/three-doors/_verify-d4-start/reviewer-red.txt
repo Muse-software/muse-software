@@ -1,0 +1,70 @@
+Starting production server on :3949 ...
+Server ready. Running checks...
+[PASS] A shell en/desktop /start
+[PASS] A shell en/mobile /start
+[PASS] A shell ar/desktop /start
+[PASS] A shell ar/mobile /start
+[PASS] A deep-link en intent=build
+[PASS] A deep-link en intent=improve
+[PASS] A deep-link en intent=ai
+[PASS] A deep-link en intent=capability
+[PASS] A unknown-intent en intent=unsure shows Screen 0
+[PASS] A unknown-intent en intent=nonsense shows Screen 0
+[PASS] A deep-link ar intent=build
+[PASS] A deep-link ar intent=improve
+[PASS] A deep-link ar intent=ai
+[PASS] A deep-link ar intent=capability
+[PASS] A unknown-intent ar intent=unsure shows Screen 0
+[PASS] A unknown-intent ar intent=nonsense shows Screen 0
+[PASS] B branch build posts source:start with human-readable needs
+[PASS] B branch improve posts source:start with human-readable needs
+[PASS] B branch ai posts source:start with human-readable needs
+[PASS] B branch capability posts source:start with human-readable needs
+[PASS] B branch unsure posts source:start with human-readable needs
+[PASS] C outcome delivered=true
+[PASS] C outcome delivered=false
+[PASS] C undelivered fallbacks are full links with LTR-isolated details
+[PASS] D server failure shows role=alert and retains fields
+[PASS] E missing required fields blocks submit (native)
+[PASS] E empty required context cannot advance
+[PASS] E invalid email is blocked locally and linked to alert
+[PASS] E call without phone blocks with localized error, no POST
+[PASS] F keyboard-only path (radio select, back, skip, heading focus)
+[PASS] G browser Back restores Screen 0 and clears query
+[PASS] H reduced-motion en flow completes
+[PASS] H reduced-motion ar flow completes
+[FAIL] I null JSON body rejects as invalid_body
+  detail: {
+  "status": 500,
+  "body": {
+    "raw": ""
+  }
+}
+[FAIL] I array JSON body rejects as invalid_body
+  detail: {
+  "status": 400,
+  "body": {
+    "ok": false,
+    "code": "missing_fields",
+    "error": "Please fill in all required fields."
+  }
+}
+[FAIL] I non-string accepted fields reject as invalid_body
+  detail: {
+  "status": 200,
+  "body": {
+    "ok": true,
+    "delivered": false
+  }
+}
+[PASS] I legacy submission missing fields still rejects
+[PASS] I source:start missing preferredContact rejects
+[PASS] I source:start call without phone rejects with phone_required_for_call
+[PASS] I source:start call with phone accepts without legacy fields
+[PASS] I source:start write accepts without phone or legacy fields
+
+Report written to docs/three-doors/_verify-d4-start/report.json
+
+38/41 checks passed.
+
+D4 START GATE: FAILED

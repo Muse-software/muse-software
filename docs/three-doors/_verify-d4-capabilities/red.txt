@@ -1,0 +1,18 @@
+[FAIL] en/desktop product-strategy-discovery renders honest capability page
+[FAIL] en/desktop product-experience-design renders honest capability page
+[FAIL] ar/desktop product-strategy-discovery renders honest capability page
+[FAIL] ar/desktop product-experience-design renders honest capability page
+[FAIL] desktop capability routes have no console errors
+[FAIL] en/mobile product-strategy-discovery renders honest capability page
+[FAIL] en/mobile product-experience-design renders honest capability page
+[FAIL] ar/mobile product-strategy-discovery renders honest capability page
+[FAIL] ar/mobile product-experience-design renders honest capability page
+[FAIL] mobile capability routes have no console errors
+[FAIL] en homepage links all five capability pages
+[FAIL] en explore lists new capabilities without broken media
+[FAIL] ar homepage links all five capability pages
+[FAIL] ar explore lists new capabilities without broken media
+
+0/14 checks passed.
+
+D4 CAPABILITIES GATE: FAILED

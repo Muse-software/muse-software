@@ -1,16 +1,13 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import WordReveal from "../WordReveal";
+import TrackNav from "../TrackNav";
 import { useHorizontalScroll } from "../../lib/useHorizontalScroll";
 
-const beliefs = [
-  "Digital transformation isn't optional anymore — it's the difference between growing and getting replaced by someone who moved faster.",
-  "There are three kinds of businesses today: digitally absent, digitally competent, and digitally native. Most are stuck in the middle.",
-  "The only way to build something that lasts is to treat design, engineering, and AI as one discipline — not three separate handoffs.",
-  "Most companies don't lack ambition. They lack a team that can execute at a global standard, from right here in Saudi Arabia.",
-];
-
 export default function BeliefSlider() {
+  const t = useTranslations("About.beliefs");
+  const beliefs = t.raw("items") as string[];
   const { trackRef, scroll } = useHorizontalScroll();
 
   return (
@@ -20,7 +17,7 @@ export default function BeliefSlider() {
           as="h2"
           className="font-space-grotesk text-2xl font-bold text-white md:text-3xl"
         >
-          What we believe
+          {t("heading")}
         </WordReveal>
 
         <div
@@ -35,7 +32,7 @@ export default function BeliefSlider() {
             >
               <span
                 aria-hidden="true"
-                className="pointer-events-none absolute -right-2 -top-6 font-space-grotesk text-[7rem] font-bold leading-none text-white/5 md:text-[8rem]"
+                className="pointer-events-none absolute -end-2 -top-6 font-space-grotesk text-[7rem] font-bold leading-none text-white/5 md:text-[8rem]"
               >
                 {i + 1}
               </span>
@@ -44,28 +41,12 @@ export default function BeliefSlider() {
           ))}
         </div>
 
-        <div className="mt-6 flex gap-3">
-          <button
-            type="button"
-            aria-label="Previous belief"
-            onClick={() => scroll(-1, 24, 420)}
-            className="grid h-11 w-11 place-items-center border border-white/30 text-white transition-colors hover:border-[#fd4601] hover:text-[#fd4601]"
-          >
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M15 5L8 12L15 19" stroke="currentColor" strokeWidth="1.5" />
-            </svg>
-          </button>
-          <button
-            type="button"
-            aria-label="Next belief"
-            onClick={() => scroll(1, 24, 420)}
-            className="grid h-11 w-11 place-items-center border border-white/30 text-white transition-colors hover:border-[#fd4601] hover:text-[#fd4601]"
-          >
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M9 5L16 12L9 19" stroke="currentColor" strokeWidth="1.5" />
-            </svg>
-          </button>
-        </div>
+        <TrackNav
+          className="mt-6"
+          onScroll={(direction) => scroll(direction, 24, 420)}
+          previousLabel={t("previous")}
+          nextLabel={t("next")}
+        />
       </div>
     </section>
   );

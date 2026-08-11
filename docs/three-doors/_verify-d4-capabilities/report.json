@@ -1,0 +1,1596 @@
+{
+  "generatedAt": "2026-08-08T03:19:35.482Z",
+  "results": [
+    {
+      "name": "en/desktop product-strategy-discovery renders honest capability page",
+      "pass": true,
+      "detail": {
+        "status": 200,
+        "lang": "en",
+        "dir": "ltr",
+        "overflow": 0,
+        "h1": "Product Strategy & Discovery",
+        "description": "Find the product decision worth making before the feature list takes over.",
+        "canonical": "https://muse.sa/en/services/product-strategy-discovery",
+        "ctas": [
+          "/en/start?intent=capability",
+          "/en/start"
+        ],
+        "brokenImages": 0,
+        "trackVisibility": {
+          "fullyVisible": 3,
+          "partiallyVisible": [],
+          "measurements": [
+            {
+              "width": 326.65625,
+              "visible": 326.65625
+            },
+            {
+              "width": 326.65625,
+              "visible": 326.65625
+            },
+            {
+              "width": 326.65625,
+              "visible": 326.65625
+            },
+            {
+              "width": 326.65625,
+              "visible": 0
+            },
+            {
+              "width": 326.65625,
+              "visible": 0
+            }
+          ]
+        },
+        "heroFallback": "radial-gradient(70% 90% at 50% 82%, rgba(253, 70, 1, 0.3) 0%, rgba(253, 70, 1, 0.09) 42%, rgba(0, 0, 0, 0) 72%)",
+        "subnavItems": [
+          {
+            "label": "Overview",
+            "clientWidth": 91,
+            "scrollWidth": 91,
+            "box": {
+              "left": 170,
+              "right": 260.578125
+            },
+            "text": {
+              "left": 170,
+              "right": 260.578125
+            },
+            "inlineInset": 0,
+            "clipped": false,
+            "intrinsicOverflow": false,
+            "textOutside": false,
+            "invalid": false
+          },
+          {
+            "label": "Why",
+            "clientWidth": 40,
+            "scrollWidth": 40,
+            "box": {
+              "left": 284.578125,
+              "right": 324.8125
+            },
+            "text": {
+              "left": 284.578125,
+              "right": 324.8125
+            },
+            "inlineInset": 0,
+            "clipped": false,
+            "intrinsicOverflow": false,
+            "textOutside": false,
+            "invalid": false
+          },
+          {
+            "label": "What we do",
+            "clientWidth": 113,
+            "scrollWidth": 113,
+            "box": {
+              "left": 348.8125,
+              "right": 462.296875
+            },
+            "text": {
+              "left": 348.8125,
+              "right": 462.296875
+            },
+            "inlineInset": 0,
+            "clipped": false,
+            "intrinsicOverflow": false,
+            "textOutside": false,
+            "invalid": false
+          },
+          {
+            "label": "FAQ",
+            "clientWidth": 34,
+            "scrollWidth": 34,
+            "box": {
+              "left": 486.296875,
+              "right": 520.328125
+            },
+            "text": {
+              "left": 486.296875,
+              "right": 520.328125
+            },
+            "inlineInset": 0,
+            "clipped": false,
+            "intrinsicOverflow": false,
+            "textOutside": false,
+            "invalid": false
+          }
+        ],
+        "faqHeading": "Questions, answered.",
+        "controlsToFaq": 96
+      }
+    },
+    {
+      "name": "en/desktop product-experience-design renders honest capability page",
+      "pass": true,
+      "detail": {
+        "status": 200,
+        "lang": "en",
+        "dir": "ltr",
+        "overflow": 0,
+        "h1": "Product & Experience Design",
+        "description": "Turn a product idea into an experience people can understand, use, and trust.",
+        "canonical": "https://muse.sa/en/services/product-experience-design",
+        "ctas": [
+          "/en/start?intent=capability",
+          "/en/start"
+        ],
+        "brokenImages": 0,
+        "trackVisibility": {
+          "fullyVisible": 3,
+          "partiallyVisible": [],
+          "measurements": [
+            {
+              "width": 326.65625,
+              "visible": 326.65625
+            },
+            {
+              "width": 326.65625,
+              "visible": 326.65625
+            },
+            {
+              "width": 326.65625,
+              "visible": 326.65625
+            },
+            {
+              "width": 326.65625,
+              "visible": 0
+            },
+            {
+              "width": 326.65625,
+              "visible": 0
+            }
+          ]
+        },
+        "heroFallback": "radial-gradient(70% 90% at 50% 82%, rgba(253, 70, 1, 0.3) 0%, rgba(253, 70, 1, 0.09) 42%, rgba(0, 0, 0, 0) 72%)",
+        "subnavItems": [
+          {
+            "label": "Overview",
+            "clientWidth": 91,
+            "scrollWidth": 91,
+            "box": {
+              "left": 170,
+              "right": 260.578125
+            },
+            "text": {
+              "left": 170,
+              "right": 260.578125
+            },
+            "inlineInset": 0,
+            "clipped": false,
+            "intrinsicOverflow": false,
+            "textOutside": false,
+            "invalid": false
+          },
+          {
+            "label": "Why",
+            "clientWidth": 40,
+            "scrollWidth": 40,
+            "box": {
+              "left": 284.578125,
+              "right": 324.8125
+            },
+            "text": {
+              "left": 284.578125,
+              "right": 324.8125
+            },
+            "inlineInset": 0,
+            "clipped": false,
+            "intrinsicOverflow": false,
+            "textOutside": false,
+            "invalid": false
+          },
+          {
+            "label": "What we do",
+            "clientWidth": 113,
+            "scrollWidth": 113,
+            "box": {
+              "left": 348.8125,
+              "right": 462.296875
+            },
+            "text": {
+              "left": 348.8125,
+              "right": 462.296875
+            },
+            "inlineInset": 0,
+            "clipped": false,
+            "intrinsicOverflow": false,
+            "textOutside": false,
+            "invalid": false
+          },
+          {
+            "label": "FAQ",
+            "clientWidth": 34,
+            "scrollWidth": 34,
+            "box": {
+              "left": 486.296875,
+              "right": 520.328125
+            },
+            "text": {
+              "left": 486.296875,
+              "right": 520.328125
+            },
+            "inlineInset": 0,
+            "clipped": false,
+            "intrinsicOverflow": false,
+            "textOutside": false,
+            "invalid": false
+          }
+        ],
+        "faqHeading": "Questions, answered.",
+        "controlsToFaq": 96
+      }
+    },
+    {
+      "name": "ar/desktop product-strategy-discovery renders honest capability page",
+      "pass": true,
+      "detail": {
+        "status": 200,
+        "lang": "ar",
+        "dir": "rtl",
+        "overflow": 0,
+        "h1": "استراتيجية المنتج والاكتشاف",
+        "description": "حدّد قرار المنتج قبل ما تتحوّل الفكرة إلى قائمة خصائص.",
+        "canonical": "https://muse.sa/ar/services/product-strategy-discovery",
+        "ctas": [
+          "/ar/start?intent=capability",
+          "/ar/start"
+        ],
+        "brokenImages": 0,
+        "trackVisibility": {
+          "fullyVisible": 3,
+          "partiallyVisible": [],
+          "measurements": [
+            {
+              "width": 326.65625,
+              "visible": 326.65625
+            },
+            {
+              "width": 326.65625,
+              "visible": 326.65625
+            },
+            {
+              "width": 326.65625,
+              "visible": 326.65625
+            },
+            {
+              "width": 326.65625,
+              "visible": 0
+            },
+            {
+              "width": 326.65625,
+              "visible": 0
+            }
+          ]
+        },
+        "heroFallback": "radial-gradient(70% 90% at 50% 82%, rgba(253, 70, 1, 0.3) 0%, rgba(253, 70, 1, 0.09) 42%, rgba(0, 0, 0, 0) 72%)",
+        "subnavItems": [
+          {
+            "label": "نظرة عامة",
+            "clientWidth": 54,
+            "scrollWidth": 54,
+            "box": {
+              "left": 1215.703125,
+              "right": 1270
+            },
+            "text": {
+              "left": 1215.703125,
+              "right": 1270
+            },
+            "inlineInset": 0,
+            "clipped": false,
+            "intrinsicOverflow": false,
+            "textOutside": false,
+            "invalid": false
+          },
+          {
+            "label": "لماذا",
+            "clientWidth": 26,
+            "scrollWidth": 26,
+            "box": {
+              "left": 1165.34375,
+              "right": 1191.703125
+            },
+            "text": {
+              "left": 1165.34375,
+              "right": 1191.703125
+            },
+            "inlineInset": 0,
+            "clipped": false,
+            "intrinsicOverflow": false,
+            "textOutside": false,
+            "invalid": false
+          },
+          {
+            "label": "ما الذي نقوم به",
+            "clientWidth": 84,
+            "scrollWidth": 84,
+            "box": {
+              "left": 1057.5,
+              "right": 1141.34375
+            },
+            "text": {
+              "left": 1057.5,
+              "right": 1141.34375
+            },
+            "inlineInset": 0,
+            "clipped": false,
+            "intrinsicOverflow": false,
+            "textOutside": false,
+            "invalid": false
+          },
+          {
+            "label": "الأسئلة الشائعة",
+            "clientWidth": 82,
+            "scrollWidth": 82,
+            "box": {
+              "left": 951.75,
+              "right": 1033.5
+            },
+            "text": {
+              "left": 951.75,
+              "right": 1033.5
+            },
+            "inlineInset": 0,
+            "clipped": false,
+            "intrinsicOverflow": false,
+            "textOutside": false,
+            "invalid": false
+          }
+        ],
+        "faqHeading": "أسئلة، وأجوبتها.",
+        "controlsToFaq": 96
+      }
+    },
+    {
+      "name": "ar/desktop product-experience-design renders honest capability page",
+      "pass": true,
+      "detail": {
+        "status": 200,
+        "lang": "ar",
+        "dir": "rtl",
+        "overflow": 0,
+        "h1": "تصميم المنتجات والتجربة",
+        "description": "حوّل فكرة المنتج إلى تجربة يفهمها الناس ويستخدمونها ويثقون بها.",
+        "canonical": "https://muse.sa/ar/services/product-experience-design",
+        "ctas": [
+          "/ar/start?intent=capability",
+          "/ar/start"
+        ],
+        "brokenImages": 0,
+        "trackVisibility": {
+          "fullyVisible": 3,
+          "partiallyVisible": [],
+          "measurements": [
+            {
+              "width": 326.65625,
+              "visible": 326.65625
+            },
+            {
+              "width": 326.65625,
+              "visible": 326.65625
+            },
+            {
+              "width": 326.65625,
+              "visible": 326.65625
+            },
+            {
+              "width": 326.65625,
+              "visible": 0
+            },
+            {
+              "width": 326.65625,
+              "visible": 0
+            }
+          ]
+        },
+        "heroFallback": "radial-gradient(70% 90% at 50% 82%, rgba(253, 70, 1, 0.3) 0%, rgba(253, 70, 1, 0.09) 42%, rgba(0, 0, 0, 0) 72%)",
+        "subnavItems": [
+          {
+            "label": "نظرة عامة",
+            "clientWidth": 54,
+            "scrollWidth": 54,
+            "box": {
+              "left": 1215.703125,
+              "right": 1270
+            },
+            "text": {
+              "left": 1215.703125,
+              "right": 1270
+            },
+            "inlineInset": 0,
+            "clipped": false,
+            "intrinsicOverflow": false,
+            "textOutside": false,
+            "invalid": false
+          },
+          {
+            "label": "لماذا",
+            "clientWidth": 26,
+            "scrollWidth": 26,
+            "box": {
+              "left": 1165.34375,
+              "right": 1191.703125
+            },
+            "text": {
+              "left": 1165.34375,
+              "right": 1191.703125
+            },
+            "inlineInset": 0,
+            "clipped": false,
+            "intrinsicOverflow": false,
+            "textOutside": false,
+            "invalid": false
+          },
+          {
+            "label": "ما الذي نقوم به",
+            "clientWidth": 84,
+            "scrollWidth": 84,
+            "box": {
+              "left": 1057.5,
+              "right": 1141.34375
+            },
+            "text": {
+              "left": 1057.5,
+              "right": 1141.34375
+            },
+            "inlineInset": 0,
+            "clipped": false,
+            "intrinsicOverflow": false,
+            "textOutside": false,
+            "invalid": false
+          },
+          {
+            "label": "الأسئلة الشائعة",
+            "clientWidth": 82,
+            "scrollWidth": 82,
+            "box": {
+              "left": 951.75,
+              "right": 1033.5
+            },
+            "text": {
+              "left": 951.75,
+              "right": 1033.5
+            },
+            "inlineInset": 0,
+            "clipped": false,
+            "intrinsicOverflow": false,
+            "textOutside": false,
+            "invalid": false
+          }
+        ],
+        "faqHeading": "أسئلة، وأجوبتها.",
+        "controlsToFaq": 96
+      }
+    },
+    {
+      "name": "desktop capability routes have no console errors",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "en/mobile product-strategy-discovery renders honest capability page",
+      "pass": true,
+      "detail": {
+        "status": 200,
+        "lang": "en",
+        "dir": "ltr",
+        "overflow": 0,
+        "h1": "Product Strategy & Discovery",
+        "description": "Find the product decision worth making before the feature list takes over.",
+        "canonical": "https://muse.sa/en/services/product-strategy-discovery",
+        "ctas": [
+          "/en/start?intent=capability",
+          "/en/start"
+        ],
+        "brokenImages": 0,
+        "trackVisibility": {
+          "fullyVisible": 1,
+          "partiallyVisible": [],
+          "measurements": [
+            {
+              "width": 350,
+              "visible": 350
+            },
+            {
+              "width": 350,
+              "visible": 0
+            },
+            {
+              "width": 350,
+              "visible": 0
+            },
+            {
+              "width": 350,
+              "visible": 0
+            },
+            {
+              "width": 350,
+              "visible": 0
+            }
+          ]
+        },
+        "heroFallback": "radial-gradient(88% 78% at 50% 42%, rgba(253, 70, 1, 0.28) 0%, rgba(253, 70, 1, 0.1) 44%, rgba(0, 0, 0, 0) 76%)",
+        "subnavItems": [
+          {
+            "label": "Overview",
+            "clientWidth": 87,
+            "scrollWidth": 87,
+            "box": {
+              "left": 12,
+              "right": 100.5
+            },
+            "text": {
+              "left": 31.46875,
+              "right": 81.015625
+            },
+            "inlineInset": 19.46875,
+            "clipped": false,
+            "intrinsicOverflow": false,
+            "textOutside": false,
+            "invalid": false
+          },
+          {
+            "label": "Why",
+            "clientWidth": 87,
+            "scrollWidth": 87,
+            "box": {
+              "left": 104.5,
+              "right": 193
+            },
+            "text": {
+              "left": 137.4375,
+              "right": 160.046875
+            },
+            "inlineInset": 32.9375,
+            "clipped": false,
+            "intrinsicOverflow": false,
+            "textOutside": false,
+            "invalid": false
+          },
+          {
+            "label": "What we do",
+            "clientWidth": 87,
+            "scrollWidth": 87,
+            "box": {
+              "left": 197,
+              "right": 285.5
+            },
+            "text": {
+              "left": 210.203125,
+              "right": 272.296875
+            },
+            "inlineInset": 13.203125,
+            "clipped": false,
+            "intrinsicOverflow": false,
+            "textOutside": false,
+            "invalid": false
+          },
+          {
+            "label": "FAQ",
+            "clientWidth": 87,
+            "scrollWidth": 87,
+            "box": {
+              "left": 289.5,
+              "right": 378
+            },
+            "text": {
+              "left": 324.4375,
+              "right": 343.0625
+            },
+            "inlineInset": 34.9375,
+            "clipped": false,
+            "intrinsicOverflow": false,
+            "textOutside": false,
+            "invalid": false
+          }
+        ],
+        "faqHeading": "Questions, answered.",
+        "controlsToFaq": 64
+      }
+    },
+    {
+      "name": "en/mobile product-experience-design renders honest capability page",
+      "pass": true,
+      "detail": {
+        "status": 200,
+        "lang": "en",
+        "dir": "ltr",
+        "overflow": 0,
+        "h1": "Product & Experience Design",
+        "description": "Turn a product idea into an experience people can understand, use, and trust.",
+        "canonical": "https://muse.sa/en/services/product-experience-design",
+        "ctas": [
+          "/en/start?intent=capability",
+          "/en/start"
+        ],
+        "brokenImages": 0,
+        "trackVisibility": {
+          "fullyVisible": 1,
+          "partiallyVisible": [],
+          "measurements": [
+            {
+              "width": 350,
+              "visible": 350
+            },
+            {
+              "width": 350,
+              "visible": 0
+            },
+            {
+              "width": 350,
+              "visible": 0
+            },
+            {
+              "width": 350,
+              "visible": 0
+            },
+            {
+              "width": 350,
+              "visible": 0
+            }
+          ]
+        },
+        "heroFallback": "radial-gradient(88% 78% at 50% 42%, rgba(253, 70, 1, 0.28) 0%, rgba(253, 70, 1, 0.1) 44%, rgba(0, 0, 0, 0) 76%)",
+        "subnavItems": [
+          {
+            "label": "Overview",
+            "clientWidth": 87,
+            "scrollWidth": 87,
+            "box": {
+              "left": 12,
+              "right": 100.5
+            },
+            "text": {
+              "left": 31.46875,
+              "right": 81.015625
+            },
+            "inlineInset": 19.46875,
+            "clipped": false,
+            "intrinsicOverflow": false,
+            "textOutside": false,
+            "invalid": false
+          },
+          {
+            "label": "Why",
+            "clientWidth": 87,
+            "scrollWidth": 87,
+            "box": {
+              "left": 104.5,
+              "right": 193
+            },
+            "text": {
+              "left": 137.4375,
+              "right": 160.046875
+            },
+            "inlineInset": 32.9375,
+            "clipped": false,
+            "intrinsicOverflow": false,
+            "textOutside": false,
+            "invalid": false
+          },
+          {
+            "label": "What we do",
+            "clientWidth": 87,
+            "scrollWidth": 87,
+            "box": {
+              "left": 197,
+              "right": 285.5
+            },
+            "text": {
+              "left": 210.203125,
+              "right": 272.296875
+            },
+            "inlineInset": 13.203125,
+            "clipped": false,
+            "intrinsicOverflow": false,
+            "textOutside": false,
+            "invalid": false
+          },
+          {
+            "label": "FAQ",
+            "clientWidth": 87,
+            "scrollWidth": 87,
+            "box": {
+              "left": 289.5,
+              "right": 378
+            },
+            "text": {
+              "left": 324.4375,
+              "right": 343.0625
+            },
+            "inlineInset": 34.9375,
+            "clipped": false,
+            "intrinsicOverflow": false,
+            "textOutside": false,
+            "invalid": false
+          }
+        ],
+        "faqHeading": "Questions, answered.",
+        "controlsToFaq": 64
+      }
+    },
+    {
+      "name": "ar/mobile product-strategy-discovery renders honest capability page",
+      "pass": true,
+      "detail": {
+        "status": 200,
+        "lang": "ar",
+        "dir": "rtl",
+        "overflow": 0,
+        "h1": "استراتيجية المنتج والاكتشاف",
+        "description": "حدّد قرار المنتج قبل ما تتحوّل الفكرة إلى قائمة خصائص.",
+        "canonical": "https://muse.sa/ar/services/product-strategy-discovery",
+        "ctas": [
+          "/ar/start?intent=capability",
+          "/ar/start"
+        ],
+        "brokenImages": 0,
+        "trackVisibility": {
+          "fullyVisible": 1,
+          "partiallyVisible": [],
+          "measurements": [
+            {
+              "width": 350,
+              "visible": 350
+            },
+            {
+              "width": 350,
+              "visible": 0
+            },
+            {
+              "width": 350,
+              "visible": 0
+            },
+            {
+              "width": 350,
+              "visible": 0
+            },
+            {
+              "width": 350,
+              "visible": 0
+            }
+          ]
+        },
+        "heroFallback": "radial-gradient(88% 78% at 50% 42%, rgba(253, 70, 1, 0.28) 0%, rgba(253, 70, 1, 0.1) 44%, rgba(0, 0, 0, 0) 76%)",
+        "subnavItems": [
+          {
+            "label": "نظرة عامة",
+            "clientWidth": 87,
+            "scrollWidth": 87,
+            "box": {
+              "left": 289.5,
+              "right": 378
+            },
+            "text": {
+              "left": 316.296875,
+              "right": 351.203125
+            },
+            "inlineInset": 26.796875,
+            "clipped": false,
+            "intrinsicOverflow": false,
+            "textOutside": false,
+            "invalid": false
+          },
+          {
+            "label": "لماذا",
+            "clientWidth": 87,
+            "scrollWidth": 87,
+            "box": {
+              "left": 197,
+              "right": 285.5
+            },
+            "text": {
+              "left": 232.765625,
+              "right": 249.71875
+            },
+            "inlineInset": 35.765625,
+            "clipped": false,
+            "intrinsicOverflow": false,
+            "textOutside": false,
+            "invalid": false
+          },
+          {
+            "label": "ما الذي نقوم به",
+            "clientWidth": 87,
+            "scrollWidth": 87,
+            "box": {
+              "left": 104.5,
+              "right": 193
+            },
+            "text": {
+              "left": 121.796875,
+              "right": 175.703125
+            },
+            "inlineInset": 17.296875,
+            "clipped": false,
+            "intrinsicOverflow": false,
+            "textOutside": false,
+            "invalid": false
+          },
+          {
+            "label": "الأسئلة الشائعة",
+            "clientWidth": 87,
+            "scrollWidth": 87,
+            "box": {
+              "left": 12,
+              "right": 100.5
+            },
+            "text": {
+              "left": 29.96875,
+              "right": 82.53125
+            },
+            "inlineInset": 17.96875,
+            "clipped": false,
+            "intrinsicOverflow": false,
+            "textOutside": false,
+            "invalid": false
+          }
+        ],
+        "faqHeading": "أسئلة، وأجوبتها.",
+        "controlsToFaq": 64
+      }
+    },
+    {
+      "name": "ar/mobile product-experience-design renders honest capability page",
+      "pass": true,
+      "detail": {
+        "status": 200,
+        "lang": "ar",
+        "dir": "rtl",
+        "overflow": 0,
+        "h1": "تصميم المنتجات والتجربة",
+        "description": "حوّل فكرة المنتج إلى تجربة يفهمها الناس ويستخدمونها ويثقون بها.",
+        "canonical": "https://muse.sa/ar/services/product-experience-design",
+        "ctas": [
+          "/ar/start?intent=capability",
+          "/ar/start"
+        ],
+        "brokenImages": 0,
+        "trackVisibility": {
+          "fullyVisible": 1,
+          "partiallyVisible": [],
+          "measurements": [
+            {
+              "width": 350,
+              "visible": 350
+            },
+            {
+              "width": 350,
+              "visible": 0
+            },
+            {
+              "width": 350,
+              "visible": 0
+            },
+            {
+              "width": 350,
+              "visible": 0
+            },
+            {
+              "width": 350,
+              "visible": 0
+            }
+          ]
+        },
+        "heroFallback": "radial-gradient(88% 78% at 50% 42%, rgba(253, 70, 1, 0.28) 0%, rgba(253, 70, 1, 0.1) 44%, rgba(0, 0, 0, 0) 76%)",
+        "subnavItems": [
+          {
+            "label": "نظرة عامة",
+            "clientWidth": 87,
+            "scrollWidth": 87,
+            "box": {
+              "left": 289.5,
+              "right": 378
+            },
+            "text": {
+              "left": 316.296875,
+              "right": 351.203125
+            },
+            "inlineInset": 26.796875,
+            "clipped": false,
+            "intrinsicOverflow": false,
+            "textOutside": false,
+            "invalid": false
+          },
+          {
+            "label": "لماذا",
+            "clientWidth": 87,
+            "scrollWidth": 87,
+            "box": {
+              "left": 197,
+              "right": 285.5
+            },
+            "text": {
+              "left": 232.765625,
+              "right": 249.71875
+            },
+            "inlineInset": 35.765625,
+            "clipped": false,
+            "intrinsicOverflow": false,
+            "textOutside": false,
+            "invalid": false
+          },
+          {
+            "label": "ما الذي نقوم به",
+            "clientWidth": 87,
+            "scrollWidth": 87,
+            "box": {
+              "left": 104.5,
+              "right": 193
+            },
+            "text": {
+              "left": 121.796875,
+              "right": 175.703125
+            },
+            "inlineInset": 17.296875,
+            "clipped": false,
+            "intrinsicOverflow": false,
+            "textOutside": false,
+            "invalid": false
+          },
+          {
+            "label": "الأسئلة الشائعة",
+            "clientWidth": 87,
+            "scrollWidth": 87,
+            "box": {
+              "left": 12,
+              "right": 100.5
+            },
+            "text": {
+              "left": 29.96875,
+              "right": 82.53125
+            },
+            "inlineInset": 17.96875,
+            "clipped": false,
+            "intrinsicOverflow": false,
+            "textOutside": false,
+            "invalid": false
+          }
+        ],
+        "faqHeading": "أسئلة، وأجوبتها.",
+        "controlsToFaq": 64
+      }
+    },
+    {
+      "name": "mobile capability routes have no console errors",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "en/compact product-strategy-discovery renders honest capability page",
+      "pass": true,
+      "detail": {
+        "status": 200,
+        "lang": "en",
+        "dir": "ltr",
+        "overflow": 0,
+        "h1": "Product Strategy & Discovery",
+        "description": "Find the product decision worth making before the feature list takes over.",
+        "canonical": "https://muse.sa/en/services/product-strategy-discovery",
+        "ctas": [
+          "/en/start?intent=capability",
+          "/en/start"
+        ],
+        "brokenImages": 0,
+        "trackVisibility": {
+          "fullyVisible": 1,
+          "partiallyVisible": [],
+          "measurements": [
+            {
+              "width": 280,
+              "visible": 280
+            },
+            {
+              "width": 280,
+              "visible": 0
+            },
+            {
+              "width": 280,
+              "visible": 0
+            },
+            {
+              "width": 280,
+              "visible": 0
+            },
+            {
+              "width": 280,
+              "visible": 0
+            }
+          ]
+        },
+        "heroFallback": "radial-gradient(88% 78% at 50% 42%, rgba(253, 70, 1, 0.28) 0%, rgba(253, 70, 1, 0.1) 44%, rgba(0, 0, 0, 0) 76%)",
+        "subnavItems": [
+          {
+            "label": "Overview",
+            "clientWidth": 69,
+            "scrollWidth": 69,
+            "box": {
+              "left": 12,
+              "right": 83
+            },
+            "text": {
+              "left": 22.71875,
+              "right": 72.265625
+            },
+            "inlineInset": 10.71875,
+            "clipped": false,
+            "intrinsicOverflow": false,
+            "textOutside": false,
+            "invalid": false
+          },
+          {
+            "label": "Why",
+            "clientWidth": 69,
+            "scrollWidth": 69,
+            "box": {
+              "left": 87,
+              "right": 158
+            },
+            "text": {
+              "left": 111.1875,
+              "right": 133.796875
+            },
+            "inlineInset": 24.1875,
+            "clipped": false,
+            "intrinsicOverflow": false,
+            "textOutside": false,
+            "invalid": false
+          },
+          {
+            "label": "What we do",
+            "clientWidth": 69,
+            "scrollWidth": 69,
+            "box": {
+              "left": 162,
+              "right": 233
+            },
+            "text": {
+              "left": 167,
+              "right": 229.09375
+            },
+            "inlineInset": 3.90625,
+            "clipped": false,
+            "intrinsicOverflow": false,
+            "textOutside": false,
+            "invalid": false
+          },
+          {
+            "label": "FAQ",
+            "clientWidth": 69,
+            "scrollWidth": 69,
+            "box": {
+              "left": 237,
+              "right": 308
+            },
+            "text": {
+              "left": 263.1875,
+              "right": 281.8125
+            },
+            "inlineInset": 26.1875,
+            "clipped": false,
+            "intrinsicOverflow": false,
+            "textOutside": false,
+            "invalid": false
+          }
+        ],
+        "faqHeading": "Questions, answered.",
+        "controlsToFaq": 64
+      }
+    },
+    {
+      "name": "en/compact product-experience-design renders honest capability page",
+      "pass": true,
+      "detail": {
+        "status": 200,
+        "lang": "en",
+        "dir": "ltr",
+        "overflow": 0,
+        "h1": "Product & Experience Design",
+        "description": "Turn a product idea into an experience people can understand, use, and trust.",
+        "canonical": "https://muse.sa/en/services/product-experience-design",
+        "ctas": [
+          "/en/start?intent=capability",
+          "/en/start"
+        ],
+        "brokenImages": 0,
+        "trackVisibility": {
+          "fullyVisible": 1,
+          "partiallyVisible": [],
+          "measurements": [
+            {
+              "width": 280,
+              "visible": 280
+            },
+            {
+              "width": 280,
+              "visible": 0
+            },
+            {
+              "width": 280,
+              "visible": 0
+            },
+            {
+              "width": 280,
+              "visible": 0
+            },
+            {
+              "width": 280,
+              "visible": 0
+            }
+          ]
+        },
+        "heroFallback": "radial-gradient(88% 78% at 50% 42%, rgba(253, 70, 1, 0.28) 0%, rgba(253, 70, 1, 0.1) 44%, rgba(0, 0, 0, 0) 76%)",
+        "subnavItems": [
+          {
+            "label": "Overview",
+            "clientWidth": 69,
+            "scrollWidth": 69,
+            "box": {
+              "left": 12,
+              "right": 83
+            },
+            "text": {
+              "left": 22.71875,
+              "right": 72.265625
+            },
+            "inlineInset": 10.71875,
+            "clipped": false,
+            "intrinsicOverflow": false,
+            "textOutside": false,
+            "invalid": false
+          },
+          {
+            "label": "Why",
+            "clientWidth": 69,
+            "scrollWidth": 69,
+            "box": {
+              "left": 87,
+              "right": 158
+            },
+            "text": {
+              "left": 111.1875,
+              "right": 133.796875
+            },
+            "inlineInset": 24.1875,
+            "clipped": false,
+            "intrinsicOverflow": false,
+            "textOutside": false,
+            "invalid": false
+          },
+          {
+            "label": "What we do",
+            "clientWidth": 69,
+            "scrollWidth": 69,
+            "box": {
+              "left": 162,
+              "right": 233
+            },
+            "text": {
+              "left": 167,
+              "right": 229.09375
+            },
+            "inlineInset": 3.90625,
+            "clipped": false,
+            "intrinsicOverflow": false,
+            "textOutside": false,
+            "invalid": false
+          },
+          {
+            "label": "FAQ",
+            "clientWidth": 69,
+            "scrollWidth": 69,
+            "box": {
+              "left": 237,
+              "right": 308
+            },
+            "text": {
+              "left": 263.1875,
+              "right": 281.8125
+            },
+            "inlineInset": 26.1875,
+            "clipped": false,
+            "intrinsicOverflow": false,
+            "textOutside": false,
+            "invalid": false
+          }
+        ],
+        "faqHeading": "Questions, answered.",
+        "controlsToFaq": 64
+      }
+    },
+    {
+      "name": "ar/compact product-strategy-discovery renders honest capability page",
+      "pass": true,
+      "detail": {
+        "status": 200,
+        "lang": "ar",
+        "dir": "rtl",
+        "overflow": 0,
+        "h1": "استراتيجية المنتج والاكتشاف",
+        "description": "حدّد قرار المنتج قبل ما تتحوّل الفكرة إلى قائمة خصائص.",
+        "canonical": "https://muse.sa/ar/services/product-strategy-discovery",
+        "ctas": [
+          "/ar/start?intent=capability",
+          "/ar/start"
+        ],
+        "brokenImages": 0,
+        "trackVisibility": {
+          "fullyVisible": 1,
+          "partiallyVisible": [],
+          "measurements": [
+            {
+              "width": 280,
+              "visible": 280
+            },
+            {
+              "width": 280,
+              "visible": 0
+            },
+            {
+              "width": 280,
+              "visible": 0
+            },
+            {
+              "width": 280,
+              "visible": 0
+            },
+            {
+              "width": 280,
+              "visible": 0
+            }
+          ]
+        },
+        "heroFallback": "radial-gradient(88% 78% at 50% 42%, rgba(253, 70, 1, 0.28) 0%, rgba(253, 70, 1, 0.1) 44%, rgba(0, 0, 0, 0) 76%)",
+        "subnavItems": [
+          {
+            "label": "نظرة عامة",
+            "clientWidth": 69,
+            "scrollWidth": 69,
+            "box": {
+              "left": 237,
+              "right": 308
+            },
+            "text": {
+              "left": 255.046875,
+              "right": 289.953125
+            },
+            "inlineInset": 18.046875,
+            "clipped": false,
+            "intrinsicOverflow": false,
+            "textOutside": false,
+            "invalid": false
+          },
+          {
+            "label": "لماذا",
+            "clientWidth": 69,
+            "scrollWidth": 69,
+            "box": {
+              "left": 162,
+              "right": 233
+            },
+            "text": {
+              "left": 189.015625,
+              "right": 205.96875
+            },
+            "inlineInset": 27.015625,
+            "clipped": false,
+            "intrinsicOverflow": false,
+            "textOutside": false,
+            "invalid": false
+          },
+          {
+            "label": "ما الذي نقوم به",
+            "clientWidth": 69,
+            "scrollWidth": 69,
+            "box": {
+              "left": 87,
+              "right": 158
+            },
+            "text": {
+              "left": 95.546875,
+              "right": 149.453125
+            },
+            "inlineInset": 8.546875,
+            "clipped": false,
+            "intrinsicOverflow": false,
+            "textOutside": false,
+            "invalid": false
+          },
+          {
+            "label": "الأسئلة الشائعة",
+            "clientWidth": 69,
+            "scrollWidth": 69,
+            "box": {
+              "left": 12,
+              "right": 83
+            },
+            "text": {
+              "left": 21.21875,
+              "right": 73.78125
+            },
+            "inlineInset": 9.21875,
+            "clipped": false,
+            "intrinsicOverflow": false,
+            "textOutside": false,
+            "invalid": false
+          }
+        ],
+        "faqHeading": "أسئلة، وأجوبتها.",
+        "controlsToFaq": 64
+      }
+    },
+    {
+      "name": "ar/compact product-experience-design renders honest capability page",
+      "pass": true,
+      "detail": {
+        "status": 200,
+        "lang": "ar",
+        "dir": "rtl",
+        "overflow": 0,
+        "h1": "تصميم المنتجات والتجربة",
+        "description": "حوّل فكرة المنتج إلى تجربة يفهمها الناس ويستخدمونها ويثقون بها.",
+        "canonical": "https://muse.sa/ar/services/product-experience-design",
+        "ctas": [
+          "/ar/start?intent=capability",
+          "/ar/start"
+        ],
+        "brokenImages": 0,
+        "trackVisibility": {
+          "fullyVisible": 1,
+          "partiallyVisible": [],
+          "measurements": [
+            {
+              "width": 280,
+              "visible": 280
+            },
+            {
+              "width": 280,
+              "visible": 0
+            },
+            {
+              "width": 280,
+              "visible": 0
+            },
+            {
+              "width": 280,
+              "visible": 0
+            },
+            {
+              "width": 280,
+              "visible": 0
+            }
+          ]
+        },
+        "heroFallback": "radial-gradient(88% 78% at 50% 42%, rgba(253, 70, 1, 0.28) 0%, rgba(253, 70, 1, 0.1) 44%, rgba(0, 0, 0, 0) 76%)",
+        "subnavItems": [
+          {
+            "label": "نظرة عامة",
+            "clientWidth": 69,
+            "scrollWidth": 69,
+            "box": {
+              "left": 237,
+              "right": 308
+            },
+            "text": {
+              "left": 255.046875,
+              "right": 289.953125
+            },
+            "inlineInset": 18.046875,
+            "clipped": false,
+            "intrinsicOverflow": false,
+            "textOutside": false,
+            "invalid": false
+          },
+          {
+            "label": "لماذا",
+            "clientWidth": 69,
+            "scrollWidth": 69,
+            "box": {
+              "left": 162,
+              "right": 233
+            },
+            "text": {
+              "left": 189.015625,
+              "right": 205.96875
+            },
+            "inlineInset": 27.015625,
+            "clipped": false,
+            "intrinsicOverflow": false,
+            "textOutside": false,
+            "invalid": false
+          },
+          {
+            "label": "ما الذي نقوم به",
+            "clientWidth": 69,
+            "scrollWidth": 69,
+            "box": {
+              "left": 87,
+              "right": 158
+            },
+            "text": {
+              "left": 95.546875,
+              "right": 149.453125
+            },
+            "inlineInset": 8.546875,
+            "clipped": false,
+            "intrinsicOverflow": false,
+            "textOutside": false,
+            "invalid": false
+          },
+          {
+            "label": "الأسئلة الشائعة",
+            "clientWidth": 69,
+            "scrollWidth": 69,
+            "box": {
+              "left": 12,
+              "right": 83
+            },
+            "text": {
+              "left": 21.21875,
+              "right": 73.78125
+            },
+            "inlineInset": 9.21875,
+            "clipped": false,
+            "intrinsicOverflow": false,
+            "textOutside": false,
+            "invalid": false
+          }
+        ],
+        "faqHeading": "أسئلة، وأجوبتها.",
+        "controlsToFaq": 64
+      }
+    },
+    {
+      "name": "compact capability routes have no console errors",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "en all five service pages pass mobile renderer regression",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "ar all five service pages pass mobile renderer regression",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "en homepage links all five capability pages",
+      "pass": true,
+      "detail": [
+        "/en/services/product-strategy-discovery",
+        "/en/services/product-experience-design",
+        "/en/services/product-engineering",
+        "/en/services/ai-transformation",
+        "/en/services/gamification-experience"
+      ]
+    },
+    {
+      "name": "en explore lists new capabilities without broken media",
+      "pass": true,
+      "detail": {
+        "hrefs": [
+          "/en/services/product-strategy-discovery",
+          "/en/services/product-experience-design",
+          "/en/services/ai-transformation",
+          "/en/services/product-engineering",
+          "/en/services/gamification-experience"
+        ],
+        "brokenImages": 0,
+        "overflow": 0
+      }
+    },
+    {
+      "name": "ar homepage links all five capability pages",
+      "pass": true,
+      "detail": [
+        "/ar/services/product-strategy-discovery",
+        "/ar/services/product-experience-design",
+        "/ar/services/product-engineering",
+        "/ar/services/ai-transformation",
+        "/ar/services/gamification-experience"
+      ]
+    },
+    {
+      "name": "ar explore lists new capabilities without broken media",
+      "pass": true,
+      "detail": {
+        "hrefs": [
+          "/ar/services/product-strategy-discovery",
+          "/ar/services/product-experience-design",
+          "/ar/services/ai-transformation",
+          "/ar/services/product-engineering",
+          "/ar/services/gamification-experience"
+        ],
+        "brokenImages": 0,
+        "overflow": 0
+      }
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/three-doors/_verify-d4-capabilities/en-desktop-product-strategy-discovery.png",
+      "width": 1440,
+      "height": 4348
+    },
+    {
+      "path": "docs/three-doors/_verify-d4-capabilities/en-desktop-product-experience-design.png",
+      "width": 1440,
+      "height": 4380
+    },
+    {
+      "path": "docs/three-doors/_verify-d4-capabilities/ar-desktop-product-strategy-discovery.png",
+      "width": 1440,
+      "height": 4184
+    },
+    {
+      "path": "docs/three-doors/_verify-d4-capabilities/ar-desktop-product-experience-design.png",
+      "width": 1440,
+      "height": 4156
+    },
+    {
+      "path": "docs/three-doors/_verify-d4-capabilities/en-mobile-product-strategy-discovery.png",
+      "width": 390,
+      "height": 5152
+    },
+    {
+      "path": "docs/three-doors/_verify-d4-capabilities/en-mobile-product-experience-design.png",
+      "width": 390,
+      "height": 5148
+    },
+    {
+      "path": "docs/three-doors/_verify-d4-capabilities/ar-mobile-product-strategy-discovery.png",
+      "width": 390,
+      "height": 4763
+    },
+    {
+      "path": "docs/three-doors/_verify-d4-capabilities/ar-mobile-product-experience-design.png",
+      "width": 390,
+      "height": 4703
+    },
+    {
+      "path": "docs/three-doors/_verify-d4-capabilities/en-compact-product-strategy-discovery.png",
+      "width": 320,
+      "height": 5711
+    },
+    {
+      "path": "docs/three-doors/_verify-d4-capabilities/en-compact-product-experience-design.png",
+      "width": 320,
+      "height": 5599
+    },
+    {
+      "path": "docs/three-doors/_verify-d4-capabilities/ar-compact-product-strategy-discovery.png",
+      "width": 320,
+      "height": 4900
+    },
+    {
+      "path": "docs/three-doors/_verify-d4-capabilities/ar-compact-product-experience-design.png",
+      "width": 320,
+      "height": 5032
+    }
+  ]
+}
