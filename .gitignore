@@ -54,25 +54,17 @@ next-env.d.ts
 # not screenshots. Regenerate with `node scripts/build-og-image-ar.mjs`.
 !/public/og/*.png
 
-# ─── Company assets ───────────────────────────────────────────────────────────
-# The vault's notes ARE tracked — they're the company's written thinking and
-# belong in version control. Only the heavy binary sources are excluded.
-
-# Brand design sources. The Illustrator file is 268 MB, well past GitHub's
-# 100 MB per-file hard limit, so a push carrying it would be rejected outright.
+# Company assets
+# The Illustrator file is 268 MB and exceeds GitHub's per-file limit.
 /brand-assets/*.ai
 /brand-assets/*.pdf
 /brand-assets/*.zip
 /brand-assets/*.mp4
-# Four deck-page exports are 2–38 MB each; the logo and element SVGs stay tracked.
 /brand-assets/Export/SVG/Powerpoint-0[5-8].svg
 
-# Vault attachments: the 71 MB brand guideline PDF (duplicate of the one in
-# brand-assets). The 140 KB explainer PDF stays tracked.
-/Muse Vault/99 Meta/Attachments/*.pdf
-# Per-machine Obsidian UI state — churns on every open, means nothing to anyone else.
-/Muse Vault/.obsidian/workspace*.json
+# Muse company knowledge is private and canonical in:
+# https://github.com/alsubaieabdullah/muse-documentation-vault
+# Never recreate or copy the private vault into this public repository.
+/Muse Vault/
 
-# Screenshots pasted into notes would otherwise vanish into the *.png rule above.
-!/Muse Vault/**/*.png
 assets/screens/
