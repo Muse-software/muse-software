@@ -1,4 +1,4 @@
-import HomeSections from "@/components/sections/HomeSections";
+import MosaicHome from "@/components/mosaic/MosaicHome";
 import { buildMetadata } from "@/lib/seo";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import type { Locale } from "@/i18n/routing";
@@ -20,5 +20,5 @@ export default async function Home({ params }: Props) {
   const { locale } = await params;
   setRequestLocale(locale);
 
-  return <HomeSections />;
+  return <MosaicHome locale={locale} base="" />;
 }

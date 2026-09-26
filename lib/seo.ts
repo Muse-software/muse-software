@@ -1,14 +1,17 @@
+import {CONTACT_EMAIL,SOCIAL_LINKS} from "@/lib/contact";
 import type { Metadata } from "next";
 import { PUBLISHED_LOCALES, isPublishedLocale, type Locale } from "@/i18n/routing";
 
 const SITE_URL = "https://muse.sa";
 
 // The brand keeps its Latin wordmark in Arabic — "Muse" is not transliterated
-// (docs/i18n-plan.md §9), so the organization node is locale-independent.
+// so the organization node is locale-independent.
 const ORGANIZATION = {
   "@type": "Organization" as const,
   name: "Muse",
   url: SITE_URL,
+  email: CONTACT_EMAIL,
+  sameAs: SOCIAL_LINKS.map(s=>s.href),
 };
 
 const OG_LOCALE: Record<Locale, string> = {
@@ -33,7 +36,7 @@ export function localizedPath(locale: Locale, path: string): string {
  * Canonical is **self-referential per locale**. Pointing the Arabic canonical
  * at the English URL would tell Google the Arabic pages are duplicates and
  * drop them from the index entirely — the single highest-consequence detail
- * in the migration (docs/i18n-plan.md §7, §10).
+ * in locale indexing.
  */
 export function alternatesFor(path: string, locale: Locale): Metadata["alternates"] {
   // Only published locales are advertised — see PUBLISHED_LOCALES.
@@ -99,8 +102,7 @@ export function buildMetadata({
     title,
     description,
     alternates: alternatesFor(path, locale),
-    // An unpublished locale renders, but must not enter the index while it is
-    // still serving another language's copy.
+    // Unpublished locales remain browsable while editorial review is pending.
     ...(isPublishedLocale(locale) ? {} : { robots: { index: false, follow: false } }),
     openGraph: {
       title,
@@ -116,44 +118,6 @@ export function buildMetadata({
       description,
       images,
     },
-  };
-}
-
-/**
- * Article structured data for playbook detail pages.
- * `dateModified` mirrors `datePublished` — there's no separately-tracked
- * "last updated" date in the content model, so reusing the publish date is
- * the honest option rather than inventing one.
- */
-export function buildArticleJsonLd({
-  title,
-  description,
-  path,
-  image,
-  datePublished,
-  locale,
-}: {
-  title: string;
-  description: string;
-  path: string;
-  image: string;
-  datePublished: string;
-  locale: Locale;
-}) {
-  const url = `${SITE_URL}${localizedPath(locale, path)}`;
-  return {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    headline: title,
-    description,
-    image: image.startsWith("http") ? image : `${SITE_URL}${image}`,
-    datePublished,
-    dateModified: datePublished,
-    inLanguage: locale,
-    author: ORGANIZATION,
-    publisher: ORGANIZATION,
-    mainEntityOfPage: { "@type": "WebPage", "@id": url },
-    url,
   };
 }
 

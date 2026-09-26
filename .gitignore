@@ -62,9 +62,46 @@ next-env.d.ts
 /brand-assets/*.mp4
 /brand-assets/Export/SVG/Powerpoint-0[5-8].svg
 
-# Muse company knowledge is private and canonical in:
-# https://github.com/alsubaieabdullah/muse-documentation-vault
-# Never recreate or copy the private vault into this public repository.
+# Private company knowledge belongs outside this public repository.
 /Muse Vault/
 
 assets/screens/
+
+.next-production/
+docs/experience-rebuild/screenshots/
+docs/experience-rebuild/*-evidence/
+.next-directions/
+.next-directions-release/
+docs/creative-directions/screenshots/
+docs/creative-directions/*-evidence/
+
+docs/creative-directions/evidence-review-*/
+
+.next-premium-dev/
+.next-premium-release/
+docs/creative-directions/premium-evidence/
+
+/premium-evidence/
+
+.next-mosaic-dev/
+.next-mosaic-release/
+docs/mosaic/evidence/
+
+/mosaic-evidence/
+
+.next-muse-dev/
+.next-muse-release/
+docs/mosaic-launch/evidence/
+
+# Local review captures and tests are never release assets.
+/test-results/
+/private/
+/.private/
+/docs/internal/
+# Retired company/design source stays outside this public repository.
+/brand-assets/
+/assets/
+/archive/
+/site-structure-src/
+/walkthrough-src/
+/Muse-Site-*.pdf

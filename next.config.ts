@@ -13,27 +13,16 @@ const withNextIntl = createNextIntlPlugin("./i18n/request.ts");
 // stays until inline scripts are eliminated entirely (there's currently one:
 // the homepage JSON-LD block) or the site adopts per-route dynamic rendering.
 const securityHeaders = [
-  // Two `blob:` allowances were added for the 3D hero, both measured against a
-  // real load rather than guessed at:
-  //
-  //   worker-src  three's DRACOLoader decompresses the monitor model in a
-  //               worker it builds by inlining the decoder into a Blob. Without
-  //               this it falls through to `default-src 'self'`, which does not
-  //               cover `blob:`, and the model fails to load outright.
-  //   connect-src GLTFLoader hands the model's embedded texture to
-  //               ImageBitmapLoader as a blob URL, which fetches it. Blocked,
-  //               the geometry still draws but every monitor renders untextured.
-  //
-  // Two things are deliberately *absent*. `'wasm-unsafe-eval'`: Draco ships a
-  // faster WebAssembly decoder, but enabling wasm compilation relaxes
-  // script-src for every script on the site, so the loader is pinned to the
-  // plain-JS decoder instead (see useComputersModel.ts). And `blob:` in
-  // script-src, which troika-three-text needs for its glyph worker — the hero
-  // paints text with a 2D canvas texture instead, so it never comes up.
+  // Mosaic uses native WebGL; no model decoder workers are shipped.
   {
     key: "Content-Security-Policy",
     value:
-      "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self' data:; connect-src 'self' blob:; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+      "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self' data:; connect-src 'self'; worker-src 'none'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'".replace(
+        "script-src 'self' 'unsafe-inline';",
+        process.env.NODE_ENV === "development"
+          ? "script-src 'self' 'unsafe-inline' 'unsafe-eval';"
+          : "script-src 'self' 'unsafe-inline';",
+      ),
   },
   { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
   { key: "X-Frame-Options", value: "DENY" },
@@ -53,17 +42,16 @@ const securityHeaders = [
 // Routes that exist at `/{locale}/{path}` and used to live at the bare path.
 const LOCALE_INDEX_PATHS = [
   "explore",
+  "services",
+  "start",
   "about",
   "careers",
-  "newsletter",
   "contact",
   "privacy",
   "terms",
 ];
 
-// Sections with detail pages. `services` is here but not above on purpose:
-// there is no `/services` index route, only `/services/[slug]`, so redirecting
-// the bare path would 308 into a 404 instead of just 404ing.
+// Sections with detail pages.
 const LOCALE_CHILD_PATHS = ["careers", "services"];
 
 // Everything retired now lands on /explore, the surviving page that says what
@@ -73,6 +61,7 @@ const LOCALE_CHILD_PATHS = ["careers", "services"];
 const RETIRED_SECTIONS = ["insights", "playbooks"];
 
 const nextConfig: NextConfig = {
+  distDir: process.env.NEXT_OUTPUT_DIR || ".next",
   devIndicators: false,
   poweredByHeader: false,
   async headers() {
@@ -111,20 +100,28 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       ...RETIRED_SECTIONS.flatMap((section) => [
-        { source: `/${section}`, destination: "/en/explore", permanent: true },
-        { source: `/${section}/:slug`, destination: "/en/explore", permanent: true },
+        { source: `/${section}`, destination: "/en/services", permanent: true },
+        {
+          source: `/${section}/:slug`,
+          destination: "/en/services",
+          permanent: true,
+        },
         {
           source: `/:locale(ar|en)/${section}`,
-          destination: "/:locale/explore",
+          destination: "/:locale/services",
           permanent: true,
         },
         {
           source: `/:locale(ar|en)/${section}/:slug`,
-          destination: "/:locale/explore",
+          destination: "/:locale/services",
           permanent: true,
         },
       ]),
-      { source: "/newsletter/:slug", destination: "/en/newsletter", permanent: true },
+      {
+        source: "/newsletter/:slug",
+        destination: "/en/newsletter",
+        permanent: true,
+      },
       {
         source: "/:locale(ar|en)/newsletter/:slug",
         destination: "/:locale/newsletter",

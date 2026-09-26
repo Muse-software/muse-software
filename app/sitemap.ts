@@ -1,7 +1,9 @@
 import type { MetadataRoute } from "next";
-import { getServices, getCareerRoles } from "@/lib/content";
+import { getCareerRoles } from "@/lib/content";
 import { PUBLISHED_LOCALES, type Locale } from "@/i18n/routing";
 import { localizedPath } from "@/lib/seo";
+
+import { studioServices } from "@/lib/studio-services";
 
 const BASE_URL = "https://muse.sa";
 
@@ -34,18 +36,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
    */
   const staticEntries = (): Entry[] => [
     { path: "/", lastModified: now, changeFrequency: "weekly", priority: 1 },
-    { path: "/explore", lastModified: now, changeFrequency: "monthly", priority: 0.9 },
+    { path: "/services", lastModified: now, changeFrequency: "monthly", priority: 0.9 },
     { path: "/about", lastModified: now, changeFrequency: "monthly", priority: 0.7 },
     { path: "/careers", lastModified: now, changeFrequency: "weekly", priority: 0.7 },
-    { path: "/newsletter", lastModified: now, changeFrequency: "weekly", priority: 0.7 },
-    { path: "/contact", lastModified: now, changeFrequency: "yearly", priority: 0.6 },
     { path: "/start", lastModified: now, changeFrequency: "yearly", priority: 0.9 },
     { path: "/privacy", lastModified: now, changeFrequency: "yearly", priority: 0.2 },
     { path: "/terms", lastModified: now, changeFrequency: "yearly", priority: 0.2 },
   ];
 
   const contentEntries = (locale: Locale): Entry[] => [
-    ...getServices(locale).map((service) => ({
+    ...studioServices[locale].map((service) => ({
       path: `/services/${service.slug}`,
       lastModified: now,
       changeFrequency: "monthly" as const,

@@ -1,10 +1,8 @@
 import { routing, type Locale } from "@/i18n/routing";
-import type { CareerRole, Service } from "./shared";
+import type { CareerRole } from "./shared";
 
-import { services as enServices } from "./en/services";
 import { careerRoles as enCareerRoles } from "./en/careers";
 
-import { services as arServices } from "./ar/services";
 import { careerRoles as arCareerRoles } from "./ar/careers";
 
 export * from "./shared";
@@ -22,14 +20,6 @@ export * from "./shared";
  * record therefore produces a 404 and an empty list, both of which are visible,
  * rather than English text under `lang="ar"`, which is not.
  */
-export function getServices(locale: Locale): Service[] {
-  return locale === "ar" ? arServices : enServices;
-}
-
-export function getService(locale: Locale, slug: string): Service | undefined {
-  return getServices(locale).find((item) => item.slug === slug);
-}
-
 export function getCareerRoles(locale: Locale): CareerRole[] {
   return locale === "ar" ? arCareerRoles : enCareerRoles;
 }

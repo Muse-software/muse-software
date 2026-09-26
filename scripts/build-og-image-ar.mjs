@@ -26,7 +26,7 @@
  */
 import { readFile, writeFile, mkdir } from "node:fs/promises";
 import path from "node:path";
-import { chromium } from "playwright";
+import { launchBrowser } from "./browser-runtime.mjs";
 
 const ROOT = process.cwd();
 const FONT_DIR = path.join(ROOT, "assets", "fonts");
@@ -39,7 +39,8 @@ const SIZE = { width: 1200, height: 630 };
 const ICON_PATH =
   "M132.15,469.56h52.3c2.89,0,5.23,2.34,5.23,5.23v17.5c0,2.89,2.34,5.23,5.23,5.23h74.6c2.89,0,5.23,2.34,5.23,5.23v16.97c0,2.89,2.34,5.23,5.23,5.23h74.5c2.89,0,5.23,2.34,5.23,5.23v17.5c0,2.89-2.34,5.23-5.23,5.23h-47.07c-2.89,0-5.23,2.34-5.23,5.23v47.07c0,2.89-2.34,5.23-5.23,5.23h-17.5c-2.89,0-5.23-2.34-5.23-5.23v-74.5c0-2.89-2.34-5.23-5.23-5.23h-46.54c-2.89,0-5.23,2.34-5.23,5.23v47.07c0,2.89-2.34,5.23-5.23,5.23h-17.5c-2.89,0-5.23-2.34-5.23-5.23v-75.02c0-2.89-2.34-5.23-5.23-5.23h-46.65c-2.89,0-5.23,2.34-5.23,5.23v47.07c0,2.89-2.34,5.23-5.23,5.23h-17.5c-2.89,0-5.23-2.34-5.23-5.23v-75.02c0-2.89,2.34-5.23,5.23-5.23h22.73Z";
 
-const b64 = async (file) => (await readFile(path.join(FONT_DIR, file))).toString("base64");
+const b64 = async (file) =>
+  (await readFile(path.join(FONT_DIR, file))).toString("base64");
 
 const [plexSemiBold, plexRegular, spaceGrotesk] = await Promise.all([
   b64("IBMPlexSansArabic-SemiBold.ttf"),
@@ -49,7 +50,9 @@ const [plexSemiBold, plexRegular, spaceGrotesk] = await Promise.all([
 
 // Read the tagline from the catalogue rather than restating it here, so the
 // card cannot drift from the copy the Arabic reviewer signs off on.
-const messages = JSON.parse(await readFile(path.join(ROOT, "messages", "ar.json"), "utf8"));
+const messages = JSON.parse(
+  await readFile(path.join(ROOT, "messages", "ar.json"), "utf8"),
+);
 const TAGLINE = messages.Metadata.organizationDescription;
 
 const html = `<!doctype html>
@@ -113,7 +116,7 @@ const html = `<!doctype html>
 
 await mkdir(OUT_DIR, { recursive: true });
 
-const browser = await chromium.launch();
+const browser = await launchBrowser();
 const page = await browser.newPage({ viewport: SIZE, deviceScaleFactor: 1 });
 await page.setContent(html, { waitUntil: "load" });
 await page.evaluate(() => document.fonts.ready);

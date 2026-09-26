@@ -1,0 +1,24 @@
+.mx-particle-mark {
+  display: block;
+  flex: none;
+  overflow: visible;
+  color: var(--mx-particle-color, currentColor);
+  pointer-events: none;
+  opacity: .72;
+  transition: opacity 160ms ease;
+}
+
+.mx-particle-mark[data-active="true"],
+.mx-particle-mark[data-moving="true"] {
+  opacity: 1;
+}
+
+.mx-particle-mark rect {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mx-particle-mark { transition: none; }
+  .mx-particle-mark rect { transform: none !important; opacity: 1 !important; }
+}

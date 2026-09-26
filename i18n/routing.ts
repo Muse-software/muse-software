@@ -22,16 +22,10 @@ export const localeDirection: Record<Locale, "rtl" | "ltr"> = {
 };
 
 /**
- * Locales that are ready to be advertised to search engines and users.
- *
- * `/ar` routes exist and render from Phase 1 onward, but until the Arabic
- * content programme lands (docs/i18n-plan.md §9) they serve English copy under
- * Arabic chrome. Emitting hreflang alternates or sitemap entries for them
- * would be pointing Google at pages whose declared language is a lie, so an
- * unpublished locale is `noindex` and absent from both.
- *
- * This is the same gate as the language switcher: flip it to
- * `routing.locales` when Batch 2 lands, and not before.
+ * Search-index publication gate retained from docs/i18n-plan.md §18.
+ * Mosaic now has complete English and Arabic copy and both are browsable.
+ * Arabic stays out of search indexing until the existing editorial review is
+ * complete; archive collections are independently noindex in both languages.
  */
 export const PUBLISHED_LOCALES: readonly Locale[] = ["en"];
 

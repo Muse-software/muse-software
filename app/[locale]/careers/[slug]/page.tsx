@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import { Link } from "@/i18n/navigation";
 import SubpageHero from "@/components/sections/SubpageHero";
 import { allSlugs, getCareerRole, getCareerRoles } from "@/lib/content";
 import { buildMetadata, buildJobPostingJsonLd } from "@/lib/seo";
@@ -45,8 +46,8 @@ export default async function CareerRolePage({
 
   // Was `Application: ${role.title}`, which composed an English word with an
   // Arabic role name and handed the reader a half-translated subject line.
-  const applyHref = `mailto:info@muse.sa?subject=${encodeURIComponent(
-    careers("applySubject", { role: role.title })
+  const applyHref = `mailto:abdullah@muse.sa?subject=${encodeURIComponent(
+    careers("applySubject", { role: role.title }),
   )}`;
 
   const description = [
@@ -54,7 +55,9 @@ export default async function CareerRolePage({
     role.responsibilities?.length
       ? `${t("responsibilities")}: ${role.responsibilities.join("; ")}`
       : null,
-    role.requirements?.length ? `${t("requirements")}: ${role.requirements.join("; ")}` : null,
+    role.requirements?.length
+      ? `${t("requirements")}: ${role.requirements.join("; ")}`
+      : null,
   ]
     .filter(Boolean)
     .join(" ");
@@ -75,17 +78,18 @@ export default async function CareerRolePage({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <SubpageHero
-        /* `role.department` is the stable English union value, not display
-           copy — interpolating it raw rendered "الوظائف · Strategy" on /ar. */
-        eyebrow={t("eyebrow", {
-          department: careers(`departments.${role.department}`),
-        })}
         title={role.title}
         subtitle={role.blurb}
       />
 
       <section className="bg-[#060608] pb-20 md:pb-28">
         <div className="mx-auto w-full max-w-[800px] px-5 md:px-10">
+          <Link href="/careers" className="text-link career-back">
+            <span className="arrow-inline" aria-hidden>
+              ←
+            </span>
+            {locale === "ar" ? "كل الوظائف" : "All roles"}
+          </Link>
           <div className="flex flex-wrap gap-x-8 gap-y-2 border-b border-white/10 pb-8 text-sm text-white/60">
             {role.location && <span>{role.location}</span>}
             {role.employmentType && <span>{role.employmentType}</span>}
@@ -94,10 +98,15 @@ export default async function CareerRolePage({
 
           {role.responsibilities && (
             <div className="mt-10">
-              <h2 className="font-space-grotesk text-xl font-bold text-white">{t("responsibilities")}</h2>
+              <h2 className="font-space-grotesk text-xl font-bold text-white">
+                {t("responsibilities")}
+              </h2>
               <ul className="mt-4 space-y-3">
                 {role.responsibilities.map((item) => (
-                  <li key={item} className="flex items-start gap-3 text-base leading-7 text-white/70">
+                  <li
+                    key={item}
+                    className="flex items-start gap-3 text-base leading-7 text-white/70"
+                  >
                     <span className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#fd4601]" />
                     {item}
                   </li>
@@ -108,10 +117,15 @@ export default async function CareerRolePage({
 
           {role.requirements && (
             <div className="mt-10">
-              <h2 className="font-space-grotesk text-xl font-bold text-white">{t("requirements")}</h2>
+              <h2 className="font-space-grotesk text-xl font-bold text-white">
+                {t("requirements")}
+              </h2>
               <ul className="mt-4 space-y-3">
                 {role.requirements.map((item) => (
-                  <li key={item} className="flex items-start gap-3 text-base leading-7 text-white/70">
+                  <li
+                    key={item}
+                    className="flex items-start gap-3 text-base leading-7 text-white/70"
+                  >
                     <span className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#fd4601]" />
                     {item}
                   </li>
@@ -122,10 +136,15 @@ export default async function CareerRolePage({
 
           {role.niceToHaves && (
             <div className="mt-10">
-              <h2 className="font-space-grotesk text-xl font-bold text-white">{t("niceToHave")}</h2>
+              <h2 className="font-space-grotesk text-xl font-bold text-white">
+                {t("niceToHave")}
+              </h2>
               <ul className="mt-4 space-y-3">
                 {role.niceToHaves.map((item) => (
-                  <li key={item} className="flex items-start gap-3 text-base leading-7 text-white/70">
+                  <li
+                    key={item}
+                    className="flex items-start gap-3 text-base leading-7 text-white/70"
+                  >
                     <span className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#fd4601]" />
                     {item}
                   </li>
@@ -134,12 +153,30 @@ export default async function CareerRolePage({
             </div>
           )}
 
-          <a
-            href={applyHref}
-            className="mt-12 inline-flex items-center gap-3 border border-black bg-white px-6 py-3 text-base font-medium font-space-grotesk text-black transition-colors duration-200 hover:bg-[#fd4601]"
-          >
-            {t("apply")}
-          </a>
+          <div className="recruitment-apply">
+            <h2>
+              {locale === "ar"
+                ? "خلّنا نتعرّف عليك."
+                : "Let’s get to know you."}
+            </h2>
+            <p>
+              {locale === "ar"
+                ? "أرسل سيرتك أو رابط ملفك المهني، مع نبذة قصيرة عن اهتمامك بالدور. أضف رابط أعمالك إذا كان متاحًا."
+                : "Send your CV or professional profile and a short note about your interest in the role. Include a portfolio link if you have one."}
+            </p>
+            <a href={applyHref} className="studio-button secondary">
+              {locale === "ar" ? "قدّم بالإيميل" : "Apply by email"}{" "}
+              <span aria-hidden>↗</span>
+            </a>
+            <p className="recruitment-fallback">
+              {locale === "ar"
+                ? "ما فتح تطبيق الإيميل؟ راسلنا على"
+                : "No email app? Write to"}{" "}
+              <a href={applyHref} dir="ltr">
+                abdullah@muse.sa
+              </a>
+            </p>
+          </div>
         </div>
       </section>
     </div>

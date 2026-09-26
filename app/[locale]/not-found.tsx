@@ -1,8 +1,8 @@
 import { getLocale, getTranslations } from "next-intl/server";
-import CardDither from "@/components/CardDither";
 import SubpageHero from "@/components/sections/SubpageHero";
 import { Link } from "@/i18n/navigation";
 import { localeDirection, type Locale } from "@/i18n/routing";
+import { contactHref } from "@/lib/contact";
 import { fontVariables } from "@/lib/fonts";
 
 /**
@@ -27,9 +27,9 @@ import { fontVariables } from "@/lib/fonts";
 
 const suggestions = [
   { key: "home", href: "/" },
-  { key: "explore", href: "/explore" },
+  { key: "explore", href: "/services" },
   { key: "about", href: "/about" },
-  { key: "contact", href: "/contact" },
+  { key: "contact", href: "/start" },
 ] as const;
 
 export default async function NotFound() {
@@ -42,9 +42,7 @@ export default async function NotFound() {
       dir={localeDirection[locale]}
       className={`${fontVariables} relative isolate min-h-screen bg-[#060608] text-white antialiased`}
     >
-      <CardDither />
       <SubpageHero
-        eyebrow={t("eyebrow")}
         title={t("title")}
         subtitle={t("subtitle")}
       />
@@ -55,8 +53,8 @@ export default async function NotFound() {
             {suggestions.map((suggestion) => (
               <Link
                 key={suggestion.href}
-                href={suggestion.href}
-                data-dither-card
+                href={suggestion.key === "contact" ? contactHref(locale) : suggestion.href}
+                data-mosaic-card
                 className="group flex items-center justify-between gap-6 border border-white/15 p-6 transition-colors duration-300 hover:border-[#fd4601] md:p-8"
               >
                 <span className="font-space-grotesk text-lg font-bold md:text-xl">

@@ -1,15 +1,17 @@
 import type { Metadata, Viewport } from "next";
-import dynamic from "next/dynamic";
 import { notFound } from "next/navigation";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import Footer from "@/components/Footer";
-import PageLoader from "@/components/PageLoader";
-import { allSocials } from "@/components/SocialLinks";
+import SiteFrame from "@/components/SiteFrame";
+
 import { routing, localeDirection, type Locale } from "@/i18n/routing";
 import { fontVariables } from "@/lib/fonts";
 import { alternatesFor } from "@/lib/seo";
 import "../globals.css";
+import "../studio.css";
+import "@/components/site/site.css";
+import "@/components/mosaic/mosaic.css";
+import "@/components/site/launch.css";
 
 // This is the root layout. There is deliberately no `app/layout.tsx`: when a
 // dynamic segment's layout renders <html>, Next treats it as the root, and
@@ -17,16 +19,7 @@ import "../globals.css";
 // nest two <html> elements. `app/global-error.tsx` renders its own
 // <html>/<body> because it replaces this whole tree when it fires.
 
-// Code-split the nav's animation logic into its own chunk instead of the
-// shared bundle every route pays for — still rendered server-side (no
-// ssr:false) so the pill, logo and toggle are present in the initial HTML
-// with no flash-of-missing-nav; only the JS weight is deferred.
-//
-// SiteHeader replaced StaggeredMenu on 2026-08-01. The route/label split that
-// used to live here moved into the component, because the new header groups
-// its routes into named cards and the grouping is layout, not configuration.
-// StaggeredMenu itself is at `archive/components/StaggeredMenu.tsx`.
-const SiteHeader = dynamic(() => import("@/components/SiteHeader"));
+// Shared, server-rendered shell; interactive navigation hydrates separately.
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -41,7 +34,10 @@ export async function generateMetadata({
   const activeLocale: Locale = hasLocale(routing.locales, locale)
     ? locale
     : routing.defaultLocale;
-  const t = await getTranslations({ locale: activeLocale, namespace: "Metadata" });
+  const t = await getTranslations({
+    locale: activeLocale,
+    namespace: "Metadata",
+  });
 
   const siteName = t("siteName");
   const description = t("siteDescription");
@@ -94,7 +90,7 @@ export default async function LocaleLayout({
   const common = await getTranslations("Common");
 
   return (
-    <html lang={locale} dir={localeDirection[locale]}>
+    <html lang={locale} dir={localeDirection[locale]} data-scroll-behavior="smooth">
       <body className={`${fontVariables} bg-[#060608] text-white antialiased`}>
         {/*
           No `messages` prop: next-intl v4 lets the provider inherit the whole
@@ -107,23 +103,8 @@ export default async function LocaleLayout({
           <a href="#main-content" className="skip-link">
             {common("skipToContent")}
           </a>
-          <PageLoader />
-          {/*
-            The header needs no RTL prop of its own. It is a centred pill whose
-            inner row is a flex `justify-between`, so `dir` swaps the logo and
-            the toggle for free, and the card grid below reflows the same way.
-            Everything directional inside it (the link nudge on hover, the
-            up-and-out arrow) is handled there with logical properties and
-            `.arrow-inline`.
 
-            Socials are passed in rather than imported inside the component so
-            the canonical list in SocialLinks stays the single source of URLs.
-          */}
-          <SiteHeader socials={allSocials} />
-          <main id="main-content" tabIndex={-1}>
-            {children}
-          </main>
-          <Footer />
+          <SiteFrame>{children}</SiteFrame>
         </NextIntlClientProvider>
       </body>
     </html>

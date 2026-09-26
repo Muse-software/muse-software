@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
-export const runtime = "edge";
-export const alt = "Muse Studios — AI Transformation, Product Engineering, Gamification";
+export const runtime = "nodejs";
+export const alt = "Muse Studios — Websites, Apps & Software, Riyadh";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -49,10 +49,10 @@ export default function OpengraphImage() {
             display: "flex",
           }}
         >
-          AI Transformation, Product Engineering &amp; Gamification — Riyadh
+          Websites, apps &amp; useful software — Riyadh
         </div>
       </div>
     ),
-    { ...size }
+    { ...size },
   );
 }

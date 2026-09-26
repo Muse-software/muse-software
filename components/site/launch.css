@@ -1,0 +1,184 @@
+/* The main site has one visual voice. Secondary templates inherit Mosaic. */
+.direction-mosaic .eyebrow,.direction-mosaic .dir-eyebrow{display:none}
+.direction-mosaic .dir-header-inner{gap:30px}
+.direction-mosaic .dir-desktop-nav{margin-inline-start:auto}
+.direction-mosaic .dir-footer{background:radial-gradient(ellipse at 75% 0%,#4c001429,transparent 60%),#0d090c}
+.direction-mosaic .dir-footer-top{padding-block:10px 58px}
+.direction-mosaic .dir-footer-logo{width:min(320px,100%)}
+.direction-mosaic .dir-footer-top>a:last-child{font-size:clamp(23px,3vw,40px)}
+.mx-hero-bottom{grid-template-columns:minmax(0,1fr) 230px}
+.mx-hero-bottom>div{min-width:0;max-width:760px}
+.mx-hero .mx-actions{margin-top:14px;gap:22px}
+/* Editorial surfaces sit within the continuous dark page. */
+.mx-human{background:transparent;color:#291a21;position:relative;padding:16px 0;overflow:visible}
+.mx-human .mx-wrap{display:grid;grid-template-columns:1.3fr 1fr;gap:64px;align-items:end;position:relative}
+.mx-editorial-card{border-radius:20px;padding:clamp(30px,5vw,72px);border:1px solid #ffffff15;overflow:hidden}
+.mx-human .mx-editorial-card{background:radial-gradient(ellipse at 0% 0%,#f1d5c5,transparent 62%),#f3ede3;box-shadow:inset 0 1px #fff8}
+.mx-human h2{font-size:clamp(36px,4.4vw,64px);line-height:1.16;letter-spacing:-.045em;font-weight:400}
+.mx-human h2 em{font-family:Georgia,serif;color:#922e20;font-weight:400}
+.mx-human .mx-belief-body{font-size:17px;line-height:1.9;max-width:460px;color:#55454b}
+.mx-human .mx-belief-label{font-size:17px;line-height:1.6;font-weight:500;margin-bottom:28px;color:#725247}
+.mx-human[dir=rtl] h2{letter-spacing:0;line-height:1.5}
+@media(max-width:799px){.mx-hero-bottom{grid-template-columns:1fr}.mx-human{padding-block:70px}.mx-human .mx-wrap{grid-template-columns:1fr;gap:28px}.mx-human h2{font-size:40px}.mx-human p{font-size:16px}.mx-goals #mx-goal-title{white-space:normal;font-size:clamp(24px,6.2vw,40px);letter-spacing:-.045em;line-height:1.2}.mx-goals[dir=rtl] #mx-goal-title,[lang=ar] .mx-goals #mx-goal-title{letter-spacing:0;line-height:1.5}.mx-hero .mx-actions{flex-wrap:wrap}}
+@media(max-height:500px) and (min-width:700px){.mx-hero{min-height:auto!important}.mx-hero-content{padding-block:24px 30px!important}.mx-hero-bottom{display:block}.mx-hero-aside{display:none}.mx-hero .mx-actions{margin-top:10px}.mx-hero-description{font-size:14px!important}}
+
+.role-department{display:inline-block;color:#c0b2b7;font-size:13px;margin-bottom:12px}
+
+/* The phone intent chooser is one stable surface, not a stack of desktop cards. */
+.mx-choice-short,.mx-choice-track,.mx-goal-mobile,.mx-intent-art{display:none}
+.mx-goal-desktop>p{font-size:15px;color:#bdb4b7;line-height:1.9;max-width:570px}
+@media(max-width:699px){
+ .mx-goals>.mx-section-head{margin-bottom:24px}
+ .mx-goals>.mx-section-head>p{display:none}
+ .mx-intent-panel{border:1px solid #55404b;border-radius:12px;background:radial-gradient(ellipse at 95% 12%,#72271c25,transparent 58%),#161115;box-shadow:inset 0 1px #ffffff09}
+ .mx-intent-panel .mx-choices{position:relative;isolation:isolate;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;margin:7px;padding:0;border:0;border-radius:7px;overflow:visible;background:#0e0b0e}
+ .mx-intent-panel .mx-choice-track{display:block;position:absolute;z-index:-1;inset-block:0;inset-inline-start:0;width:calc(100% / 3);border:1px solid #b2684e;border-radius:7px;background:linear-gradient(140deg,#653022,#3a1b25);box-shadow:inset 0 1px #ffa87e29;transform:translateX(calc(var(--intent-index) * 100%));transition:transform 280ms cubic-bezier(.22,.8,.22,1);pointer-events:none}
+ [dir=rtl] .mx-intent-panel .mx-choice-track{transform:translateX(calc(var(--intent-index) * -100%))}
+ .mx-intent-panel .mx-choice{display:flex;align-items:center;justify-content:center;min-height:62px;min-width:0;padding:10px 7px;border:0!important;border-radius:7px!important;background:transparent!important;box-shadow:none!important;gap:0;color:#c4b8bd;touch-action:manipulation}
+ .mx-intent-panel .mx-choice[aria-pressed=true]{color:#fff3e9}
+ .mx-intent-panel .mx-choice:focus-visible{outline:2px solid #ffc29f;outline-offset:-4px}
+ .mx-intent-panel .mx-choice>.mx-particle-mark,.mx-intent-panel .mx-choice-copy,.mx-intent-panel .mx-choice>.mx-arrow{display:none}
+ .mx-intent-panel .mx-choice-short{display:block;font-size:13px;line-height:1.4;text-align:center;max-width:10ch;letter-spacing:-.02em}
+ [lang=ar] .mx-intent-panel .mx-choice-short{font-size:14px;letter-spacing:0;line-height:1.6}
+ .mx-intent-panel .mx-goal-result{display:flex;flex-direction:column;gap:0;padding:19px 22px 22px}
+ .mx-intent-art{display:block;color:#ff8555;margin-bottom:12px;align-self:flex-start}
+ .mx-intent-morph{display:block;fill:currentColor;filter:drop-shadow(0 0 16px #fe470126)}
+ .mx-intent-morph rect{transition:transform 440ms cubic-bezier(.22,.8,.22,1),opacity 260ms;transform-origin:0 0}
+ .mx-intent-panel .mx-goal-desktop,.mx-intent-panel .mx-goal-question{display:none}
+ .mx-intent-panel .mx-goal-mobile{display:grid}
+ .mx-intent-message{grid-area:1/1;visibility:hidden;opacity:0;pointer-events:none}
+ .mx-intent-message[data-selected=true]{visibility:visible;opacity:1;transition:opacity 180ms ease-out}
+ .mx-intent-panel .mx-goal-copy h3{font-size:27px;font-weight:400;line-height:1.22;letter-spacing:-.04em;margin:0 0 14px}
+ .mx-intent-panel .mx-goal-copy p{font-size:15px;line-height:1.75;color:#c9bbc1;margin:0}
+ [lang=ar] .mx-intent-panel .mx-goal-copy h3{font-size:27px;line-height:1.5;letter-spacing:0}
+ [lang=ar] .mx-intent-panel .mx-goal-copy p{line-height:1.9}
+ .mx-intent-panel .mx-goal-next{border:0;padding:0;margin-top:26px}
+ .mx-intent-panel .mx-goal-next>.mx-button{width:100%;min-height:54px;margin:0;padding:14px 17px;font-size:14px;gap:12px}
+ .mx-intent-panel .mx-button>.mx-goal-mobile{display:block}
+}
+@media(prefers-reduced-motion:reduce){
+ .mx-intent-panel .mx-choice-track,.mx-intent-morph rect,.mx-intent-message[data-selected=true]{transition:none}
+}
+
+/* Arabic campaign copy has a longer, deliberately two-part headline. */
+[lang=ar] .mx-hero h1{font-size:clamp(52px,6.7vw,96px);line-height:1.45;max-width:1120px}
+[lang=ar] .mx-hero h1>span{max-width:100%}
+[lang=ar] .mx-hero-description{max-width:680px}
+@media(max-width:799px){[lang=ar] .mx-hero h1{font-size:clamp(30px,7.7vw,60px);margin-block:12px 30px;line-height:1.5}}
+@media(max-width:699px){[lang=ar] .mx-intent-panel .mx-choice-short{max-width:none;font-size:14px;line-height:1.55}[lang=ar] .mx-intent-panel .mx-choice{padding-inline:6px;min-height:78px}}
+
+/* Contrast and optical sizes are tailored to the Arabic face. */
+.direction-mosaic{--mx-action:#ff702e;--mx-action-ink:#170909}
+.mosaic-home .mx-button{background:var(--mx-action);color:var(--mx-action-ink);border-color:#ff9c6e}
+.mosaic-home .mx-button:hover{background:#ff8a51}
+.mosaic-home .mx-button:active{background:#ff6120}
+[lang=ar] .mosaic-home .mx-button{font-size:18px;font-weight:700;line-height:1.6}
+/* The dark side dissolves earlier; magenta lingers in the artwork only. */
+.mx-hero{background:#09090b;--mx-dark-side:0%}
+[dir=rtl] .mx-hero{--mx-dark-side:100%}
+.mx-hero .mosaic-pixel-field{mask-image:linear-gradient(to bottom,#000 40%,#000e 62%,#0008 80%,transparent 100%)}
+.mx-hero::after{content:"";position:absolute;z-index:1;inset-inline:0;inset-block-end:-1px;height:clamp(180px,28vw,330px);background:radial-gradient(ellipse at var(--mx-dark-side) 100%,#09090b 5%,#09090be6 28%,transparent 75%),linear-gradient(to top,#09090b,transparent 85%);pointer-events:none}
+.mx-services-head{grid-template-columns:minmax(0,1fr) auto;gap:18px 40px;align-items:center}
+.mx-services-head>.mx-text-link{justify-self:end;white-space:nowrap;gap:12px;font-size:15px}
+.mx-services-head>p{grid-column:1/-1;max-width:650px!important}
+.mx-ending{background:transparent;color:#230d0b;padding:8px 0 64px;overflow:visible}
+.mx-ending::before{content:none}
+.mx-ending .mx-editorial-card{background:radial-gradient(ellipse at 15% 0%,#ffad73,transparent 65%),#fa692d;position:relative}
+.mx-ending .mx-editorial-card::before{content:"";position:absolute;inset:0;background-image:radial-gradient(#471524 1px,transparent 1px);background-size:5px 5px;mask-image:linear-gradient(140deg,transparent 25%,#000);opacity:.10;pointer-events:none}
+.mx-ending-grid{position:relative;grid-template-columns:1.15fr .85fr;gap:64px}
+.mx-ending h2{font-size:clamp(42px,5.4vw,78px);line-height:1.12;letter-spacing:-.055em}
+[lang=ar] .mx-ending h2{font-size:clamp(38px,4.7vw,68px);line-height:1.5;letter-spacing:0}
+.mx-ending .mx-button{background:#251017;color:#fff5eb;border-color:#251017;box-shadow:inset 0 1px #775248}
+.mx-ending .mx-button:hover{background:#47202d;color:#fff5eb}
+.mx-ending .mx-button:active{background:#180b10}
+@media(max-width:799px){
+ .mx-human{padding-block:8px}
+ .mx-human .mx-wrap{grid-template-columns:1fr;gap:26px}
+ .mx-editorial-card{border-radius:14px;padding:30px 24px}
+ .mx-human h2{font-size:clamp(31px,7.8vw,48px)}
+ .mx-human .mx-belief-label{font-size:16px;margin-bottom:18px}
+ .mx-human .mx-belief-body{font-size:16px;line-height:1.85}
+ .mx-services-head{grid-template-columns:minmax(0,1fr) auto;gap:16px 18px;align-items:start}
+ .mx-services-head h2{font-size:clamp(27px,6vw,40px)}
+ [lang=ar] .mx-services-head h2{font-size:clamp(27px,6.5vw,37px)}
+ .mx-services-head>.mx-text-link{align-self:start;font-size:14px;gap:8px;min-height:44px}
+ .mx-services-head>.mx-text-link .mx-arrow{font-size:20px}
+ .mx-services-head>p{font-size:15px}
+ .mx-ending{padding-block:8px 36px}
+ .mx-ending-grid{grid-template-columns:1fr;gap:24px}
+ .mx-ending h2{font-size:clamp(37px,8.5vw,58px)}
+ [lang=ar] .mx-ending h2{font-size:clamp(33px,8vw,51px)}
+ .mx-ending-grid>div>p:first-child{font-size:16px}
+}
+@media(max-width:379px){
+ .mx-services-head{column-gap:10px}
+ [lang=ar] .mx-services-head h2{font-size:26px}
+ .mx-editorial-card{padding-inline:22px}
+}
+
+/* Round 1: mobile reading space, clear input allocation and natural Arabic emphasis. */
+[lang=ar] .mx-human h2 em{font-style:normal}
+@media(max-width:699px){
+ .mx-hero-content{padding-block-end:42px}
+ .mx-goals.mx-section{padding-block-start:42px}
+ .mx-hero-description{position:relative;isolation:isolate}
+ .mx-hero-description::before{content:"";position:absolute;z-index:-1;inset:-24px -18px;background:#10090ee8;filter:blur(20px);pointer-events:none}
+}
+
+/* Round 2: larger Arabic detail copy; mobile services avoid repeated action bars. */
+[lang=ar] .mx-services-head>.mx-text-link{font-size:16px;font-weight:500}
+@media(max-width:550px){
+ .mx-capability-grid .mx-capability>.mx-capability-link{position:absolute;grid-area:auto;inset-inline-end:20px;inset-block-end:20px;display:block;width:20px;height:24px;border:0;margin:0;padding:0;font-size:20px;line-height:1.2}
+ .mx-capability-action{display:none}
+ .mx-capability p{padding-inline-end:36px;margin-top:12px}
+ .mx-capability-link>span[aria-hidden]{display:inline-block}
+ [lang=ar] .mx-capability p{font-size:16px;line-height:1.85;color:#d2c5ca}
+ [lang=ar] .mx-services-head>p{font-size:16px}
+ [lang=ar] .mx-intent-panel .mx-choice-short{font-weight:500}
+}
+
+/* Round 3: readable supporting Arabic, with more room for FAQ answers. */
+[lang=ar] .mx-faq-list summary{font-size:18px;line-height:1.7}
+[lang=ar] .mx-faq-list details>p{font-size:16px;color:#d0c3c9;line-height:1.9}
+[lang=ar] .mx-goal-desktop>p{font-size:16px;color:#d0c3c9}
+@media(min-width:1060px){.mx-faq{grid-template-columns:.8fr 1.2fr;gap:64px}}
+@media(max-width:379px){
+ .mx-capability,.mx-capability:first-child,.mx-capability:nth-child(2){grid-template-columns:minmax(0,1fr) 32px;column-gap:12px}
+ .mx-capability-grid .mx-capability>.mx-pixel-mark{width:32px;height:32px}
+ [lang=ar] .mx-capability h3{font-size:22px}
+}
+
+.mx-faq-question{min-width:0;overflow-wrap:anywhere}
+
+/* Email-first contact, without a form or browser draft capture. */
+.mx-email-cta{margin-block:28px 18px;pointer-events:auto}
+.mx-email-cta .mx-button{min-height:60px;gap:36px;padding:16px 28px;font-size:16px}
+[lang=ar] .mx-email-cta .mx-button{font-size:20px;font-weight:700}
+.mail-contact{padding-block:clamp(64px,10vw,140px);max-width:1100px;min-height:65vh}
+.mail-contact h1{font-size:clamp(40px,6vw,76px);line-height:1.15;letter-spacing:-.04em;max-width:850px}
+[lang=ar] .mail-contact h1{line-height:1.5;letter-spacing:0}
+.mail-contact>p{max-width:640px;color:var(--dir-muted);font-size:18px;line-height:1.85;margin-block:24px 30px}
+.mail-contact>.dir-button{min-height:60px;font-size:17px}
+[lang=ar] .mail-contact>.dir-button{font-size:20px;font-weight:700}
+.mail-contact .mail-contact-help{font-size:15px;margin-block:32px 8px}
+.mail-contact-address{display:inline-flex;align-items:center;min-height:44px;font-size:clamp(20px,3vw,30px);text-underline-offset:6px;overflow-wrap:anywhere}
+.mail-contact-address:hover{text-decoration:underline}
+.mail-contact-whatsapp{display:flex;flex-wrap:wrap;align-items:center;gap:8px 20px;min-height:48px;max-width:650px;margin-top:28px;padding-block:20px;border-top:1px solid var(--dir-line);font-size:16px}
+.mail-contact-whatsapp:hover{color:#ffc09e}
+.dir-footer-connections{max-width:1328px;margin:0 auto 28px;display:flex;justify-content:space-between;align-items:center;gap:20px 40px;flex-wrap:wrap}
+.dir-whatsapp,.dir-socials a{display:inline-flex;align-items:center;gap:12px;min-height:48px;padding-block:8px;font-size:15px}
+.dir-whatsapp{gap:16px;flex-wrap:wrap}
+.dir-whatsapp:hover,.dir-socials a:hover{color:#ffb28d}
+.dir-socials{display:flex;align-items:center;gap:24px;flex-wrap:wrap}
+.dir-socials a>span{font-size:19px;transition:transform 180ms}
+.dir-socials a:hover>span{transform:translate(2px,-2px)}
+@media(max-width:799px){
+ .dir-footer-connections{align-items:flex-start;flex-direction:column;gap:12px;margin-bottom:20px}
+ .dir-socials{gap:22px}
+ .mail-contact{min-height:0;padding-block:64px 80px}
+ .mail-contact>p{font-size:16px}
+}
+@media(prefers-reduced-motion:reduce){.dir-socials a>span{transition:none}.dir-socials a:hover>span{transform:none}}
+.mail-contact>.dir-button{background:var(--mx-action);color:var(--mx-action-ink)}
+.mail-contact>.dir-button:hover{background:#ff8a51}
+@media(max-width:799px){.dir-socials{gap:18px}.dir-socials a{font-size:14px;gap:8px}}

@@ -68,8 +68,8 @@ export default function GlobalError({
           >
             An unexpected error stopped this page from loading. Try again, and if
             it keeps happening, email{" "}
-            <a href="mailto:info@muse.sa" style={{ color: "#fd4601" }}>
-              info@muse.sa
+            <a href="mailto:abdullah@muse.sa" style={{ color: "#fd4601" }}>
+              abdullah@muse.sa
             </a>
             .
           </p>
