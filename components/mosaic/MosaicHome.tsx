@@ -11,7 +11,7 @@ import MosaicParticleMark, { MosaicMorphMark } from "./MosaicParticleMark";
 type Locale = "en" | "ar";
 const copy = {
  en: {
-  hero:["Good ideas.","Made useful."],
+  hero:["Bringing greatness", "to life"],
   intro:"Websites, apps, and better ways to work. We bring the thinking, design, and build together to move your business forward.",
   start:"Let's build something", aside:"From the first question\nto the thing that works.", disciplines:["Strategy","Design","Engineering"],
    goalTitle:"Where can we help?", goalIntro:"Build something new, improve what you have, or take repetitive tasks off your team’s hands.",
