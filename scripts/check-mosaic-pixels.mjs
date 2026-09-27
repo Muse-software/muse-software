@@ -182,6 +182,10 @@ try {
       await visit(page, locale);
       await page.locator(heroCanvas).waitFor();
       const moving = await assertDrawing(page, heroCanvas);
+      const idleFrame = await page.locator(heroCanvas).screenshot();
+      await delay(1500);
+      const nextIdleFrame = await page.locator(heroCanvas).screenshot();
+      assert.notEqual(hash(idleFrame), hash(nextIdleFrame), "Hero pixels stay fixed without a click");
       assert.equal(await page.locator(cardCanvas).count(), 0, "Card renderer allocated before interaction");
       const ratio = await page.locator(heroCanvas).evaluate((canvas) => canvas.width / canvas.getBoundingClientRect().width);
       assert(ratio <= 1.251, `Drawing buffer DPR exceeds cap: ${ratio}`);

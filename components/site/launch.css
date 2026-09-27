@@ -182,3 +182,11 @@
 .mail-contact>.dir-button{background:var(--mx-action);color:var(--mx-action-ink)}
 .mail-contact>.dir-button:hover{background:#ff8a51}
 @media(max-width:799px){.dir-socials{gap:18px}.dir-socials a{font-size:14px;gap:8px}}
+
+/* Font Awesome artwork replaces font-dependent glyphs throughout the public UI. */
+.site-icon{display:inline-block;width:1em;height:1em;flex-shrink:0;vertical-align:-.125em;fill:currentColor;overflow:visible}
+[dir=rtl] .site-icon-directional{transform:scaleX(-1)}
+.dir-mobile-nav>a>.site-icon:last-child{margin-inline-start:auto}
+.dir-footer-top>a:last-child>.site-icon{width:.72em;height:.72em;margin-inline-start:.2em}
+.dir-socials .site-icon{font-size:15px}
+@media(max-width:699px){.mx-intent-panel{touch-action:pan-y pinch-zoom}}

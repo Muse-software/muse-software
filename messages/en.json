@@ -50,7 +50,7 @@
       "sections": [
         {
           "heading": "Contacting us",
-          "body": "This website currently uses email and WhatsApp links instead of contact forms. Clicking an email link opens your email app; it does not send a message automatically. We receive the information you choose to send when you send your message."
+          "body": "Our enquiry form prepares an email in your own email app. Your answers are not submitted to a Muse server by the form. We receive your message only when you send it through your email provider. Direct email and WhatsApp links are also available."
         },
         {
           "heading": "How we use your message",
@@ -58,7 +58,7 @@
         },
         {
           "heading": "Website preferences and technical data",
-          "body": "The site remembers your language preference in a cookie. It does not collect project briefs, capture email addresses, or save enquiry drafts in the browser. The site does not load an analytics tracker. Hosting providers may process basic connection data to serve and secure the site."
+          "body": "The site remembers your language preference in a cookie. Enquiry answers are saved temporarily in this browser tab so you can restore an unfinished draft. Choose Start fresh on return to clear that draft. The website does not send those answers to a server or load an analytics tracker. Hosting providers may process basic connection data to serve and secure the site."
         },
         {
           "heading": "External services",

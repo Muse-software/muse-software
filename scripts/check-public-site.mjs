@@ -20,12 +20,11 @@ try {
   assert.equal((await page.goto(`${base}/${locale}`)).status(),200);await page.locator("main h1").waitFor();await page.evaluate(()=>document.fonts.ready);
   const overflow=async()=>assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false,'horizontal overflow');await overflow();
   assert.equal(await page.locator('main h1').count(),1);assert.equal(await page.locator('form,input[type=email]').count(),0);
-  const hero=page.locator('.mx-email-cta a');assert((await hero.getAttribute('href')).startsWith('mailto:abdullah@muse.sa?subject='));
-  await hero.click();assert.match(await page.locator('html').getAttribute('data-test-handoff'),/^mailto:abdullah@muse.sa\?subject=/);
+  const hero=page.locator('.mx-email-cta a');assert.equal(await hero.getAttribute('href'),`/${locale}/start`);
   if(locale==='ar')assert(await hero.evaluate(e=>getComputedStyle(e).fontFamily.includes('IBM')&&parseFloat(getComputedStyle(e).fontSize)>=18));
   await page.screenshot({path:`${out}/${locale}-${width}-hero.png`});
   const choices=page.locator('.mx-choices .mx-choice');await choices.nth(2).click();await page.waitForFunction(()=>document.querySelectorAll('.mx-choice')[2]?.getAttribute('aria-pressed')==='true');
-  assert.equal(decodeURIComponent(await page.locator('.mx-goal-next a').getAttribute('href')),`mailto:abdullah@muse.sa?subject=${locale==='ar'?'تسهيل طريقة العمل':'Simplifying our workflow'}`);
+  assert.equal(decodeURIComponent(await page.locator('.mx-goal-next a').getAttribute('href')),`/${locale}/start?intent=ai`);
   const faq=page.locator('.mx-faq-list summary').nth(1);await faq.press('Enter');assert.equal(await faq.locator('..').getAttribute('open'),'');await faq.press('Enter');assert.equal(await faq.locator('..').getAttribute('open'),null);
   if(width<800){await page.locator('.dir-menu-toggle').click();assert.equal(await page.locator('main').getAttribute('inert'),'');await page.keyboard.press('Escape');assert.equal(await page.locator('.dir-menu-toggle').getAttribute('aria-expanded'),'false');}
   const social=page.locator('.dir-socials a');assert.equal(await social.count(),3);
@@ -34,11 +33,10 @@ try {
   await page.locator('.dir-footer').screenshot({path:`${out}/${locale}-${width}-footer.png`});
   const axe=await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa','wcag21aa']).analyze();assert.deepEqual(axe.violations.map(x=>({id:x.id,nodes:x.nodes.map(n=>n.target)})),[]);
   await page.locator('.mx-services-head>a').click();await page.waitForURL(`${base}/${locale}/services`);await page.locator('main h1').waitFor();await overflow();
-  assert((await page.locator('.dir-page-cta a').getAttribute('href')).startsWith('mailto:abdullah@muse.sa'));
-  await page.goto(`${base}/${locale}/start`);await page.locator('main h1').waitFor();assert.equal(await page.locator('form,input,textarea').count(),0);await overflow();
-  assert.equal(await page.locator('.mail-contact-address').innerText(),'abdullah@muse.sa');await page.locator('.mail-contact>.dir-button').click();assert.match(await page.locator('html').getAttribute('data-test-handoff'),/^mailto:abdullah@muse.sa/);
+  assert.equal(await page.locator('.dir-page-cta a').getAttribute('href'),`/${locale}/start`);
+  await page.goto(`${base}/${locale}/start`);await page.locator('.inquiry-layout[data-ready=true]').waitFor();await overflow();assert.equal(await page.locator('.intent-options input').count(),4);
   await page.screenshot({path:`${out}/${locale}-${width}-contact.png`});
-  assert.deepEqual(errors,[]);assert.deepEqual(mutations,[]);results.push({locale,width,pass:true});console.log(`PASS ${locale} ${width}: email/WhatsApp, social, chooser, FAQ, menu, contact fallback, accessibility`);await context.close();
+  assert.deepEqual(errors,[]);assert.deepEqual(mutations,[]);results.push({locale,width,pass:true});console.log(`PASS ${locale} ${width}: enquiry entry/WhatsApp, social, chooser, FAQ, menu, form shell, accessibility`);await context.close();
  }
  const context=await browser.newContext();
  for(const path of ['/en/archive','/ar/archive/signal','/en/newsletter','/ar/newsletter'])assert.equal((await context.request.get(`${base}${path}`)).status(),404,path);
@@ -50,11 +48,11 @@ try {
    assert.equal((await page.goto(`${base}/${locale}/${path}`)).status(),200,path);await page.locator('main h1').waitFor();
    assert.equal(await page.locator('form').count(),0);assert.equal(await page.locator('html').getAttribute('lang'),locale);
   }
-  await page.goto(`${base}/${locale}/services`);const detail=page.locator(`main a[href^="/${locale}/services/"]`).first();await detail.click();await page.locator('main h1').waitFor();assert.match(new URL(page.url()).pathname,/services\/[^/]+$/);
+  await page.goto(`${base}/${locale}/services`);const detail=page.locator(`main a[href^="/${locale}/services/"]`).first();const detailUrl=await detail.getAttribute('href');await detail.click();await page.waitForURL(`${base}${detailUrl}`);await page.locator('main h1').waitFor();assert.match(new URL(page.url()).pathname,/services\/[^/]+$/);
   for(const [from,to] of [['contact','start'],['directions/mosaic','']]){await page.goto(`${base}/${locale}/${from}`);assert.equal(new URL(page.url()).pathname,`/${locale}${to?'/'+to:''}`);}
   await page.goto(`${base}/${locale}/start`);await page.getByRole('link',{name:locale==='en'?'التبديل إلى العربية':'Switch to English'}).first().click();await page.waitForURL(`${base}/${locale==='en'?'ar':'en'}/start`);assert.equal(await page.locator('html').getAttribute('dir'),locale==='en'?'rtl':'ltr');
  }
  assert.deepEqual(secondaryErrors,[]);
  const og=await context.request.get(`${base}/opengraph-image`);assert.equal(og.status(),200);assert.match(og.headers()['content-type'],/image\/png/);
  console.log('PASS secondary pages, service detail, language switch, redirects, social image, retired routes/APIs and public sitemap');await context.close();
-}finally{writeFileSync(`${out}/results.json`,JSON.stringify(results,null,2));await browser.close();}
+}finally{writeFileSync(`${out}/${process.argv.includes('--secondary-only')?'secondary-results':'results'}.json`,JSON.stringify(results,null,2));await browser.close();}

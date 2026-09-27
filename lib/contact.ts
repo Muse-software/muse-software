@@ -1,6 +1,6 @@
 import type { Locale } from "@/i18n/routing";
 
-/** Temporary email contact mode: one destination for all public enquiries. */
+/** Shared destinations for the enquiry form and direct contact links. */
 export const CONTACT_EMAIL = "abdullah@muse.sa";
 export const WHATSAPP_URL = "https://wa.me/966592731040";
 export const WHATSAPP_NUMBER = "+966 59 273 1040";
@@ -22,3 +22,8 @@ export const SOCIAL_LINKS = [
   {label: "LinkedIn", href: "https://www.linkedin.com/company/musesoftware/"},
   {label: "X", href: "https://x.com/muse_software"},
 ] as const;
+
+export function inquiryHref(locale: Locale, intent?: string) {
+  const query = intent && ['build','improve','ai','unsure'].includes(intent) ? `?intent=${intent}` : '';
+  return `/${locale}/start${query}`;
+}

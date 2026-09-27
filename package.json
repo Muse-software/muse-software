@@ -9,9 +9,12 @@
     "lint": "eslint",
     "test:motion": "node scripts/check-mosaic-pixels.mjs",
     "test:performance": "node scripts/check-mosaic-performance.mjs",
-    "test:public": "node scripts/check-public-site.mjs"
+    "test:public": "node scripts/check-public-site.mjs",
+    "test:swipe": "node scripts/check-intent-swipe.mjs",
+    "test:inquiry": "node scripts/check-inquiry.mjs"
   },
   "dependencies": {
+    "@fortawesome/free-solid-svg-icons": "^7.3.1",
     "next": "16.3.6",
     "next-intl": "^4.13.4",
     "react": "19.2.3",

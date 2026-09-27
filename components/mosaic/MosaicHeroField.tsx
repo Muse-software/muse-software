@@ -15,7 +15,8 @@ export default function MosaicHeroField({ locale }: { locale: "en" | "ar" }) {
     let renderer: MosaicRenderer | null = null;
     let frame = 0;
     let lastFrame = 0;
-    let time = 5.6;
+    // Match the original PixelBlast phase and 0.6x evolving noise clock.
+    let time = Math.random() * 1000;
     let visible = false;
     let failed = false;
     let disposed = false;
@@ -25,7 +26,6 @@ export default function MosaicHeroField({ locale }: { locale: "en" | "ar" }) {
       frame = 0;
       if (!canAnimate() || !renderer) return;
       frame = requestAnimationFrame(draw);
-      if (lastFrame && now - lastFrame < 1000 / 30) return;
       time += lastFrame ? Math.min((now - lastFrame) / 1000, 0.08) * 0.6 : 0;
       lastFrame = now;
       renderer.draw(time);

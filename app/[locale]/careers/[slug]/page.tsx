@@ -1,3 +1,5 @@
+
+import Icon from "@/components/Icon";
 import { notFound } from "next/navigation";
 import { Link } from "@/i18n/navigation";
 import SubpageHero from "@/components/sections/SubpageHero";
@@ -85,9 +87,7 @@ export default async function CareerRolePage({
       <section className="bg-[#060608] pb-20 md:pb-28">
         <div className="mx-auto w-full max-w-[800px] px-5 md:px-10">
           <Link href="/careers" className="text-link career-back">
-            <span className="arrow-inline" aria-hidden>
-              ←
-            </span>
+            <Icon name="arrow-left" className="arrow-inline"/>
             {locale === "ar" ? "كل الوظائف" : "All roles"}
           </Link>
           <div className="flex flex-wrap gap-x-8 gap-y-2 border-b border-white/10 pb-8 text-sm text-white/60">
@@ -166,7 +166,7 @@ export default async function CareerRolePage({
             </p>
             <a href={applyHref} className="studio-button secondary">
               {locale === "ar" ? "قدّم بالإيميل" : "Apply by email"}{" "}
-              <span aria-hidden>↗</span>
+              <Icon name="arrow-up-right"/>
             </a>
             <p className="recruitment-fallback">
               {locale === "ar"

@@ -36,3 +36,23 @@ The release updates Next.js and its lint configuration to 16.3.6 and refreshes c
 - Eight graphics checks pass across both languages: motion lifecycle, shared card renderer, reduced-motion changes, unavailable WebGL and context-loss fallback.
 - Retired forms, archive/newsletter routes and sitemap exclusions verified. Mobile hero, footer and contact captures inspected directly.
 - External app delivery and physical-device behavior remain unverified. The build emits a metadata-base fallback warning for its internal fallback route; public localized pages set the Muse production metadata base.
+
+### Icon and interaction refinement
+
+Public navigation, project actions, service links, careers, contact and error-state arrows use bundled Font Awesome Free SVGs through a shared component. FAQ disclosure marks use the same icon source. UI conventions explicitly prohibit emoji and text-arrow substitutes.
+
+The hero again uses the original PixelBlast noise coverage, 0.6x clock, randomized initial phase and jitter. Mosaic's color and directional composition remain as opacity treatment rather than a fixed density ribbon. Reduced-motion, visibility suspension and graphics fallbacks are retained.
+
+The mobile intent chooser keeps its layout and gains direction-aware touch/pen swiping across the entire panel. Selection stops at either end; vertical scrolling, pinch zoom, direct button taps and keyboard operation remain available. Horizontal drags cannot accidentally launch the email action.
+
+Browser touch checks pass at 320px and 390px in English and Arabic, including both directions, boundaries, swipes over controls, quick follow-up taps, short/cancelled gestures and vertical scrolling. Physical iOS/Android device testing remains unverified.
+
+### Restored enquiry with email handoff
+
+The previous three-step Mosaic form is public again at the localized `/start` routes. Project CTAs enter the form and preserve the selected intent; footer email and WhatsApp links remain direct. No API or external delivery service was restored.
+
+The final action prepares a localized email to abdullah@muse.sa containing goal, timing, note, name, reply address, optional company and requested phone contact. Visitors send it themselves. The handoff screen offers reopening, full-message copy, manual selection when clipboard access fails, and editing. Long notes remain complete in the on-page message and encoded draft; a notice explains email-app length limits.
+
+Tab-scoped draft recovery, invalid input, blocked storage and language changes are supported. Arabic keeps IBM Plex Sans Arabic, RTL alignment and Western digits; icons use Font Awesome. Privacy text now describes local drafts accurately.
+
+Validation covers English/Arabic at 320, 390 and 1440px, malformed contact details, phone digit normalization, subject/body encoding, interrupted drafts, long Arabic notes and denied clipboard access. Browser tests intercept mailto handoffs: real email-app behavior and delivery remain unverified.

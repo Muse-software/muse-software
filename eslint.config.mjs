@@ -9,6 +9,7 @@ const eslintConfig = defineConfig([
   globalIgnores([
     // Default ignores of eslint-config-next:
     ".next/**",
+    ".next-*/**",
     ".next-muse-dev/**",
     ".next-muse-release/**",
     "docs/mosaic-launch/evidence/**",

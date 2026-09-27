@@ -1,4 +1,6 @@
 "use client";
+
+import Icon from "@/components/Icon";
 import { useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
@@ -71,9 +73,7 @@ export default function CareersList({
               <span>{role.employmentType}</span>
               <span className="text-link">
                 {t("viewJd")}{" "}
-                <span className="arrow-inline" aria-hidden>
-                  ↗
-                </span>
+                <Icon name="arrow-up-right" className="arrow-inline"/>
               </span>
             </div>
           </Link>

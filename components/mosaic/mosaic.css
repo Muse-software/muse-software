@@ -33,7 +33,7 @@
 .mx-wrap{width:min(100% - 112px,1328px);margin-inline:auto}
 .mx-section{padding-block:105px}
 .mx-eyebrow{font-size:11px;font-weight:500;letter-spacing:.12em;line-height:1.7;text-transform:uppercase}
-.mx-arrow{display:inline-block;font-family:Arial,sans-serif;font-weight:400;line-height:1;transition:transform 200ms}
+.mx-arrow{display:inline-block;line-height:1;transition:transform 200ms}
 [dir=rtl] .mx-arrow{transform:scaleX(-1)}
 .mx-button{position:relative;display:inline-flex;align-items:center;justify-content:space-between;gap:35px;min-height:56px;padding:15px 23px;background:#fe4701;color:#1b0e09;border:1px solid #ff8956;border-radius:5px;box-shadow:inset 0 1px #ffb18c;font-size:14px;font-weight:600;line-height:1.5;transition:background 180ms,box-shadow 180ms,transform 120ms}
 .mx-button>.mx-arrow{font-size:23px}

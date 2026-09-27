@@ -1,3 +1,5 @@
+
+import Icon from "@/components/Icon";
 import SubpageHero from "@/components/sections/SubpageHero";
 import CareersList from "@/components/sections/CareersList";
 import { getCareerRoles } from "@/lib/content";
@@ -46,7 +48,7 @@ export default async function CareersPage({ params }: Props) {
           {locale === "ar"
             ? "عرّفنا بنفسك بالإيميل"
             : "Introduce yourself by email"}{" "}
-          <span aria-hidden>↗</span>
+          <Icon name="arrow-up-right"/>
         </a>
         <a className="recruitment-email" href="mailto:abdullah@muse.sa" dir="ltr">
           abdullah@muse.sa

@@ -15,10 +15,8 @@ const fragmentSource = `#version 300 es\n${FRAGMENT_SRC
     float distortion = vnoise(vec3(topDown * vec2(5.5, 3.0), uTime * 0.045)) * 0.08;
     float distanceToRibbon = abs(topDown.y - curve + distortion);
     ribbon = exp(-pow(distanceToRibbon / 0.16, 2.0));
-    float tail = exp(-pow((topDown.y - 0.77 + topDown.x * 0.12) / 0.24, 2.0));
-    float right = smoothstep(0.10, 0.72, topDown.x);
-    feed = base * 0.70 - 0.14 + ribbon * 0.86 + tail * 0.17;
-    feed *= 0.18 + right * 0.82;
+    // Keep the original evolving FBM coverage. Composition belongs in opacity,
+    // not in the threshold: a density ribbon pins cells on and hides idle motion.
   }
   `)
   .replace("fragColor = vec4(srgbColor, M);", `
@@ -26,7 +24,7 @@ const fragmentSource = `#version 300 es\n${FRAGMENT_SRC
     float right = smoothstep(0.08, 0.72, topDown.x);
     float baseShade = 0.45 + 0.55 * ribbon;
     srgbColor *= baseShade;
-    M *= (0.2 + right * 0.8) * (1.0 - smoothstep(0.77, 1.0, topDown.y));
+    M *= (0.25 + ribbon * 0.75) * (0.2 + right * 0.8) * (1.0 - smoothstep(0.77, 1.0, topDown.y));
   } else {
     vec2 local = (gl_FragCoord.xy - uCardRect.xy) / uCardRect.zw;
     if (any(lessThan(local, vec2(0.0))) || any(greaterThan(local, vec2(1.0)))) discard;
@@ -99,9 +97,9 @@ export function createMosaicRenderer(mode: "hero" | "card"): MosaicRenderer | nu
   gl.uniform3f(uniform("uColor"), linear(254 / 255), linear(71 / 255), linear(1 / 255));
   gl.uniform1i(uniform("uMosaicMode"), mode === "hero" ? 0 : 1);
   gl.uniform1i(uniform("uShapeType"), 0);
-  gl.uniform1f(uniform("uScale"), mode === "hero" ? 3.1 : 4.0);
+  gl.uniform1f(uniform("uScale"), mode === "hero" ? 3.0 : 4.0);
   gl.uniform1f(uniform("uDensity"), mode === "hero" ? 1.2 : 1.7);
-  gl.uniform1f(uniform("uPixelJitter"), mode === "hero" ? 0.34 : 0.08);
+  gl.uniform1f(uniform("uPixelJitter"), mode === "hero" ? 0.4 : 0.08);
   gl.uniform1i(uniform("uEnableRipples"), mode === "hero" ? 1 : 0);
   gl.uniform1f(uniform("uRippleSpeed"), 0.4);
   gl.uniform1f(uniform("uRippleThickness"), 0.12);
