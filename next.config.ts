@@ -3,6 +3,17 @@ import createNextIntlPlugin from "next-intl/plugin";
 
 const withNextIntl = createNextIntlPlugin("./i18n/request.ts");
 
+// Required settings, checked here so a missing value fails the build or dev
+// server immediately instead of shipping `mailto:undefined` links or a form
+// whose captcha cannot be verified. See .env.example.
+const CONTACT_EMAIL = process.env.CONTACT_EMAIL?.trim();
+if (!CONTACT_EMAIL || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(CONTACT_EMAIL)) {
+  throw new Error("CONTACT_EMAIL must be set to a valid email address (see .env.example).");
+}
+if (!process.env.CAPTCHA_SECRET || process.env.CAPTCHA_SECRET.length < 32) {
+  throw new Error("CAPTCHA_SECRET must be set to at least 32 random characters (see .env.example).");
+}
+
 // A nonce-based CSP (dropping 'unsafe-inline' from script-src) was tried via
 // middleware and reverted: Next can only inject a fresh per-request nonce
 // into dynamically-rendered HTML, so every statically-generated route's
@@ -64,6 +75,8 @@ const nextConfig: NextConfig = {
   distDir: process.env.NEXT_OUTPUT_DIR || ".next",
   devIndicators: false,
   poweredByHeader: false,
+  // Inlined into server and client bundles; the secret is never listed here.
+  env: { CONTACT_EMAIL },
   async headers() {
     return [
       {

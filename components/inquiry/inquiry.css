@@ -567,3 +567,24 @@
 @media(max-width:650px){.dir-inquiry .form-actions{gap:12px}.dir-inquiry .form-actions>.studio-button{max-width:75%;padding-inline:16px}.dir-inquiry .inquiry-progress>div{font-size:11px!important;gap:5px!important}.dir-inquiry .inquiry-handoff .studio-button{width:100%}}
 .dir-inquiry .inquiry-aside>.text-link{display:flex;width:fit-content;flex-wrap:wrap;gap:10px;font-size:13px}
 @media(max-width:650px){.direction-site .inquiry-layout[data-step='4'] .inquiry-aside{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}}
+
+/* Submission states */
+.inquiry-fields .studio-button:disabled,
+.inquiry-fields .text-link:disabled {
+  opacity: 0.6;
+  cursor: progress;
+}
+.inquiry-form-error {
+  margin-top: 16px;
+}
+.inquiry-form-error a,
+.inquiry-form-error .text-link {
+  color: #ffd9cc;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.inquiry-reference {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  letter-spacing: 0.08em;
+  color: #e7dfd7;
+}

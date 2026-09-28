@@ -1,5 +1,7 @@
 "use client";
 
+import { CONTACT_EMAIL, mailtoHref } from "@/lib/contact";
+
 /**
  * Last-resort boundary: it replaces the entire tree, including
  * `app/[locale]/layout.tsx`, so it must render its own `<html>`/`<body>`.
@@ -66,10 +68,10 @@ export default function GlobalError({
               color: "rgba(255,255,255,0.7)",
             }}
           >
-            An unexpected error stopped this page from loading. Try again, and if
-            it keeps happening, email{" "}
-            <a href="mailto:abdullah@muse.sa" style={{ color: "#fd4601" }}>
-              abdullah@muse.sa
+            An unexpected error stopped this page from loading. Try again, and
+            if it keeps happening, email{" "}
+            <a href={mailtoHref()} style={{ color: "#fd4601" }}>
+              {CONTACT_EMAIL}
             </a>
             .
           </p>

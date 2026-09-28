@@ -4,7 +4,7 @@ import { Link } from "@/i18n/navigation";
 import { studioServices } from "@/lib/studio-services";
 import type { Locale } from "@/i18n/routing";
 import { getTranslations } from "next-intl/server";
-import {inquiryHref} from "@/lib/contact";
+import {CONTACT_EMAIL,inquiryHref} from "@/lib/contact";
 import MaterialStudy from "./MaterialStudy";
 
 type Props = {locale: Locale; base?: string};
@@ -29,5 +29,5 @@ export function SiteAbout({locale,base=""}:Props) {
 }
 export async function SiteLegal({locale,base,kind}:{locale:Locale;base:string;kind:"privacy"|"terms"}) {
  const ar=locale==="ar",t=await getTranslations({locale,namespace:"Legal"});const sections=t.raw(`${kind}.sections`) as {heading:string;body:string}[];
- return <article className="dir-legal dir-container"><Link className="dir-breadcrumb" href={base || "/"}><Icon name="arrow-left"/> {ar?"العودة للرئيسية":"Back to home"}</Link><h1>{t(`${kind}.title`)}</h1><p>{t("lastUpdated",{updated:t("updated")})}</p>{sections.map(s=><section key={s.heading}><h2>{s.heading}</h2><p>{s.body}</p></section>)}</article>;
+ return <article className="dir-legal dir-container"><Link className="dir-breadcrumb" href={base || "/"}><Icon name="arrow-left"/> {ar?"العودة للرئيسية":"Back to home"}</Link><h1>{t(`${kind}.title`)}</h1><p>{t("lastUpdated",{updated:t("updated")})}</p>{sections.map(s=><section key={s.heading}><h2>{s.heading}</h2><p>{s.body.replaceAll("{email}",CONTACT_EMAIL)}</p></section>)}</article>;
 }

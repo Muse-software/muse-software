@@ -1,9 +1,9 @@
-
 import Icon from "@/components/Icon";
 import SubpageHero from "@/components/sections/SubpageHero";
 import CareersList from "@/components/sections/CareersList";
 import { getCareerRoles } from "@/lib/content";
 import { buildMetadata } from "@/lib/seo";
+import { CONTACT_EMAIL, mailtoHref } from "@/lib/contact";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import type { Locale } from "@/i18n/routing";
 
@@ -29,10 +29,7 @@ export default async function CareersPage({ params }: Props) {
 
   return (
     <div className="relative isolate min-h-screen bg-[#060608] text-white">
-      <SubpageHero
-        title={t("title")}
-        subtitle={t("subtitle")}
-      />
+      <SubpageHero title={t("title")} subtitle={t("subtitle")} />
       <CareersList roles={getCareerRoles(locale)} />
       <section className="recruitment-panel shell">
         <h2>{tCareers("noMatch")}</h2>
@@ -43,15 +40,15 @@ export default async function CareersPage({ params }: Props) {
         </p>
         <a
           className="studio-button secondary"
-          href={`mailto:abdullah@muse.sa?subject=${encodeURIComponent(tCareers("generalSubject"))}`}
+          href={mailtoHref(tCareers("generalSubject"))}
         >
           {locale === "ar"
             ? "عرّفنا بنفسك بالإيميل"
             : "Introduce yourself by email"}{" "}
-          <Icon name="arrow-up-right"/>
+          <Icon name="arrow-up-right" />
         </a>
-        <a className="recruitment-email" href="mailto:abdullah@muse.sa" dir="ltr">
-          abdullah@muse.sa
+        <a className="recruitment-email" href={mailtoHref()} dir="ltr">
+          {CONTACT_EMAIL}
         </a>
       </section>
     </div>

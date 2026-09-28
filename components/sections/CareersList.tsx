@@ -4,6 +4,7 @@ import Icon from "@/components/Icon";
 import { useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
+import { mailtoHref } from "@/lib/contact";
 import type { CareerRole } from "@/lib/content";
 const ALL = "__all__";
 export default function CareersList({
@@ -57,7 +58,7 @@ export default function CareersList({
             href={
               role.slug
                 ? `/careers/${role.slug}`
-                : `mailto:abdullah@muse.sa?subject=${encodeURIComponent(t("generalSubject"))}`
+                : mailtoHref(t("generalSubject"))
             }
             className="career-row"
           >
@@ -73,7 +74,7 @@ export default function CareersList({
               <span>{role.employmentType}</span>
               <span className="text-link">
                 {t("viewJd")}{" "}
-                <Icon name="arrow-up-right" className="arrow-inline"/>
+                <Icon name="arrow-up-right" className="arrow-inline" />
               </span>
             </div>
           </Link>
