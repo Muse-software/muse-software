@@ -1,10 +1,10 @@
-
 import Icon from "@/components/Icon";
 import { notFound } from "next/navigation";
 import { Link } from "@/i18n/navigation";
 import SubpageHero from "@/components/sections/SubpageHero";
 import { allSlugs, getCareerRole, getCareerRoles } from "@/lib/content";
 import { buildMetadata, buildJobPostingJsonLd } from "@/lib/seo";
+import { CONTACT_EMAIL, mailtoHref } from "@/lib/contact";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import type { Locale } from "@/i18n/routing";
 
@@ -48,9 +48,7 @@ export default async function CareerRolePage({
 
   // Was `Application: ${role.title}`, which composed an English word with an
   // Arabic role name and handed the reader a half-translated subject line.
-  const applyHref = `mailto:abdullah@muse.sa?subject=${encodeURIComponent(
-    careers("applySubject", { role: role.title }),
-  )}`;
+  const applyHref = mailtoHref(careers("applySubject", { role: role.title }));
 
   const description = [
     role.blurb,
@@ -79,15 +77,12 @@ export default async function CareerRolePage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <SubpageHero
-        title={role.title}
-        subtitle={role.blurb}
-      />
+      <SubpageHero title={role.title} subtitle={role.blurb} />
 
       <section className="bg-[#060608] pb-20 md:pb-28">
         <div className="mx-auto w-full max-w-[800px] px-5 md:px-10">
           <Link href="/careers" className="text-link career-back">
-            <Icon name="arrow-left" className="arrow-inline"/>
+            <Icon name="arrow-left" className="arrow-inline" />
             {locale === "ar" ? "كل الوظائف" : "All roles"}
           </Link>
           <div className="flex flex-wrap gap-x-8 gap-y-2 border-b border-white/10 pb-8 text-sm text-white/60">
@@ -166,14 +161,14 @@ export default async function CareerRolePage({
             </p>
             <a href={applyHref} className="studio-button secondary">
               {locale === "ar" ? "قدّم بالإيميل" : "Apply by email"}{" "}
-              <Icon name="arrow-up-right"/>
+              <Icon name="arrow-up-right" />
             </a>
             <p className="recruitment-fallback">
               {locale === "ar"
                 ? "ما فتح تطبيق الإيميل؟ راسلنا على"
                 : "No email app? Write to"}{" "}
               <a href={applyHref} dir="ltr">
-                abdullah@muse.sa
+                {CONTACT_EMAIL}
               </a>
             </p>
           </div>

@@ -50,7 +50,7 @@
       "sections": [
         {
           "heading": "Contacting us",
-          "body": "Our enquiry form prepares an email in your own email app. Your answers are not submitted to a Muse server by the form. We receive your message only when you send it through your email provider. Direct email and WhatsApp links are also available."
+          "body": "When you send our enquiry form, your answers are delivered to the Muse team by email so we can reply. A security check helps keep automated spam out, and your connection's IP address is used briefly to limit repeated attempts. Direct email and WhatsApp links are also available."
         },
         {
           "heading": "How we use your message",
@@ -58,7 +58,7 @@
         },
         {
           "heading": "Website preferences and technical data",
-          "body": "The site remembers your language preference in a cookie. Enquiry answers are saved temporarily in this browser tab so you can restore an unfinished draft. Choose Start fresh on return to clear that draft. The website does not send those answers to a server or load an analytics tracker. Hosting providers may process basic connection data to serve and secure the site."
+          "body": "The site remembers your language preference in a cookie. Unfinished enquiry answers are saved temporarily in this browser tab so you can restore a draft, and are cleared once the enquiry is sent. Choose Start fresh on return to clear a draft yourself. The website does not load an analytics tracker. Hosting providers may process basic connection data to serve and secure the site."
         },
         {
           "heading": "External services",
@@ -66,7 +66,7 @@
         },
         {
           "heading": "Your information",
-          "body": "For questions about your information, or requests to access, correct or delete it, email abdullah@muse.sa."
+          "body": "For questions about your information, or requests to access, correct or delete it, email {email}."
         }
       ]
     },
@@ -95,7 +95,7 @@
         },
         {
           "heading": "Contact",
-          "body": "Questions about these terms can be sent to abdullah@muse.sa."
+          "body": "Questions about these terms can be sent to {email}."
         }
       ]
     }
