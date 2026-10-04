@@ -113,7 +113,7 @@
   },
   "Metadata": {
     "siteName": "Muse",
-    "titleTemplate": "%s | Muse",
+    "titleTemplate": "%s | Muse Studios",
     "siteDescription": "Muse is a Saudi software studio in Riyadh. We design and build websites, apps and useful software, from the first idea to everyday use.",
     "home": {
       "title": "Muse Studios | Websites, Apps & Software, Riyadh",
@@ -122,6 +122,10 @@
     "about": {
       "title": "About Us",
       "description": "Muse Studios is a product company in Riyadh. We work with businesses on product, design, engineering and brand."
+    },
+    "services": {
+      "title": "What we build",
+      "description": "Product strategy, experience design, websites and software, AI and automation, and gamification. What Muse Studios builds for businesses in Saudi Arabia."
     },
     "explore": {
       "title": "Explore",

@@ -4,6 +4,7 @@ import Icon from "@/components/Icon";
 import {useIntentSwipe} from "./useIntentSwipe";
 
 import { useState, type CSSProperties } from "react";
+import { preload } from "react-dom";
 import { Link } from "@/i18n/navigation";
 import { studioServices } from "@/lib/studio-services";
 import MosaicHeroField from "./MosaicHeroField";
@@ -31,7 +32,7 @@ const copy = {
    {title:"Make your website or app easier to use.",body:"A confusing booking, a slow checkout, or a screen that doesn’t work well on a phone. We find what gets in the way and make it easier for people to finish what they came to do.",question:"Where do your customers or your team get stuck?",cta:"Let's improve your product",intent:"improve"},
    {title:"Less copying. More getting things done.",body:"Connect the repeated steps that slow your team down. Use automation or AI where it helps, with people in control of the decisions.",question:"Which task keeps taking more time than it should?",cta:"Simplify your workflow",intent:"ai"},
   ],
-   servicesTitle:"What we build",servicesIntro:"From planning your product to designing and building it, with automation where it helps.", serviceLink:"Explore the capability", allServices:"Learn more",
+   servicesTitle:"What we build",servicesIntro:"From planning your product to designing and building it, with automation where it helps.", serviceLink:"Explore the capability", allServices:"See all services",
   faqTitle:"FAQ",faqs:[
    ["Do I need a complete brief?","No. Start with the idea, the problem, or the thing that is taking too much effort. We can help you work out what to build and where to begin."],
    ["How do we get started, and what does it cost?","Share your idea in the short form, then send the prepared email. Getting in touch is free; we agree on the scope, cost and timeline before project work begins."],
@@ -72,6 +73,11 @@ function PixelMark({variant=0}:{variant?:number}) {
 }
 
 export default function MosaicHome({locale,base}:{locale:Locale;base:string}) {
+ // The hero still is the largest paint on phones, but CSS backgrounds are only
+ // discovered after the stylesheet loads. Preloading lets it download at once;
+ // the media queries mirror mosaic-pixels.css so each screen fetches one file.
+ preload("/studio/mosaic-hero-still.svg",{as:"image",media:"(min-width: 701px)",fetchPriority:"high"});
+ preload("/studio/mosaic-hero-mobile-still.svg",{as:"image",media:"(max-width: 700px)",fetchPriority:"high"});
  const c=copy[locale], ar=locale==="ar";
  const [goal,setGoal]=useState(0);
  const swipe=useIntentSwipe(c.goals.length,ar,setGoal);

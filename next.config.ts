@@ -106,6 +106,15 @@ const nextConfig: NextConfig = {
    */
   async redirects() {
     return [
+      // One host for search engines: www.muse.sa otherwise serves a duplicate
+      // copy of every page. (Setting www → muse.sa as a redirect in Vercel's
+      // domain settings does the same at the edge; this covers it either way.)
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "www.muse.sa" }],
+        destination: "https://muse.sa/:path*",
+        permanent: true,
+      },
       { source: "/get-started", destination: "/en/start", permanent: true },
       {
         source: "/:locale(ar|en)/get-started",

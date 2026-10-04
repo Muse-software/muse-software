@@ -60,7 +60,9 @@ export default function SiteShell({children}: {children: ReactNode}) {
     <main id="main-content" tabIndex={-1} inert={open}>
       {/* Isolate homepage hydration without streaming pages that need to return
           an HTTP redirect or 404 before their response headers are committed. */}
-      {path === "/" ? <Suspense fallback={<div className="route-state shell" role="status">{ar?"جارٍ تحميل الصفحة…":"Loading the page…"}</div>}>{children}</Suspense> : children}
+      {/* The fallback fills the viewport so the footer starts below the fold: if
+          it painted mid-screen, the arriving page would push it down (CLS 0.26). */}
+      {path === "/" ? <Suspense fallback={<div className="route-state route-state-home shell" role="status">{ar?"جارٍ تحميل الصفحة…":"Loading the page…"}</div>}>{children}</Suspense> : children}
     </main>
     <div inert={open}><SiteFooter/></div>
     <MosaicCardField/>

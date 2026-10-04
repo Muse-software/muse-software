@@ -52,6 +52,14 @@ export function createMosaicRenderer(mode: "hero" | "card"): MosaicRenderer | nu
   canvas.setAttribute("aria-hidden", "true");
   const gl = canvas.getContext("webgl2", { alpha: true, antialias: false, depth: false, stencil: false, powerPreference: "low-power", premultipliedAlpha: false });
   if (!gl) return null;
+  // Without a real GPU, WebGL is emulated on the CPU (SwiftShader, llvmpipe):
+  // every frame then blocks the main thread for tens of milliseconds, which is
+  // what lab tools such as PageSpeed measure and what low-end devices feel.
+  // Those devices get the still artwork instead, exactly like reduced motion.
+  // Test-only escape hatch: the motion suite runs in headless Chromium, which
+  // is itself software-rendered, and sets this flag to exercise the live path.
+  const forced = (window as { __MUSE_FORCE_WEBGL?: boolean }).__MUSE_FORCE_WEBGL === true;
+  if (!forced && isSoftwareRenderer(gl)) { gl.getExtension("WEBGL_lose_context")?.loseContext(); return null; }
   const program = gl.createProgram();
   const buffer = gl.createBuffer();
   const shaders: WebGLShader[] = [];
@@ -144,4 +152,11 @@ export function createMosaicRenderer(mode: "hero" | "card"): MosaicRenderer | nu
     },
     dispose: release,
   };
+}
+
+const SOFTWARE_RENDERER = /swiftshader|llvmpipe|softpipe|software|basic render|lavapipe/i;
+function isSoftwareRenderer(gl: WebGL2RenderingContext) {
+  const info = gl.getExtension("WEBGL_debug_renderer_info");
+  const renderer = String(gl.getParameter(info ? info.UNMASKED_RENDERER_WEBGL : gl.RENDERER) || "");
+  return SOFTWARE_RENDERER.test(renderer);
 }
