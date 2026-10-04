@@ -1,18 +1,66 @@
-import {CONTACT_EMAIL,SOCIAL_LINKS} from "@/lib/contact";
+import {CONTACT_EMAIL,SOCIAL_LINKS,WHATSAPP_NUMBER} from "@/lib/contact";
 import type { Metadata } from "next";
 import { PUBLISHED_LOCALES, isPublishedLocale, type Locale } from "@/i18n/routing";
 
 const SITE_URL = "https://muse.sa";
 
 // The brand keeps its Latin wordmark in Arabic — "Muse" is not transliterated
-// so the organization node is locale-independent.
+// so the organization node is locale-independent. The @id lets every page's
+// structured data point at the same organization, which is how search engines
+// tie the homepage, jobs and breadcrumbs to one brand (and, with a Google
+// Business Profile, to the knowledge panel).
+const ORGANIZATION_ID = `${SITE_URL}/#organization`;
+const WEBSITE_ID = `${SITE_URL}/#website`;
 const ORGANIZATION = {
   "@type": "Organization" as const,
-  name: "Muse",
+  "@id": ORGANIZATION_ID,
+  name: "Muse Studios",
+  alternateName: ["Muse", "ميوز"],
   url: SITE_URL,
+  logo: `${SITE_URL}/icon.png`,
   email: CONTACT_EMAIL,
+  telephone: WHATSAPP_NUMBER.replace(/\s+/g, ""),
+  address: { "@type": "PostalAddress" as const, addressLocality: "Riyadh", addressCountry: "SA" },
   sameAs: SOCIAL_LINKS.map(s=>s.href),
 };
+
+/**
+ * Homepage graph: the organization plus the WebSite node. Google reads
+ * WebSite.name/alternateName for the site name shown above results, and the
+ * organization for logo, contact details and social profiles.
+ */
+export function buildHomeJsonLd(locale: Locale) {
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      ORGANIZATION,
+      {
+        "@type": "WebSite",
+        "@id": WEBSITE_ID,
+        name: "Muse Studios",
+        alternateName: ["Muse", "muse.sa"],
+        url: `${SITE_URL}${localizedPath(locale, "/")}`,
+        inLanguage: locale,
+        publisher: { "@id": ORGANIZATION_ID },
+      },
+    ],
+  };
+}
+
+/** Breadcrumb trail, starting at the localized homepage. Paths are locale-free. */
+export function buildBreadcrumbJsonLd(locale: Locale, trail: { name: string; path: string }[]) {
+  const home = { name: locale === "ar" ? "الرئيسية" : "Home", path: "/" };
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [home, ...trail].map((item, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: item.name,
+      item: `${SITE_URL}${localizedPath(locale, item.path)}`,
+    })),
+  };
+}
 
 const OG_LOCALE: Record<Locale, string> = {
   ar: "ar_SA",

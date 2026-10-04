@@ -3,7 +3,8 @@ import { notFound } from "next/navigation";
 import { Link } from "@/i18n/navigation";
 import SubpageHero from "@/components/sections/SubpageHero";
 import { allSlugs, getCareerRole, getCareerRoles } from "@/lib/content";
-import { buildMetadata, buildJobPostingJsonLd } from "@/lib/seo";
+import JsonLd from "@/components/JsonLd";
+import { buildBreadcrumbJsonLd, buildMetadata, buildJobPostingJsonLd } from "@/lib/seo";
 import { CONTACT_EMAIL, mailtoHref } from "@/lib/contact";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import type { Locale } from "@/i18n/routing";
@@ -73,10 +74,8 @@ export default async function CareerRolePage({
 
   return (
     <div className="min-h-screen bg-[#060608] text-white">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+      <JsonLd data={jsonLd} />
+      <JsonLd data={buildBreadcrumbJsonLd(locale, [{ name: careers("hero.eyebrow"), path: "/careers" }, { name: role.title, path: `/careers/${slug}` }])} />
       <SubpageHero title={role.title} subtitle={role.blurb} />
 
       <section className="bg-[#060608] pb-20 md:pb-28">
