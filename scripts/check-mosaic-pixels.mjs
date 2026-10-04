@@ -38,6 +38,9 @@ async function check(name, locale, options, test) {
     await route.continue();
   });
   await context.addInitScript(() => {
+    // Headless Chromium renders WebGL in software, which production treats as
+    // "no GPU" and answers with still artwork. Opt in so the live path is tested.
+    window.__MUSE_FORCE_WEBGL = true;
     window.__mosaicProbe = { contextAttempts: 0, draws: new WeakMap() };
     const originalContext = HTMLCanvasElement.prototype.getContext;
     HTMLCanvasElement.prototype.getContext = function (kind, ...args) {
@@ -265,6 +268,22 @@ try {
         assert.equal(await page.locator(".direction-mosaic canvas").count(), 0);
         return { hero, card, blockedContexts: await page.evaluate(() => window.__mosaicBlockedContexts) };
       });
+
+    await check("software WebGL renderer shows still artwork", locale, {}, async (page) => {
+      // Page scripts run after context scripts, so this restores production behaviour.
+      await page.addInitScript(() => { window.__MUSE_FORCE_WEBGL = false; });
+      await visit(page, locale);
+      const renderer = await page.evaluate(() => {
+        const gl = document.createElement("canvas").getContext("webgl2");
+        const info = gl?.getExtension("WEBGL_debug_renderer_info");
+        return gl ? String(gl.getParameter(info ? info.UNMASKED_RENDERER_WEBGL : gl.RENDERER)) : "none";
+      });
+      assert.match(renderer, /swiftshader|llvmpipe|software/i, `Expected a software renderer in headless Chromium, got ${renderer}`);
+      await page.waitForTimeout(2500); // past load + idle, when the live field would start
+      const hero = await assertHeroFallback(page, `${locale}-software-renderer.png`);
+      assert.equal(await page.locator(".direction-mosaic canvas").count(), 0, "Software renderer allocated a live canvas");
+      return { renderer, hero };
+    });
 
     await check("real WebGL context loss restores static artwork", locale, {}, async (page) => {
       await visit(page, locale);
