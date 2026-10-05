@@ -1,26 +1,36 @@
-import type { MetadataRoute } from "next";
 import { getCareerRoles } from "@/lib/content";
 import { PUBLISHED_LOCALES, type Locale } from "@/i18n/routing";
 import { localizedPath } from "@/lib/seo";
 
 import { studioServices } from "@/lib/studio-services";
 
-const BASE_URL = "https://muse.sa";
+export const BASE_URL = "https://muse.sa";
+
+type ChangeFrequency = "always" | "hourly" | "daily" | "weekly" | "monthly" | "yearly" | "never";
 
 type Entry = {
   path: string;
   lastModified: Date;
-  changeFrequency: NonNullable<MetadataRoute.Sitemap[number]["changeFrequency"]>;
+  changeFrequency: ChangeFrequency;
   priority: number;
 };
 
+export type SitemapEntry = {
+  url: string;
+  lastModified: Date;
+  changeFrequency: ChangeFrequency;
+  priority: number;
+  /** hreflang → absolute URL, including x-default. */
+  alternates: Record<string, string>;
+};
+
 /**
- * The sitemap emits one URL per published locale, each carrying the full
+ * Rendered as XML by app/sitemap.xml/route.ts. Emits one URL per published locale, each carrying the full
  * `alternates.languages` set so the hreflang graph in the sitemap matches the
  * one in each page's `<head>`. Unpublished locales are absent entirely — see
  * PUBLISHED_LOCALES in i18n/routing.ts.
  */
-export default function sitemap(): MetadataRoute.Sitemap {
+export function sitemapEntries(): SitemapEntry[] {
   const now = new Date();
 
   /**
@@ -80,12 +90,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: entry.changeFrequency,
       priority: entry.priority,
       alternates: {
-        languages: Object.fromEntries(
+        ...Object.fromEntries(
           (localesWithPath.get(entry.path) ?? [locale]).map((alt) => [
             alt,
             `${BASE_URL}${localizedPath(alt, entry.path)}`,
           ])
         ),
+        // Matches the x-default each page declares in its <head>.
+        "x-default": `${BASE_URL}${localizedPath("en", entry.path)}`,
       },
     }))
   );

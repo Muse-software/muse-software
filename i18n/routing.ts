@@ -23,11 +23,12 @@ export const localeDirection: Record<Locale, "rtl" | "ltr"> = {
 
 /**
  * Search-index publication gate retained from docs/i18n-plan.md §18.
- * Mosaic now has complete English and Arabic copy and both are browsable.
- * Arabic stays out of search indexing until the existing editorial review is
- * complete; archive collections are independently noindex in both languages.
+ * Locales listed here are in the sitemap, carry hreflang alternates and are
+ * indexable; any other locale stays browsable but noindex. Arabic was
+ * published in October 2026 after the platform content review was approved.
+ * Archive collections are independently noindex in both languages.
  */
-export const PUBLISHED_LOCALES: readonly Locale[] = ["en"];
+export const PUBLISHED_LOCALES: readonly Locale[] = ["en", "ar"];
 
 export function isPublishedLocale(locale: Locale): boolean {
   return PUBLISHED_LOCALES.includes(locale);
