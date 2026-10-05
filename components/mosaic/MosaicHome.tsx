@@ -32,37 +32,40 @@ const copy = {
    {title:"Make your website or app easier to use.",body:"A confusing booking, a slow checkout, or a screen that doesn’t work well on a phone. We find what gets in the way and make it easier for people to finish what they came to do.",question:"Where do your customers or your team get stuck?",cta:"Let's improve your product",intent:"improve"},
    {title:"Less copying. More getting things done.",body:"Connect the repeated steps that slow your team down. Use automation or AI where it helps, with people in control of the decisions.",question:"Which task keeps taking more time than it should?",cta:"Simplify your workflow",intent:"ai"},
   ],
-   servicesTitle:"What we build",servicesIntro:"From planning your product to designing and building it, with automation where it helps.", serviceLink:"Explore the capability", allServices:"See all services",
+   servicesTitle:"What we build",servicesIntro:"From planning your product to designing and building it, with automation where it helps.", allServices:"See all services",
   faqTitle:"FAQ",faqs:[
    ["Do I need a complete brief?","No. Start with the idea, the problem, or the thing that is taking too much effort. We can help you work out what to build and where to begin."],
-   ["How do we get started, and what does it cost?","Share your idea in the short form, then send the prepared email. Getting in touch is free; we agree on the scope, cost and timeline before project work begins."],
+   ["How do we get started, and what does it cost?","Share your idea or what you need, and we agree on the scope, timeline and cost before project work begins."],
    ["Do you design in Arabic and English?","Yes. Language, reading direction and mobile use are part of the design from the start. The Arabic experience gets the same attention as the English one."],
    ["What happens after launch?","We agree on handover, documentation and any ongoing support as part of the scope. You will know what is included and who is responsible for the next step."],
-  ], endTitle:"Let’s make\nit happen.",endBody:"An early idea, an existing challenge, or a question you haven’t answered yet. We’d love to hear it.",endCta:"Get started",
+  ], endTitle:"Let’s make\nit happen.",endBody:"",endCta:"Get started",
  },
  ar: {
-  hero:["أفكارك تستاهل تكون ","أكثر من مجرد أفكار."],
-  intro:"سواء كانت منصة أو تطبيق أو مجرد طريقة أسهل للعمل، احنا بنفكر معك ونصمم ونطلق فكرتك وبنساعدك تاخذ أعمالك لبُعد ثاني.",start:"ابدأ مجانًا",aside:"من أول سؤال،\nإلى منتج يؤدي غرضه.",disciplines:["استراتيجية","تصميم","تطوير"],
-  goalTitle:"وش بنسوي لك؟",goalIntro:"نبني فكرة جديدة، نحسّن موقعك أو تطبيقك، أو نخفّف المهام المتكررة عن فريقك.",choices:["تطوير فكرة جديدة","تحسين مشروع قائم","تقليل العبء التشغيلي"],
-  mobileChoices:["تطوير فكرة جديدة","تحسين مشروع قائم","تقليل العبء التشغيلي"],
+  // Approved platform content review (October 2026). Each "How we help"
+  // state shows the same headline, description, prompt and CTA on every
+  // screen size, so mobileGoals repeats goals rather than shorter copy.
+  hero:["من فكرة واضحة ","إلى منتج جاهز للإطلاق."],
+  intro:"نساعدك تحوّل فكرتك إلى منتج وتجربة رقمية، من الاستراتيجية والتصميم إلى التطوير والذكاء الاصطناعي.",start:"شاركنا فكرتك",aside:"من أول سؤال،\nإلى منتج يؤدي غرضه.",disciplines:["استراتيجية","تصميم","تطوير"],
+  goalTitle:"كيف نساعدك؟",goalIntro:"سواء عندك فكرة جديدة، منتج يحتاج تطوير، أو عمليات تستهلك وقت فريقك، نساعدك نبني الحل المناسب.",choices:["تطوير فكرة جديدة","تحسين مشروع قائم","دعم فريقك بالأتمتة"],
+  mobileChoices:["تطوير فكرة جديدة","تحسين مشروع قائم","دعم فريقك بالأتمتة"],
   mobileGoals:[
-   {title:"عندك فكرة ودّك تبنيها؟",body:"موقع، تطبيق، أو خدمة جديدة. نساعدك تحدد المهم وتبني أول نسخة لها فائدة.",cta:"احكِ لنا عن فكرتك"},
-   {title:"فيه شيء يصعّب التجربة؟",body:"حجز مربك، دفع بطيء، أو شاشة ما تضبط على الجوال. نساعدك نخلي موقعك أو تطبيقك أسهل في الاستخدام.",cta:"خلّنا نحسّنه"},
-   {title:"الشغل المتكرر يأخذ وقتك؟",body:"نقل معلومات، متابعة تحديثات، ونفس الخطوات كل يوم. نساعدك تخلي هالمهام أسهل.",cta:"خلّنا نسهّله"},
+   {title:"نحوّل الفكرة إلى أول نسخة قابلة للتجربة.",body:"نحدد الأولويات، نختبر التجربة، ونبني أول نسخة تركز على ما يحتاجه المستخدم فعلاً.",cta:"شاركنا إياها"},
+   {title:"نحدد وين تتعثر التجربة، ونحسّنها.",body:"نراجع رحلة المستخدم، نحدد نقاط التعثر، ونحسّن التجربة بناءً على الاستخدام الفعلي.",cta:"حسّن منتجك معنا"},
+   {title:"نقلل العمل المتكرر، ونبسّط سير العمل.",body:"نربط الأنظمة ونؤتمت الخطوات المتكررة لتقليل العمل اليدوي ورفع كفاءة العمليات.",cta:"بسّط طريقة العمل"},
   ],
-  choiceHints:["موقع، تطبيق، أو خدمة جديدة.","تجربة أوضح وأسهل للي يستخدمونه.","مهام متكررة أقل، ووقت أكثر لفريقك."],
+  choiceHints:["نحوّل فكرتك إلى موقع، تطبيق، أو خدمة قابلة للإطلاق.","نحسّن التجربة ونخليها أوضح وأسهل للمستخدم.","نؤتمت المهام المتكررة ونبسّط سير العمل."],
   goals:[
-   {title:"خلّنا نبني أول نسخة لها فائدة.",body:"موقع، تطبيق، أو خدمة يحتاجها الناس. نساعدك تعرف وش المهم، تجرّب التجربة، وتبني الأجزاء اللي لها قيمة فعلية.",question:"وش الفكرة اللي ودّك تبنيها؟",cta:"احكِ لنا عن فكرتك",intent:"build"},
-   {title:"نفهم وين تتعثر التجربة. ونحسّنها.",body:"حجز مربك، دفع بطيء، أو شاشة ما تضبط على الجوال. نحدد اللي يعطّل المستخدم ونحسّنه عشان يقدر ينجز اللي جاء عشانه.",question:"وين يتعثر عملاؤك أو فريقك؟",cta:"خلّنا نحسّن منتجك",intent:"improve"},
-   {title:"نقل معلومات أقل. وإنجاز أكثر.",body:"نربط الخطوات المتكررة اللي تعطّل فريقك. ونستخدم الأتمتة أو الذكاء الاصطناعي في المكان المفيد، والقرار يبقى بيد الناس.",question:"وش المهمة اللي تأخذ منكم أكثر من وقتها؟",cta:"لنسهّل طريقة العمل",intent:"ai"},
+   {title:"نحوّل الفكرة إلى أول نسخة قابلة للتجربة.",body:"نحدد الأولويات، نختبر التجربة، ونبني أول نسخة تركز على ما يحتاجه المستخدم فعلاً.",question:"وش الفكرة اللي ودك تطورها؟",cta:"شاركنا إياها",intent:"build"},
+   {title:"نحدد وين تتعثر التجربة، ونحسّنها.",body:"نراجع رحلة المستخدم، نحدد نقاط التعثر، ونحسّن التجربة بناءً على الاستخدام الفعلي.",question:"وش الجزء اللي يحتاج تحسين؟",cta:"حسّن منتجك معنا",intent:"improve"},
+   {title:"نقلل العمل المتكرر، ونبسّط سير العمل.",body:"نربط الأنظمة ونؤتمت الخطوات المتكررة لتقليل العمل اليدوي ورفع كفاءة العمليات.",question:"وش المهمة اللي تستهلك وقت فريقك؟",cta:"بسّط طريقة العمل",intent:"ai"},
   ],
-  servicesTitle:"مجالات عملنا",servicesIntro:"نخطط لمنتجك، نصمم تجربته ونطوّره، ونستخدم الأتمتة لتسهيل شغلك.",serviceLink:"اكتشف الخدمة",allServices:"تعلّم المزيد",
+  servicesTitle:"مجالات عملنا",servicesIntro:"نخطط لمنتجك، نصمم تجربته، ونطوّره بالتقنية المناسبة لاحتياجه.",allServices:"تعلّم المزيد",
   faqTitle:"الأسئلة الشائعة",faqs:[
-   ["لازم تكون عندي متطلبات كاملة؟","لا. ابدأ بفكرة، مشكلة، أو شغلة تأخذ منكم جهد أكثر من اللازم. نساعدك تحدد وش يستحق البناء ومن وين تبدأ."],
-   ["كيف نبدأ، وكم التكلفة؟","اكتب فكرتك في النموذج، ثم أرسل الإيميل الجاهز. التواصل مجاني، ونتفق معك على نطاق المشروع والتكلفة والجدول قبل التنفيذ."],
-   ["تصمّمون بالعربي والإنجليزي؟","نعم. اللغة واتجاه القراءة واستخدام الجوال جزء من التصميم من البداية. ونعطي التجربة العربية نفس الاهتمام اللي نعطيه للإنجليزية."],
-   ["وش يصير بعد الإطلاق؟","نتفق ضمن نطاق العمل على التسليم والتوثيق وأي دعم مستمر. تكون عارف وش المشمول ومين مسؤول عن الخطوة التالية."],
-  ],endTitle:"فكرتك تستحق\nأن تكون واقعًا.",endBody:"احكِ لنا عن مشروعك، ونشوف معك من وين نبدأ.",endCta:"ابدأ مجانًا",
+   ["لازم تكون عندي كل المتطلبات؟","لا. يكفي تكون عندك فكرة أو احتياج واضح، ونساعدك نحدد المتطلبات والأولويات قبل ما نبدأ."],
+   ["كيف نبدأ، وكم التكلفة؟","شاركنا فكرتك أو احتياجك، وبعدها نحدد نطاق المشروع والمدة والتكلفة قبل بدء التنفيذ."],
+   ["تصمّمون بالعربي والإنجليزي؟","نعم. نصمم التجربة بالعربي والإنجليزي من البداية، مع مراعاة اللغة واتجاه القراءة في كل تجربة."],
+   ["وش يصير بعد ما نطلق المنتج؟","يشمل نطاق العمل التسليم والتوثيق، ويمكن إضافة دعم بعد الإطلاق حسب احتياج المشروع."],
+  ],endTitle:"فكرتك تستحق\nأن تكون واقعًا. نبدأ؟",endBody:"",endCta:"تواصل معنا",
  },
 };
 
@@ -115,13 +118,13 @@ export default function MosaicHome({locale,base}:{locale:Locale;base:string}) {
 
   <section className="mx-capabilities mx-wrap mx-section" aria-labelledby="mx-services-title">
    <div className="mx-section-head mx-services-head"><h2 id="mx-services-title">{c.servicesTitle}</h2><Link className="mx-text-link" href={`${base}/services`}>{c.allServices}<Arrow/></Link><p>{c.servicesIntro}</p></div>
-   <div className="mx-capability-grid">{studioServices[locale].map((s,i)=><Link className={`mx-capability mx-capability-${i}`} data-mosaic-card key={s.slug} href={`${base}/services/${s.slug}`}><PixelMark variant={i}/><h3>{s.title}</h3><p>{s.summary}</p><span className="mx-capability-link"><span className="mx-capability-action">{c.serviceLink}</span><Icon name="arrow-right"/></span></Link>)}</div>
+   <div className="mx-capability-grid">{studioServices[locale].map((s,i)=><Link className={`mx-capability mx-capability-${i}`} data-mosaic-card key={s.slug} href={`${base}/services/${s.slug}`}><PixelMark variant={i}/><h3>{s.title}</h3><p>{"homeSummary" in s?s.homeSummary:s.summary}</p><span className="mx-capability-link" aria-hidden="true"><Icon name="arrow-right"/></span></Link>)}</div>
   </section>
 
 
-  <section className="mx-human" dir={ar?"rtl":"ltr"} aria-labelledby="mx-belief-title"><div className="mx-wrap mx-editorial-card"><div className="mx-human-heading"><p className="mx-belief-label">{ar?"ما نؤمن به":"What we believe"}</p><h2 id="mx-belief-title">{ar?<>التقنية يجب أن<br/>تخدم <em>الإنسان.</em></>:<>Good technology<br/>should feel <em>human.</em></>}</h2></div><p className="mx-belief-body">{ar?"بناء البرامج صار أسهل. والمفروض استخدامها يصير أسهل بعد. موقع تعرف تتنقّل فيه. تطبيق يوضّح لك الخطوة الجاية. نظام يسهّل الشغل بدل ما يزيد عليك أشياء تتعلّمها.":"Building software is getting easier. Using it should be, too. A website you can find your way around. An app that makes the next step clear. A system that simplifies the work instead of giving you more to learn."}</p></div></section>
+  <section className="mx-human" dir={ar?"rtl":"ltr"} aria-labelledby="mx-belief-title"><div className="mx-wrap mx-editorial-card"><div className="mx-human-heading"><p className="mx-belief-label">{ar?"ما نؤمن به":"What we believe"}</p><h2 id="mx-belief-title">{ar?<>التقنية تبدأ<br/>من <em>الناس.</em></>:<>Good technology<br/>should feel <em>human.</em></>}</h2></div><p className="mx-belief-body">{ar?"نصمم منتجات واضحة وسهلة من البداية، ونبني تجارب تخدم احتياج المستخدم بدون تعقيد.":"Building software is getting easier. Using it should be, too. A website you can find your way around. An app that makes the next step clear. A system that simplifies the work instead of giving you more to learn."}</p></div></section>
   <section className="mx-faq mx-wrap mx-section" aria-labelledby="mx-faq-title"><div><h2 id="mx-faq-title">{c.faqTitle}</h2></div><div className="mx-faq-list">{c.faqs.map(([q,a])=><details key={q}><summary><span className="mx-faq-question">{q}</span><span aria-hidden="true"><Icon name="plus"/></span></summary><p>{a}</p></details>)}</div></section>
 
-  <section className="mx-ending" aria-labelledby="mx-end-title"><div className="mx-wrap mx-editorial-card"><div className="mx-ending-grid"><h2 id="mx-end-title">{c.endTitle}</h2><div><p>{c.endBody}</p><a className="mx-button" href={inquiryHref(locale)}>{c.endCta}<Arrow/></a></div></div></div></section>
+  <section className="mx-ending" aria-labelledby="mx-end-title"><div className="mx-wrap mx-editorial-card"><div className="mx-ending-grid"><h2 id="mx-end-title">{c.endTitle}</h2><div>{c.endBody&&<p>{c.endBody}</p>}<a className="mx-button" href={inquiryHref(locale)}>{c.endCta}<Arrow/></a></div></div></div></section>
  </div>;
 }

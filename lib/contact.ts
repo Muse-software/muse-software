@@ -35,7 +35,7 @@ export const SOCIAL_LINKS = [
 
 export function inquiryHref(locale: Locale, intent?: string) {
   const query =
-    intent && ["build", "improve", "ai", "unsure"].includes(intent)
+    intent && ["build", "improve", "ai", "gamification", "unsure"].includes(intent)
       ? `?intent=${intent}`
       : "";
   return `/${locale}/start${query}`;

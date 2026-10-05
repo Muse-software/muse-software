@@ -40,8 +40,8 @@ export default function SiteShell({children}: {children: ReactNode}) {
     return () => {document.documentElement.style.overflow = previous;removeEventListener("keydown",key);media.removeEventListener("change",resize);};
   },[open]);
   const links = [
-    [base+"/services", ar?"ماذا نبني":"What we build"],
-    [base+"/about", ar?"عن ميوز":"The studio"],
+    [base+"/services", ar?"مجالات عملنا":"What we build"],
+    [base+"/about", ar?"عن Muse":"The studio"],
   ];
   return <div className="direction-site direction-mosaic" data-page={path === "/" ? "home" : path}>
     <SiteMotion/>
@@ -49,7 +49,7 @@ export default function SiteShell({children}: {children: ReactNode}) {
       <div className="dir-header-inner">
         <Link href="/" className="dir-brand" aria-label={ar?"ميوز، الرئيسية":"Muse, home"} onClick={()=>setOpen(false)}><MuseLogo iconClassName="dir-logo" /></Link>
         <nav className="dir-desktop-nav" aria-label={ar?"التنقل الرئيسي":"Main navigation"}>{links.map(([href,label])=><Link key={href} href={href} aria-current={path===href?"page":path.startsWith(href+"/")?"true":undefined}>{label}</Link>)}</nav>
-        <div className="dir-header-actions"><LocaleSwitch className="dir-locale"/><a href={inquiryHref(ar?"ar":"en")} className="dir-header-cta">{ar?"لنبدأ":"Let's talk"}<Icon name="arrow-up-right"/></a><button ref={toggle} className="dir-menu-toggle" aria-expanded={open} aria-controls="direction-navigation" aria-label={open?(ar?"إغلاق القائمة":"Close menu"):(ar?"فتح القائمة":"Open menu")} onClick={()=>setOpen(v=>!v)}><span className="dir-menu-icon" aria-hidden="true"><i/><i/></span></button></div>
+        <div className="dir-header-actions"><LocaleSwitch className="dir-locale"/><a href={inquiryHref(ar?"ar":"en")} className="dir-header-cta">{ar?"تواصل معنا":"Let's talk"}<Icon name="arrow-up-right"/></a><button ref={toggle} className="dir-menu-toggle" aria-expanded={open} aria-controls="direction-navigation" aria-label={open?(ar?"إغلاق القائمة":"Close menu"):(ar?"فتح القائمة":"Open menu")} onClick={()=>setOpen(v=>!v)}><span className="dir-menu-icon" aria-hidden="true"><i/><i/></span></button></div>
       </div>
       <nav id="direction-navigation" className="dir-mobile-nav" aria-label={ar?"قائمة الجوال":"Mobile navigation"} hidden={!open}>
         {links.map(([href,label],i)=><Link key={href} href={href} onClick={()=>setOpen(false)}><span>{String(i+1).padStart(2,"0")}</span>{label}<Icon name="arrow-up-right"/></Link>)}

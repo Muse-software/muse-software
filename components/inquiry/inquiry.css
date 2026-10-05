@@ -588,3 +588,36 @@
   letter-spacing: 0.08em;
   color: #e7dfd7;
 }
+
+/* Single-page adaptive form (approved content review, October 2026) */
+.inquiry-single { gap: 14px; }
+.inquiry-single .inquiry-question {
+  display: block;
+  font-size: 15px;
+  font-weight: 500;
+  color: #f4f1ec;
+  margin-top: 18px;
+}
+.inquiry-single .intent-options { margin: 0; padding: 0; border: 0; }
+.inquiry-single .intent-options legend { margin: 0 0 14px; }
+.inquiry-single .inquiry-count { text-align: end; margin-top: -6px; }
+.inquiry-section-title {
+  margin-top: 26px;
+  padding-top: 24px;
+  border-top: 1px solid var(--studio-line);
+  font-size: 15px;
+  font-weight: 500;
+  color: #f4f1ec;
+}
+.inquiry-single .form-actions { justify-content: flex-end; }
+/* The captcha is required but should not read as a main part of the form. */
+.inquiry-captcha { margin-top: 12px; padding-top: 18px; border-top: 1px solid var(--studio-line); }
+.inquiry-captcha .captcha > label { font-size: 12px; color: #a49d96; }
+.inquiry-captcha .captcha .field-help { font-size: 11px; }
+.inquiry-captcha .captcha-image { width: 180px; }
+.inquiry-captcha .captcha .captcha-input[type="text"] { max-width: 180px; min-height: 42px; font-size: 16px; padding: 8px 12px; }
+.inquiry-captcha .captcha-refresh { min-height: 40px; }
+/* Option text, not the muted "(optional)" style that .inquiry-fields label > span applies. */
+.inquiry-single .intent-options label { font-size: 15px; }
+.inquiry-single .intent-options label > span:not(.inquiry-radio-mark) { font-size: inherit; color: #f4f1ec; }
+@media (max-width: 760px) { .inquiry-single .intent-options label { font-size: 14px; padding-block: 15px; } }

@@ -12,6 +12,6 @@ export default function SiteFooter(){const ar=useLocale()==="ar",base="";return 
         <a className="dir-whatsapp" href={WHATSAPP_URL}><span>{ar?"واتساب":"WhatsApp"}</span><span dir="ltr">{WHATSAPP_NUMBER}</span><Icon name="arrow-up-right"/></a>
         <nav className="dir-socials" aria-label={ar?"حسابات ميوز":"Muse on social media"}>{SOCIAL_LINKS.map(s=><a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer" aria-label={`${s.label}${ar?" — يفتح في نافذة جديدة":" — opens in a new tab"}`}>{s.label}<Icon name="arrow-up-right"/></a>)}</nav>
       </div>
-      <div className="dir-footer-bottom"><span>© {new Date().getFullYear()} Muse Studios</span><nav aria-label={ar?"روابط الموقع":"Footer navigation"}><Link href={base+"/services"}>{ar?"الخدمات":"Services"}</Link><Link href={base+"/about"}>{ar?"عن ميوز":"About"}</Link><Link href={base+"/privacy"}>{ar?"الخصوصية":"Privacy"}</Link><Link href={base+"/terms"}>{ar?"الشروط":"Terms"}</Link><LocaleSwitch fullLabel/></nav></div>
+      <div className="dir-footer-bottom"><span>© {new Date().getFullYear()} Muse Studios</span><nav aria-label={ar?"روابط الموقع":"Footer navigation"}><Link href={base+"/services"}>{ar?"الخدمات":"Services"}</Link><Link href={base+"/about"}>{ar?"عن Muse":"About"}</Link><Link href={base+"/privacy"}>{ar?"الخصوصية":"Privacy"}</Link><Link href={base+"/terms"}>{ar?"الشروط":"Terms"}</Link><LocaleSwitch fullLabel/></nav></div>
     </footer>
 );}
