@@ -174,7 +174,9 @@ export const studioServices = {
   ar: [
     {
       slug: "product-strategy-discovery",
-      title: "بناء استراتيجية المنتج",
+      // Landing-page card copy (approved content review); other pages use summary.
+      homeSummary: "نساعدك توضح فكرة المنتج، تحدد فرصته، وترتب أولوياته قبل ما تستثمر في بنائه.",
+      title: "استراتيجية المنتج",
       summary: "نحدد مين بيستخدم المنتج، وش يحتاج، ووش نبني أولًا.",
       situation: "الفكرة موجودة. والخطوة التالية تحتاج وضوح.",
       intro:
@@ -207,6 +209,8 @@ export const studioServices = {
     },
     {
       slug: "product-experience-design",
+      // Landing-page card copy (approved content review); other pages use summary.
+      homeSummary: "نحوّل الفكرة إلى تجربة سهلة وواضحة، ونصمم رحلة المستخدم والواجهات قبل التطوير.",
       title: "تصميم التجربة الرقمية",
       summary: "نصمم رحلة المستخدم والشاشات، ونجهّز نموذج تقدر تجرّبه.",
       situation: "المنتج يعمل. والتجربة تستحق اهتمام أكثر.",
@@ -240,6 +244,8 @@ export const studioServices = {
     },
     {
       slug: "product-engineering",
+      // Landing-page card copy (approved content review); other pages use summary.
+      homeSummary: "نحوّل التصميم إلى منتج يعمل، ونبني المواقع والتطبيقات ونربطها بالأنظمة المطلوبة.",
       title: "هندسة وتطوير البرمجيات",
       summary: "نبني مواقع وتطبيقات، ونربطها بأنظمتك ونختبرها قبل التسليم.",
       situation: "تحتاج منتج يعتمد عليه، من أول إصدار.",
@@ -273,6 +279,8 @@ export const studioServices = {
     },
     {
       slug: "ai-transformation",
+      // Landing-page card copy (approved content review); other pages use summary.
+      homeSummary: "نستخدم الذكاء الاصطناعي والأتمتة لتبسيط العمليات وتقليل العمل المتكرر.",
       title: "الذكاء الاصطناعي والأتمتة",
       summary: "نربط أدواتك ونؤتمت الخطوات المتكررة، مع مراجعة بشرية عند الحاجة.",
       situation: "وقت كثير يضيع في نقل المعلومات.",
@@ -306,6 +314,8 @@ export const studioServices = {
     },
     {
       slug: "gamification-experience",
+      // Landing-page card copy (approved content review); other pages use summary.
+      homeSummary: "نصمم آليات تفاعل وتقدم ومكافآت تشجع المستخدم على الاستمرار وتحقيق هدفه.",
       title: "التلعيب",
       summary: "نصمم البداية والتقدم والمكافآت عشان المستخدم يحقق هدفه.",
       situation: "الناس تجرّب المنتج. وبعدين يقل الاستخدام.",
