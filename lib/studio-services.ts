@@ -168,7 +168,7 @@ export const studioServices = {
         "A new learner sees a clear first activity, useful feedback, and the next small milestone. Progress reflects what they learned rather than time spent clicking.",
         "Does the experience help someone make progress they care about?",
       ],
-      intent: "improve",
+      intent: "gamification",
     },
   ],
   ar: [
@@ -291,7 +291,7 @@ export const studioServices = {
         "يشوف المتعلم نشاط أول واضح، ملاحظات مفيدة، والهدف الصغير التالي. التقدّم يعكس اللي تعلّمه، مو عدد النقرات.",
         "هل التجربة تساعده يتقدّم في شيء يهمّه؟",
       ],
-      intent: "improve",
+      intent: "gamification",
     },
   ],
 } as const;

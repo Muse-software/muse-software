@@ -28,7 +28,6 @@ ${section('Contact',
   row('Name',`<span dir="auto">${escape(contact.name)}</span>`)+
   row('Email',`<a href="mailto:${escape(contact.email)}" style="color:#c73a00">${escape(contact.email)}</a>`)+
   (contact.company?row('Company',`<span dir="auto">${escape(contact.company)}</span>`):'')+
-  row('Prefers',contact.preferredContact==='phone'?'A phone call':'Email')+
   (contact.phone?row('Phone',`<a href="tel:${escape(contact.phone.replace(/[^\d+]/g,''))}" style="color:#c73a00">${escape(contact.phone)}</a>`):''))}
 ${section('Submission',
   row('Reference',`<code>${reference(record.id)}</code>`)+
