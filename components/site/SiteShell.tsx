@@ -40,7 +40,7 @@ export default function SiteShell({children}: {children: ReactNode}) {
     return () => {document.documentElement.style.overflow = previous;removeEventListener("keydown",key);media.removeEventListener("change",resize);};
   },[open]);
   const links = [
-    [base+"/services", ar?"ماذا نبني":"What we build"],
+    [base+"/services", ar?"مجالات عملنا":"What we build"],
     [base+"/about", ar?"عن Muse":"The studio"],
   ];
   return <div className="direction-site direction-mosaic" data-page={path === "/" ? "home" : path}>

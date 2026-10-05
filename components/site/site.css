@@ -57,6 +57,12 @@
 .dir-services-list h2 a{display:flex;justify-content:space-between;gap:15px}
 .dir-services-list h2 a>span{display:none}
 .dir-services-list h2 a:hover{text-decoration:underline;text-underline-offset:7px}
+/* The title link covers the whole card; one arrow at the edge signals navigation. */
+.dir-service-link::after{content:"";position:absolute;inset:0}
+.dir-service-link:focus-visible{outline:none}
+.dir-services-list article:has(.dir-service-link:focus-visible){outline:2px solid var(--dir-accent);outline-offset:4px}
+.dir-service-arrow{justify-self:end;padding-top:10px;color:var(--dir-muted)}
+.dir-services-list article:hover .dir-service-arrow{color:var(--dir-accent)}
 .dir-services-list p{font-size:15px;line-height:1.8;color:var(--dir-muted);margin-top:16px;max-width:440px}
 .dir-services-list ul{list-style:none;font-size:13px;line-height:1.8;padding-top:6px}
 .dir-services-list li{padding-block:7px;border-bottom:1px solid var(--dir-line)}
