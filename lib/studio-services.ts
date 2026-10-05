@@ -27,6 +27,11 @@ export const studioServices = {
         "A focused first-release scope",
         "A prototype when the journey needs testing",
       ],
+      // Same structure as the approved Arabic content: supporting points, related pair, closing.
+      points: ["User and market research", "Opportunities and product priorities", "A clear development roadmap"],
+      related: ["product-experience-design", "product-engineering"],
+      closing: "Have an idea that needs a clearer direction?",
+      scopeNote: true,
       example: [
         "A booking idea, before the build",
         "You want to make booking a local service easier. Before adding payments, loyalty and an app, we map how customers currently find a time and confirm a booking.",
@@ -61,6 +66,11 @@ export const studioServices = {
         "Interactive interface prototypes",
         "An implementable design system",
       ],
+      // Same structure as the approved Arabic content: supporting points, related pair, closing.
+      points: ["User research and needs analysis", "User experience and interface design", "Usability testing and experience improvement"],
+      related: ["product-strategy-discovery", "product-engineering"],
+      closing: "Have an experience that needs understanding and improving?",
+      scopeNote: true,
       example: [
         "An enquiry that people can finish",
         "A form asks for too much before explaining what happens next. We test a shorter journey, sensible defaults, helpful errors, and a clear completion state.",
@@ -95,6 +105,11 @@ export const studioServices = {
         "Tested core journeys and integrations",
         "Documentation and an agreed handover",
       ],
+      // Same structure as the approved Arabic content: supporting points, related pair, closing.
+      points: ["Website and app development", "Systems and service integration", "Product testing and launch readiness"],
+      related: ["product-strategy-discovery", "product-experience-design"],
+      closing: "Ready to turn the design into a working product?",
+      scopeNote: true,
       example: [
         "A service website that earns its place",
         "Visitors need to understand the offer, choose a service and send an enquiry. The team needs those enquiries to arrive reliably and contain useful context.",
@@ -129,6 +144,11 @@ export const studioServices = {
         "A focused automation or AI feature",
         "Human review and recovery paths",
       ],
+      // Same structure as the approved Arabic content: supporting points, related pair, closing.
+      points: ["AI inside products and services", "Process and workflow automation", "Connecting tools and systems to reduce manual work"],
+      related: ["product-strategy-discovery", "product-experience-design"],
+      closing: "Have a process that should be simpler and smarter?",
+      scopeNote: false,
       example: [
         "From a customer request to a reviewed reply",
         "Incoming requests arrive in different formats. A system can organise them and prepare a draft, while a person checks the details before anything is sent.",
@@ -163,6 +183,11 @@ export const studioServices = {
         "Onboarding and progress flows",
         "A testable engagement experience",
       ],
+      // Same structure as the approved Arabic content: supporting points, related pair, closing.
+      points: ["Progress and motivation systems", "Rewards and engagement mechanics", "Measuring engagement and improving the experience"],
+      related: ["product-strategy-discovery", "product-experience-design"],
+      closing: "Want engagement that lasts, not just starts?",
+      scopeNote: false,
       example: [
         "A learning journey that feels achievable",
         "A new learner sees a clear first activity, useful feedback, and the next small milestone. Progress reflects what they learned rather than time spent clicking.",
