@@ -34,7 +34,7 @@ try {
   const axe=await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa','wcag21aa']).analyze();assert.deepEqual(axe.violations.map(x=>({id:x.id,nodes:x.nodes.map(n=>n.target)})),[]);
   await page.locator('.mx-services-head>a').click();await page.waitForURL(`${base}/${locale}/services`);await page.locator('main h1').waitFor();await overflow();
   assert.equal(await page.locator('.dir-page-cta a').getAttribute('href'),`/${locale}/start`);
-  await page.goto(`${base}/${locale}/start`);await page.locator('.inquiry-layout[data-ready=true]').waitFor();await overflow();assert.equal(await page.locator('.intent-options input').count(),4);
+  await page.goto(`${base}/${locale}/start`);await page.locator('.inquiry-layout[data-ready=true]').waitFor();await overflow();assert.equal(await page.locator('.intent-options input').count(),5);
   await page.screenshot({path:`${out}/${locale}-${width}-contact.png`});
   assert.deepEqual(errors,[]);assert.deepEqual(mutations,[]);results.push({locale,width,pass:true});console.log(`PASS ${locale} ${width}: enquiry entry/WhatsApp, social, chooser, FAQ, menu, form shell, accessibility`);await context.close();
  }
